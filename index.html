@@ -1,232 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tango para el 3001 · Piazzollamente</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700&display=swap');
-
-:root{
-  --black:#070203; --night:#100508; --wine:#3e0710; --wine2:#65101c;
-  --red:#b9152d; --cream:#f4eadf; --soft:#d8c5ba; --gold:#d3ad73;
-  --line:rgba(244,234,223,.13);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--black);color:var(--cream);font-family:"Barlow",sans-serif;font-weight:300;line-height:1.62;overflow-x:hidden}
-img,video{display:block;max-width:100%}
-strong{font-weight:600;color:#fff8f1}
-.gold{color:var(--gold)}
-.nav{position:fixed;z-index:40;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,4vw,62px);background:linear-gradient(to bottom,rgba(7,2,3,.9),rgba(7,2,3,0));pointer-events:none}
-.nav b{font-family:"Barlow Condensed";letter-spacing:.2em;font-size:18px;color:rgba(244,234,223,.86)}
-.nav span{font-size:12px;text-transform:uppercase;letter-spacing:.22em;color:rgba(244,234,223,.52)}
-section{padding:clamp(78px,10vw,146px) clamp(22px,6vw,96px);position:relative}
-.dark{background:radial-gradient(circle at 92% 10%,rgba(185,21,45,.15),transparent 34%),linear-gradient(180deg,#070304 0%,#130609 100%)}
-.wine{background:radial-gradient(circle at 8% 18%,rgba(211,173,115,.14),transparent 33%),linear-gradient(135deg,#4c0712 0%,#130508 86%)}
-.light-breath{background:radial-gradient(circle at 82% 16%,rgba(211,173,115,.16),transparent 35%),linear-gradient(160deg,#1b090c 0%,#63101b 54%,#140608 100%)}
-.eyebrow{font-family:"Barlow Condensed";color:var(--gold);text-transform:uppercase;letter-spacing:.23em;font-size:14px;font-weight:700;margin-bottom:16px}
-h1,h2,h3{font-family:"Playfair Display",serif}
-h2{font-size:clamp(40px,6vw,82px);line-height:.96;letter-spacing:-.04em;margin-bottom:30px}
-p{font-size:clamp(17px,1.35vw,20px);max-width:790px;color:var(--soft)}
-p+p{margin-top:18px}
-
-/* Hero */
-.hero{min-height:100vh;display:grid;grid-template-columns:.92fr 1.08fr;background:radial-gradient(circle at 80% 34%,rgba(213,34,60,.32),transparent 31%),linear-gradient(118deg,#050203 0%,#120507 52%,#3a0710 100%);position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.08),rgba(0,0,0,.65)),radial-gradient(circle at 12% 82%,rgba(211,173,115,.09),transparent 25%);pointer-events:none}
-.hero-poster{position:relative;z-index:2;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:88px clamp(18px,4vw,62px) 48px}
-.poster-card{width:min(520px,90vw);border:1px solid rgba(255,255,255,.09);box-shadow:0 40px 120px rgba(0,0,0,.72);background:#160609}
-.poster-card img{width:100%;height:auto}
-.hero-copy{position:relative;z-index:3;display:flex;flex-direction:column;justify-content:center;padding:112px clamp(28px,5vw,90px) 78px 0}
-.kicker{font-family:"Barlow Condensed";text-transform:uppercase;letter-spacing:.26em;color:var(--gold);font-size:14px;font-weight:700;margin-bottom:24px}
-h1{font-size:clamp(58px,9vw,126px);line-height:.85;letter-spacing:-.055em;margin-bottom:32px}
-.hero-lead{font-family:"Playfair Display",serif;font-size:clamp(27px,4vw,58px);line-height:1.05;letter-spacing:-.035em;max-width:820px;color:#fff8f0}
-.hero-sub{margin-top:34px;border-left:2px solid var(--red);padding-left:22px;font-size:clamp(17px,1.5vw,22px);max-width:640px;color:var(--soft)}
-.scroll-note{margin-top:46px;color:rgba(242,232,222,.42);font-size:12px;text-transform:uppercase;letter-spacing:.24em}
-
-/* Layout */
-.grid-2{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(34px,6vw,90px);align-items:center}
-.photo{overflow:hidden;border-radius:30px;border:1px solid rgba(255,255,255,.1);box-shadow:0 34px 95px rgba(0,0,0,.48);background:#160609}
-.photo img{width:100%;height:100%;object-fit:cover}
-.portrait{aspect-ratio:4/5}.landscape{aspect-ratio:16/10}.object-top img{object-position:center top}.object-mid img{object-position:center center}
-
-.quote-section{min-height:82vh;display:flex;align-items:center;justify-content:center;text-align:center}
-.quote-inner{max-width:940px;margin:auto}
-.lyric-quote{font-family:"Playfair Display",serif;font-size:clamp(24px,3.5vw,54px);line-height:1.25;letter-spacing:-.025em;color:#fff6ee;font-style:italic;font-weight:500}
-.line-space{display:block;height:.55em}
-.lyric-source{display:block;margin-top:28px;color:rgba(211,173,115,.84);letter-spacing:.18em;text-transform:uppercase;font-size:12px}
-
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
-.statement{padding:clamp(32px,5vw,62px);border-radius:34px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.016));box-shadow:0 30px 90px rgba(0,0,0,.34);min-height:360px;display:flex;flex-direction:column;justify-content:space-between}
-.statement .quote{font-family:"Playfair Display",serif;font-size:clamp(24px,3vw,44px);line-height:1.12;color:#fff6ef;letter-spacing:-.03em}
-.statement p{font-size:17px;line-height:1.62}
-.cite{margin-top:24px;color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-size:12px}
-
-.blocks{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:48px}
-.block{min-height:332px;padding:28px 21px;border-radius:24px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.016))}
-.block .num{font-family:"Barlow Condensed";color:#d5223c;letter-spacing:.2em;font-weight:700;margin-bottom:18px}
-.block h3{font-family:"Barlow Condensed";text-transform:uppercase;letter-spacing:.04em;font-size:32px;line-height:.95;margin-bottom:18px}
-.works{color:var(--gold);font-weight:500;font-size:15px;line-height:1.35;margin:16px 0}
-.block p{font-size:15.5px;line-height:1.54;color:#ddc9be}
-
-.rose-arc{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
-.rose-step{border-radius:22px;padding:24px 18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09)}
-.rose-step h4{font-family:"Barlow Condensed";color:#fff;font-size:25px;text-transform:uppercase;line-height:1;margin-bottom:13px}
-.rose-step p{font-size:15px;line-height:1.5}
-
-.video-wrap{margin-top:42px;border-radius:34px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 34px 100px rgba(0,0,0,.5);background:#0b0305}
-.video-wrap video{width:100%;background:#0b0305}
-
-.gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:150px;gap:14px;margin-top:42px}
-.gimg{overflow:hidden;border-radius:22px;border:1px solid rgba(255,255,255,.08);background:#160609}
-.gimg img{width:100%;height:100%;object-fit:cover}
-.g1,.g2,.g3{grid-column:span 4;grid-row:span 3}
-.g4,.g5{grid-column:span 6;grid-row:span 2}
-.g6,.g7,.g8{grid-column:span 4;grid-row:span 2}
-.g9{grid-column:span 12;grid-row:span 3}
-
-.bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,6vw,86px);align-items:start}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
-.stat{padding:20px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1)}
-.stat strong{display:block;font-family:"Barlow Condensed";color:var(--gold);font-size:36px;line-height:1}
-.stat span{display:block;margin-top:8px;color:var(--soft);text-transform:uppercase;letter-spacing:.1em;font-size:13px}
-.tech{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
-.tech div{padding:22px;border-radius:20px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1)}
-.tech h4{font-family:"Barlow Condensed";text-transform:uppercase;font-size:23px;margin-bottom:8px;color:#fff}
-.tech p{font-size:15.5px;line-height:1.46}
-
-.final{min-height:96vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(rgba(0,0,0,.68),rgba(0,0,0,.86)),url("assets/grupo.jpg") center/cover}
-.final-inner{max-width:1120px}
-.final-quote{font-family:"Playfair Display",serif;font-size:clamp(42px,6.4vw,100px);line-height:.98;letter-spacing:-.045em;color:#fff7ef}
-.final-note{margin:34px auto 0;max-width:760px;color:var(--soft)}
-.contact{margin-top:48px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap;color:var(--gold);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
-
-@media(max-width:1100px){.hero{grid-template-columns:1fr}.hero-poster{min-height:auto;padding-top:86px;padding-bottom:24px}.hero-copy{padding:42px 26px 80px}.grid-2,.bio-grid,.duo{grid-template-columns:1fr}.blocks{grid-template-columns:1fr 1fr}.rose-arc,.tech{grid-template-columns:1fr 1fr}}
-@media(max-width:720px){.nav span{display:none}section{padding:74px 20px}.hero-copy{padding-left:22px;padding-right:22px}h1{font-size:64px}h2{font-size:42px}.hero-lead{font-size:31px}.poster-card{width:min(430px,88vw)}.lyric-quote{font-size:25px;line-height:1.3}.statement{border-radius:24px;padding:28px 20px;min-height:auto}.blocks,.rose-arc,.tech,.stats{grid-template-columns:1fr}.gallery{grid-auto-rows:122px;gap:10px}.g1,.g2,.g3,.g4,.g5,.g6,.g7,.g8,.g9{grid-column:span 12;grid-row:span 3}.gimg{border-radius:18px}.photo{border-radius:22px}.final-quote{font-size:46px}}
-</style>
-</head>
-<body>
+:root{--black:#070203;--wine:#3e0710;--red:#b9152d;--cream:#f4eadf;--soft:#d8c5ba;--gold:#d3ad73;--line:rgba(244,234,223,.13)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--black);color:var(--cream);font-family:Barlow,sans-serif;font-weight:300;line-height:1.62;overflow-x:hidden}img,video{display:block;max-width:100%}strong{font-weight:600;color:#fff8f1}.gold{color:var(--gold)}
+.nav{position:fixed;z-index:50;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,4vw,62px);background:linear-gradient(to bottom,rgba(7,2,3,.92),rgba(7,2,3,0));pointer-events:none}.nav b{font-family:"Barlow Condensed";letter-spacing:.2em;font-size:18px;color:rgba(244,234,223,.86)}.nav span{font-size:12px;text-transform:uppercase;letter-spacing:.22em;color:rgba(244,234,223,.52)}
+section{padding:clamp(78px,10vw,146px) clamp(22px,6vw,96px);position:relative}.dark{background:radial-gradient(circle at 92% 10%,rgba(185,21,45,.15),transparent 34%),linear-gradient(180deg,#070304 0%,#130609 100%)}.wine{background:radial-gradient(circle at 8% 18%,rgba(211,173,115,.14),transparent 33%),linear-gradient(135deg,#4c0712 0%,#130508 86%)}.light{background:radial-gradient(circle at 82% 16%,rgba(211,173,115,.16),transparent 35%),linear-gradient(160deg,#1b090c 0%,#63101b 54%,#140608 100%)}
+.eyebrow{font-family:"Barlow Condensed";color:var(--gold);text-transform:uppercase;letter-spacing:.23em;font-size:14px;font-weight:700;margin-bottom:16px}h1,h2,h3{font-family:"Playfair Display",serif}h2{font-size:clamp(40px,6vw,82px);line-height:.96;letter-spacing:-.04em;margin-bottom:30px}p{font-size:clamp(17px,1.35vw,20px);max-width:790px;color:var(--soft)}p+p{margin-top:18px}
+.hero{min-height:100vh;display:grid;grid-template-columns:.92fr 1.08fr;background:radial-gradient(circle at 80% 34%,rgba(213,34,60,.32),transparent 31%),linear-gradient(118deg,#050203 0%,#120507 52%,#3a0710 100%);position:relative;overflow:hidden}.hero-poster{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:88px clamp(18px,4vw,62px) 48px}.poster-card{width:min(520px,90vw);border:1px solid rgba(255,255,255,.09);box-shadow:0 40px 120px rgba(0,0,0,.72);background:#160609}.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:112px clamp(28px,5vw,90px) 78px 0}.kicker{font-family:"Barlow Condensed";text-transform:uppercase;letter-spacing:.26em;color:var(--gold);font-size:14px;font-weight:700;margin-bottom:24px}h1{font-size:clamp(58px,9vw,126px);line-height:.85;letter-spacing:-.055em;margin-bottom:32px}.hero-lead{font-family:"Playfair Display",serif;font-size:clamp(27px,4vw,58px);line-height:1.05;letter-spacing:-.035em;max-width:820px;color:#fff8f0}.hero-sub{margin-top:34px;border-left:2px solid var(--red);padding-left:22px;font-size:clamp(17px,1.5vw,22px);max-width:640px;color:var(--soft)}
+.grid-2{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(34px,6vw,90px);align-items:center}.photo{overflow:hidden;border-radius:30px;border:1px solid rgba(255,255,255,.1);box-shadow:0 34px 95px rgba(0,0,0,.48);background:#160609}.photo img{width:100%;height:100%;object-fit:cover}.portrait{aspect-ratio:4/5}.landscape{aspect-ratio:16/10}.object-top img{object-position:center top}
+.quote-section{min-height:82vh;display:flex;align-items:center;justify-content:center;text-align:center}.quote-inner{max-width:940px;margin:auto}.lyric-quote{font-family:"Playfair Display",serif;font-size:clamp(24px,3.5vw,54px);line-height:1.25;letter-spacing:-.025em;color:#fff6ee;font-style:italic;font-weight:500}.line-space{display:block;height:.55em}.lyric-source{display:block;margin-top:28px;color:rgba(211,173,115,.84);letter-spacing:.18em;text-transform:uppercase;font-size:12px}
+.video-moment{min-height:82vh;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,76px);align-items:center}.video-box{border-radius:32px;overflow:hidden;border:1px solid rgba(255,255,255,.13);box-shadow:0 34px 100px rgba(0,0,0,.5);background:#0b0305}.video-box video{width:100%;height:auto}.audio-hint{margin-top:12px;color:rgba(211,173,115,.82);text-transform:uppercase;letter-spacing:.15em;font-size:11px}.video-text .quote-line{font-family:"Playfair Display",serif;font-size:clamp(30px,4vw,60px);line-height:1.05;letter-spacing:-.035em;color:#fff7ef;margin-bottom:26px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}.statement{padding:clamp(32px,5vw,62px);border-radius:34px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.016));box-shadow:0 30px 90px rgba(0,0,0,.34);display:flex;flex-direction:column;gap:26px}.statement .quote{font-family:"Playfair Display",serif;font-size:clamp(24px,3vw,44px);line-height:1.12;color:#fff6ef;letter-spacing:-.03em}.statement p{font-size:17px;line-height:1.62}.cite{margin-top:24px;color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-size:12px}
+.blocks{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:48px}.block{min-height:332px;padding:28px 21px;border-radius:24px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.016))}.block .num{font-family:"Barlow Condensed";color:#d5223c;letter-spacing:.2em;font-weight:700;margin-bottom:18px}.block h3{font-family:"Barlow Condensed";text-transform:uppercase;letter-spacing:.04em;font-size:32px;line-height:.95;margin-bottom:18px}.works{color:var(--gold);font-weight:500;font-size:15px;line-height:1.35;margin:16px 0}.block p{font-size:15.5px;line-height:1.54;color:#ddc9be}
+.rose-arc{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}.rose-step{border-radius:22px;padding:24px 18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09)}.rose-step h4{font-family:"Barlow Condensed";color:#fff;font-size:25px;text-transform:uppercase;line-height:1;margin-bottom:13px}.rose-step p{font-size:15px;line-height:1.5}
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:150px;gap:14px;margin-top:42px}.gimg{overflow:hidden;border-radius:22px;border:1px solid rgba(255,255,255,.08);background:#160609}.gimg img{width:100%;height:100%;object-fit:cover}.g1,.g2,.g3{grid-column:span 4;grid-row:span 3}.g4,.g5{grid-column:span 6;grid-row:span 2}.g6,.g7,.g8{grid-column:span 4;grid-row:span 2}.g9{grid-column:span 12;grid-row:span 3}
+.bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,6vw,86px);align-items:start}.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}.stat{padding:20px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1)}.stat strong{display:block;font-family:"Barlow Condensed";color:var(--gold);font-size:36px;line-height:1}.stat span{display:block;margin-top:8px;color:var(--soft);text-transform:uppercase;letter-spacing:.1em;font-size:13px}.tech{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}.tech div{padding:22px;border-radius:20px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1)}.tech h4{font-family:"Barlow Condensed";text-transform:uppercase;font-size:23px;margin-bottom:8px;color:#fff}.tech p{font-size:15.5px;line-height:1.46}
+.final{min-height:96vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(rgba(0,0,0,.68),rgba(0,0,0,.86)),url("assets/grupo.jpg") center/cover}.final-inner{max-width:1120px}.final-quote{font-family:"Playfair Display",serif;font-size:clamp(42px,6.4vw,100px);line-height:.98;letter-spacing:-.045em;color:#fff7ef}.final-note{margin:34px auto 0;max-width:760px;color:var(--soft)}.contact{margin-top:48px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap;color:var(--gold);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:1100px){.hero,.video-moment{grid-template-columns:1fr}.hero-poster{min-height:auto;padding-top:86px;padding-bottom:24px}.hero-copy{padding:42px 26px 80px}.grid-2,.bio-grid,.duo{grid-template-columns:1fr}.blocks{grid-template-columns:1fr 1fr}.rose-arc,.tech{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){.nav span{display:none}section{padding:74px 20px}.hero-copy{padding-left:22px;padding-right:22px}h1{font-size:64px}h2{font-size:42px}.hero-lead{font-size:31px}.poster-card{width:min(430px,88vw)}.lyric-quote{font-size:25px;line-height:1.3}.statement{border-radius:24px;padding:28px 20px}.blocks,.rose-arc,.tech,.stats{grid-template-columns:1fr}.gallery{grid-auto-rows:122px;gap:10px}.g1,.g2,.g3,.g4,.g5,.g6,.g7,.g8,.g9{grid-column:span 12;grid-row:span 3}.gimg{border-radius:18px}.photo,.video-box{border-radius:22px}.final-quote{font-size:46px}}
+</style></head><body>
 <div class="nav"><b>PIAZZOLLAMENTE</b><span>Dossier escénico · 2026</span></div>
-
-<header class="hero">
-  <div class="hero-poster"><div class="poster-card"><img src="assets/poster.jpg" alt="Portada Tango para el 3001"></div></div>
-  <div class="hero-copy">
-    <div class="kicker">Piazzollamente presenta</div>
-    <h1>Tango<br>para el<br>3001</h1>
-    <div class="hero-lead">El tango siempre te espera.<br><span class="gold">Y Piazzolla siempre te encuentra.</span></div>
-    <div class="hero-sub">Una rosa. Una ciudad. Un corazón que insiste.</div>
-    <div class="scroll-note">Dossier de espectáculo</div>
-  </div>
-</header>
-
-<section class="dark quote-section">
-  <div class="quote-inner">
-    <div class="lyric-quote">Chiquilín, dame un ramo de vos<span class="line-space"></span>Así salgo a vender mis vergüenzas en flor<span class="line-space"></span>Baléame con tres rosas que duelan<br>a cuenta del hambre que no te entendí,<br>Chiquilín.</div>
-    <span class="lyric-source">Chiquilín de Bachín</span>
-  </div>
-</section>
-
-<section class="wine">
-  <div class="grid-2">
-    <div>
-      <div class="eyebrow">Premisa</div>
-      <h2>La herida ya estaba escrita.</h2>
-      <p><strong>Tango para el 3001</strong> no agrega un concepto externo a Piazzolla. Entra en la música que él ya dejó escrita: una música donde la ciudad respira, se parte, se ríe, se enamora, se ensucia y vuelve a levantarse.</p>
-      <p>Ahí conviven el hambre y la rosa, la furia y la ternura, la sensualidad y la fe, el niño que trabaja de noche y el deseo obstinado de volver a vivir.</p>
-      <p>No es un concierto collage. Es un recorrido escénico por aquello que todavía no terminamos de comprender: el dolor del otro, la belleza que lo acompaña y la fuerza de seguir cantando incluso después de la decepción.</p>
-    </div>
-    <div class="photo portrait object-top"><img src="assets/grupo.jpg" alt="Piazzollamente"></div>
-  </div>
-</section>
-
-<section class="dark">
-  <div class="eyebrow">Conflicto y respuesta</div>
-  <h2>La herida y el oficio de renacer.</h2>
-  <div class="duo">
-    <div class="statement">
-      <div><div class="quote">“Baleáme con tres rosas<br>que duelan a cuenta<br>del hambre que no te entendí.”</div><div class="cite">Chiquilín de Bachín</div></div>
-      <p><strong>Tango para el 3001</strong> nace desde una herida que no ha terminado de desaparecer. No se trata solamente del hambre. Ni del abandono. Ni de la tristeza. Se trata de aquello que seguimos sin comprender del dolor del otro.</p>
-      <p>Piazzolla y Ferrer escribieron ciudades donde conviven la belleza y la intemperie, el deseo y la pérdida, la ternura y la violencia. El conflicto del espectáculo vive ahí: en aquello que aún duele, aunque hayan pasado los siglos.</p>
-    </div>
-    <div class="statement">
-      <div><div class="quote">“Renaceré.”</div><div class="cite">Preludio para el año 3001</div></div>
-      <p>Pero Piazzolla nunca deja al mundo detenido en la herida. La respuesta no aparece como consuelo. Aparece como insistencia. Como una fuerza antigua y dolorosa de volver a creer.</p>
-      <p>Aunque exista el desencanto. Aunque la ciudad siga rota. Aunque el tiempo pase. <strong>Tango para el 3001</strong> imagina el renacimiento no como ingenuidad, sino como decisión: volver a amar, volver a fundar, volver a crear sentido.</p>
-      <p>“Y a Buenos Aires de nuevo nos pondremos a fundar.”</p>
-    </div>
-  </div>
-</section>
-
-<section class="wine">
-  <div class="grid-2">
-    <div class="photo landscape object-mid"><img src="assets/flauta.jpg" alt="Valentina Galaz en escena"></div>
-    <div><div class="eyebrow">Voz escénica</div><h2>La flauta habla cuando deja de tocar.</h2><p>La voz narrativa nace desde el centro del escenario. Valentina Galaz, flautista y directora artística, junto a los cantores, abre pequeños umbrales entre las obras: una anécdota, una imagen, una pregunta, una forma de acercar al público a ese lugar donde Piazzolla todavía arde.</p><p>No se trata de explicar la música. Se trata de dejar que la música encuentre una puerta humana antes de volver a sonar.</p></div>
-  </div>
-</section>
-
-<section class="dark">
-  <div class="eyebrow">Recorrido escénico</div><h2>Cinco estaciones para morir y renacer.</h2>
-  <p>El espectáculo avanza como una ciudad interior. Cada bloque deja una marca: primero el impulso, luego la herida, después la locura como resistencia, la transformación y finalmente el renacimiento.</p>
-  <div class="blocks">
-    <div class="block"><div class="num">01</div><h3>Impulso</h3><div class="works">Yo soy María<br>Fuga y Misterio</div><p>La ciudad despierta. Hay deseo, vértigo, pulso. Todo parece correr hacia una vida que todavía no sabe cuánto va a doler.</p></div>
-    <div class="block"><div class="num">02</div><h3>Herida</h3><div class="works">Chiquilín de Bachín<br>Pájaros Perdidos<br>Muerte del Ángel</div><p>Aparece el hambre. La intemperie. La pérdida. La belleza deja de ser cómoda y empieza a doler.</p></div>
-    <div class="block"><div class="num">03</div><h3>Locura</h3><div class="works">Balada para un loco</div><p>Enloquecer no como escape, sino como acto de fe.</p></div>
-    <div class="block"><div class="num">04</div><h3>Mutación</h3><div class="works">Milonga de la Anunciación<br>Tanguedia</div><p>La ciudad se fragmenta. Todo se mezcla. El tango ya no cabe en una sola forma, pero sigue respirando.</p></div>
-    <div class="block"><div class="num">05</div><h3>Renacer</h3><div class="works">Preludio para el 3001</div><p>No hay paraíso recuperado. Hay una decisión más difícil: volver a nacer con otro corazón.</p></div>
-  </div>
-</section>
-
-<section class="light-breath">
-  <div class="grid-2">
-    <div><div class="eyebrow">Piazzolla / 3001</div><h2>Un futuro escrito desde Buenos Aires.</h2><p>“En Argentina todo se puede cambiar, menos el tango.”</p><p>El 3001 no es ciencia ficción. Es una provocación poética. Un tiempo que no veremos, pero que nos obliga a mirar lo que todavía permanece: la ciudad, la memoria, el deseo, el hambre, la fe antigua y dolorosa de volver a empezar.</p><p>El viaje siempre vuelve a Buenos Aires. A su barro, a su sal, a sus cafés, a sus sombras, a esa forma de belleza que no pide permiso para sobrevivir.</p></div>
-    <div class="photo landscape object-mid"><img src="assets/cantor.jpg" alt="Piazzollamente en escena"></div>
-  </div>
-</section>
-
-<section class="dark">
-  <div class="eyebrow">La rosa</div><h2>No decora. Atraviesa.</h2>
-  <p>La rosa no aparece como ornamento romántico. Es la forma que toma la belleza cuando ha sido herida y aun así insiste. Al comienzo puede estar sola. Después se mancha, se quiebra, pierde pétalos, se oscurece. Pero no desaparece.</p>
-  <p>Al final, la rosa sobrevive y renace en otras rosas. No como final feliz: como fuerza compartida. Como jardín nacido después del caos.</p>
-  <div class="rose-arc"><div class="rose-step"><h4>Única</h4><p>Una primera señal de belleza en medio de la ciudad.</p></div><div class="rose-step"><h4>Herida</h4><p>La flor recibe la intemperie y empieza a perder su inocencia.</p></div><div class="rose-step"><h4>Oscura</h4><p>Resiste sin volverse pura. Conserva la espina.</p></div><div class="rose-step"><h4>Expandida</h4><p>Se mezcla con la música, la escena, la memoria.</p></div></div>
-</section>
-
-<section class="wine">
-  <div class="eyebrow">Visuales escénicas</div><h2>La imagen respira con la música.</h2>
-  <p>Las proyecciones no ilustran las obras. Funcionan como una segunda respiración: ciudad, rosa, sombra, textura y luz acompañan el viaje sin explicarlo.</p>
-  <div class="video-wrap"><video controls playsinline preload="metadata"><source src="assets/mapping.mp4" type="video/mp4">Tu navegador no puede reproducir este video.</video></div>
-</section>
-
-<section class="dark">
-  <div class="eyebrow">Último espectáculo</div><h2>Imágenes del montaje reciente.</h2>
-  <p>Estas imágenes pertenecen al último espectáculo realizado por Piazzollamente: músicos presentes, cuerpos reales, instrumentos, luces, escenario y una energía colectiva que sostiene el viaje.</p>
-  <div class="gallery">
-    <div class="gimg g1"><img src="assets/cantante.jpg" alt="Cantante en escena"></div>
-    <div class="gimg g2"><img src="assets/flauta_lateral.jpg" alt="Flautista en escena"></div>
-    <div class="gimg g3"><img src="assets/contrabajo.jpg" alt="Contrabajista"></div>
-    <div class="gimg g4"><img src="assets/guitarra.jpg" alt="Guitarrista"></div>
-    <div class="gimg g5"><img src="assets/piano.jpg" alt="Pianista"></div>
-    <div class="gimg g6"><img src="assets/cantor_2.jpg" alt="Cantor"></div>
-    <div class="gimg g7"><img src="assets/tuba.jpg" alt="Músico invitado"></div>
-    <div class="gimg g8"><img src="assets/cantor.jpg" alt="Cantor"></div>
-    <div class="gimg g9"><img src="assets/grupo.jpg" alt="Piazzollamente retrato"></div>
-  </div>
-</section>
-
-<section class="wine">
-  <div class="bio-grid">
-    <div><div class="eyebrow">Sobre Piazzollamente</div><h2>Seguir entrando en Piazzolla.</h2><p>Piazzollamente es una agrupación dedicada a interpretar la música de Astor Piazzolla desde el contenido profundamente conmovedor y rico que ya existe en su obra.</p><p>Bajo la dirección artística y musical de Valentina Galaz, el ensamble aborda este repertorio como una música viva: capaz de tocar la furia, la sensualidad, la contradicción, la ternura y la necesidad de reinventarse.</p><p>Más que vestir a Piazzolla con una idea nueva, Piazzollamente vuelve a entrar en su música para dejar que ella misma abra la escena.</p></div>
-    <div><div class="stats"><div class="stat"><strong>5</strong><span>músicos base</span></div><div class="stat"><strong>2</strong><span>cantores invitados</span></div><div class="stat"><strong>70</strong><span>minutos aprox.</span></div><div class="stat"><strong>3001</strong><span>territorio simbólico</span></div></div><div style="height:22px"></div><div class="statement"><div class="quote">“Y a Buenos Aires de nuevo<br>nos pondremos a fundar.”</div><div class="cite">Preludio para el año 3001</div></div></div>
-  </div>
-</section>
-
-<section class="dark">
-  <div class="eyebrow">Ficha preliminar</div><h2>Formato escénico</h2>
-  <p>Propuesta para sala teatral con música en vivo, intervenciones habladas, visuales de fondo, diseño de iluminación y sonido amplificado. Adaptable a pantalla LED o proyección según condiciones técnicas del espacio.</p>
-  <div class="tech"><div><h4>Formato</h4><p>Concierto escénico con relato, música en vivo, visualidad e iluminación.</p></div><div><h4>Elenco</h4><p>Valentina Galaz, flauta. Diego Castro, violín. Anahi Torres, piano. Felipe Miñou, guitarra. Rodrigo Ugarte, contrabajo. Dos cantores invitados y batería.</p></div><div><h4>Visuales</h4><p>Rosa, ciudad, textura, memoria y transformación escénica en movimiento.</p></div><div><h4>Duración</h4><p>70 minutos aprox.</p></div></div>
-</section>
-
-<section class="final">
-  <div class="final-inner"><div class="final-quote">“Baleáme con tres rosas”<br><span class="gold">y aun así: renaceré.</span></div><p class="final-note">Que el público salga emocionado y despierto. Que quiera escuchar más Piazzolla. Que quiera seguir a Piazzollamente. Pero sobre todo, que recuerde que todavía vale la pena sostener una forma de belleza en medio del ruido del mundo.</p><div class="contact"><span>Valentina Galaz</span><span>valen.galaz@gmail.com</span><span>@piazzollamente</span></div></div>
-</section>
-</body>
-</html>
+<header class="hero"><div class="hero-poster"><div class="poster-card"><img src="assets/poster.jpg"></div></div><div class="hero-copy"><div class="kicker">Piazzollamente presenta</div><h1>Tango<br>para el<br>3001</h1><div class="hero-lead">El tango siempre te espera.<br><span class="gold">Y Piazzolla siempre te encuentra.</span></div><div class="hero-sub">Una rosa. Una ciudad. Un corazón que insiste.</div></div></header>
+<section class="wine video-moment"><div class="video-text"><div class="eyebrow">Impulso</div><div class="quote-line">La ciudad despierta.<br>Hay deseo, vértigo, pulso.</div><p>El viaje abre desde la energía de Piazzolla: una música que empuja, respira y rompe la quietud.</p></div><div><div class="video-box"><video autoplay muted loop playsinline controls><source src="assets/fuga.mp4" type="video/mp4"></video></div><div class="audio-hint">Fuga y Misterio · activar sonido si se desea</div></div></section>
+<section class="dark quote-section"><div class="quote-inner"><div class="lyric-quote">Chiquilín, dame un ramo de vos<span class="line-space"></span>Así salgo a vender mis vergüenzas en flor<span class="line-space"></span>Baléame con tres rosas que duelan<br>a cuenta del hambre que no te entendí,<br>Chiquilín.</div><span class="lyric-source">Chiquilín de Bachín</span></div></section>
+<section class="wine"><div class="grid-2"><div><div class="eyebrow">Premisa</div><h2>La herida ya estaba escrita.</h2><p><strong>Tango para el 3001</strong> no agrega un concepto externo a Piazzolla. Entra en la música que él ya dejó escrita: una música donde la ciudad respira, se parte, se ríe, se enamora, se ensucia y vuelve a levantarse.</p><p>Ahí conviven el hambre y la rosa, la furia y la ternura, la sensualidad y la fe, el niño que trabaja de noche y el deseo obstinado de volver a vivir.</p><p>No es un concierto collage. Es un recorrido escénico por aquello que todavía no terminamos de comprender: el dolor del otro, la belleza que lo acompaña y la fuerza de seguir cantando incluso después de la decepción.</p></div><div class="photo portrait object-top"><img src="assets/grupo.jpg"></div></div></section>
+<section class="dark"><div class="eyebrow">Conflicto y respuesta</div><h2>La herida y el oficio de renacer.</h2><div class="duo"><div class="statement"><div><div class="quote">“Baleáme con tres rosas<br>que duelan a cuenta<br>del hambre que no te entendí.”</div><div class="cite">Chiquilín de Bachín</div></div><p><strong>Tango para el 3001</strong> nace desde una herida que no ha terminado de desaparecer. No se trata solamente del hambre. Ni del abandono. Ni de la tristeza. Se trata de aquello que seguimos sin comprender del dolor del otro.</p><p>Piazzolla y Ferrer escribieron ciudades donde conviven la belleza y la intemperie, el deseo y la pérdida, la ternura y la violencia. El conflicto del espectáculo vive ahí: en aquello que aún duele, aunque hayan pasado los siglos.</p></div><div class="statement"><div><div class="quote">“Renaceré.”</div><div class="cite">Preludio para el año 3001</div></div><p>Pero Piazzolla nunca deja al mundo detenido en la herida. La respuesta no aparece como consuelo. Aparece como insistencia. Como una fuerza antigua y dolorosa de volver a creer.</p><p>Aunque exista el desencanto. Aunque la ciudad siga rota. Aunque el tiempo pase. <strong>Tango para el 3001</strong> imagina el renacimiento no como ingenuidad, sino como decisión: volver a amar, volver a fundar, volver a crear sentido.</p><p>“Y a Buenos Aires de nuevo nos pondremos a fundar.”</p></div></div></section>
+<section class="dark video-moment"><div><div class="video-box"><video autoplay muted loop playsinline controls><source src="assets/chiquilin.mp4" type="video/mp4"></video></div><div class="audio-hint">Chiquilín de Bachín · activar sonido si se desea</div></div><div class="video-text"><div class="eyebrow">La herida</div><div class="quote-line">La belleza deja de ser cómoda<br>y empieza a doler.</div><p>El conflicto aparece donde la rosa toca el hambre. No como consigna, sino como aquello que aún no terminamos de entender del dolor del otro.</p></div></section>
+<section class="wine"><div class="grid-2"><div class="photo landscape object-mid"><img src="assets/flauta.jpg"></div><div><div class="eyebrow">Voz escénica</div><h2>La flauta habla cuando deja de tocar.</h2><p>La voz narrativa nace desde el centro del escenario. Valentina Galaz, flautista y directora artística, junto a los cantores, abre pequeños umbrales entre las obras: una anécdota, una imagen, una pregunta, una forma de acercar al público a ese lugar donde Piazzolla todavía arde.</p><p>No se trata de explicar la música. Se trata de dejar que la música encuentre una puerta humana antes de volver a sonar.</p></div></div></section>
+<section class="dark"><div class="eyebrow">Recorrido escénico</div><h2>Cinco estaciones para morir y renacer.</h2><p>El espectáculo avanza como una ciudad interior. Cada bloque deja una marca: primero el impulso, luego la herida, después la locura como resistencia, la transformación y finalmente el renacimiento.</p><div class="blocks"><div class="block"><div class="num">01</div><h3>Impulso</h3><div class="works">Yo soy María<br>Fuga y Misterio</div><p>La ciudad despierta. Hay deseo, vértigo, pulso. Todo parece correr hacia una vida que todavía no sabe cuánto va a doler.</p></div><div class="block"><div class="num">02</div><h3>Herida</h3><div class="works">Chiquilín de Bachín<br>Pájaros Perdidos<br>Muerte del Ángel</div><p>Aparece el hambre. La intemperie. La pérdida. La belleza deja de ser cómoda y empieza a doler.</p></div><div class="block"><div class="num">03</div><h3>Locura</h3><div class="works">Balada para un loco</div><p>Enloquecer no como escape, sino como acto de fe.</p></div><div class="block"><div class="num">04</div><h3>Mutación</h3><div class="works">Milonga de la Anunciación<br>Tanguedia</div><p>La ciudad se fragmenta. Todo se mezcla. El tango ya no cabe en una sola forma, pero sigue respirando.</p></div><div class="block"><div class="num">05</div><h3>Renacer</h3><div class="works">Preludio para el 3001</div><p>No hay paraíso recuperado. Hay una decisión más difícil: volver a nacer con otro corazón.</p></div></div></section>
+<section class="light video-moment"><div class="video-text"><div class="eyebrow">Suspensión</div><div class="quote-line">Algo comienza a anunciarse.</div><p>Una respiración más luminosa atraviesa la escena: no una promesa ingenua, sino el presentimiento de que otra forma de mirar todavía es posible.</p></div><div><div class="video-box"><video autoplay muted loop playsinline controls><source src="assets/milonga.mp4" type="video/mp4"></video></div><div class="audio-hint">Milonga de la Anunciación · activar sonido si se desea</div></div></section>
+<section class="light"><div class="grid-2"><div><div class="eyebrow">Piazzolla / 3001</div><h2>Un futuro escrito desde Buenos Aires.</h2><p>“En Argentina todo se puede cambiar, menos el tango.”</p><p>El 3001 no es ciencia ficción. Es una provocación poética. Un tiempo que no veremos, pero que nos obliga a mirar lo que todavía permanece: la ciudad, la memoria, el deseo, el hambre, la fe antigua y dolorosa de volver a empezar.</p><p>El viaje siempre vuelve a Buenos Aires. A su barro, a su sal, a sus cafés, a sus sombras, a esa forma de belleza que no pide permiso para sobrevivir.</p></div><div class="photo landscape object-mid"><img src="assets/cantor.jpg"></div></div></section>
+<section class="dark"><div class="eyebrow">La rosa</div><h2>No decora. Atraviesa.</h2><p>La rosa no aparece como ornamento romántico. Es la forma que toma la belleza cuando ha sido herida y aun así insiste. Al comienzo puede estar sola. Después se mancha, se quiebra, pierde pétalos, se oscurece. Pero no desaparece.</p><p>Al final, la rosa sobrevive y renace en otras rosas. No como final feliz: como fuerza compartida. Como jardín nacido después del caos.</p><div class="rose-arc"><div class="rose-step"><h4>Única</h4><p>Una primera señal de belleza en medio de la ciudad.</p></div><div class="rose-step"><h4>Herida</h4><p>La flor recibe la intemperie y empieza a perder su inocencia.</p></div><div class="rose-step"><h4>Oscura</h4><p>Resiste sin volverse pura. Conserva la espina.</p></div><div class="rose-step"><h4>Expandida</h4><p>Se mezcla con la música, la escena, la memoria.</p></div></div></section>
+<section class="wine video-moment"><div><div class="video-box"><video autoplay muted loop playsinline controls><source src="assets/muerte.mp4" type="video/mp4"></video></div><div class="audio-hint">Muerte del Ángel · activar sonido si se desea</div></div><div class="video-text"><div class="eyebrow">Transformación</div><div class="quote-line">La batalla ocurre dentro del alma.</div><p>La herida no desaparece. Cambia de forma. La música la empuja hacia una posibilidad más difícil: renacer.</p></div></section>
+<section class="wine"><div class="eyebrow">Visuales escénicas</div><h2>La imagen respira con la música.</h2><p>Las proyecciones no ilustran las obras. Funcionan como una segunda respiración: ciudad, rosa, sombra, textura y luz acompañan el viaje sin explicarlo.</p><div class="video-box" style="margin-top:42px;"><video autoplay muted loop playsinline controls><source src="assets/mapping.mp4" type="video/mp4"></video></div><div class="audio-hint">Mapping visual · activar sonido si se desea</div></section>
+<section class="dark"><div class="eyebrow">Último espectáculo</div><h2>Imágenes del montaje reciente.</h2><p>Estas imágenes pertenecen al último espectáculo realizado por Piazzollamente: músicos presentes, cuerpos reales, instrumentos, luces, escenario y una energía colectiva que sostiene el viaje.</p><div class="gallery"><div class="gimg g1"><img src="assets/cantante.jpg"></div><div class="gimg g2"><img src="assets/flauta_lateral.jpg"></div><div class="gimg g3"><img src="assets/contrabajo.jpg"></div><div class="gimg g4"><img src="assets/guitarra.jpg"></div><div class="gimg g5"><img src="assets/piano.jpg"></div><div class="gimg g6"><img src="assets/cantor_2.jpg"></div><div class="gimg g7"><img src="assets/tuba.jpg"></div><div class="gimg g8"><img src="assets/cantor.jpg"></div><div class="gimg g9"><img src="assets/grupo.jpg"></div></div></section>
+<section class="wine"><div class="bio-grid"><div><div class="eyebrow">Sobre Piazzollamente</div><h2>Seguir entrando en Piazzolla.</h2><p>Piazzollamente es una agrupación dedicada a interpretar la música de Astor Piazzolla desde el contenido profundamente conmovedor y rico que ya existe en su obra.</p><p>Bajo la dirección artística y musical de Valentina Galaz, el ensamble aborda este repertorio como una música viva: capaz de tocar la furia, la sensualidad, la contradicción, la ternura y la necesidad de reinventarse.</p><p>Más que vestir a Piazzolla con una idea nueva, Piazzollamente vuelve a entrar en su música para dejar que ella misma abra la escena.</p></div><div><div class="stats"><div class="stat"><strong>5</strong><span>músicos base</span></div><div class="stat"><strong>2</strong><span>cantores invitados</span></div><div class="stat"><strong>70</strong><span>minutos aprox.</span></div><div class="stat"><strong>3001</strong><span>territorio simbólico</span></div></div><div style="height:22px"></div><div class="statement"><div class="quote">“Y a Buenos Aires de nuevo<br>nos pondremos a fundar.”</div><div class="cite">Preludio para el año 3001</div></div></div></div></section>
+<section class="dark"><div class="eyebrow">Ficha preliminar</div><h2>Formato escénico</h2><p>Propuesta para sala teatral con música en vivo, intervenciones habladas, visuales de fondo, diseño de iluminación y sonido amplificado. Adaptable a pantalla LED o proyección según condiciones técnicas del espacio.</p><div class="tech"><div><h4>Formato</h4><p>Concierto escénico con relato, música en vivo, visualidad e iluminación.</p></div><div><h4>Elenco</h4><p>Valentina Galaz, flauta. Diego Castro, violín. Anahi Torres, piano. Felipe Miñou, guitarra. Rodrigo Ugarte, contrabajo. Dos cantores invitados y batería.</p></div><div><h4>Visuales</h4><p>Rosa, ciudad, textura, memoria y transformación escénica en movimiento.</p></div><div><h4>Duración</h4><p>70 minutos aprox.</p></div></div></section>
+<section class="final"><div class="final-inner"><div class="final-quote">“Baleáme con tres rosas”<br><span class="gold">y aun así: renaceré.</span></div><p class="final-note">Que el público salga emocionado y despierto. Que quiera escuchar más Piazzolla. Que quiera seguir a Piazzollamente. Pero sobre todo, que recuerde que todavía vale la pena sostener una forma de belleza en medio del ruido del mundo.</p><div class="contact"><span>Valentina Galaz</span><span>valen.galaz@gmail.com</span><span>@piazzollamente</span></div></div></section>
+</body></html>
