@@ -1,520 +1,453 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Tango para el 3001 · Piazzollamente</title>
-<link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Raleway:wght@200;300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  --ink: #050204;
-  --wine: #2e0609;
-  --ember: #c42030;
-  --gold: #c9a96e;
-  --gold-dim: rgba(201,169,110,.5);
-  --ivory: #f0e6d8;
-  --soft: #c4b09a;
-  --line: rgba(240,230,216,.08);
-  --line-gold: rgba(201,169,110,.2);
+:root{
+  --black:#070606;
+  --night:#101010;
+  --ink:#211b1b;
+  --bone:#f4eadc;
+  --paper:#fbf4e9;
+  --muted:#b7a99a;
+  --soft:#7e726a;
+  --red:#b01422;
+  --wine:#74131b;
+  --gold:#c49255;
+  --line:rgba(244,234,220,.16);
+  --line-dark:rgba(116,19,27,.18);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{background:var(--ink);color:var(--ivory);font-family:'Raleway',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
-img,video{display:block;max-width:100%}
-
-/* NAV */
-.nav{position:fixed;z-index:100;top:0;left:0;right:0;padding:20px clamp(22px,5vw,72px);display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(5,2,4,.95),transparent);pointer-events:none}
-.nav-logo{font-family:'Raleway',sans-serif;font-weight:200;letter-spacing:.35em;font-size:13px;text-transform:uppercase;color:rgba(240,230,216,.7)}
-.nav-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,169,110,.6)}
-
-/* HERO */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;background:var(--ink)}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 80% 50%,rgba(162,16,38,.28),transparent 60%),radial-gradient(ellipse 40% 60% at 10% 80%,rgba(201,169,110,.07),transparent 50%);z-index:1;pointer-events:none}
-.hero-visual{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:80px clamp(20px,4vw,60px) 60px}
-.poster-wrap{width:min(460px,88vw);position:relative}
-.poster-wrap img{width:100%;box-shadow:0 50px 140px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.06)}
-.hero-text{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:100px clamp(22px,5vw,80px) 60px 0}
-.eyebrow{font-family:'Raleway',sans-serif;font-weight:400;letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:var(--gold);margin-bottom:20px}
-.hero-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(70px,9vw,128px);line-height:.85;letter-spacing:-.04em;color:#fff;margin-bottom:40px}
-.hero-title em{font-style:italic;color:var(--gold)}
-.hero-frase{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(19px,2vw,28px);line-height:1.45;color:var(--ivory);border-left:1px solid var(--ember);padding-left:24px;max-width:500px}
-.hero-frase span{display:block;color:var(--gold)}
-
-/* SEPARADORES */
-.sep{height:1px;background:var(--line);margin:0 clamp(22px,6vw,90px)}
-.sep-gold{background:linear-gradient(to right,transparent,var(--gold-dim),transparent)}
-
-/* SECCIONES */
-section{padding:clamp(80px,10vw,140px) clamp(22px,6vw,90px);position:relative}
-.s-dark{background:var(--ink)}
-.s-wine{background:linear-gradient(160deg,var(--wine) 0%,#1a040a 100%)}
-.s-smoke{background:linear-gradient(180deg,#0c0507,#0e0608)}
-
-h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(42px,5.5vw,76px);line-height:.92;letter-spacing:-.04em;margin-bottom:28px}
-h2 em{font-style:italic;color:var(--gold)}
-p{color:var(--soft);font-size:clamp(16px,1.2vw,18px);max-width:720px;line-height:1.82}
-p+p{margin-top:16px}
-strong{color:var(--ivory);font-weight:400}
-
-/* INTRO GRID */
-.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,100px);align-items:start}
-
-/* FICHA TÉCNICA */
-.intro-ficha{display:flex;flex-direction:column}
-.ficha-item{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
-.ficha-item:first-child{border-top:1px solid var(--line)}
-.ficha-key{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dim)}
-.ficha-val{font-size:15px;color:var(--soft);line-height:1.55}
-.ficha-val strong{font-size:15px}
-
-/* ARCO NARRATIVO */
-.arco{margin-top:clamp(60px,8vw,100px)}
-.arco-titulo{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:44px}
-.arco-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
-.arco-steps::before{content:'';position:absolute;top:33px;left:10%;right:10%;height:1px;background:linear-gradient(to right,transparent,var(--ember),var(--gold),var(--ember),transparent);z-index:0}
-.arco-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 10px}
-.arco-dot{width:13px;height:13px;border-radius:50%;background:var(--ember);margin:20px auto 22px;position:relative;z-index:2;box-shadow:0 0 18px rgba(196,32,48,.75);flex-shrink:0}
-.arco-step:nth-child(5) .arco-dot{background:var(--gold);box-shadow:0 0 18px rgba(201,169,110,.75)}
-.arco-num{font-size:10px;letter-spacing:.2em;color:var(--ember);font-weight:600}
-.arco-name{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,1.6vw,23px);color:var(--ivory);margin-bottom:10px;font-style:italic;line-height:1.1}
-.arco-works{font-size:11px;color:var(--gold-dim);line-height:1.6;letter-spacing:.02em}
-.arco-desc{font-size:12px;color:var(--soft);line-height:1.5;margin-top:10px}
-
-/* FOTO */
-.photo{overflow:hidden;background:#0a0405}
-.photo img{width:100%;height:100%;object-fit:cover}
-.portrait{aspect-ratio:3/4}
-
-/* VIDEOS */
-.video-moment{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
-.video-wrap{position:relative;overflow:hidden;background:#080305}
-.video-wrap video{width:100%;height:auto;display:block}
-.video-caption{margin-top:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dim)}
-.video-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(26px,3.5vw,48px);line-height:1.1;color:var(--ivory);margin-bottom:16px;letter-spacing:-.02em}
-.video-concept{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ember);margin-bottom:16px}
-.video-full .video-wrap{max-width:900px;margin:40px auto 0}
-
-/* CITA */
-.cita-section{min-height:65vh;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(46,6,9,.95),var(--ink) 100%)}
-.cita-inner{max-width:860px;margin:auto;padding:0 24px}
-.cita-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(24px,3.5vw,52px);line-height:1.32;letter-spacing:-.02em;color:var(--ivory)}
-.cita-text span{display:block;height:.55em}
-.cita-source{margin-top:28px;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-dim)}
-
-/* GALERÍA */
-.gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:140px;gap:10px;margin-top:44px}
-.gimg{overflow:hidden;background:#0a0304}
-.gimg img{width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .6s ease;filter:brightness(.88) saturate(.85)}
-.gimg:hover img{transform:scale(1.05);filter:brightness(.96) saturate(1)}
-.g1{grid-column:span 5;grid-row:span 3}.g1 img{object-position:center 15%}
-.g2{grid-column:span 4;grid-row:span 2}.g2 img{object-position:center 25%}
-.g3{grid-column:span 3;grid-row:span 2}.g3 img{object-position:center 20%}
-.g4{grid-column:span 4;grid-row:span 2}.g4 img{object-position:center 35%}
-.g5{grid-column:span 4;grid-row:span 2}.g5 img{object-position:center 15%}
-.g6{grid-column:span 4;grid-row:span 2}.g6 img{object-position:18% 10%}
-.g7{grid-column:span 12;grid-row:span 2}.g7 img{object-position:center 30%}
-
-/* PIAZZOLLAMENTE */
-.g2-col{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(40px,6vw,100px);align-items:center}
-
-/* TIMELINE */
-.timeline{margin-top:52px;position:relative}
-.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--ember),var(--gold),var(--ember),transparent)}
-.tl-year{padding:0 0 44px 36px;position:relative}
-.tl-year::before{content:'';position:absolute;left:-4px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(201,169,110,.6)}
-.tl-label{font-weight:600;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-.tl-items{display:flex;flex-wrap:wrap;gap:8px}
-.tl-item{padding:7px 14px;border:1px solid var(--line);font-size:13px;color:var(--soft);letter-spacing:.03em;transition:border-color .3s,color .3s}
-.tl-item:hover{border-color:var(--line-gold);color:var(--ivory)}
-
-/* PRENSA */
-.prensa-links{display:flex;flex-direction:column;margin-top:36px;max-width:580px}
-.prensa-link{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--soft);letter-spacing:.03em;text-decoration:none;transition:color .3s}
-.prensa-link:hover{color:var(--gold)}
-.prensa-link::before{content:'↗';color:var(--ember);font-size:15px;flex-shrink:0}
-
-/* CIERRE */
-.cierre{min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
-.cierre::before{content:'';position:absolute;inset:0;background:url('assets/grupo.jpg') center 15%/cover no-repeat;filter:brightness(.2) saturate(.55)}
-.cierre::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(162,16,38,.28),transparent 70%)}
-.cierre-inner{position:relative;z-index:2;max-width:1000px;padding:0 24px}
-.cierre-nombre{font-weight:200;letter-spacing:.45em;text-transform:uppercase;font-size:13px;color:var(--gold);margin-bottom:32px}
-.cierre-frase{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(38px,6vw,86px);line-height:1.02;letter-spacing:-.04em;color:#fff}
-.cierre-frase em{color:var(--gold)}
-.contact{margin-top:52px;display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
-.contact a{color:var(--gold-dim);font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:color .3s}
-.contact a:hover{color:var(--gold)}
-
-/* RESPONSIVE */
-@media(max-width:1024px){
-  .hero,.video-moment,.g2-col,.intro-grid{grid-template-columns:1fr}
-  .hero-visual{padding-top:80px;padding-bottom:20px}
-  .hero-text{padding:32px clamp(22px,5vw,60px) 80px}
-  .arco-steps{grid-template-columns:1fr 1fr;gap:32px}
-  .arco-steps::before{display:none}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black);
+  color:var(--bone);
+  font-family:'Montserrat',Arial,sans-serif;
+  line-height:1.68;
+  overflow-x:hidden;
 }
-@media(max-width:680px){
-  .hero-title{font-size:66px}
-  h2{font-size:40px}
-  .cita-text{font-size:24px}
-  .cierre-frase{font-size:40px}
-  .gallery{grid-auto-rows:110px;gap:7px}
-  .g1,.g2,.g3,.g4,.g5,.g6,.g7{grid-column:span 12;grid-row:span 2}
-  .arco-steps{grid-template-columns:1fr}
-  .ficha-item{grid-template-columns:1fr;gap:4px}
+img,video{display:block;width:100%;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--red);color:var(--bone)}
+.noise{
+  position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.12;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.18) 0 1px, transparent 1px),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,.12) 0 1px, transparent 1px);
+  background-size:17px 17px,23px 23px;
+  mix-blend-mode:overlay;
 }
-@media(max-width:420px){
-  section{padding:64px 18px}
-  .hero-title{font-size:54px}
-  .contact{flex-direction:column;align-items:center;gap:16px}
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  border-bottom:1px solid var(--line);
+  background:rgba(7,6,6,.72);
+  backdrop-filter:blur(16px);
+}
+.nav-inner{
+  width:min(1180px,calc(100% - 34px));
+  min-height:68px;
+  margin:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.logo{
+  font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+}
+.nav-links{display:flex;gap:18px;align-items:center;color:rgba(244,234,220,.74);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.nav-links a:hover{color:var(--gold)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 18px;border-radius:999px;
+  font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid rgba(244,234,220,.25);
+  transition:.2s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-red{background:var(--red);border-color:var(--red);color:var(--bone)}
+.container{width:min(1180px,calc(100% - 34px));margin:auto}
+.hero{
+  min-height:100vh;
+  display:grid;align-items:end;
+  padding:112px 0 58px;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(7,6,6,.96) 0%,rgba(7,6,6,.78) 42%,rgba(7,6,6,.42) 100%),
+    url('assets/poster.jpg') center right/cover no-repeat;
+}
+.hero:after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:28vh;
+  background:linear-gradient(0deg,var(--black),transparent);
+}
+.hero-content{position:relative;z-index:2;width:min(1180px,calc(100% - 34px));margin:auto}
+.eyebrow{
+  color:var(--gold);
+  font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+  margin-bottom:18px;
+}
+h1,h2,h3{
+  font-family:'Cormorant Garamond',serif;
+  letter-spacing:-.045em;
+  font-weight:500;
+}
+h1{
+  font-size:clamp(66px,12vw,150px);
+  line-height:.78;
+  max-width:800px;
+  text-transform:uppercase;
+}
+h1 span{display:block;color:var(--red)}
+.hero-sub{
+  max-width:620px;margin-top:28px;
+  color:rgba(244,234,220,.8);
+  font-size:clamp(17px,2vw,22px);
+}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:9px;margin-top:32px;
+}
+.tag{
+  display:inline-flex;padding:8px 12px;border:1px solid rgba(244,234,220,.22);border-radius:999px;
+  color:rgba(244,234,220,.74);font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;
+}
+.section{padding:clamp(76px,9vw,132px) 0;position:relative}
+.section-paper{
+  background:var(--paper);
+  color:var(--ink);
+}
+.section-paper .eyebrow{color:var(--wine)}
+.section-paper p{color:var(--soft)}
+.section-title{
+  font-size:clamp(42px,7vw,86px);
+  line-height:.88;
+  max-width:900px;
+}
+.lead{
+  max-width:760px;
+  font-size:clamp(18px,2.2vw,25px);
+  color:rgba(244,234,220,.75);
+  margin-top:22px;
+}
+.section-paper .lead{color:var(--soft)}
+.big-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(42px,8vw,112px);
+  line-height:.88;
+  letter-spacing:-.055em;
+  max-width:980px;
+}
+.big-quote em{color:var(--red);font-style:italic}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,76px);align-items:center}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(244,234,220,.06),rgba(244,234,220,.025));
+  border-radius:28px;padding:26px;
+  min-height:100%;
+}
+.section-paper .card{
+  border-color:var(--line-dark);
+  background:rgba(255,255,255,.42);
+}
+.card small{
+  color:var(--gold);font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:11px;
+}
+.section-paper .card small{color:var(--wine)}
+.card h3{font-size:32px;line-height:1;margin:14px 0 12px}
+.card p{color:rgba(244,234,220,.72);font-size:15px}
+.section-paper .card p{color:var(--soft)}
+.photo{
+  border-radius:30px;overflow:hidden;border:1px solid var(--line);background:#111;
+  box-shadow:0 28px 80px rgba(0,0,0,.28);
+}
+.photo img{height:100%;object-fit:cover}
+.photo.tall img{aspect-ratio:4/5}
+.photo.wide img{aspect-ratio:16/10}
+.scribble{
+  margin-top:18px;
+  color:var(--gold);
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;
+  font-style:italic;
+}
+.program{
+  display:grid;gap:14px;margin-top:40px;
+}
+.work{
+  display:grid;grid-template-columns:72px 1.2fr .8fr;gap:24px;
+  align-items:start;
+  border-top:1px solid var(--line-dark);
+  padding:22px 0;
+}
+.work-num{color:var(--wine);font-weight:800;letter-spacing:.14em;font-size:12px}
+.work h3{font-size:35px;line-height:1}
+.work p{font-size:15px}
+.pill{display:inline-flex;margin-bottom:10px;padding:6px 9px;border-radius:999px;background:rgba(116,19,27,.10);color:var(--wine);font-size:10px;text-transform:uppercase;letter-spacing:.11em;font-weight:800}
+.video-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:42px;
+}
+.video-card{
+  border:1px solid var(--line);
+  border-radius:28px;overflow:hidden;
+  background:#111;
+}
+.video-card video{aspect-ratio:16/9;object-fit:contain;background:#000}
+.video-body{padding:22px}
+.video-body h3{font-size:32px;line-height:1}
+.video-body p{color:rgba(244,234,220,.7);font-size:14px;margin-top:10px}
+.cast-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:38px;
+}
+.cast{
+  overflow:hidden;border-radius:24px;border:1px solid var(--line);background:#111;
+}
+.cast img{height:255px;object-fit:cover;filter:saturate(.9) contrast(1.08)}
+.cast div{padding:15px}
+.cast strong{display:block;font-size:14px}
+.cast span{display:block;color:rgba(244,234,220,.58);font-size:12px;margin-top:3px}
+.feature{
+  min-height:70vh;
+  display:grid;align-items:center;
+  background:
+    linear-gradient(90deg,rgba(7,6,6,.92),rgba(7,6,6,.44)),
+    url('assets/grupo.jpg') center/cover no-repeat;
+}
+.tech{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px;
+}
+.tech ul{list-style:none;display:grid;gap:10px}
+.tech li{padding:14px 0;border-bottom:1px solid var(--line-dark);color:var(--soft)}
+.tech strong{color:var(--ink)}
+.footer{
+  padding:70px 0;
+  background:#050505;
+  border-top:1px solid var(--line);
+}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:end}
+.footer h2{font-size:clamp(44px,7vw,86px);line-height:.9}
+.contact-list{display:grid;gap:10px;color:rgba(244,234,220,.72)}
+.contact-list a{color:var(--gold)}
+
+/* Ajustes puntuales de encuadre */
+.cast img{object-position:center 22%}
+.cast img[alt="Valentina Galaz"]{object-position:center 28%}
+.cast img[alt="Francisca Crisópulos"]{object-position:center 18%}
+.cast img[alt="Marina León"]{object-position:center 20%}
+.cast img[alt="Gastón Siqueiros"]{object-position:center 18%}
+.cast img[alt="Anahí Torres"]{object-position:center 18%}
+.photo.tall img[alt="Marina León en escena"]{object-position:center 18%}
+.photo.tall img[alt="Gastón Siqueiros en escena"]{object-position:center 18%}
+
+
+@media(min-width:901px){
+  .hero{
+    background:
+      linear-gradient(90deg,rgba(7,6,6,.96) 0%,rgba(7,6,6,.80) 32%,rgba(7,6,6,.36) 58%,rgba(7,6,6,.08) 100%),
+      url('assets/poster.jpg') center right/cover no-repeat;
+  }
+  .hero-content{max-width:1180px;}
+  h1{font-size:clamp(72px,8.4vw,118px);max-width:590px;line-height:.82;}
+  .hero-sub{max-width:560px;}
 }
 
-/* ANIMACIONES */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.fade-in{animation:fadeUp .9s ease forwards;opacity:0}
-.fade-in-2{animation:fadeUp .9s .2s ease forwards;opacity:0}
-.fade-in-3{animation:fadeUp .9s .4s ease forwards;opacity:0}
+@media(max-width:900px){
+  .nav-links a:not(.btn){display:none}
+  .hero{background-position:center}
+  .grid-2,.grid-3,.video-grid,.tech,.footer-grid{grid-template-columns:1fr}
+  .work{grid-template-columns:1fr;gap:8px}
+  .cast-grid{grid-template-columns:repeat(2,1fr)}
+  .cast img{height:280px}
+}
+@media(max-width:520px){
+  .cast-grid{grid-template-columns:1fr}
+  h1{font-size:62px}
+}
 </style>
 </head>
 <body>
+<div class="noise"></div>
 
-<!-- NAV -->
-<div class="nav">
-  <div class="nav-logo">Piazzollamente</div>
-  <div class="nav-tag">Dossier · 2026</div>
-</div>
-
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-visual">
-    <div class="poster-wrap fade-in">
-      <img src="assets/poster.jpg" alt="Tango para el 3001">
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#">Piazzollamente</a>
+    <div class="nav-links">
+      <a href="#sinopsis">Sinopsis</a>
+      <a href="#programa">Programa</a>
+      <a href="#videos">Videos</a>
+      <a href="#grupo">El ensamble</a>
+      <a class="btn btn-red" href="#contacto">Contacto</a>
     </div>
   </div>
-  <div class="hero-text">
-    <div class="eyebrow fade-in">Piazzollamente presenta</div>
-    <h1 class="hero-title fade-in-2">Tango<br><em>para el</em><br>3001</h1>
-    <div class="hero-frase fade-in-3">
-      El tango siempre te espera.<br>
-      <span>Y Piazzolla siempre te encuentra.</span>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Dossier online · espectáculo escénico musical</div>
+    <h1>Tango para el <span>3001</span></h1>
+    <p class="hero-sub">La música de Piazzolla mirando las heridas de la ciudad.</p>
+    <p class="hero-direction">Dirección: Valentina Galaz y Francisca Crisópulos</p>
+    <div class="hero-meta">
+      <span class="tag">Piazzollamente</span>
+      <span class="tag">Astor Piazzolla</span>
+      <span class="tag">Tango escénico</span>
+      <span class="tag">Música · teatro · ciudad</span>
     </div>
   </div>
 </header>
 
-<div class="sep sep-gold"></div>
+<section class="section">
+  <div class="container">
+    <p class="big-quote">Si nadie ha renacido, <em>ella podrá.</em></p>
+  </div>
+</section>
 
-<!-- PRESENTACIÓN DEL SHOW -->
-<section class="s-dark">
-  <div class="intro-grid">
+<section id="sinopsis" class="section section-paper">
+  <div class="container grid-2">
     <div>
-      <div class="eyebrow">El espectáculo</div>
-      <h2>Un viaje desde la herida<br>hasta el <em>renacimiento</em></h2>
-      <p><strong>Tango para el 3001</strong> es un espectáculo escénico-musical con dramaturgia propia. No es un recital. Es un viaje con cinco estaciones: impulso, herida, locura, transformación y renacimiento.</p>
-      <p>El hilo que atraviesa todo es una rosa. No como ornamento. Como emblema de lo que sobrevive herido. A lo largo del show esa rosa se mancha, se quiebra, pierde pétalos. Y al final encuentra a otras. Y forma un jardín.</p>
-      <p>Piazzolla no es un monumento. Es una música que todavía quema. Piazzollamente entra en ella sin guantes.</p>
+      <div class="eyebrow">Sinopsis</div>
+      <h2 class="section-title">Una ciudad cae para poder volver a fundarse.</h2>
+      <p class="lead">María se declara dueña de su deseo. Gastón descubre la herida de la ciudad. Nina corre perseguida por la noche. Y desde los restos de una escena derrumbada, la ternura se vuelve fuerza para imaginar Buenos Aires en el año 3001.</p>
     </div>
-    <div class="intro-ficha">
-      <div class="ficha-item">
-        <span class="ficha-key">Formato</span>
-        <span class="ficha-val">Concierto escénico con dramaturgia, música en vivo, narrativa y visuales</span>
-      </div>
-      <div class="ficha-item">
-        <span class="ficha-key">Duración</span>
-        <span class="ficha-val">70 minutos aprox.</span>
-      </div>
-      <div class="ficha-item">
-        <span class="ficha-key">Elenco</span>
-        <span class="ficha-val">Flauta, violín, piano, guitarra, contrabajo y dos cantores</span>
-      </div>
-      <div class="ficha-item">
-        <span class="ficha-key">Dirección</span>
-        <span class="ficha-val"><strong>Valentina Galaz</strong></span>
-      </div>
-      <div class="ficha-item">
-        <span class="ficha-key">Visuales</span>
-        <span class="ficha-val">Rosa, ciudad, memoria, transformación — proyección en vivo</span>
-      </div>
-      <div class="ficha-item">
-        <span class="ficha-key">Espacio</span>
-        <span class="ficha-val">Sala teatral con pantalla. Adaptable a escenarios al aire libre</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ARCO NARRATIVO -->
-  <div class="arco">
-    <div class="arco-titulo">El recorrido del show · cinco estaciones</div>
-    <div class="arco-steps">
-      <div class="arco-step">
-        <div class="arco-num">01</div>
-        <div class="arco-dot"></div>
-        <div class="arco-name">Impulso</div>
-        <div class="arco-works">Yo soy María · Fuga y Misterio</div>
-        <div class="arco-desc">La ciudad despierta. Una rosa todavía entera.</div>
-      </div>
-      <div class="arco-step">
-        <div class="arco-num">02</div>
-        <div class="arco-dot"></div>
-        <div class="arco-name">La herida</div>
-        <div class="arco-works">Chiquilín de Bachín · Pájaros Perdidos</div>
-        <div class="arco-desc">La belleza toca el hambre. Empieza a doler.</div>
-      </div>
-      <div class="arco-step">
-        <div class="arco-num">03</div>
-        <div class="arco-dot"></div>
-        <div class="arco-name">La locura</div>
-        <div class="arco-works">Muerte del Ángel · Balada para un loco</div>
-        <div class="arco-desc">Enloquecer como acto de resistencia.</div>
-      </div>
-      <div class="arco-step">
-        <div class="arco-num">04</div>
-        <div class="arco-dot"></div>
-        <div class="arco-name">Transformación</div>
-        <div class="arco-works">Milonga de la Anunciación · Tanguedia</div>
-        <div class="arco-desc">Algo se anuncia. El sendero se bifurca hacia la luz.</div>
-      </div>
-      <div class="arco-step">
-        <div class="arco-num">05</div>
-        <div class="arco-dot"></div>
-        <div class="arco-name">Renacimiento</div>
-        <div class="arco-works">Preludio para el año 3001</div>
-        <div class="arco-desc">La rosa ya no está sola. Forma un jardín.</div>
-      </div>
+    <div class="photo tall">
+      <img src="assets/marina-01.jpg" alt="Marina León como María">
     </div>
   </div>
 </section>
 
-<div class="sep sep-gold"></div>
-
-<!-- VIDEO FUGA Y MISTERIO -->
-<section class="s-wine video-moment">
-  <div class="video-text">
-    <div class="video-concept">01 · Impulso · Fuga y Misterio</div>
-    <div class="video-label">Una rosa.<br>Una ciudad.<br>El sendero se bifurca.</div>
-    <p>El show abre con vértigo y deseo. La ciudad aparece como territorio de pulsión vital. La rosa todavía está entera. Todavía no sabe lo que viene.</p>
-  </div>
-  <div>
-    <div class="video-wrap">
-      <video autoplay muted loop playsinline preload="auto"><source src="assets/fuga.mp4" type="video/mp4"></video>
-    </div>
-    <div class="video-caption">Fuga y Misterio · activar sonido</div>
-  </div>
-</section>
-
-<div class="sep"></div>
-
-<!-- CITA CHIQUILÍN -->
-<div class="cita-section">
-  <div class="cita-inner">
-    <div class="cita-text">
-      Chiquilín, dame un ramo de vos<span></span>
-      Baléame con tres rosas que duelan<span></span>
-      a cuenta del hambre que no te entendí.
-    </div>
-    <div class="cita-source">Chiquilín de Bachín · Piazzolla / Ferrer</div>
-  </div>
-</div>
-
-<section class="s-dark video-moment">
-  <div>
-    <div class="video-wrap">
-      <video autoplay muted loop playsinline preload="auto"><source src="assets/chiquilin.mp4" type="video/mp4"></video>
-    </div>
-    <div class="video-caption">Chiquilín de Bachín · activar sonido</div>
-  </div>
-  <div class="video-text">
-    <div class="video-concept">02 · La herida</div>
-    <div class="video-label">La rosa toca el hambre.<br>La belleza empieza a doler.</div>
-    <p>Acá el espectáculo entra en su nudo más difícil. La injusticia aparece con nombre y cara. La rosa ya no es decoración. Es una herida que insiste en ser hermosa.</p>
-  </div>
-</section>
-
-<div class="sep"></div>
-
-<!-- VIDEO MUERTE DEL ÁNGEL -->
-<section class="s-wine video-moment">
-  <div class="video-text">
-    <div class="video-concept">03 · La locura y la batalla interior</div>
-    <div class="video-label">En uno de los porvenires,<br>el ángel cae.</div>
-    <p>La tensión se vuelve interna. La pelea ya no es con la ciudad — es con uno mismo. En otro porvenir, lo que parecía muerto aprende a llamarse de otra manera.</p>
-  </div>
-  <div>
-    <div class="video-wrap">
-      <video autoplay muted loop playsinline preload="auto"><source src="assets/muerte.mp4" type="video/mp4"></video>
-    </div>
-    <div class="video-caption">Muerte del Ángel · activar sonido</div>
-  </div>
-</section>
-
-<div class="sep"></div>
-
-<!-- VIDEO MILONGA -->
-<section class="s-smoke video-moment">
-  <div>
-    <div class="video-wrap">
-      <video autoplay muted loop playsinline preload="auto"><source src="assets/milonga.mp4" type="video/mp4"></video>
-    </div>
-    <div class="video-caption">Milonga de la Anunciación · activar sonido</div>
-  </div>
-  <div class="video-text">
-    <div class="video-concept">04 · Transformación · Milonga de la Anunciación</div>
-    <div class="video-label">Algo se bifurca<br>hacia la luz.</div>
-    <p>No es una promesa ingenua. Es un presentimiento. La voz femenina toma el centro y anuncia que otro porvenir es posible. El laberinto empieza a cambiar de forma.</p>
-  </div>
-</section>
-
-<div class="sep"></div>
-
-<!-- MAPPING / GALERÍA -->
-<section class="s-dark">
-  <div class="eyebrow">05 · Renacimiento</div>
-  <h2>La rosa ya no está sola.<br>Forma un <em>jardín</em>.</h2>
-  <p>Al final del recorrido no hay paraíso recuperado. Hay resistencia, memoria y belleza compartida. Las proyecciones no explican la música — la acompañan como se acompaña a alguien que camina sin saber que ya llegó.</p>
-
-  <div class="video-full">
-    <div class="video-wrap">
-      <video autoplay muted loop playsinline preload="auto"><source src="assets/mapping.mp4" type="video/mp4"></video>
-    </div>
-  </div>
-
-  <div class="gallery">
-    <div class="gimg g1"><img src="assets/cantante.jpg" alt=""></div>
-    <div class="gimg g2"><img src="assets/flauta.jpg" alt=""></div>
-    <div class="gimg g3"><img src="assets/contrabajo.jpg" alt=""></div>
-    <div class="gimg g4"><img src="assets/piano.jpg" alt=""></div>
-    <div class="gimg g5"><img src="assets/guitarra.jpg" alt=""></div>
-    <div class="gimg g6"><img src="assets/tuba.jpg" alt=""></div>
-    <div class="gimg g7"><img src="assets/cantor.jpg" alt=""></div>
-  </div>
-</section>
-
-<div class="sep sep-gold"></div>
-
-<!-- PIAZZOLLAMENTE -->
-<section class="s-smoke">
-  <div class="g2-col">
-    <div>
-      <div class="eyebrow">Piazzollamente</div>
-      <h2>Dejarse habitar<br>por <em>Piazzolla</em></h2>
-      <p>Hay músicas que se interpretan. Hay músicas en las que se entra. Piazzolla es de las segundas.</p>
-      <p>Bajo la dirección de Valentina Galaz, el ensamble recorre esa música sendero por sendero — música, narrativa y visualidad en un mismo aliento. Y elige siempre el camino que hace renacer.</p>
-
-      <div class="timeline">
-        <div class="tl-year">
-          <div class="tl-label">2023 · Argentina</div>
-          <div class="tl-items">
-            <div class="tl-item">INAMU</div>
-            <div class="tl-item">Caminos del Vino</div>
-            <div class="tl-item">La Camorra</div>
-            <div class="tl-item">San Vicente Tango</div>
-          </div>
-        </div>
-        <div class="tl-year">
-          <div class="tl-label">2024 · Chile</div>
-          <div class="tl-items">
-            <div class="tl-item">Teatro Regional Lucho Gatica</div>
-          </div>
-        </div>
-        <div class="tl-year">
-          <div class="tl-label">2025–2026 · Chile</div>
-          <div class="tl-items">
-            <div class="tl-item">Valparatango</div>
-            <div class="tl-item">Sala Master</div>
-            <div class="tl-item">SCD Plaza Egaña</div>
-            <div class="tl-item">Gira Coquimbo</div>
-            <div class="tl-item">Tango para el 3001</div>
-          </div>
-        </div>
-      </div>
+<section class="section">
+  <div class="container grid-2">
+    <div class="photo wide">
+      <img src="assets/valentina-03.jpg" alt="Valentina Galaz interpretando flauta">
     </div>
     <div>
-      <div class="photo portrait">
-        <img src="assets/flauta_lateral.jpg" alt="Valentina Galaz">
-      </div>
+      <div class="eyebrow">Universo escénico</div>
+      <h2 class="section-title">Buenos Aires no es fondo. Es organismo.</h2>
+      <p class="lead">Corre, seduce, abandona, persigue y renace. Los músicos son el motor sonoro de esa ciudad. María habita el territorio del deseo. Gastón ocupa la intemperie. Después del derrumbe, ya no hay territorios limpios.</p>
+      <p class="scribble">Rosas. Mesa. Silla. Banco. Sirena. Clavel de otro planeta.</p>
     </div>
   </div>
 </section>
 
-<div class="sep"></div>
-
-<!-- PRENSA -->
-<section class="s-dark">
-  <div class="eyebrow">Circulación y prensa</div>
-  <h2>La voz <em>circula</em></h2>
-  <p>Festivales, radios, giras.<br>Cada escenario fue un sendero distinto.<br>La música encontró su camino.</p>
-  <div class="prensa-links">
-    <a class="prensa-link" href="https://www.observador.cl/valparaiso-celebra-valparatango-2026-en-la-plaza-civica/" target="_blank">Nota Valparatango · observador.cl</a>
-    <a class="prensa-link" href="https://www.youtube.com/watch?v=s0G9W0a7Z1g" target="_blank">Radio Universidad de Chile · Programa Semáforo</a>
-    <a class="prensa-link" href="https://www.youtube.com/watch?v=s0G9W0a7Z1g" target="_blank">Gira Coquimbo 2025</a>
-    <a class="prensa-link" href="https://www.youtube.com/watch?v=pb2yxVqDsCA" target="_blank">Entrevista Radio UTN, 2023</a>
-    <a class="prensa-link" href="https://www.youtube.com/watch?v=iKshS7Y0m_o" target="_blank">Registro Audiovisual · INAMU Argentina, 2023</a>
+<section class="section section-paper">
+  <div class="container">
+    <div class="eyebrow">Dramaturgia</div>
+    <h2 class="section-title">El viaje escénico</h2>
+    <div class="grid-3" style="margin-top:38px">
+      <article class="card"><small>I</small><h3>Declaración</h3><p>María no entra para ser mirada. Entra para nombrarse. Su voz abre la noche.</p></article>
+      <article class="card"><small>II</small><h3>Ciudad y herida</h3><p>Buenos Aires corre hasta que Gastón ve al niño que vende rosas en plena noche.</p></article>
+      <article class="card"><small>III</small><h3>Derrumbe</h3><p>Cuando cae el ángel, cae también la forma que sostenía la escena.</p></article>
+      <article class="card"><small>IV</small><h3>Transformación</h3><p>Gastón escucha otra voz. No viene de la calle. Viene de su propio cuerpo.</p></article>
+      <article class="card"><small>V</small><h3>Nina y la huida</h3><p>María no salva a Nina. La reconoce. La sirena corta el aire.</p></article>
+      <article class="card"><small>VI</small><h3>Renacimiento</h3><p>La ternura se vuelve fuerza. El año 3001 aparece como promesa.</p></article>
+    </div>
   </div>
 </section>
 
-<div class="sep sep-gold"></div>
-
-<!-- CIERRE -->
-<footer class="cierre">
-  <div class="cierre-inner">
-    <div class="cierre-nombre">Piazzollamente</div>
-    <div class="cierre-frase">
-      Dejarse habitar<br>por <em>Piazzolla.</em>
+<section id="programa" class="section section-paper" style="padding-top:0">
+  <div class="container">
+    <div class="eyebrow">Programa escénico</div>
+    <h2 class="section-title">Obras y función dramática</h2>
+    <div class="program">
+      <div class="work"><div class="work-num">01</div><div><h3>Yo soy María</h3><span class="pill">Cantado</span></div><p>Declaración de María como cuerpo, voz, deseo y principio.</p></div>
+      <div class="work"><div class="work-num">02</div><div><h3>Fuga y Misterio</h3><span class="pill">Instrumental</span></div><p>La ciudad se activa: vértigo, ruido, pulso y una tristeza que aparece y desaparece.</p></div>
+      <div class="work"><div class="work-num">03</div><div><h3>Chiquilín de Bachín</h3><span class="pill">Cantado</span></div><p>Gastón descubre la herida: un niño vendiendo rosas en plena noche.</p></div>
+      <div class="work"><div class="work-num">04</div><div><h3>Pájaros perdidos</h3><span class="pill">Cantado</span></div><p>Después de ver, Gastón ya no vuelve entero. Se convierte en pájaro nocturno.</p></div>
+      <div class="work"><div class="work-num">05</div><div><h3>Muerte del Ángel</h3><span class="pill">Instrumental</span></div><p>La escenografía se cae. La mesa, las rosas y las sillas pierden su lugar.</p></div>
+      <div class="work"><div class="work-num">06</div><div><h3>Balada para un loco</h3><span class="pill">Cantado</span></div><p>Gastón acepta la locura como verdad y comienza su transfiguración.</p></div>
+      <div class="work"><div class="work-num">07</div><div><h3>Vamos Nina</h3><span class="pill">Cantado</span></div><p>María y Nina se reconocen desde la vulnerabilidad. Nina corre.</p></div>
+      <div class="work"><div class="work-num">08</div><div><h3>Milonga de la Anunciación</h3><span class="pill">Cantado</span></div><p>La ternura de María se vuelve fuerza creadora.</p></div>
+      <div class="work"><div class="work-num">09</div><div><h3>Preludio para el año 3001</h3><span class="pill">Cantado</span></div><p>Renacimiento y promesa de fundar otra ciudad.</p></div>
+      <div class="work"><div class="work-num">Bis</div><div><h3>Adiós Nonino</h3><span class="pill">Instrumental</span></div><p>Después del futuro, vuelve la memoria.</p></div>
     </div>
-    <div class="contact">
-      <a href="mailto:valen.galaz@gmail.com">valen.galaz@gmail.com</a>
-      <a href="https://instagram.com/piazzollamente" target="_blank">@piazzollamente</a>
+  </div>
+</section>
+
+<section id="videos" class="section">
+  <div class="container">
+    <div class="eyebrow">Fragmentos escénicos</div>
+    <h2 class="section-title">La obra en movimiento</h2>
+    <p class="lead">Videos de trabajo para mostrar pulso, atmósfera, sonido y tensión escénica.</p>
+    <div class="video-grid">
+      <article class="video-card"><video controls preload="metadata" playsinline><source src="assets/fuga-y-misterio.mp4" type="video/mp4"></video><div class="video-body"><h3>Fuga y Misterio</h3><p>La ciudad se activa: velocidad, sombra y ritmo.</p></div></article>
+      <article class="video-card"><video controls preload="metadata" playsinline><source src="assets/chiquilin-de-bachin.mp4" type="video/mp4"></video><div class="video-body"><h3>Chiquilín de Bachín</h3><p>La noche revela la herida que nadie quiere mirar.</p></div></article>
+      <article class="video-card"><video controls preload="metadata" playsinline><source src="assets/muerte-del-angel.mp4" type="video/mp4"></video><div class="video-body"><h3>Muerte del Ángel</h3><p>La escena se rompe. Todo pierde su lugar.</p></div></article>
+      <article class="video-card"><video controls preload="metadata" playsinline><source src="assets/milonga-de-la-anunciacion.mp4" type="video/mp4"></video><div class="video-body"><h3>Milonga de la Anunciación</h3><p>La ternura se vuelve potencia de nacimiento.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-paper">
+  <div class="container grid-2">
+    <div>
+      <div class="eyebrow">Personajes / fuerzas escénicas</div>
+      <h2 class="section-title">No son personajes cerrados. Son fuerzas.</h2>
+      <p class="lead">María es deseo, voz, ternura y renacimiento. Gastón es mirada, herida, locura y transformación. Nina es urgencia, vulnerabilidad y dignidad. Buenos Aires es organismo feroz.</p>
+    </div>
+    <div class="grid-2" style="gap:14px">
+      <div class="photo tall"><img src="assets/marina-02.jpg" alt="Marina León en escena"></div>
+      <div class="photo tall"><img src="assets/cantor.jpg" alt="Gastón Siqueiros en escena"></div>
+    </div>
+  </div>
+</section>
+
+<section id="grupo" class="section feature">
+  <div class="container">
+    <div class="eyebrow">Piazzollamente</div>
+    <h2 class="section-title">Atravesar una ciudad.</h2>
+    <p class="lead">Piazzollamente nace para entrar en la música de Astor Piazzolla no como quien visita un repertorio, sino como quien atraviesa una ciudad.</p>
+    <p class="lead">En su obra hay deseo, ruido, ternura, calle, furia, belleza y herida.</p>
+    <p class="lead"><strong>Piazzolla no ordena la realidad. La desborda.</strong></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">Equipo artístico</div>
+    <h2 class="section-title">Dirección, escena e intérpretes</h2>
+    <div class="cast-grid">
+      <article class="cast"><img src="assets/valentina-01.jpg" alt="Valentina Galaz"><div><strong>Valentina Galaz</strong><span>Dirección artística · Flauta traversa</span></div></article>
+      <article class="cast"><img src="assets/francisca.jpg" alt="Francisca Crisópulos"><div><strong>Francisca Crisópulos</strong><span>Dirección escénica y dramatúrgica</span></div></article>
+      <article class="cast"><img src="assets/marina-02.jpg" alt="Marina León"><div><strong>Marina León</strong><span>María</span></div></article>
+      <article class="cast"><img src="assets/cantor.jpg" alt="Gastón Siqueiros"><div><strong>Gastón Siqueiros</strong><span>Gastón y Nina</span></div></article>
+      <article class="cast"><img src="assets/diego-01.jpg" alt="Diego Castro"><div><strong>Diego Castro</strong><span>Violín</span></div></article>
+      <article class="cast"><img src="assets/rodrigo-01.jpg" alt="Rodrigo Ugarte"><div><strong>Rodrigo Ugarte</strong><span>Contrabajo</span></div></article>
+      <article class="cast"><img src="assets/felipe-01.jpg" alt="Felipe Muñoz"><div><strong>Felipe Muñoz</strong><span>Guitarra</span></div></article>
+      <article class="cast"><img src="assets/piano.jpg" alt="Anahí Torres"><div><strong>Anahí Torres</strong><span>Piano</span></div></article>
+      <article class="cast"><img src="assets/felix-01.jpg" alt="Félix Lecaros"><div><strong>Félix Lecaros</strong><span>Batería</span></div></article>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto" class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="eyebrow">Contacto</div>
+      <h2>Tango para el 3001</h2>
+    </div>
+    <div class="contact-list">
+      <strong>Piazzollamente</strong>
+      <span>Dirección: Valentina Galaz y Francisca Crisópulos</span>
+      <a href="https://www.instagram.com/piazzollamente/" target="_blank" rel="noopener">@piazzollamente</a>
+      <a href="mailto:piazzollamente@gmail.com">piazzollamente@gmail.com</a>
+      <a href="tel:+56981527088">+56 9 8152 7088</a>
     </div>
   </div>
 </footer>
 
 <script>
-(function(){
-  const videos=Array.from(document.querySelectorAll('video'));
-  let active=null;
-  function pause(v){if(!v||v.paused)return;v.pause();v.muted=true}
-  function play(v){
-    if(!v)return;
-    videos.forEach(o=>{if(o!==v)pause(o)});
-    v.muted=true;v.playsInline=true;
-    const p=v.play();
-    if(p)p.catch(()=>{v.muted=true;v.play().catch(()=>{})});
-    active=v;
-  }
-  videos.forEach(v=>{
-    v.muted=true;
-    v.addEventListener('click',()=>{videos.forEach(o=>{if(o!==v)pause(o)});v.muted=false;v.play().catch(()=>{});active=v;});
-    v.addEventListener('play',()=>{videos.forEach(o=>{if(o!==v)pause(o)});active=v;});
-  });
-  function bestVisible(){
-    let best=null,bestR=0;
-    videos.forEach(v=>{
-      const r=v.getBoundingClientRect(),vh=window.innerHeight,vw=window.innerWidth;
-      const visH=Math.max(0,Math.min(r.bottom,vh)-Math.max(r.top,0));
-      const visW=Math.max(0,Math.min(r.right,vw)-Math.max(r.left,0));
-      const ratio=(visH*visW)/Math.max(1,r.width*r.height);
-      if(ratio>bestR){bestR=ratio;best=v}
+document.addEventListener('DOMContentLoaded', function () {
+  const videos = Array.from(document.querySelectorAll('video'));
+  videos.forEach(function (currentVideo) {
+    currentVideo.addEventListener('play', function () {
+      videos.forEach(function (otherVideo) {
+        if (otherVideo !== currentVideo && !otherVideo.paused) otherVideo.pause();
+      });
     });
-    return{best,ratio:bestR};
-  }
-  function update(){
-    const{best,ratio}=bestVisible();
-    if(!best||ratio<0.35){videos.forEach(pause);active=null;return}
-    if(best!==active||best.paused)play(best);
-    videos.forEach(v=>{if(v!==best)pause(v)});
-  }
-  let tick=false;
-  function req(){if(!tick){requestAnimationFrame(()=>{update();tick=false});tick=true}}
-  const obs=new IntersectionObserver(req,{threshold:[0,.25,.5,.75,1]});
-  videos.forEach(v=>{obs.observe(v);v.addEventListener('loadedmetadata',req);v.addEventListener('canplay',req);});
-  window.addEventListener('scroll',req,{passive:true});
-  window.addEventListener('resize',req);
-  window.addEventListener('load',req);
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)videos.forEach(pause);else req();});
-  setTimeout(req,300);setTimeout(req,1200);
-})();
+  });
+});
 </script>
 </body>
 </html>
