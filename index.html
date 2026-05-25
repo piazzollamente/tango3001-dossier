@@ -391,6 +391,248 @@ h1 span{display:block;color:var(--red)}
   .manifiesto-golpe{padding:28px 24px}
 }
 
+/* ── Trayectoria / Shows ── */
+.tray-item{
+  padding:18px 20px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:linear-gradient(180deg,rgba(244,234,220,.05),rgba(244,234,220,.02));
+  display:grid;gap:4px;
+}
+.tray-item strong{color:var(--bone);font-size:14px;line-height:1.3}
+.tray-item span{color:rgba(244,234,220,.45);font-size:12px}
+.tray-year{
+  color:var(--gold) !important;
+  font-size:11px !important;
+  font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+}
+
+/* ── Prensa ── */
+.prensa-card{
+  display:grid;gap:5px;
+  padding:22px 24px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:linear-gradient(180deg,rgba(244,234,220,.05),rgba(244,234,220,.02));
+  position:relative;
+  transition:.2s ease;
+  text-decoration:none;
+}
+.prensa-card:hover{
+  border-color:rgba(196,146,85,.4);
+  background:linear-gradient(180deg,rgba(196,146,85,.07),rgba(196,146,85,.02));
+  transform:translateY(-2px);
+}
+.prensa-medio{
+  color:var(--gold);font-size:10px;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;
+}
+.prensa-card strong{color:var(--bone);font-size:15px;line-height:1.3}
+.prensa-card span{color:rgba(244,234,220,.48);font-size:12px;line-height:1.5}
+.prensa-arrow{
+  position:absolute;top:18px;right:20px;
+  color:var(--gold);font-size:18px;
+  opacity:.5;
+}
+.prensa-card:hover .prensa-arrow{opacity:1}
+
+/* ── Sobre Valentina ── */
+.valentina-grid{
+  display:grid;
+  grid-template-columns:minmax(260px,340px) 1fr;
+  gap:clamp(32px,6vw,88px);
+  align-items:start;
+}
+.valentina-photo{
+  position:sticky;top:88px;
+  border-radius:30px;overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:0 28px 80px rgba(0,0,0,.38);
+}
+.valentina-photo img{aspect-ratio:3/4;object-fit:cover;object-position:center 20%}
+.valentina-bio p{
+  color:rgba(244,234,220,.72);
+  font-size:clamp(16px,1.4vw,19px);
+  line-height:1.82;
+  margin-bottom:18px;
+}
+.valentina-bio p strong{color:var(--gold)}
+.hitos{
+  display:flex;flex-wrap:wrap;gap:10px;
+  margin-top:28px;
+}
+.hito{
+  padding:9px 16px;
+  border:1px solid rgba(196,146,85,.28);
+  border-radius:999px;
+  color:var(--gold);
+  font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  background:rgba(196,146,85,.06);
+}
+
+/* ── Trayectoria ── */
+.trayectoria-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(24px,4vw,56px);
+  margin-top:44px;
+}
+.trayectoria-card{
+  padding:32px;
+  border:1px solid var(--line-dark);
+  border-radius:28px;
+  background:rgba(255,255,255,.38);
+}
+.trayectoria-card h3{
+  font-size:clamp(26px,3vw,38px);
+  line-height:1;
+  margin:12px 0 14px;
+  color:var(--ink);
+}
+.trayectoria-card p{color:var(--soft);font-size:15px;line-height:1.7}
+.trayectoria-card small{
+  color:var(--wine);font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:11px;
+}
+.escenarios{
+  margin-top:18px;
+  display:flex;flex-wrap:wrap;gap:8px;
+}
+.escenario{
+  padding:7px 13px;
+  border:1px solid rgba(116,19,27,.22);
+  border-radius:999px;
+  color:var(--wine);
+  font-size:11px;font-weight:700;letter-spacing:.08em;
+  background:rgba(116,19,27,.06);
+}
+.cta-programadores{
+  margin-top:44px;
+  padding:32px 38px;
+  background:var(--ink);
+  border-radius:28px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  flex-wrap:wrap;
+}
+.cta-programadores p{
+  color:rgba(244,234,220,.8);
+  font-size:clamp(16px,1.6vw,20px);
+  max-width:560px;
+}
+.cta-programadores p strong{color:var(--gold)}
+.cta-programadores .btn{flex-shrink:0}
+
+/* ── Escenas ── */
+.escenas-seq{
+  display:grid;
+  gap:clamp(48px,7vw,100px);
+  margin-top:52px;
+}
+.escena-item{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(28px,5vw,72px);
+  align-items:center;
+}
+.escena-item:nth-child(even){direction:rtl}
+.escena-item:nth-child(even) > *{direction:ltr}
+.escena-img{
+  border-radius:28px;overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:0 24px 72px rgba(0,0,0,.42);
+}
+.escena-img img{aspect-ratio:1/1;object-fit:cover}
+.escena-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(64px,10vw,120px);
+  line-height:1;
+  color:rgba(196,146,85,.18);
+  letter-spacing:-.06em;
+  margin-bottom:-12px;
+}
+.escena-body h3{
+  font-size:clamp(32px,4vw,52px);
+  line-height:.95;
+  margin-bottom:16px;
+}
+.escena-body p{
+  color:rgba(244,234,220,.68);
+  font-size:clamp(15px,1.3vw,18px);
+  line-height:1.76;
+}
+.escena-tag{
+  display:inline-flex;margin-bottom:14px;
+  padding:6px 12px;border-radius:999px;
+  background:rgba(176,20,34,.14);
+  color:var(--red);font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+}
+
+/* ── Ficha técnica ── */
+.ficha-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(20px,4vw,52px);
+  margin-top:44px;
+}
+.ficha-bloque{
+  border:1px solid var(--line-dark);
+  border-radius:28px;
+  overflow:hidden;
+  background:rgba(255,255,255,.4);
+}
+.ficha-bloque-head{
+  padding:18px 24px;
+  background:rgba(116,19,27,.08);
+  border-bottom:1px solid var(--line-dark);
+  font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--wine);
+}
+.ficha-table{width:100%;border-collapse:collapse}
+.ficha-table tr{border-bottom:1px solid rgba(116,19,27,.10)}
+.ficha-table tr:last-child{border-bottom:none}
+.ficha-table td{
+  padding:11px 18px;
+  font-size:13px;
+  color:var(--soft);
+  vertical-align:top;
+  line-height:1.5;
+}
+.ficha-table td:first-child{
+  font-weight:700;color:var(--ink);
+  white-space:nowrap;
+  width:36%;
+}
+.ficha-table td span{
+  display:inline-block;
+  background:rgba(116,19,27,.08);
+  color:var(--wine);
+  border-radius:6px;
+  padding:2px 7px;
+  font-size:11px;font-weight:700;letter-spacing:.06em;
+  margin-right:5px;margin-bottom:3px;
+}
+.rider-download{
+  margin-top:32px;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.rider-download p{color:rgba(244,234,220,.6);font-size:14px}
+.btn-outline-gold{
+  border:1px solid var(--gold);color:var(--gold);
+  padding:14px 24px;
+  display:inline-flex;align-items:center;gap:10px;
+}
+.btn-outline-gold:hover{background:rgba(196,146,85,.1)}
+.btn-outline-gold svg{flex-shrink:0}
+
+@media(max-width:900px){
+  .valentina-grid{grid-template-columns:1fr}
+  .valentina-photo{position:static;max-width:340px}
+  .trayectoria-grid{grid-template-columns:1fr}
+  .escena-item{grid-template-columns:1fr}
+  .escena-item:nth-child(even){direction:ltr}
+  .ficha-grid{grid-template-columns:1fr}
+  .cta-programadores{flex-direction:column;align-items:flex-start}
+}
+
 @media(max-width:900px){
   .nav-links a:not(.btn){display:none}
   .grid-2,.grid-3,.video-grid,.tech,.footer-grid{grid-template-columns:1fr}
@@ -421,6 +663,8 @@ h1 span{display:block;color:var(--red)}
       <a href="#programa">Programa</a>
       <a href="#videos">Videos</a>
       <a href="#grupo">El ensamble</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#tecnico">Info técnica</a>
       <a class="btn btn-red" href="#contacto">Contacto</a>
     </div>
   </div>
@@ -579,7 +823,7 @@ h1 span{display:block;color:var(--red)}
     <div class="eyebrow">Equipo artístico</div>
     <h2 class="section-title">Dirección, escena e intérpretes</h2>
     <div class="cast-grid">
-      <article class="cast"><img src="assets/valentina-01.jpg" alt="Valentina Galaz"><div><strong>Valentina Galaz</strong><span>Dirección artística · Flauta traversa</span></div></article>
+      <article class="cast"><img src="assets/valentina-01.jpg" alt="Valentina Galaz"><div><strong>Valentina Galaz</strong><span>Dirección artística · Flauta traversa</span><span style="display:block;margin-top:6px;font-size:11px;color:rgba(244,234,220,.42);line-height:1.5">Teatro Lucho Gatica · Sala SCD · Sala Master · Festival Valparatango · Fondos Ministerio de las Culturas · INAMU Argentina</span></div></article>
       <article class="cast"><img src="assets/francisca.jpg" alt="Francisca Cristopulos"><div><strong>Francisca Cristopulos</strong><span>Dirección escénica y dramatúrgica</span></div></article>
       <article class="cast"><img src="assets/marina-02.jpg" alt="Marina León"><div><strong>Marina León</strong><span>María</span></div></article>
       <article class="cast"><img src="assets/cantor.jpg" alt="Gastón Siqueiros"><div><strong>Gastón Siqueiros</strong><span>Gastón y Nina</span></div></article>
@@ -592,18 +836,241 @@ h1 span{display:block;color:var(--red)}
   </div>
 </section>
 
+<!-- ══ TRAYECTORIA / PRENSA ══ -->
+<section id="trayectoria" class="section">
+    <h2 class="section-title">En escena desde 2023.</h2>
+    <p class="lead">Chile y Argentina. Teatros, festivales y giras con respaldo institucional.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:44px">
+      <div class="tray-item"><span class="tray-year">2026</span><strong>Valparatango</strong><span>Valparaíso, Chile</span></div>
+      <div class="tray-item"><span class="tray-year">2025</span><strong>Sala Master</strong><span>Santiago, Chile</span></div>
+      <div class="tray-item"><span class="tray-year">2025</span><strong>Gira MINCAP</strong><span>Región de Coquimbo, Chile</span></div>
+      <div class="tray-item"><span class="tray-year">2025</span><strong>El Cachafaz</strong><span>Santiago, Chile</span></div>
+      <div class="tray-item"><span class="tray-year">2025</span><strong>SCD Egaña</strong><span>Santiago, Chile</span></div>
+      <div class="tray-item"><span class="tray-year">2025</span><strong>Mesón Nerudiano</strong><span>Santiago, Chile</span></div>
+      <div class="tray-item"><span class="tray-year">2025</span><strong>Cantares</strong><span>Santiago, Chile</span></div>
+      <div class="tray-item"><span class="tray-year">2024</span><strong>Teatro Lucho Gatica</strong><span>Santiago, Chile</span></div>
+      <div class="tray-item"><span class="tray-year">2024</span><strong>Donde Duerme la Luna</strong><span>Chaminadé, Argentina</span></div>
+      <div class="tray-item"><span class="tray-year">2023</span><strong>Barcala</strong><span>Buenos Aires, Argentina</span></div>
+      <div class="tray-item"><span class="tray-year">2023</span><strong>San Vicente Tango</strong><span>Argentina</span></div>
+      <div class="tray-item"><span class="tray-year">2023</span><strong>Festival Música Clásica</strong><span>Mendoza, Argentina</span></div>
+    </div>
+
+    <div style="margin-top:64px">
+      <div class="eyebrow" style="margin-bottom:28px">Prensa y medios</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px">
+
+        <a href="https://www.observador.cl/valparaiso-celebra-valparatango-2026-en-la-plaza-civica/" target="_blank" rel="noopener" class="prensa-card">
+          <span class="prensa-medio">El Observador</span>
+          <strong>Nota Valparatango 2026</strong>
+          <span>Cobertura del festival internacional · Valparaíso</span>
+          <span class="prensa-arrow">↗</span>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=s0G9W0a7Z1g" target="_blank" rel="noopener" class="prensa-card">
+          <span class="prensa-medio">Radio Universidad de Chile</span>
+          <strong>Entrevista programa Semáforo</strong>
+          <span>Entrevista al proyecto · Radio pública nacional</span>
+          <span class="prensa-arrow">↗</span>
+        </a>
+
+        <a href="https://regiondecoquimbo.cl/2025/07/14/piazzollamente-se-presenta-este-viernes-en-la-serena-dentro-de-una-itinerancia-por-la-region-de-coquimbo/" target="_blank" rel="noopener" class="prensa-card">
+          <span class="prensa-medio">Región de Coquimbo</span>
+          <strong>Nota Gira Coquimbo 2025</strong>
+          <span>Cobertura de la itinerancia financiada por MINCAP</span>
+          <span class="prensa-arrow">↗</span>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=pb2yxVqDsCA" target="_blank" rel="noopener" class="prensa-card">
+          <span class="prensa-medio">Radio UTN · Argentina</span>
+          <strong>Entrevista 2023</strong>
+          <span>Entrevista radial · Buenos Aires</span>
+          <span class="prensa-arrow">↗</span>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=iKshS7Y0m_o" target="_blank" rel="noopener" class="prensa-card">
+          <span class="prensa-medio">INAMU Argentina</span>
+          <strong>Registro audiovisual oficial</strong>
+          <span>Video producido con financiamiento del Instituto Nacional de la Música Argentina</span>
+          <span class="prensa-arrow">↗</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SOBRE VALENTINA ══ -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">Dirección artística</div>
+    <h2 class="section-title">Valentina Galaz</h2>
+    <div class="valentina-grid" style="margin-top:44px">
+      <div class="valentina-photo">
+        <img src="assets/valentina-02.jpg" alt="Valentina Galaz">
+      </div>
+      <div class="valentina-bio">
+        <p>Flautista chilena, directora artística y creadora de proyectos donde la interpretación, la formación y la escena se cruzan con una mirada sensible, contemporánea y profundamente latinoamericana.</p>
+        <p>Desde 2021 dirige artísticamente <strong>Piazzollamente</strong>, agrupación dedicada a explorar la obra de Astor Piazzolla desde una lectura actual, escénica y expresiva. Su trabajo con el proyecto se ha presentado en el Teatro Regional Lucho Gatica, Sala SCD, Sala Master y el Festival Valparatango, con financiamiento del <strong>Ministerio de las Culturas de Chile</strong> e <strong>INAMU Argentina</strong>.</p>
+        <p>Su interés por Piazzolla nace desde una pregunta más profunda: cómo una música puede hablar del desarraigo, la migración, la ciudad, la memoria y la transformación. En su trabajo artístico ha buscado construir programas con sentido narrativo y abrir una forma de escucha donde la música no sea únicamente repertorio, sino experiencia.</p>
+        <p>Licenciada en Flauta Traversa por la Universidad Nacional de Cuyo (Argentina). Ha realizado estudios en la UNESP de Brasil, cursado la Cátedra Libre Astor Piazzolla en IUPA, y actualmente desarrolla una Maestría en Música Latinoamericana y una Diplomatura en Tango en la Universidad Nacional de San Martín.</p>
+        <p>Ha participado en estrenos, festivales y colaboraciones internacionales en <strong>Chile, Argentina, Paraguay, Brasil y Estados Unidos</strong>, incluyendo el Festival FEMUSC en Brasil y el Festival Darwin Vargas en Chile.</p>
+        <div class="hitos">
+          <span class="hito">Teatro Regional Lucho Gatica</span>
+          <span class="hito">Sala SCD</span>
+          <span class="hito">Sala Master</span>
+          <span class="hito">Festival Valparatango</span>
+          <span class="hito">Ministerio de las Culturas</span>
+          <span class="hito">INAMU Argentina</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SOBRE PIAZZOLLAMENTE ══ -->
+<section class="section section-paper">
+  <div class="container">
+    <div class="eyebrow">Trayectoria del proyecto</div>
+    <h2 class="section-title">Piazzollamente en escena</h2>
+    <div class="trayectoria-grid">
+      <article class="trayectoria-card">
+        <small>Historia</small>
+        <h3>Desde 2021</h3>
+        <p>Piazzollamente nació para entrar en la música de Astor Piazzolla no como quien visita un repertorio, sino como quien atraviesa una ciudad. Desde su creación ha construido una trayectoria sostenida en escenarios y festivales de Chile.</p>
+        <div class="escenarios">
+          <span class="escenario">Teatro Regional Lucho Gatica</span>
+          <span class="escenario">Sala SCD</span>
+          <span class="escenario">Sala Master</span>
+          <span class="escenario">Festival Valparatango</span>
+        </div>
+      </article>
+      <article class="trayectoria-card">
+        <small>Respaldo institucional</small>
+        <h3>Apoyo público</h3>
+        <p>El proyecto cuenta con financiamiento de circulación nacional del Ministerio de las Culturas de Chile y apoyo de INAMU Argentina, lo que avala su calidad artística y su viabilidad para presentarse en distintos contextos y geografías.</p>
+        <div class="escenarios">
+          <span class="escenario">Ministerio de las Culturas · Chile</span>
+          <span class="escenario">INAMU · Argentina</span>
+        </div>
+      </article>
+    </div>
+    <div class="cta-programadores">
+      <p><strong>¿Quieres programar Tango para el 3001?</strong><br>El espectáculo está disponible para gira y contratación en teatros y festivales. Escríbenos para coordinar una presentación.</p>
+      <a class="btn btn-red" href="#contacto">Escribir al equipo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ESCENAS / ESPACIALIDAD ══ -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">Diseño escénico</div>
+    <h2 class="section-title">El espacio como dramaturgia.</h2>
+    <p class="lead">La escena no es decorado. Es territorio. Cada zona tiene una lógica emocional: lo que ocurre en el piso ocurre en el cuerpo. Lo que ocurre en la plataforma ocurre en la ciudad.</p>
+    <div class="escenas-seq">
+
+      <div class="escena-item">
+        <div class="escena-img">
+          <img src="assets/escena-maria.jpeg" alt="Escena principal: territorio de María">
+        </div>
+        <div class="escena-body">
+          <div class="escena-num">I</div>
+          <span class="escena-tag">Escena principal</span>
+          <h3>El territorio de María</h3>
+          <p>A la izquierda del escenario: mesa, silla, rosas y lámpara colgante. María habita ese espacio como dueña de su deseo. Al fondo, los músicos en plataforma elevada — el motor sonoro de la ciudad. El piso es el espacio dramático donde todo puede ocurrir.</p>
+        </div>
+      </div>
+
+      <div class="escena-item">
+        <div class="escena-img">
+          <img src="assets/escena-encuentro.jpeg" alt="Escena del encuentro: dos territorios en tensión">
+        </div>
+        <div class="escena-body">
+          <div class="escena-num">II</div>
+          <span class="escena-tag">Tensión y encuentro</span>
+          <h3>Dos territorios en tensión</h3>
+          <p>Gastón ocupa la intemperie del piso. Su cuerpo frente a las brasas, a la derecha. María en su espacio, a la izquierda. Dos focos de luz simultáneos que nunca se mezclan del todo. La distancia entre ellos es la obra.</p>
+        </div>
+      </div>
+
+      <div class="escena-item">
+        <div class="escena-img">
+          <img src="assets/escena-derrumbe.jpeg" alt="Escena del derrumbe: todo cae">
+        </div>
+        <div class="escena-body">
+          <div class="escena-num">III</div>
+          <span class="escena-tag">El derrumbe</span>
+          <h3>La escena se rompe</h3>
+          <p>La silla volcada, el banco roto, las rosas esparcidas. Los objetos que sostenían el orden pierden su lugar. Los músicos permanecen en la plataforma. El piso queda como campo de ruinas desde donde nace el año 3001.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FICHA TÉCNICA ══ -->
+<section id="tecnico" class="section section-paper">
+  <div class="container">
+    <div class="eyebrow">Para programadores</div>
+    <h2 class="section-title">Información técnica</h2>
+    <p class="lead">Todo lo necesario para evaluar y coordinar la presentación del espectáculo en tu sala.</p>
+
+    <div class="ficha-grid">
+
+      <div class="ficha-bloque">
+        <div class="ficha-bloque-head">Ficha general</div>
+        <table class="ficha-table">
+          <tr><td>Duración</td><td>60 minutos · sin intermedio</td></tr>
+          <tr><td>Actores en escena</td><td>2 (cantantes-actores)</td></tr>
+          <tr><td>Músicos en escena</td><td>7 intérpretes</td></tr>
+          <tr><td>Total en escena</td><td>9 personas</td></tr>
+          <tr><td>Tipo de espacio</td><td>Teatro a la italiana o sala con escenario frontal y platea disponible</td></tr>
+          <tr><td>Escenografía</td><td>Plataforma para músicos · mesa · silla · banco · lámpara colgante · rosas</td></tr>
+          <tr><td>Público</td><td>Adulto contemporáneo · jóvenes · festivales de tango y música de cámara</td></tr>
+        </table>
+      </div>
+
+      <div class="ficha-bloque">
+        <div class="ficha-bloque-head">Requerimientos de audio</div>
+        <table class="ficha-table">
+          <tr><td>Canales</td><td>22 canales (rider adjunto)</td></tr>
+          <tr><td>Percusión</td><td><span>10 ch</span> Bombo in/out, caja, bordona, HiHat, Tom×2, Timbal, Overhead L/R</td></tr>
+          <tr><td>Cuerdas / teclas</td><td><span>6 ch</span> Contrabajo×2, Piano×2, Guitarra, Violín</td></tr>
+          <tr><td>Viento</td><td><span>2 ch</span> Flauta (mic propio), Voz flauta</td></tr>
+          <tr><td>Voces</td><td><span>2 ch</span> Cantante 1 y 2 · inalámbrico</td></tr>
+          <tr><td>Ambiente</td><td><span>2 ch</span> Sennheiser MKE 600 Shotgun L/R</td></tr>
+          <tr><td>Monitores</td><td>7 mezclas · 6 piso + 1 IEM (flautista)</td></tr>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="rider-download">
+      <p>Rider técnico completo disponible para descarga</p>
+      <a class="btn btn-outline-gold" href="assets/Rider_Técnico_Piazzollamente.docx" download>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Descargar rider técnico
+      </a>
+    </div>
+
+  </div>
+</section>
+
 <footer id="contacto" class="footer">
   <div class="container footer-grid">
     <div>
       <div class="eyebrow">Contacto</div>
       <h2>Tango para el 3001</h2>
+      <p style="margin-top:18px;color:rgba(244,234,220,.58);font-size:15px;line-height:1.7;max-width:420px">¿Quieres programar este espectáculo en tu teatro o festival? Escríbenos para coordinar una presentación, solicitar el rider técnico completo o agendar una conversación con el equipo artístico.</p>
     </div>
     <div class="contact-list">
       <strong>Piazzollamente</strong>
-      <span>Dirección: Valentina Galaz y Francisca Cristopulos</span>
-      <a href="https://www.instagram.com/piazzollamente/" target="_blank" rel="noopener">@piazzollamente</a>
-      <a href="mailto:piazzollamente@gmail.com">piazzollamente@gmail.com</a>
-      <a href="tel:+56981527088">+56 9 8152 7088</a>
+      <span style="color:rgba(244,234,220,.45);font-size:13px">Dirección: Valentina Galaz y Francisca Cristopulos</span>
+      <a href="mailto:piazzollamente@gmail.com" style="font-size:15px">piazzollamente@gmail.com</a>
+      <a href="tel:+56981527088" style="font-size:15px">+56 9 8152 7088</a>
+      <a href="https://www.instagram.com/piazzollamente/" target="_blank" rel="noopener" style="font-size:13px;color:rgba(196,146,85,.7)">@piazzollamente</a>
     </div>
   </div>
 </footer>
