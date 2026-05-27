@@ -700,7 +700,65 @@ h1 span{display:block;color:var(--red)}
 }
 
 @media(max-width:900px){
-  .nav-links a:not(.btn){display:none}
+
+  .mobile-menu-toggle{display:inline-flex}
+  .nav-inner{min-height:64px}
+  .nav-links{
+    position:absolute;
+    top:64px;
+    left:17px;
+    right:17px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+    padding:10px;
+    border:1px solid var(--line);
+    border-radius:22px;
+    background:rgba(7,6,6,.96);
+    backdrop-filter:blur(18px);
+    box-shadow:0 22px 70px rgba(0,0,0,.38);
+    opacity:0;
+    transform:translateY(-8px);
+    pointer-events:none;
+    transition:.2s ease;
+  }
+  .nav.mobile-open .nav-links{
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+  }
+  .nav-links a:not(.btn),
+  .nav-links .btn{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    padding:14px 14px;
+    border-radius:14px;
+    color:rgba(244,234,220,.82);
+    border:0;
+    background:transparent;
+  }
+  .nav-links a:not(.btn):after,
+  .nav-links .btn:after{
+    content:"↓";
+    color:var(--gold);
+    font-size:12px;
+    opacity:.75;
+  }
+  .nav-links a:hover,
+  .nav-links .btn:hover{
+    background:rgba(196,146,85,.08);
+    color:var(--bone);
+    transform:none;
+  }
+  .nav-links .btn-red{
+    margin-top:4px;
+    background:rgba(176,20,34,.16);
+    border:1px solid rgba(176,20,34,.32);
+    color:var(--bone);
+  }
+
   .grid-2,.grid-3,.video-grid,.tech,.footer-grid{grid-template-columns:1fr}
   .work{grid-template-columns:1fr;gap:8px}
   .cast-grid{grid-template-columns:repeat(2,1fr)}
@@ -724,6 +782,9 @@ h1 span{display:block;color:var(--red)}
 <nav class="nav">
   <div class="nav-inner">
     <a class="logo" href="#">Piazzollamente</a>
+    <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      Menú <span><i></i></span>
+    </button>
     <div class="nav-links">
       <a href="#sinopsis">Sinopsis</a>
       <a href="#programa">Programa</a>
@@ -1151,6 +1212,36 @@ h1 span{display:block;color:var(--red)}
     </div>
   </div>
 </footer>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const nav = document.querySelector('.nav');
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  const links = document.querySelectorAll('.nav-links a');
+
+  if (nav && toggle) {
+    toggle.addEventListener('click', function () {
+      const isOpen = nav.classList.toggle('mobile-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    links.forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('mobile-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!nav.contains(event.target)) {
+        nav.classList.remove('mobile-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+});
+</script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
