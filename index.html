@@ -623,7 +623,73 @@ h1 span{display:block;color:var(--red)}
 .btn-outline-gold:hover{background:rgba(196,146,85,.1)}
 .btn-outline-gold svg{flex-shrink:0}
 
+
+/* ── Trayectoria narrativa / Piazzollamente ── */
+.trayectoria-narrativa{
+  overflow:hidden;
+}
+.trayectoria-lead{
+  max-width:820px;
+  margin-top:24px;
+  color:var(--soft);
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(24px,3vw,42px);
+  line-height:1.16;
+  font-style:italic;
+  letter-spacing:-.025em;
+}
+.trayectoria-relato{
+  margin-top:46px;
+  max-width:880px;
+  margin-left:auto;
+  display:grid;
+  gap:22px;
+}
+.trayectoria-relato p{
+  color:var(--soft);
+  font-size:clamp(16px,1.35vw,19px);
+  line-height:1.86;
+}
+.trayectoria-relato strong{
+  color:var(--wine);
+  font-weight:800;
+}
+.trayectoria-cierre{
+  margin-top:56px;
+  padding:36px 42px;
+  background:var(--ink);
+  color:var(--bone);
+  border-left:6px solid var(--red);
+  border-radius:0 28px 28px 0;
+  max-width:820px;
+  margin-left:auto;
+  box-shadow:0 22px 58px rgba(33,27,27,.18);
+}
+.trayectoria-cierre p{
+  font-family:'Cormorant Garamond',serif;
+  color:var(--bone);
+  font-size:clamp(30px,4.4vw,62px);
+  line-height:.98;
+  letter-spacing:-.045em;
+  margin:0;
+}
+.trayectoria-cierre p:nth-child(2){
+  color:var(--red);
+  font-style:italic;
+  margin-top:8px;
+}
+.trayectoria-cierre p:nth-child(3){
+  font-size:clamp(21px,2.4vw,34px);
+  line-height:1.18;
+  color:rgba(244,234,220,.72);
+  margin-top:22px;
+  max-width:650px;
+}
+
 @media(max-width:900px){
+
+  .trayectoria-relato{margin-left:0}
+  .trayectoria-cierre{margin-left:0;padding:30px 26px}
   .valentina-grid{grid-template-columns:1fr}
   .valentina-photo{position:static;max-width:340px}
   .trayectoria-grid{grid-template-columns:1fr}
@@ -929,32 +995,43 @@ h1 span{display:block;color:var(--red)}
 </section>
 
 <!-- ══ SOBRE PIAZZOLLAMENTE ══ -->
-<section class="section section-paper">
+<section class="section section-paper trayectoria-narrativa">
   <div class="container">
     <div class="eyebrow">Trayectoria del proyecto</div>
-    <h2 class="section-title">Piazzollamente en escena</h2>
-    <div class="trayectoria-grid">
-      <article class="trayectoria-card">
-        <small>Historia</small>
-        <h3>Desde 2021</h3>
-        <p>Piazzollamente nació para entrar en la música de Astor Piazzolla no como quien visita un repertorio, sino como quien atraviesa una ciudad. Desde su creación ha construido una trayectoria sostenida en escenarios y festivales de Chile.</p>
-        <div class="escenarios">
-          <span class="escenario">Teatro Regional Lucho Gatica</span>
-          <span class="escenario">Sala SCD</span>
-          <span class="escenario">Sala Master</span>
-          <span class="escenario">Festival Valparatango</span>
-        </div>
-      </article>
-      <article class="trayectoria-card">
-        <small>Respaldo institucional</small>
-        <h3>Apoyo público</h3>
-        <p>El proyecto cuenta con financiamiento de circulación nacional del Ministerio de las Culturas de Chile y apoyo de INAMU Argentina, lo que avala su calidad artística y su viabilidad para presentarse en distintos contextos y geografías.</p>
-        <div class="escenarios">
-          <span class="escenario">Ministerio de las Culturas · Chile</span>
-          <span class="escenario">INAMU · Argentina</span>
-        </div>
-      </article>
+    <h2 class="section-title">Una música que no envejece.</h2>
+
+    <p class="trayectoria-lead">
+      Piazzollamente ha construido su camino desde una convicción: la música de Astor Piazzolla no envejece. Su obra sigue latiendo porque habla de aquello que atraviesa todos los tiempos: la herida, el deseo, la furia, la ternura, la noche, la ciudad y la necesidad de volver a empezar.
+    </p>
+
+    <div class="trayectoria-relato">
+<p>
+        Bajo la dirección artística de <strong>Valentina Galaz</strong>, el ensamble ha desarrollado un trabajo sostenido de interpretación, circulación y construcción escénica, llevando la música del gran Astor Piazzolla a salas, teatros, festivales y espacios culturales de Chile y Argentina.
+      </p>
+
+      <p>
+        Desde sus primeras presentaciones en Argentina durante 2023, en espacios como el <strong>Festival Música Clásica por los Caminos del Vino</strong>, <strong>La Camorra</strong>, <strong>El Botellón</strong>, <strong>San Vicente Tango</strong> y <strong>Campus Barcala</strong>, Piazzollamente comenzó a levantar una identidad propia: una forma de interpretar esta música desde el rigor, la intensidad y la conciencia de estar frente a una obra atemporal.
+      </p>
+
+      <p>
+        Durante 2024, el ensamble continuó expandiendo su recorrido con presentaciones en <strong>Donde Duerme la Luna</strong>, en Mendoza, y en el <strong>Teatro Lucho Gatica</strong>, en Chile. En 2025, consolidó una presencia activa en la escena nacional con conciertos en <strong>Cantares</strong>, <strong>El Cachafaz</strong>, <strong>Mesón Nerudiano</strong>, <strong>SCD Egaña</strong>, además de la <strong>Gira MINCAP Puentes, caminos y encuentros</strong>, realizada durante julio.
+      </p>
+
+      <p>
+        Ese mismo año, Piazzollamente se atrevió a pensar su trabajo con mayor magnitud escénica y poética a través de <strong>Tango para el 3001</strong>, una experiencia donde la música, la voz, la dramaturgia visual, el cuerpo y la ciudad dialogan dentro de un mismo pulso.
+      </p>
+
+      <p>
+        La proyección hacia <strong>Valparatango 2026</strong> confirma la continuidad de un trabajo que no se detiene. Piazzollamente ha crecido desde la autogestión, la insistencia, el oficio y una visión artística clara: interpretar a Piazzolla no como monumento, sino como materia viva.
+      </p>
     </div>
+
+    <div class="trayectoria-cierre">
+      <p>Porque Piazzolla no ordena la realidad.</p>
+      <p>La desborda.</p>
+      <p>Y Piazzollamente ha hecho de ese desborde una forma de lenguaje, trabajo y permanencia.</p>
+    </div>
+
     <div class="cta-programadores">
       <p><strong>¿Quieres programar Tango para el 3001?</strong><br>El espectáculo está disponible para gira y contratación en teatros y festivales. Escríbenos para coordinar una presentación.</p>
       <a class="btn btn-red" href="#contacto">Escribir al equipo</a>
@@ -1049,7 +1126,7 @@ h1 span{display:block;color:var(--red)}
 
     <div class="rider-download">
       <p>Rider técnico completo disponible para descarga</p>
-      <a class="btn btn-outline-gold" href="assets/Rider_Técnico_Piazzollamente.pdf" download>
+      <a class="btn btn-outline-gold" href="assets/Rider_Técnico_Piazzollamente.docx" download>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Descargar rider técnico
       </a>
