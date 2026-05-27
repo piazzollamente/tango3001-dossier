@@ -699,6 +699,71 @@ h1 span{display:block;color:var(--red)}
   .cta-programadores{flex-direction:column;align-items:flex-start}
 }
 
+
+/* ── Botón móvil escénico ── */
+.mobile-menu-toggle{
+  display:none;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:11px 16px 11px 18px;
+  border-radius:999px;
+  border:1px solid rgba(196,146,85,.45);
+  background:
+    linear-gradient(135deg, rgba(116,19,27,.42), rgba(7,6,6,.92) 45%, rgba(196,146,85,.16));
+  color:var(--bone);
+  box-shadow:
+    0 0 0 1px rgba(244,234,220,.04) inset,
+    0 10px 28px rgba(0,0,0,.32),
+    0 0 24px rgba(196,146,85,.12);
+  cursor:pointer;
+  transition:.22s ease;
+}
+.mobile-menu-toggle:hover{
+  transform:translateY(-1px);
+  border-color:rgba(196,146,85,.72);
+  box-shadow:
+    0 0 0 1px rgba(244,234,220,.06) inset,
+    0 14px 34px rgba(0,0,0,.38),
+    0 0 30px rgba(196,146,85,.18);
+}
+.menu-label{
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(244,234,220,.92);
+  white-space:nowrap;
+}
+.menu-mark{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(196,146,85,.12);
+  border:1px solid rgba(196,146,85,.32);
+  position:relative;
+  flex:none;
+}
+.menu-mark:before,
+.menu-mark:after,
+.menu-mark i{
+  content:"";
+  position:absolute;
+  width:13px;
+  height:1px;
+  background:var(--gold);
+  transition:.2s ease;
+}
+.menu-mark:before{transform:translateY(-5px)}
+.menu-mark i{transform:translateY(0)}
+.menu-mark:after{transform:translateY(5px)}
+.nav.mobile-open .menu-mark:before{transform:rotate(45deg)}
+.nav.mobile-open .menu-mark i{opacity:0}
+.nav.mobile-open .menu-mark:after{transform:rotate(-45deg)}
+
 @media(max-width:900px){
 
   .mobile-menu-toggle{display:inline-flex}
@@ -783,7 +848,8 @@ h1 span{display:block;color:var(--red)}
   <div class="nav-inner">
     <a class="logo" href="#">Piazzollamente</a>
     <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-      Menú <span><i></i></span>
+      <span class="menu-label">Explorar dossier</span>
+      <span class="menu-mark"><i></i></span>
     </button>
     <div class="nav-links">
       <a href="#sinopsis">Sinopsis</a>
