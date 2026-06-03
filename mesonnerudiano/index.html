@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Piazzolla íntimo · Mesón Nerudiano</title>
+  <title>Las 4 Estaciones · Mesón Nerudiano</title>
   <!-- Favicon Piazzollamente -->
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -686,7 +686,229 @@
       .btn-ticket-portal .portal-logo-img { height: 20px; }
     }
 
+  
+    /* ── COUNTDOWN ── */
+    .countdown-wrap {
+      margin: 28px auto 0;
+      width: min(680px, calc(100% - 32px));
+      text-align: center;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.86s forwards;
+    }
+    .countdown-kicker {
+      margin: 0 0 12px;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(232, 200, 142, 0.92);
+      font-weight: 700;
+    }
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .countdown-box {
+      border: 1px solid rgba(232, 200, 142, 0.32);
+      background: rgba(12, 8, 6, 0.64);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(10px);
+      padding: 14px 10px 12px;
+      border-radius: 14px;
+    }
+    .countdown-number {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 5vw, 44px);
+      line-height: 1;
+      color: #fff7e8;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.55);
+    }
+    .countdown-label {
+      display: block;
+      margin-top: 7px;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 247, 232, 0.72);
+      font-weight: 700;
+    }
+    .countdown-expired {
+      border: 1px solid rgba(232, 200, 142, 0.35);
+      background: rgba(232, 200, 142, 0.10);
+      color: #fff7e8;
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── BREVO EMBED / PIAZZOLLAMENTE SKIN ── */
+    .brevo-reserva-section { max-width: 720px; }
+    .brevo-note {
+      max-width: 620px;
+      margin: -22px auto 32px;
+      text-align: center;
+      color: rgba(255,247,237,0.78);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+    .brevo-embed .sib-form { background: transparent !important; padding: 0 !important; }
+    .brevo-embed #sib-form-container { background: transparent !important; }
+    .brevo-embed #sib-container {
+      max-width: 640px !important;
+      background: rgba(21, 16, 13, 0.96) !important;
+      border: 1px solid rgba(232,201,138,0.38) !important;
+      border-radius: 22px !important;
+      padding: 30px !important;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.28) !important;
+      color: #fff7ed !important;
+    }
+    .brevo-embed .sib-form-block,
+    .brevo-embed .sib-text-form-block,
+    .brevo-embed .sib-text-form-block p,
+    .brevo-embed .sib-form-block p {
+      background: transparent !important;
+      color: #fff7ed !important;
+      font-family: 'Montserrat', Arial, sans-serif !important;
+    }
+    .brevo-embed .sib-form-block p {
+      line-height: 1.75 !important;
+    }
+    .brevo-embed #sib-container form > div:first-child .sib-form-block p {
+      font-family: 'Cormorant Garamond', Georgia, serif !important;
+      font-weight: 300 !important;
+      font-style: italic !important;
+      font-size: clamp(30px, 5vw, 42px) !important;
+      text-align: center !important;
+      margin: 0 !important;
+      color: #fff7ed !important;
+    }
+    .brevo-embed #sib-container form > div:nth-child(2) .sib-form-block p {
+      text-align: center !important;
+      color: rgba(255,247,237,0.78) !important;
+      font-size: 14px !important;
+      line-height: 1.8 !important;
+      margin-bottom: 10px !important;
+    }
+    .brevo-embed .entry__label {
+      font-family: 'Montserrat', Arial, sans-serif !important;
+      color: #e8c98a !important;
+      letter-spacing: 0.18em !important;
+      text-transform: uppercase !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+    }
+    .brevo-embed .entry__field {
+      background: transparent !important;
+      border: none !important;
+    }
+    .brevo-embed .entry__field input {
+      width: 100% !important;
+      background: rgba(34,25,19,0.92) !important;
+      border: 1px solid rgba(232,201,138,0.46) !important;
+      border-radius: 8px !important;
+      color: #fff7ed !important;
+      font-family: 'Montserrat', Arial, sans-serif !important;
+      font-size: 15px !important;
+      padding: 16px 18px !important;
+    }
+    .brevo-embed .entry__field input::placeholder { color: rgba(255,247,237,0.46) !important; }
+    .brevo-embed .entry__specification {
+      color: rgba(255,247,237,0.58) !important;
+      font-family: 'Montserrat', Arial, sans-serif !important;
+      font-size: 12px !important;
+      line-height: 1.55 !important;
+    }
+    .brevo-embed .sib-form-block__button {
+      width: 100% !important;
+      justify-content: center !important;
+      text-align: center !important;
+      padding: 17px 24px !important;
+      border-radius: 0 !important;
+      background: #b5352a !important;
+      color: #fff7ed !important;
+      font-family: 'Montserrat', Arial, sans-serif !important;
+      font-size: 12px !important;
+      letter-spacing: 0.22em !important;
+      text-transform: uppercase !important;
+      box-shadow: 0 14px 30px rgba(181,53,42,0.20) !important;
+    }
+    .brevo-embed .sib-form-message-panel {
+      max-width: 640px !important;
+      margin: 0 auto 18px !important;
+      border-radius: 12px !important;
+      font-family: 'Montserrat', Arial, sans-serif !important;
+    }
+    @media (max-width: 560px) {
+      .countdown-wrap { margin-top: 22px; width: min(100%, calc(100% - 28px)); }
+      .countdown-grid { gap: 8px; }
+      .countdown-box { padding: 12px 6px 10px; border-radius: 12px; }
+      .countdown-number { font-size: 28px; }
+      .countdown-label { font-size: 8px; letter-spacing: 0.12em; }
+      .brevo-embed #sib-container { padding: 22px 18px !important; border-radius: 18px !important; }
+    }
+
   </style>
+
+<!-- Brevo form styles -->
+<style>
+  @font-face {
+    font-display: block;
+    font-family: Roboto;
+    src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
+  }
+
+  @font-face {
+    font-display: fallback;
+    font-family: Roboto;
+    font-weight: 600;
+    src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
+  }
+
+  @font-face {
+    font-display: fallback;
+    font-family: Roboto;
+    font-weight: 700;
+    src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
+  }
+
+  :where(.sib-form-message-panel) {
+    display: none;
+  }
+
+  :where(.sib-form-message-panel .sib-notification__icon) {
+    width: 20px;
+    height: 20px;
+  }
+
+
+  #sib-container input:-ms-input-placeholder {
+    font-family: Helvetica, sans-serif;
+    text-align: left;
+    color: #c0ccda;
+  }
+
+  #sib-container input::placeholder {
+    font-family: Helvetica, sans-serif;
+    text-align: left;
+    color: #c0ccda;
+  }
+
+  #sib-container textarea::placeholder {
+    font-family: Helvetica, sans-serif;
+    text-align: left;
+    color: #c0ccda;
+  }
+
+
+  #sib-container a {
+    text-decoration: underline;
+    color: #2BB2FC;
+  }
+</style>
+<link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 </head>
 <body>
 
@@ -697,7 +919,7 @@
   <p class="presenter">Piazzollamente <span>·</span> Presenta</p>
   <div class="divider-line"></div>
   <div class="event-meta">
-    <div class="meta-primary">Sábado 15 de Agosto &nbsp;·&nbsp; 20:00 hs</div>
+    <div class="meta-primary">Sábado 15 de Agosto &nbsp;·&nbsp; Puertas 20:00 · Show 20:45</div>
     <div class="meta-secondary">Mesón Nerudiano · Santiago</div>
   </div>
   <div class="hero-cta">
@@ -705,6 +927,28 @@
       <img src="portal-logo-cropped.png" alt="PortalTickets" class="portal-logo-img">
       <span class="portal-action">Comprar entradas</span>
     </a>
+  </div>
+
+  <div class="countdown-wrap" aria-label="Cuenta regresiva para el concierto">
+    <p class="countdown-kicker">Cuenta regresiva para Las 4 Estaciones</p>
+    <div class="countdown-grid" id="countdown">
+      <div class="countdown-box">
+        <span class="countdown-number" id="countDays">00</span>
+        <span class="countdown-label">Días</span>
+      </div>
+      <div class="countdown-box">
+        <span class="countdown-number" id="countHours">00</span>
+        <span class="countdown-label">Horas</span>
+      </div>
+      <div class="countdown-box">
+        <span class="countdown-number" id="countMinutes">00</span>
+        <span class="countdown-label">Min</span>
+      </div>
+      <div class="countdown-box">
+        <span class="countdown-number" id="countSeconds">00</span>
+        <span class="countdown-label">Seg</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -731,14 +975,14 @@
       </div>
 
       <div class="mf-title">
-        <div class="mf-t1">Estaciones</div>
-        <div class="mf-t2">Porteñas</div>
+        <div class="mf-t1">Las 4</div>
+        <div class="mf-t2">Estaciones</div>
       </div>
       <div class="mf-divider"></div>
 
       <div class="mf-info">
         <div class="mf-info-line"></div>
-        <div class="mf-date">Sábado 15 de Agosto &nbsp;·&nbsp; 20:00 hs</div>
+        <div class="mf-date">Sábado 15 de Agosto &nbsp;·&nbsp; Puertas 20:00 · Show 20:45</div>
         <div class="mf-venue">Mesón Nerudiano · Santiago</div>
         <div class="mf-tickets">
           <span class="mf-tlabel">Entradas disponibles</span>
@@ -754,7 +998,7 @@
 
     <!-- TEXTO -->
     <div class="about-text">
-      <p class="section-label">Piazzolla íntimo</p>
+      <p class="section-label">Las 4 Estaciones</p>
       <h2 class="about-title">Una noche en el Mesón Nerudiano</h2>
       <p class="about-body">
         Un concierto de Piazzollamente para recorrer Buenos Aires a través de la música de Astor Piazzolla: sus luces, su pulso nocturno, sus estaciones y su melancolía.
@@ -777,7 +1021,7 @@
   <div class="ticket-card">
     <div class="ticket-info">
       <p class="ticket-type">Derecho a espectáculo</p>
-      <h2 class="ticket-name">Piazzolla íntimo</h2>
+      <h2 class="ticket-name">Las 4 Estaciones</h2>
     </div>
     <div class="ticket-price-block">
       <div>
@@ -794,88 +1038,250 @@
   <div class="tear-separator"></div>
   <div class="ticket-card" style="border-top:none;">
     <div class="ticket-footer">
-      <span class="ticket-footer-info">Sáb 15 Ago · 20:00 hs</span>
+      <span class="ticket-footer-info">Sáb 15 Ago · Show 20:45</span>
       <span class="ticket-footer-info">Mesón Nerudiano</span>
       <span class="ticket-footer-info ticket-footer-brand">Piazzollamente</span>
     </div>
   </div>
 </section>
 
-<!-- FORM -->
-<section class="form-section" id="reserva">
-  <h3 class="form-title">Reserva tu lugar</h3>
-  <p class="form-sub">Transferencia directa · sin comisión</p>
-  <div class="form-stack">
-    <div class="field">
-      <label>Nombre completo</label>
-      <input type="text" id="nombre" placeholder="Tu nombre"/>
-    </div>
-    <div class="field">
-      <label>Correo electrónico</label>
-      <input type="email" id="email" placeholder="tucorreo@ejemplo.com"/>
-    </div>
-    <div class="field">
-      <label>Cantidad de entradas</label>
-      <div class="qty-field">
-        <button class="qty-btn" onclick="changeQty(-1)">−</button>
-        <div class="qty-display" id="qtyDisplay">1</div>
-        <button class="qty-btn" onclick="changeQty(1)">+</button>
+
+<!-- FORM BREVO -->
+<section class="form-section brevo-reserva-section" id="reserva">
+  <h3 class="form-title">Reserva por transferencia</h3>
+  <p class="form-sub">Sin comisión de servicio</p>
+  <p class="brevo-note">
+    Completa tus datos y recibirás automáticamente la información para realizar la transferencia bancaria. Tu lugar quedará confirmado una vez enviado y revisado el comprobante.
+  </p>
+  <div class="brevo-embed">
+<div class="sib-form" style="text-align: center;
+         background-color: transparent; 
+        
+        
+        
+        ">
+  <div id="sib-form-container" class="sib-form-container">
+    <div id="error-message" class="sib-form-message-panel" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;
+        max-width:540px;">
+      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+        <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+          <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
+        </svg>
+        <span class="sib-form-message-panel__inner-text">
+
+
+                No pudimos validar tu reserva. Revisa los datos e inténtalo nuevamente.
+              
+            
+          </span>
       </div>
     </div>
-    <div class="total-bar">
-      <span class="total-label">Total</span>
-      <span class="total-amount" id="totalAmount">$10.000</span>
+    <div></div>
+    <div id="success-message" class="sib-form-message-panel" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#085229; background-color:#e7faf0; border-color:#13ce66; border-radius:3px;
+        max-width:540px;">
+      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+        <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+          <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
+        </svg>
+        <span class="sib-form-message-panel__inner-text">
+
+
+                Reserva recibida. Revisa tu correo para confirmar por transferencia.
+             
+            
+          </span>
+      </div>
+    </div>
+    <div></div>
+    <div id="sib-container" class="sib-container--large sib-container--vertical" style="max-width:540px; text-align:center; background-color:rgba(255,255,255,1); border-width:1px; border-style:solid; border-color:#C0CCD9; border-radius:3px; direction:ltr">
+      <form id="sib-form" method="POST" action="https://f318c7a6.sibforms.com/serve/MUIFAEMM0wcUQpqes_bNe47IFCY4zMHKG67qOoyGjeoCoL-w2NrA9GZKlnNSdB-vwGHiKAHqu7DvoqsOR4XWWY4qCJfolsui9sU2_sEYyFrZc-79YVATQ78aNtt0iJaEDtIYUAX8-t7JKztnWAEvE3YLdLDYELKMHDTdALNygn9ioO42xrMrPtOL-vMWm8xKagfApJwgN16o5afBJQ==" data-type="subscription">
+
+
+        <div style="padding: 8px 0;">
+
+
+          <div class="sib-form-block" style="font-family:Helvetica, sans-serif; font-size:32px; font-weight:700; text-align:left; color:#3C4858; background-color:transparent; text-align:left">
+            <p>Reserva por transferencia</p>
+          </div>
+
+
+
+        </div>
+
+
+
+        <div style="padding: 8px 0;">
+
+
+          <div class="sib-form-block" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#3C4858; background-color:transparent; text-align:left">
+            <div class="sib-text-form-block">
+              <p>Completa tus datos y recibirás automáticamente la información para realizar la transferencia bancaria. Tu lugar quedará confirmado una vez enviado y revisado el comprobante.</p>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+        <div style="padding: 8px 0;">
+
+
+
+          <div class="sib-input sib-form-block">
+            <div class="form__entry entry_block">
+              <div class="form__label-row ">
+
+
+                <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Helvetica, sans-serif; font-size:16px; font-weight:700; text-align:left; color:#3c4858;" for="EMAIL" data-required="*">Correo electrónico</label>
+
+
+
+
+                <div class="entry__field">
+
+                  <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" value="" placeholder="EMAIL" data-required="true" required />
+
+                </div>
+
+              </div>
+
+              <label class="entry__error entry__error--primary" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;">
+              </label>
+
+
+
+              <label class="entry__specification" style="font-family:Helvetica, sans-serif; font-size:12px; text-align:left; color:#8390A4; text-align: left ">
+                Aquí recibirás los datos de transferencia para confirmar tu reserva.
+              </label>
+
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+
+
+        <div style="padding: 8px 0;">
+
+
+
+          <div class="sib-input sib-form-block">
+            <div class="form__entry entry_block">
+              <div class="form__label-row ">
+
+
+                <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Helvetica, sans-serif; font-size:16px; font-weight:700; text-align:left; color:#3c4858;" for="NOMBRE" data-required="*">Nombre completo</label>
+
+
+
+
+                <div class="entry__field">
+
+                  <input class="input " maxlength="200" type="text" id="NOMBRE" name="NOMBRE" autocomplete="off" placeholder="NOMBRE" data-required="true" required />
+
+                </div>
+
+              </div>
+
+              <label class="entry__error entry__error--primary" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;">
+              </label>
+
+
+
+              <label class="entry__specification" style="font-family:Helvetica, sans-serif; font-size:12px; text-align:left; color:#8390A4; text-align: left ">
+                Escribe tu nombre como quieres que figure en la reserva.
+              </label>
+
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+
+
+        <div style="padding: 8px 0;">
+
+
+
+
+          <div class="sib-input sib-form-block">
+            <div class="form__entry entry_block">
+              <div class="form__label-row ">
+
+
+                <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Helvetica, sans-serif; font-size:16px; font-weight:700; text-align:left; color:#3c4858;" for="ENTRADAS" data-required="*">Cantidad de entradas</label>
+
+
+                <div class="entry__field">
+                  <input maxlength="200" type="text" data-numeric="true" class="input " id="ENTRADAS" name="ENTRADAS" autocomplete="off" placeholder="ENTRADAS" data-required="true" required />
+                </div>
+              </div>
+              <label class="entry__error entry__error--primary" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;">
+              </label>
+
+
+
+              <label class="entry__specification" style="font-family:Helvetica, sans-serif; font-size:12px; text-align:left; color:#8390A4; text-align: left ">
+                Indica cuántas entradas quieres reservar.
+              </label>
+
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+        <div style="padding: 8px 0;">
+
+
+          <div class="sib-form-block" style="text-align: left">
+            <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-family:Helvetica, sans-serif; font-size:16px; font-weight:700; text-align:left; color:#FFFFFF; background-color:#3E4857; border-width:0px; border-radius:3px;" form="sib-form" type="submit">
+              <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
+                <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+              </svg>
+              SOLICITAR RESERVA
+            </button>
+
+
+          </div>
+
+
+
+        </div>
+
+
+
+        <input type="text" name="email_address_check" value="" class="input--hidden">
+
+
+        <input type="hidden" name="locale" value="es">
+
+
+      </form>
     </div>
   </div>
-  <div class="submit-wrap">
-    <button class="btn-primary" onclick="handleSubmit()">Confirmar Reserva</button>
-    <p class="submit-note">
-      También puedes reservar por transferencia bancaria, sin comisión de servicio.<br>
-      Te escribiremos al correo con los datos de pago. Tu lugar se confirma una vez realizada la transferencia.
-    </p>
+</div>
   </div>
 </section>
+
 
 <footer>
   <div class="footer-brand">Piazzollamente</div>
   <div class="footer-sub">piazzollamente.cl/mesonnerudiano</div>
 </footer>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-  <div class="modal">
-    <div class="modal-icon">🎵</div>
-    <h3 class="modal-title">¡Reserva recibida!</h3>
-    <p class="modal-text">
-      Gracias por reservar. Te escribiremos a <strong id="modalEmail"></strong> con los datos de transferencia bancaria sin comisión de servicio. ¡Nos vemos el 15 de agosto!
-    </p>
-    <button class="btn-primary" onclick="closeModal()">Perfecto</button>
-  </div>
-</div>
-
 <script>
-  // ── FORM LOGIC ──
-  let qty = 1;
-  const PRICE = 10000;
-  function formatPrice(n) { return '$' + n.toLocaleString('es-CL'); }
-  function changeQty(d) {
-    qty = Math.max(1, Math.min(10, qty + d));
-    document.getElementById('qtyDisplay').textContent = qty;
-    document.getElementById('totalAmount').textContent = formatPrice(qty * PRICE);
-  }
-  function handleSubmit() {
-    const nombre = document.getElementById('nombre').value.trim();
-    const email  = document.getElementById('email').value.trim();
-    if (!nombre || !email) { alert('Por favor completa tu nombre y correo.'); return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Ingresa un correo válido.'); return; }
-    document.getElementById('modalEmail').textContent = email;
-    document.getElementById('modalOverlay').classList.add('show');
-  }
-  function closeModal(e) {
-    if (!e || e.target === document.getElementById('modalOverlay') || e.target.tagName === 'BUTTON') {
-      document.getElementById('modalOverlay').classList.remove('show');
-    }
-  }
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
@@ -1059,5 +1465,85 @@
 
   window.addEventListener('load', initSmoke);
 </script>
+
+<script>
+  (function () {
+    const target = new Date("2026-08-15T20:45:00-04:00").getTime();
+    const pad = (n) => String(n).padStart(2, "0");
+
+    function updateCountdown() {
+      const countdown = document.getElementById("countdown");
+      const daysEl = document.getElementById("countDays");
+      const hoursEl = document.getElementById("countHours");
+      const minutesEl = document.getElementById("countMinutes");
+      const secondsEl = document.getElementById("countSeconds");
+      if (!countdown || !daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+      const distance = target - Date.now();
+
+      if (distance <= 0) {
+        const wrap = countdown.closest(".countdown-wrap");
+        if (wrap) wrap.innerHTML = '<div class="countdown-expired">El concierto comienza esta noche</div>';
+        return;
+      }
+
+      daysEl.textContent = pad(Math.floor(distance / (1000 * 60 * 60 * 24)));
+      hoursEl.textContent = pad(Math.floor((distance / (1000 * 60 * 60)) % 24));
+      minutesEl.textContent = pad(Math.floor((distance / (1000 * 60)) % 60));
+      secondsEl.textContent = pad(Math.floor((distance / 1000) % 60));
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  })();
+</script>
+
+
+<!-- Brevo form script -->
+<script>
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Elige un código de país';
+  window.LOCALE = 'es';
+
+
+
+
+  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "La información que has proporcionado no es válida. Compruebe el formato del campo e inténtalo de nuevo.";
+
+
+
+
+
+  window.REQUIRED_ERROR_MESSAGE = "Este campo no puede quedarse vacío. ";
+
+  window.GENERIC_INVALID_MESSAGE = "La información que has proporcionado no es válida. Compruebe el formato del campo e inténtalo de nuevo.";
+
+
+  window.INVALID_NUMBER = "La información que has proporcionado no es válida. Compruebe el formato del campo e inténtalo de nuevo.";
+
+
+
+
+  window.INVALID_DATE = "Introduce una fecha válida";
+
+
+
+  window.REQUIRED_MULTISELECT_MESSAGE = 'Selecciona al menos una opción';
+
+
+  window.translation = {
+    common: {
+      selectedList: '{quantity} lista seleccionada',
+      selectedLists: '{quantity} listas seleccionadas',
+      selectedOption: '{quantity} seleccionado',
+      selectedOptions: '{quantity} seleccionados',
+    }
+  };
+
+  var AUTOHIDE = Boolean(0);
+</script>
+
+
+
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 </html>
