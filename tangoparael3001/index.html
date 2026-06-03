@@ -1,1 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tango para el 3001 · Piazzollamente</title>
+  <meta name="description" content="Tango para el 3001, espectáculo escénico-musical de Piazzollamente inspirado en el universo de Astor Piazzolla." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --black: #070606;
+      --black-2: #101010;
+      --ink: #211b1b;
+      --cream: #f4eadc;
+      --paper: #fbf4e9;
+      --muted-dark: #b7a99a;
+      --muted-paper: #7e726a;
+      --red: #b01422;
+      --burgundy: #74131b;
+      --gold: #c49255;
+      --border-dark: rgba(244,234,220,.16);
+      --border-paper: rgba(116,19,27,.18);
+      --max: 1180px;
+      --radius: 28px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--cream);
+      font-family: Montserrat, system-ui, sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .18;
+      mix-blend-mode: overlay;
+      background-image:
+        radial-gradient(circle at 18% 12%, rgba(176,20,34,.22), transparent 28%),
+        radial-gradient(circle at 78% 22%, rgba(196,146,85,.12), transparent 24%),
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: auto, auto, 18px 18px, 18px 18px;
+      z-index: 0;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .site { position: relative; z-index: 1; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(18px);
+      background: rgba(7,6,6,.76);
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .nav-inner { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-weight: 800; letter-spacing: .11em; text-transform: uppercase; font-size: .86rem; }
+    .brand span { color: var(--red); }
+    .nav-links { display: flex; align-items: center; gap: 18px; font-size: .75rem; text-transform: uppercase; letter-spacing: .14em; color: var(--muted-dark); }
+    .nav-links a:hover { color: var(--cream); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--red); color: #fff; box-shadow: 0 18px 50px rgba(176,20,34,.24); }
+    .btn-secondary { border-color: var(--border-dark); color: var(--cream); background: rgba(244,234,220,.06); }
+    .btn-paper { background: var(--burgundy); color: var(--paper); }
+    .btn-ghost { color: var(--muted-dark); border-color: var(--border-dark); }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      border: 1px solid currentColor;
+      color: var(--gold);
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      line-height: 1;
+    }
+    .eyebrow::before { content:""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .hero { min-height: calc(100vh - 72px); display: grid; align-items: center; padding: 92px 0; }
+    .hero-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(34px, 5vw, 74px); align-items: center; }
+    h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; line-height: .95; margin: 0; font-weight: 600; }
+    h1 { font-size: clamp(4.7rem, 11vw, 10.5rem); letter-spacing: -.055em; max-width: 780px; }
+    h1 span { color: var(--red); font-style: italic; }
+    .hero-lead { font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.8rem, 3.1vw, 3.8rem); line-height: 1.03; margin: 24px 0 0; color: var(--cream); }
+    .hero-text { max-width: 680px; margin: 28px 0 0; color: var(--muted-dark); font-size: 1.02rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .poster-card {
+      position: relative;
+      min-height: 620px;
+      border-radius: 38px;
+      overflow: hidden;
+      background:
+        linear-gradient(160deg, rgba(176,20,34,.24), transparent 45%),
+        linear-gradient(0deg, rgba(7,6,6,.76), rgba(7,6,6,.12)),
+        url('assets/poster.jpg') center/cover no-repeat,
+        linear-gradient(135deg, #190b0c, #070606 68%);
+      border: 1px solid var(--border-dark);
+      box-shadow: 0 28px 80px rgba(0,0,0,.45);
+    }
+    .poster-card::after { content:""; position:absolute; inset:0; background: linear-gradient(to top, rgba(7,6,6,.9), transparent 55%); }
+    .poster-caption { position: absolute; left: 28px; right: 28px; bottom: 28px; z-index: 2; display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { border: 1px solid var(--border-dark); border-radius: 999px; padding: 8px 11px; color: var(--cream); background: rgba(7,6,6,.45); font-size: .68rem; text-transform: uppercase; letter-spacing: .12em; }
+    section { padding: 96px 0; }
+    .paper { background: var(--paper); color: var(--ink); }
+    .dark { background: var(--black); color: var(--cream); }
+    .split { display: grid; grid-template-columns: .86fr 1.14fr; gap: clamp(34px, 5vw, 78px); align-items: start; }
+    .section-title { font-size: clamp(2.8rem, 6vw, 6rem); margin-top: 18px; letter-spacing: -.04em; }
+    .section-lead { font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.55rem, 2.5vw, 2.6rem); line-height: 1.08; margin: 22px 0 0; }
+    .body-text { margin: 24px 0 0; color: var(--muted-paper); font-size: .98rem; max-width: 780px; }
+    .dark .body-text { color: var(--muted-dark); }
+    .statement {
+      border-left: 4px solid var(--red);
+      background: var(--black-2);
+      color: var(--cream);
+      border-radius: 24px;
+      padding: clamp(28px, 4vw, 48px);
+      box-shadow: 0 24px 70px rgba(0,0,0,.18);
+    }
+    .statement strong { display: block; color: var(--red); font-family: "Cormorant Garamond"; font-size: clamp(2.4rem, 5vw, 5rem); line-height: .95; font-weight: 600; margin: 12px 0; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+    .card {
+      border: 1px solid var(--border-paper);
+      background: rgba(255,255,255,.34);
+      border-radius: 24px;
+      padding: 24px;
+    }
+    .dark .card { border-color: var(--border-dark); background: rgba(244,234,220,.055); }
+    .card-num { color: var(--red); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: .72rem; }
+    .card h3 { margin-top: 12px; font-size: 2rem; line-height: 1; }
+    .card p { color: var(--muted-paper); margin: 14px 0 0; font-size: .92rem; }
+    .dark .card p { color: var(--muted-dark); }
+    .repertoire { display: grid; gap: 12px; margin-top: 36px; }
+    .piece {
+      display: grid;
+      grid-template-columns: 54px minmax(160px, .8fr) 110px 1.5fr;
+      gap: 16px;
+      align-items: start;
+      padding: 16px 0;
+      border-top: 1px solid var(--border-paper);
+    }
+    .piece:last-child { border-bottom: 1px solid var(--border-paper); }
+    .piece-no { color: var(--red); font-weight: 800; letter-spacing: .1em; }
+    .piece-title { font-family: "Cormorant Garamond"; font-size: 1.55rem; line-height: 1; }
+    .pill { justify-self: start; border: 1px solid var(--border-paper); color: var(--burgundy); border-radius: 999px; padding: 6px 10px; font-size: .68rem; text-transform: uppercase; letter-spacing: .11em; font-weight: 700; }
+    .piece p { margin: 0; color: var(--muted-paper); font-size: .88rem; line-height: 1.5; }
+    .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 36px; }
+    .info {
+      border: 1px solid var(--border-dark);
+      border-radius: 22px;
+      padding: 20px;
+      background: rgba(244,234,220,.055);
+    }
+    .info small { display:block; color: var(--gold); text-transform: uppercase; letter-spacing: .14em; font-weight: 700; font-size: .64rem; margin-bottom: 8px; }
+    .info strong { font-family: "Cormorant Garamond"; font-size: 1.8rem; line-height: 1; font-weight: 600; }
+    .media-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 36px; }
+    .media {
+      min-height: 250px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border-dark);
+      background: linear-gradient(to top, rgba(7,6,6,.88), rgba(7,6,6,.2)), var(--black-2);
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
+    }
+    .media:nth-child(1) { background-image: linear-gradient(to top, rgba(7,6,6,.9), transparent 60%), url('assets/fuga-y-misterio-poster.jpg'); background-size: cover; background-position: center; }
+    .media:nth-child(2) { background-image: linear-gradient(to top, rgba(7,6,6,.9), transparent 60%), url('assets/chiquilin-de-bachin-poster.jpg'); background-size: cover; background-position: center; }
+    .media:nth-child(3) { background-image: linear-gradient(to top, rgba(7,6,6,.9), transparent 60%), url('assets/muerte-del-angel-poster.jpg'); background-size: cover; background-position: center; }
+    .media:nth-child(4) { background-image: linear-gradient(to top, rgba(7,6,6,.9), transparent 60%), url('assets/milonga-de-la-anunciacion-poster.jpg'); background-size: cover; background-position: center; }
+    .media h3 { font-size: 1.6rem; }
+    .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 36px; }
+    .person { border-top: 1px solid var(--border-paper); padding: 17px 0; }
+    .person strong { display:block; font-family: "Cormorant Garamond"; font-size: 1.65rem; line-height: 1; }
+    .person span { color: var(--muted-paper); font-size: .78rem; text-transform: uppercase; letter-spacing: .11em; }
+    .cta { text-align: center; padding: 120px 0; }
+    .cta h2 { font-size: clamp(3.2rem, 8vw, 8rem); letter-spacing: -.05em; }
+    .cta p { max-width: 700px; margin: 26px auto 0; color: var(--muted-dark); }
+    .footer { padding: 34px 0; border-top: 1px solid var(--border-dark); color: var(--muted-dark); font-size: .75rem; }
+    .footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    @media (max-width: 920px) {
+      .nav-links { display: none; }
+      .hero { min-height: auto; padding-top: 64px; }
+      .hero-grid, .split { grid-template-columns: 1fr; }
+      .poster-card { min-height: 500px; order: -1; }
+      .cards, .info-grid, .media-grid, .team { grid-template-columns: 1fr; }
+      .piece { grid-template-columns: 42px 1fr; }
+      .piece .pill, .piece p { grid-column: 2; }
+      section { padding: 72px 0; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 28px, var(--max)); }
+      h1 { font-size: 4.35rem; }
+      .hero-lead { font-size: 1.85rem; }
+      .poster-card { min-height: 430px; border-radius: 28px; }
+      .btn { width: 100%; }
+      .section-title { font-size: 3.1rem; }
+      .section-lead { font-size: 1.6rem; }
+      .card, .statement { border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <nav class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="/">Piaz<span>z</span>ollamente</a>
+        <div class="nav-links">
+          <a href="#sinopsis">Sinopsis</a>
+          <a href="#dramaturgia">Dramaturgia</a>
+          <a href="#programa">Programa</a>
+          <a href="#ficha">Ficha</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+    </nav>
 
+    <header class="hero dark">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Dossier online · espectáculo escénico musical</span>
+          <h1>Tango para el <span>3001</span></h1>
+          <p class="hero-lead">La música de Piazzolla mirando las heridas de la ciudad.</p>
+          <p class="hero-text">Una semi ópera contemporánea de Piazzollamente que articula música en vivo, teatro, voz, dramaturgia y puesta en escena a partir del universo de Astor Piazzolla.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacto">Programar la obra</a>
+            <a class="btn btn-secondary" href="#ficha">Ver ficha rápida</a>
+            <a class="btn btn-ghost" href="/">Volver a Piazzollamente</a>
+          </div>
+        </div>
+        <div class="poster-card" aria-label="Poster de Tango para el 3001">
+          <div class="poster-caption">
+            <span class="tag">Piazzollamente</span>
+            <span class="tag">Astor Piazzolla</span>
+            <span class="tag">Tango escénico</span>
+            <span class="tag">Música · teatro · ciudad</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="sinopsis" class="paper">
+      <div class="wrap split">
+        <div>
+          <span class="eyebrow">Sinopsis</span>
+          <h2 class="section-title">Una ciudad cae para poder volver a fundarse.</h2>
+        </div>
+        <div>
+          <p class="section-lead">Buenos Aires aparece como una ciudad futura atravesada por la crisis, el deseo, la memoria y la posibilidad de transformación.</p>
+          <p class="body-text">María se declara dueña de su voz y de su deseo. Gastón recorre una ciudad herida y descubre aquello que la noche intenta ocultar. Nina irrumpe como una figura vulnerable y urgente, perseguida por una violencia que expone las fracturas del mundo que habita.</p>
+          <p class="body-text">A partir del repertorio de Astor Piazzolla, el espectáculo construye una dramaturgia escénico-musical donde la música no funciona como acompañamiento, sino como fuerza narrativa.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper">
+      <div class="wrap split">
+        <div>
+          <span class="eyebrow">Ópera urbana</span>
+          <h2 class="section-title">Una lectura contemporánea de Piazzolla.</h2>
+        </div>
+        <div class="statement">
+          <p>En el centro está María: una fuerza femenina que contiene, mira y abraza aquello que el mundo suele abandonar.</p>
+          <strong>María no da a luz a un niño. Da a luz una ciudad.</strong>
+          <p>Una Buenos Aires futura, renacida desde la empatía, la rabia, la ternura y una nueva visión de la realidad.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="dramaturgia" class="paper">
+      <div class="wrap">
+        <span class="eyebrow">Dramaturgia</span>
+        <h2 class="section-title">El viaje escénico</h2>
+        <div class="cards">
+          <article class="card"><div class="card-num">I</div><h3>Declaración</h3><p>María no entra para ser mirada. Entra para nombrarse. Su voz abre la noche.</p></article>
+          <article class="card"><div class="card-num">II</div><h3>Ciudad y herida</h3><p>Buenos Aires corre hasta que Gastón ve al niño que vende rosas en plena noche.</p></article>
+          <article class="card"><div class="card-num">III</div><h3>Derrumbe</h3><p>Cuando cae el ángel, cae también la forma que sostenía la escena.</p></article>
+          <article class="card"><div class="card-num">IV</div><h3>Transformación</h3><p>Gastón escucha otra voz. No viene de la calle. Viene de su propio cuerpo.</p></article>
+          <article class="card"><div class="card-num">V</div><h3>Nina y la huida</h3><p>María no salva a Nina. La reconoce. La sirena corta el aire.</p></article>
+          <article class="card"><div class="card-num">VI</div><h3>Renacimiento</h3><p>La ternura se vuelve fuerza. El año 3001 aparece como promesa.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="programa" class="paper">
+      <div class="wrap">
+        <span class="eyebrow">Programa escénico</span>
+        <h2 class="section-title">Obras y función dramática</h2>
+        <div class="repertoire">
+          <div class="piece"><div class="piece-no">01</div><div class="piece-title">Yo soy María</div><div class="pill">Cantado</div><p>Declaración de María como cuerpo, voz, deseo y principio.</p></div>
+          <div class="piece"><div class="piece-no">02</div><div class="piece-title">Fuga y Misterio</div><div class="pill">Instrumental</div><p>La ciudad se activa: vértigo, ruido, pulso y una tristeza que aparece y desaparece.</p></div>
+          <div class="piece"><div class="piece-no">03</div><div class="piece-title">Chiquilín de Bachín</div><div class="pill">Cantado</div><p>Gastón descubre la herida: un niño vendiendo rosas en plena noche.</p></div>
+          <div class="piece"><div class="piece-no">04</div><div class="piece-title">Pájaros perdidos</div><div class="pill">Cantado</div><p>Después de ver, Gastón ya no vuelve entero. Se convierte en pájaro nocturno.</p></div>
+          <div class="piece"><div class="piece-no">05</div><div class="piece-title">Muerte del Ángel</div><div class="pill">Instrumental</div><p>La escenografía se cae. La mesa, las rosas y las sillas pierden su lugar.</p></div>
+          <div class="piece"><div class="piece-no">06</div><div class="piece-title">Balada para un loco</div><div class="pill">Cantado</div><p>Gastón acepta la locura como verdad y comienza su transfiguración.</p></div>
+          <div class="piece"><div class="piece-no">07</div><div class="piece-title">Vamos Nina</div><div class="pill">Cantado</div><p>María y Nina se reconocen desde la vulnerabilidad. Nina corre.</p></div>
+          <div class="piece"><div class="piece-no">08</div><div class="piece-title">Milonga de la Anunciación</div><div class="pill">Cantado</div><p>La ternura de María se vuelve fuerza creadora.</p></div>
+          <div class="piece"><div class="piece-no">09</div><div class="piece-title">Preludio para el año 3001</div><div class="pill">Cantado</div><p>Renacimiento y promesa de fundar otra ciudad.</p></div>
+          <div class="piece"><div class="piece-no">Bis</div><div class="piece-title">Adiós Nonino</div><div class="pill">Instrumental</div><p>Después del futuro, vuelve la memoria.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark">
+      <div class="wrap">
+        <span class="eyebrow">Fragmentos escénicos</span>
+        <h2 class="section-title">La obra en movimiento</h2>
+        <p class="body-text">Videos de trabajo para mostrar pulso, atmósfera, sonido y tensión escénica.</p>
+        <div class="media-grid">
+          <article class="media"><h3>Fuga y Misterio</h3></article>
+          <article class="media"><h3>Chiquilín de Bachín</h3></article>
+          <article class="media"><h3>Muerte del Ángel</h3></article>
+          <article class="media"><h3>Milonga de la Anunciación</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ficha" class="dark">
+      <div class="wrap">
+        <span class="eyebrow">Ficha rápida</span>
+        <h2 class="section-title">Información para programación</h2>
+        <div class="info-grid">
+          <div class="info"><small>Formato</small><strong>Semi ópera escénico-musical</strong></div>
+          <div class="info"><small>Duración</small><strong>60 min · sin intermedio</strong></div>
+          <div class="info"><small>Escena</small><strong>9 personas</strong></div>
+          <div class="info"><small>Equipo</small><strong>7 músicos · 2 intérpretes</strong></div>
+          <div class="info"><small>Dirección artística</small><strong>Valentina Galaz</strong></div>
+          <div class="info"><small>Dirección escénica</small><strong>Francisca Cristopulos</strong></div>
+          <div class="info"><small>Lenguaje</small><strong>Música · teatro · voz</strong></div>
+          <div class="info"><small>Público</small><strong>Jóvenes y adultos</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper">
+      <div class="wrap">
+        <span class="eyebrow">Equipo</span>
+        <h2 class="section-title">Dirección y elenco</h2>
+        <div class="team">
+          <div class="person"><strong>Valentina Galaz</strong><span>Dirección artística · flauta</span></div>
+          <div class="person"><strong>Francisca Cristopulos</strong><span>Dirección escénica y dramaturgia</span></div>
+          <div class="person"><strong>Marina León</strong><span>Voz · María</span></div>
+          <div class="person"><strong>Diego Castro</strong><span>Violín</span></div>
+          <div class="person"><strong>Rodrigo Ugarte</strong><span>Contrabajo</span></div>
+          <div class="person"><strong>Felipe Muñoz</strong><span>Guitarra</span></div>
+          <div class="person"><strong>Félix Lecaros</strong><span>Batería</span></div>
+          <div class="person"><strong>Piazzollamente</strong><span>Agrupación</span></div>
+          <div class="person"><strong>Equipo escénico</strong><span>Intérpretes invitados</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="cta dark">
+      <div class="wrap">
+        <span class="eyebrow">Programación</span>
+        <h2>Programar Tango para el 3001</h2>
+        <p>Para teatros, festivales, salas culturales e instituciones que buscan una propuesta escénica contemporánea, latinoamericana y musicalmente sólida.</p>
+        <div class="hero-actions" style="justify-content:center">
+          <a class="btn btn-primary" href="mailto:valen.galaz@gmail.com?subject=Programar%20Tango%20para%20el%203001">Escribir por correo</a>
+          <a class="btn btn-secondary" href="/">Conocer Piazzollamente</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">
+        <span>Piazzollamente · Tango para el 3001</span>
+        <span>La música de Piazzolla mirando las heridas de la ciudad.</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
