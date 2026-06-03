@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <circle cx="256" cy="256" r="232" fill="#561218"/>
+  <circle cx="256" cy="256" r="204" fill="none" stroke="#c2975c" stroke-width="14"/>
+  <text x="256" y="302" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="214" fill="#f5e8cd">Pz</text>
+</svg>
