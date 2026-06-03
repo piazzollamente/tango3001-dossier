@@ -306,6 +306,113 @@ body, p, a, button, .btn, nav, .eyebrow, .kicker, .meta, .project-copy, .section
   }
 }
 
+
+/* ── Solución mobile definitiva: imagen sin marco externo recortable ── */
+@media (max-width: 640px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .hero {
+    padding-top: 76px;
+    padding-bottom: 54px;
+  }
+
+  .hero-grid {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 18px;
+    gap: 26px;
+  }
+
+  .hero-visual {
+    width: min(100%, 420px);
+    max-width: calc(100vw - 36px);
+    margin-inline: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+    transform: none;
+  }
+
+  .hero-visual::before {
+    inset: auto;
+    top: -18px;
+    left: -14px;
+    right: -14px;
+    bottom: -18px;
+    border-radius: 28px;
+    background:
+      radial-gradient(circle at 20% 78%, rgba(181,53,42,.24), transparent 46%),
+      radial-gradient(circle at 80% 18%, rgba(201,169,110,.18), transparent 42%);
+    filter: blur(18px);
+    opacity: .95;
+    z-index: 0;
+  }
+
+  .hero-visual::after {
+    inset: -10px;
+    width: auto;
+    height: auto;
+    border-radius: 28px;
+    background: linear-gradient(135deg, rgba(201,169,110,.18), rgba(181,53,42,.10), rgba(255,247,237,.035));
+    filter: none;
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .hero-visual img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+    display: block;
+    object-fit: contain;
+    border-radius: 22px;
+    padding: 0;
+    background: #050403;
+    box-shadow:
+      0 0 0 1px rgba(201,169,110,.24),
+      inset 0 0 0 1px rgba(201,169,110,.16),
+      0 22px 68px rgba(0,0,0,.48);
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  h1 {
+    max-width: 100%;
+    font-size: clamp(42px, 13.4vw, 68px);
+    line-height: .92;
+    letter-spacing: .01em;
+    overflow-wrap: anywhere;
+  }
+
+  h1 span {
+    letter-spacing: .055em;
+  }
+
+  .hero-sub {
+    font-size: clamp(24px, 7.6vw, 36px);
+    line-height: 1.02;
+  }
+
+  .hero-text {
+    font-size: 13px;
+  }
+}
+
 </style>
 </head>
 <body>
