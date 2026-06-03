@@ -1221,7 +1221,7 @@
 
 
                 <div class="entry__field">
-                  <input maxlength="200" type="text" data-numeric="true" class="input " id="ENTRADAS" name="ENTRADAS" autocomplete="off" placeholder="ENTRADAS" data-required="true" required />
+                  <input maxlength="200" type="text" data-numeric="true" class="input " id="ENTRADAS" name="ENTRADAS" autocomplete="off" inputmode="numeric" pattern="[0-9]*" placeholder="ENTRADAS" data-required="true" required />
                 </div>
               </div>
               <label class="entry__error entry__error--primary" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;">
@@ -1241,6 +1241,15 @@
         </div>
 
 
+
+        <div id="total-reserva-preview" style="display:none; margin: 8px 0 14px 0; padding: 14px 16px; border: 1px solid rgba(214,177,104,0.45); border-radius: 12px; background: rgba(214,177,104,0.10); color: #f7efe4; font-family: Helvetica, sans-serif; font-size: 15px; line-height: 1.5; text-align: left;">
+          <span style="color:#d6b168; font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:11px; display:block; margin-bottom:4px;">Total a transferir</span>
+          <strong id="total-reserva-preview-value" style="font-size:20px; color:#fff7ea;">$0</strong>
+        </div>
+
+        <div class="total-reserva-hidden-field" style="display:none !important; padding:0; margin:0; height:0; overflow:hidden;">
+          <input class="input" maxlength="200" type="text" id="TOTAL_RESERVA" name="TOTAL_RESERVA" autocomplete="off" tabindex="-1" aria-hidden="true" />
+        </div>
 
         <div style="padding: 8px 0;">
 
@@ -1543,6 +1552,71 @@
 </script>
 
 
+
+
+<style>
+  .total-reserva-hidden-field,
+  .total-reserva-hidden-field * {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const precioEntrada = 10000;
+    const entradasInput = document.getElementById("ENTRADAS");
+    let totalInput = document.getElementById("TOTAL_RESERVA");
+    const form = document.getElementById("sib-form");
+    const preview = document.getElementById("total-reserva-preview");
+    const previewValue = document.getElementById("total-reserva-preview-value");
+
+    if (!form || !entradasInput) return;
+
+    if (!totalInput) {
+      totalInput = document.createElement("input");
+      totalInput.type = "hidden";
+      totalInput.id = "TOTAL_RESERVA";
+      totalInput.name = "TOTAL_RESERVA";
+      form.appendChild(totalInput);
+    }
+
+    function formatearCLP(valor) {
+      return "$" + Number(valor).toLocaleString("es-CL");
+    }
+
+    function normalizarCantidad(valor) {
+      const soloNumeros = String(valor || "").replace(/[^0-9]/g, "");
+      return soloNumeros ? parseInt(soloNumeros, 10) : 0;
+    }
+
+    function actualizarTotal() {
+      const cantidad = normalizarCantidad(entradasInput.value);
+
+      if (!cantidad || cantidad < 1) {
+        totalInput.value = "";
+        if (preview) preview.style.display = "none";
+        return;
+      }
+
+      const total = formatearCLP(cantidad * precioEntrada);
+      totalInput.value = total;
+
+      if (preview && previewValue) {
+        previewValue.textContent = total;
+        preview.style.display = "block";
+      }
+    }
+
+    entradasInput.addEventListener("input", actualizarTotal);
+    entradasInput.addEventListener("change", actualizarTotal);
+    form.addEventListener("submit", actualizarTotal);
+    actualizarTotal();
+  });
+</script>
 
 <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
