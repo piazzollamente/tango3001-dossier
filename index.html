@@ -187,6 +187,125 @@ body, p, a, button, .btn, nav, .eyebrow, .kicker, .meta, .project-copy, .section
   font-family: var(--font-sans) !important;
 }
 
+
+/* ── Animaciones editoriales ── */
+@media (prefers-reduced-motion: no-preference) {
+  .nav {
+    animation: navEnter .7s ease both;
+  }
+
+  .hero-content > * {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: fadeUp .82s ease forwards;
+  }
+
+  .hero-content .eyebrow { animation-delay: .12s; }
+  .hero-content h1 { animation-delay: .24s; }
+  .hero-content .hero-sub { animation-delay: .36s; }
+  .hero-content .hero-text { animation-delay: .48s; }
+  .hero-content .hero-actions { animation-delay: .60s; }
+
+  .hero-visual {
+    opacity: 0;
+    transform: translateY(18px) scale(.985);
+    animation: imageEnter .95s ease .22s forwards, imageBreath 7.5s ease-in-out 1.4s infinite alternate;
+  }
+
+  .hero-visual::after {
+    animation: smokePulse 6.5s ease-in-out infinite alternate;
+  }
+
+  .card,
+  .hit,
+  .press-card,
+  .portrait,
+  .bio,
+  .section-head,
+  .quote,
+  .manifesto p,
+  .contact h2,
+  .contact p,
+  .contact-actions {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .72s ease, transform .72s ease;
+  }
+
+  .is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  .card.is-visible:nth-child(2) { transition-delay: .08s; }
+  .card.is-visible:nth-child(3) { transition-delay: .16s; }
+  .hit.is-visible:nth-child(2) { transition-delay: .06s; }
+  .hit.is-visible:nth-child(3) { transition-delay: .12s; }
+  .hit.is-visible:nth-child(4) { transition-delay: .18s; }
+
+  .card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(242,214,154,.46);
+    box-shadow: 0 32px 90px rgba(0,0,0,.42);
+  }
+
+  .press-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .btn {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-115%);
+    background: linear-gradient(90deg, transparent, rgba(255,247,237,.18), transparent);
+    transition: transform .65s ease;
+  }
+
+  .btn:hover::after {
+    transform: translateX(115%);
+  }
+
+  @keyframes navEnter {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes imageEnter {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes imageBreath {
+    from { transform: translateY(0) scale(1); }
+    to { transform: translateY(-8px) scale(1.008); }
+  }
+
+  @keyframes smokePulse {
+    from { opacity: .55; transform: scale(.96); }
+    to { opacity: 1; transform: scale(1.08); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -338,5 +457,31 @@ body, p, a, button, .btn, nav, .eyebrow, .kicker, .meta, .project-copy, .section
     <span>piazzollamente@gmail.com · @piazzollamente</span>
   </div>
 </footer>
+
+<script>
+(function(){
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  const items = document.querySelectorAll(
+    '.card, .hit, .press-card, .portrait, .bio, .section-head, .quote, .manifesto p, .contact h2, .contact p, .contact-actions'
+  );
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.16,
+    rootMargin: '0px 0px -8% 0px'
+  });
+
+  items.forEach((item) => observer.observe(item));
+})();
+</script>
+
 </body>
 </html>
