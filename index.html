@@ -36,11 +36,12 @@ body{
   overflow-x:hidden;
 }
 
-.smoke-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.smoke-bg::before,.smoke-bg::after{content:"";position:absolute;border-radius:50%;filter:blur(120px);opacity:.10;animation:smokeDrift 18s ease-in-out infinite alternate}
-.smoke-bg::before{width:620px;height:620px;background:radial-gradient(circle, rgba(201,169,110,.9), transparent 70%);top:-120px;right:-120px}
-.smoke-bg::after{width:560px;height:560px;background:radial-gradient(circle, rgba(181,53,42,.8), transparent 70%);bottom:80px;left:-180px;animation-delay:-9s}
+.smoke-bg{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden;mix-blend-mode:screen}
+.smoke-bg::before,.smoke-bg::after,.smoke-bg .smoke-third{content:"";position:absolute;border-radius:50%;filter:blur(120px);animation:smokeDrift 18s ease-in-out infinite alternate}
+.smoke-bg::before{width:680px;height:680px;background:radial-gradient(circle, rgba(201,169,110,.34), transparent 70%);top:-140px;right:-140px;opacity:.28}
+.smoke-bg::after{width:620px;height:620px;background:radial-gradient(circle, rgba(181,53,42,.30), transparent 70%);bottom:50px;left:-180px;animation-delay:-9s;opacity:.24}
 @keyframes smokeDrift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(60px,40px) scale(1.15)}}
+.smoke-bg .smoke-third{width:520px;height:520px;background:radial-gradient(circle, rgba(255,247,237,.16), transparent 68%);top:18%;left:36%;opacity:.15;animation-delay:-4s}
 body:before{
   content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.42;
   background:
@@ -50,7 +51,7 @@ body:before{
     repeating-linear-gradient(0deg, rgba(255,247,237,.018) 0 1px, transparent 1px 4px);
 }
 body:after{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.08;mix-blend-mode:overlay;
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.04;mix-blend-mode:overlay;
   background-image:
     radial-gradient(circle at 18% 12%, rgba(255,247,237,.55) 0 1px, transparent 1.3px),
     radial-gradient(circle at 78% 42%, rgba(201,169,110,.35) 0 1px, transparent 1.3px);
@@ -82,7 +83,8 @@ a{color:inherit;text-decoration:none}
 .btn-gold{background:rgba(201,169,110,.08);color:var(--gold2)}
 .btn-ghost{background:transparent;color:var(--cream)}
 .hero{position:relative;z-index:2;min-height:100svh;padding:112px 0 76px;display:flex;align-items:center;overflow:hidden}
-.hero:before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(to bottom,rgba(8,6,5,.12),rgba(8,6,5,.45) 72%,var(--dark) 100%)}
+.hero:before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(to bottom,rgba(8,6,5,.10),rgba(8,6,5,.42) 72%,var(--dark) 100%)}
+.hero:after{content:"";position:absolute;inset:6% -8% auto -8%;height:72%;z-index:1;pointer-events:none;filter:blur(42px);opacity:.9;background:radial-gradient(circle at 24% 46%, rgba(181,53,42,.22), transparent 28%),radial-gradient(circle at 70% 28%, rgba(201,169,110,.22), transparent 32%),radial-gradient(circle at 54% 70%, rgba(255,247,237,.08), transparent 22%)}
 .hero-grid{width:min(1220px,calc(100% - 34px));margin:auto;display:grid;grid-template-columns:.72fr 1.28fr;gap:42px;align-items:center;position:relative;z-index:2}
 .eyebrow{
   display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;
@@ -95,10 +97,10 @@ h1 span{display:block;color:var(--gold-light);font-weight:300;letter-spacing:.20
 .hero-sub{margin-top:30px;max-width:700px;color:var(--cream);font-family:var(--font-serif);font-size:clamp(32px,4.6vw,64px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
 .hero-text{max-width:620px;margin-top:24px;color:var(--muted);font-size:15px;font-weight:300;letter-spacing:.01em}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
-.hero-visual{position:relative;border-radius:38px;padding:16px;background:linear-gradient(135deg,rgba(201,169,110,.18),rgba(181,53,42,.08),rgba(255,247,237,.035));border:1px solid rgba(201,169,110,.28);box-shadow:0 30px 90px rgba(0,0,0,.42);overflow:hidden}
+.hero-visual{position:relative;border-radius:38px;padding:18px;background:linear-gradient(135deg,rgba(201,169,110,.18),rgba(181,53,42,.08),rgba(255,247,237,.035));border:1px solid rgba(201,169,110,.28);box-shadow:0 30px 90px rgba(0,0,0,.42);overflow:visible}
 .hero-visual:before{content:"";position:absolute;inset:0;border-radius:38px;background:linear-gradient(to bottom,rgba(255,247,237,.08),transparent 20%,transparent 72%,rgba(8,6,5,.24));pointer-events:none;z-index:2}
 .hero-visual:after{content:"";position:absolute;inset:-8% -5% auto auto;width:56%;height:40%;border-radius:50%;background:radial-gradient(circle, rgba(201,169,110,.18), transparent 72%);filter:blur(28px);pointer-events:none;z-index:1}
-.hero-visual img{width:100%;height:auto;max-height:min(82svh,980px);object-fit:contain;object-position:center center;border-radius:28px;background:#050403;position:relative;z-index:2}
+.hero-visual img{display:block;width:100%;height:min(82svh,980px);object-fit:contain;object-position:center center;border-radius:28px;background:#050403;position:relative;z-index:2;padding:0 10px}
 .hero-note{display:none}
 section{position:relative;z-index:2;padding:98px 0;border-top:1px solid rgba(201,169,110,.12)}
 .section-head{display:grid;grid-template-columns:.72fr 1.28fr;gap:46px;align-items:start;margin-bottom:42px}
@@ -142,8 +144,8 @@ h2{font-size:clamp(48px,7.2vw,96px);line-height:.82;text-transform:uppercase;tex
   .nav-links{display:none}
   .hero{padding:90px 0 64px;min-height:auto}
   .hero-grid{grid-template-columns:1fr;gap:28px}
-  .hero-visual{order:-1;max-width:760px;margin:auto;width:100%;border-radius:28px;padding:10px}
-  .hero-visual img{max-height:68svh;border-radius:20px}
+  .hero-visual{order:-1;max-width:760px;margin:auto;width:100%;border-radius:28px;padding:14px}
+  .hero-visual img{height:min(72svh,760px);border-radius:20px;padding:0 14px}
   .hero-note{display:none}
   .section-head,.split{grid-template-columns:1fr;gap:24px}
   .project-grid{grid-template-columns:1fr}
@@ -155,8 +157,8 @@ h2{font-size:clamp(48px,7.2vw,96px);line-height:.82;text-transform:uppercase;tex
   .container,.hero-grid{width:min(100% - 24px,1160px)}
   .logo{font-size:10px}
   .hero{padding-top:82px}
-  .hero-visual{border-radius:24px;padding:8px}
-  .hero-visual img{max-height:64svh;border-radius:16px}
+  .hero-visual{border-radius:24px;padding:12px}
+  .hero-visual img{height:min(70svh,700px);border-radius:16px;padding:0 16px}
   .hero-note{display:none}
   h1{font-size:clamp(60px,18vw,96px)}
   .hero-sub{font-size:clamp(31px,10vw,46px)}
@@ -178,7 +180,7 @@ body, p, a, button, .btn, nav, .eyebrow, .kicker, .meta, .project-copy, .section
 </style>
 </head>
 <body>
-<div class="smoke-bg"></div>
+<div class="smoke-bg"><span class="smoke-third" aria-hidden="true"></span></div>
 <nav class="nav">
   <div class="nav-inner">
     <a class="logo" href="#inicio">Piazzollamente</a>
