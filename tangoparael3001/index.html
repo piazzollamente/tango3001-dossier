@@ -1736,6 +1736,165 @@ article p:first-child,
   }
 }
 
+
+/* ─────────────────────────────────────────────
+   FIX CONTRASTE: ficha general / requerimientos técnicos
+───────────────────────────────────────────── */
+
+/* Tablas y bloques técnicos: texto legible */
+table,
+.table,
+.ficha,
+.ficha-general,
+.requerimientos,
+.requerimientos-audio,
+.tech,
+.tech-card,
+.rider,
+[class*="ficha"],
+[class*="requerimiento"],
+[class*="audio"],
+[class*="rider"],
+[class*="tech"] {
+  color: #fff7ed !important;
+}
+
+/* Celdas, filas y textos dentro de fichas */
+table *,
+.table *,
+.ficha *,
+.ficha-general *,
+.requerimientos *,
+.requerimientos-audio *,
+.tech *,
+.tech-card *,
+.rider *,
+[class*="ficha"] *,
+[class*="requerimiento"] *,
+[class*="audio"] *,
+[class*="rider"] *,
+[class*="tech"] * {
+  color: rgba(255,247,237,.86) !important;
+  opacity: 1 !important;
+}
+
+/* Encabezados de ficha: blanco fuerte */
+table th,
+.table th,
+.ficha h1, .ficha h2, .ficha h3, .ficha h4,
+.ficha-general h1, .ficha-general h2, .ficha-general h3, .ficha-general h4,
+.requerimientos h1, .requerimientos h2, .requerimientos h3, .requerimientos h4,
+.requerimientos-audio h1, .requerimientos-audio h2, .requerimientos-audio h3, .requerimientos-audio h4,
+.tech h1, .tech h2, .tech h3, .tech h4,
+.tech-card h1, .tech-card h2, .tech-card h3, .tech-card h4,
+.rider h1, .rider h2, .rider h3, .rider h4,
+[class*="ficha"] h1, [class*="ficha"] h2, [class*="ficha"] h3, [class*="ficha"] h4,
+[class*="requerimiento"] h1, [class*="requerimiento"] h2, [class*="requerimiento"] h3, [class*="requerimiento"] h4,
+[class*="audio"] h1, [class*="audio"] h2, [class*="audio"] h3, [class*="audio"] h4,
+[class*="rider"] h1, [class*="rider"] h2, [class*="rider"] h3, [class*="rider"] h4,
+[class*="tech"] h1, [class*="tech"] h2, [class*="tech"] h3, [class*="tech"] h4 {
+  color: #fff7ed !important;
+  opacity: 1 !important;
+}
+
+/* Primera columna / labels: dorado visible */
+table td:first-child,
+table th:first-child,
+.table td:first-child,
+.table th:first-child,
+.ficha td:first-child,
+.ficha-general td:first-child,
+.requerimientos td:first-child,
+.requerimientos-audio td:first-child,
+.tech td:first-child,
+.rider td:first-child,
+[class*="ficha"] td:first-child,
+[class*="requerimiento"] td:first-child,
+[class*="audio"] td:first-child,
+[class*="rider"] td:first-child,
+[class*="tech"] td:first-child,
+[class*="label"],
+.label,
+.term,
+dt {
+  color: #e8c98a !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+
+/* Valores: crema clara */
+table td,
+.table td,
+dd,
+.value,
+[class*="value"] {
+  color: rgba(255,247,237,.84) !important;
+  opacity: 1 !important;
+}
+
+/* Badges tipo "10 ch", "6 ch", "2 ch" */
+.badge,
+.pill,
+.channels,
+.channel,
+[class*="badge"],
+[class*="pill"],
+[class*="channel"],
+td span,
+li span {
+  color: #e8c98a !important;
+  background: rgba(181,53,42,.32) !important;
+  border: 1px solid rgba(232,201,138,.24) !important;
+  border-radius: 999px !important;
+  padding: .16em .52em !important;
+  opacity: 1 !important;
+}
+
+/* Separadores de filas más claros */
+table tr,
+.table tr,
+.ficha tr,
+.requerimientos tr,
+.tech tr,
+.rider tr,
+[class*="ficha"] tr,
+[class*="requerimiento"] tr,
+[class*="audio"] tr,
+[class*="rider"] tr,
+[class*="tech"] tr {
+  border-color: rgba(232,201,138,.14) !important;
+}
+
+/* Fondo de contenedores técnicos con más profundidad */
+.ficha,
+.ficha-general,
+.requerimientos,
+.requerimientos-audio,
+.tech,
+.tech-card,
+.rider,
+[class*="ficha"],
+[class*="requerimiento"],
+[class*="audio"],
+[class*="rider"],
+[class*="tech"] {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(181,53,42,.22), transparent 36%),
+    linear-gradient(135deg, rgba(31,17,15,.98), rgba(7,5,4,.98)) !important;
+  border-color: rgba(232,201,138,.32) !important;
+}
+
+/* Fallback fuerte para cualquier tabla oscura dentro del sitio */
+table {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(181,53,42,.18), transparent 36%),
+    linear-gradient(135deg, rgba(31,17,15,.98), rgba(7,5,4,.98)) !important;
+}
+
+table caption {
+  color: #fff7ed !important;
+}
+
 </style>
 </head>
 <body>
