@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Las 4 Estaciones · Mesón Nerudiano</title>
-  <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
-<meta name="theme-color" content="#0e0b09">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+  <!-- Favicon Piazzollamente -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#561218">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -923,10 +923,17 @@
     <div class="meta-secondary">Mesón Nerudiano · Santiago</div>
   </div>
   <div class="hero-cta">
-    <a href="https://www.portaldisc.com/evento/piazzolla-intimo-meson-nerudiano" target="_blank" rel="noopener noreferrer" class="btn-primary btn-portal" aria-label="Comprar entradas en PortalTickets">
-      <img src="portal-logo-cropped.png" alt="PortalTickets" class="portal-logo-img">
-      <span class="portal-action">Comprar entradas</span>
-    </a>
+    <div class="buy-wrap" aria-label="Comprar entradas">
+      <div class="buy-title">Comprar</div>
+      <div class="buy-buttons">
+        <a href="https://www.portaldisc.com/evento/piazzolla-intimo-meson-nerudiano" target="_blank" rel="noopener noreferrer" class="buy-btn portal" aria-label="Comprar en PortalTickets">
+          <span>PortalTickets</span>
+        </a>
+        <a href="#reserva" class="buy-btn transfer" aria-label="Reservar por transferencia">
+          <span>Transferencia</span>
+        </a>
+      </div>
+    </div>
   </div>
 
   <div class="countdown-wrap" aria-label="Cuenta regresiva para el concierto">
@@ -1008,8 +1015,7 @@
         El repertorio se construye como un viaje breve y envolvente: la ciudad aparece luminosa y eléctrica, luego se vuelve profunda, casi suspendida, hasta llegar a ese adiós definitivo que en Piazzolla nunca termina de irse.
       </p>
       <a href="https://www.portaldisc.com/evento/piazzolla-intimo-meson-nerudiano" target="_blank" rel="noopener noreferrer" class="about-cta-link" aria-label="Comprar entradas en PortalTickets">
-        <img src="portal-logo-cropped.png" alt="PortalTickets" class="portal-logo-img">
-        <p class="about-cta">Comprar entradas</p>
+          <p class="about-cta">Comprar entradas</p>
       </a>
     </div>
   </div>
@@ -1028,11 +1034,17 @@
         <p class="price-label">Valor por entrada</p>
         <div class="price-amount"><span class="price-currency">$</span>10.000</div>
       </div>
-      <a href="https://www.portaldisc.com/evento/piazzolla-intimo-meson-nerudiano" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-ticket-portal" style="margin-top:20px;" aria-label="Comprar entradas en PortalTickets">
-          <img src="portal-logo-cropped.png" alt="PortalTickets" class="portal-logo-img">
-          <span>Comprar</span>
-        </a>
-        <a href="#reserva" class="transfer-link">Reservar por transferencia</a>
+      <div class="buy-wrap" aria-label="Comprar entradas">
+        <div class="buy-title">Comprar</div>
+        <div class="buy-buttons">
+          <a href="https://www.portaldisc.com/evento/piazzolla-intimo-meson-nerudiano" target="_blank" rel="noopener noreferrer" class="buy-btn portal" aria-label="Comprar en PortalTickets">
+          <span>PortalTickets</span>
+          </a>
+          <a href="#reserva" class="buy-btn transfer" aria-label="Reservar por transferencia">
+            <span>Transferencia</span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="tear-separator"></div>
@@ -1563,6 +1575,165 @@
     max-height: 0 !important;
     overflow: hidden !important;
   }
+
+/* ── COMPRAR: dos vías claramente diferenciadas ── */
+.buy-wrap {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+  width: min(100%, 520px);
+}
+
+.buy-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.buy-title::before,
+.buy-title::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(to right, transparent, rgba(201,169,110,0.62), transparent);
+}
+
+.buy-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.buy-btn {
+  min-height: 62px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  transition: all 0.28s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.buy-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(90deg, transparent, rgba(255,247,237,0.16), transparent);
+  transition: transform 0.65s ease;
+}
+
+.buy-btn:hover::after {
+  transform: translateX(120%);
+}
+
+.buy-btn:hover {
+  transform: translateY(-2px);
+}
+
+.buy-btn.portal {
+  background: linear-gradient(135deg, #c7372d 0%, #9e241e 100%);
+  color: #fff7ed;
+  border: 1px solid rgba(255,247,237,0.16);
+  box-shadow: 0 16px 42px rgba(181,53,42,0.34), inset 0 0 0 1px rgba(255,247,237,0.12);
+}
+
+.buy-btn.transfer {
+  background: linear-gradient(135deg, #a9231d 0%, #761712 100%);
+  color: #fff7ed;
+  border: 1px solid rgba(255,247,237,0.14);
+  box-shadow: 0 16px 42px rgba(181,53,42,0.26), inset 0 0 0 1px rgba(255,247,237,0.10);
+}
+
+.buy-btn.transfer:hover {
+  color: #fff7ed;
+  border-color: rgba(232,201,138,0.48);
+  background: linear-gradient(135deg, #bd3128 0%, #861b15 100%);
+}
+
+.buy-btn .portal-logo-img {
+  max-height: 22px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.hero-cta .buy-wrap {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-cta .buy-buttons {
+  justify-content: center;
+}
+
+.ticket-price-block .buy-wrap {
+  margin-top: 20px;
+}
+
+@media (max-width: 640px) {
+  .buy-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .buy-title {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+  }
+
+  .buy-btn {
+    min-height: 58px;
+    width: 100%;
+  }
+}
+
+
+/* Ajuste botones compra sin logo */
+.buy-btn {
+  gap: 0;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.buy-btn span {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.buy-buttons {
+  align-items: stretch;
+}
+
+@media (max-width: 760px) {
+  .buy-buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 761px) {
+  .buy-btn {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+  }
+}
+
 </style>
 
 <script>
