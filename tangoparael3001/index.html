@@ -4,13 +4,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Tango para el 3001 · Piazzollamente</title>
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta name="theme-color" content="#0e0b09">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<meta name="theme-color" content="#0e0b09">
 <style>
 :root{
   --black:#070606;
@@ -843,9 +846,536 @@ h1 span{display:block;color:var(--red)}
   .hero-sub{font-size:clamp(30px,9vw,40px);padding-left:18px}
   .hero-direction{margin-top:18px;padding-top:14px}
 }
+
+/* ─────────────────────────────────────────────
+   Sistema visual unificado Piazzollamente / Mesón
+   Mantiene contenido de Tango para el 3001, pero alinea atmósfera,
+   color, tipografía, botones, tarjetas y animaciones.
+───────────────────────────────────────────── */
+:root {
+  --cream: #f5ede0;
+  --gold: #c9a96e;
+  --gold-light: #e8c98a;
+  --red: #b5352a;
+  --dark: #0e0b09;
+  --dark2: #1a1410;
+  --dark3: #241c14;
+  --muted: rgba(245,237,224,.72);
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', Arial, sans-serif;
+}
+
+html, body {
+  background: var(--dark);
+  color: var(--cream);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .28;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(201,169,110,.13), transparent 24%),
+    radial-gradient(circle at 82% 20%, rgba(181,53,42,.13), transparent 28%),
+    radial-gradient(circle at 50% 100%, rgba(201,169,110,.08), transparent 34%),
+    repeating-linear-gradient(0deg, rgba(255,247,237,.018) 0 1px, transparent 1px 4px);
+}
+
+.smoke-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.smoke-bg::before,
+.smoke-bg::after,
+.smoke-bg .smoke-third {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  animation: smokeDrift 18s ease-in-out infinite alternate;
+}
+
+.smoke-bg::before {
+  width: 680px;
+  height: 680px;
+  background: radial-gradient(circle, rgba(201,169,110,.34), transparent 70%);
+  top: -140px;
+  right: -140px;
+  opacity: .28;
+}
+
+.smoke-bg::after {
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(181,53,42,.30), transparent 70%);
+  bottom: 50px;
+  left: -180px;
+  animation-delay: -9s;
+  opacity: .24;
+}
+
+.smoke-bg .smoke-third {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(255,247,237,.16), transparent 68%);
+  top: 18%;
+  left: 36%;
+  opacity: .15;
+  animation-delay: -4s;
+}
+
+@keyframes smokeDrift {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(60px,40px) scale(1.15); }
+}
+
+main, header, section, nav, footer {
+  position: relative;
+  z-index: 2;
+}
+
+h1, h2, h3, .hero-title, .title, .quote, .section-title {
+  font-family: var(--font-serif) !important;
+  letter-spacing: .035em;
+}
+
+p, a, button, .btn, .eyebrow, .kicker, .meta, li, span {
+  font-family: var(--font-sans);
+}
+
+nav, .nav, .site-nav {
+  background: rgba(8,6,5,.76) !important;
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(201,169,110,.16) !important;
+}
+
+a[href="/"], a[href="../"], .logo {
+  letter-spacing: .22em;
+}
+
+.hero, header {
+  background:
+    radial-gradient(circle at 70% 20%, rgba(181,53,42,.16), transparent 32%),
+    radial-gradient(circle at 18% 12%, rgba(201,169,110,.14), transparent 28%),
+    linear-gradient(180deg, rgba(14,11,9,.96), rgba(8,6,5,.98)) !important;
+}
+
+.hero::after, header::after {
+  content: "";
+  position: absolute;
+  inset: 6% -8% auto -8%;
+  height: 72%;
+  z-index: 1;
+  pointer-events: none;
+  filter: blur(42px);
+  opacity: .75;
+  background:
+    radial-gradient(circle at 24% 46%, rgba(181,53,42,.18), transparent 28%),
+    radial-gradient(circle at 70% 28%, rgba(201,169,110,.18), transparent 32%),
+    radial-gradient(circle at 54% 70%, rgba(255,247,237,.07), transparent 22%);
+}
+
+img[src*="poster"], .poster img, .hero img {
+  border-radius: 24px;
+  box-shadow:
+    0 0 0 1px rgba(201,169,110,.24),
+    0 22px 68px rgba(0,0,0,.48);
+}
+
+.card, article, .project-card, .info-card, .feature-card, .video-card {
+  border-color: rgba(201,169,110,.22) !important;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(164,25,31,.14), transparent 38%),
+    linear-gradient(135deg, rgba(26,20,16,.94), rgba(14,11,9,.94)) !important;
+  box-shadow: 0 24px 70px rgba(0,0,0,.24);
+}
+
+.btn, .button, .cta, a[class*="btn"] {
+  border-radius: 999px !important;
+  border: 1px solid rgba(201,169,110,.32) !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+  transition: transform .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.btn:hover, .button:hover, .cta:hover, a[class*="btn"]:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-light) !important;
+}
+
+section {
+  border-top: 1px solid rgba(201,169,110,.12);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero > *, header > * {
+    animation: fadeUp .82s ease both;
+  }
+
+  .card, article, .project-card, .info-card, .feature-card, .video-card {
+    transition: transform .32s ease, border-color .32s ease, box-shadow .32s ease;
+  }
+
+  .card:hover, article:hover, .project-card:hover, .info-card:hover, .feature-card:hover, .video-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(242,214,154,.46) !important;
+    box-shadow: 0 32px 90px rgba(0,0,0,.42);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@media (max-width: 640px) {
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  h1, .hero-title, .title {
+    font-size: clamp(42px, 13.4vw, 68px) !important;
+    line-height: .92 !important;
+    letter-spacing: .01em !important;
+    overflow-wrap: anywhere;
+  }
+
+  .hero, header {
+    padding-inline: 18px !important;
+  }
+
+  img[src*="poster"], .poster img, .hero img {
+    max-width: calc(100vw - 36px);
+    margin-inline: auto;
+    border-radius: 22px;
+  }
+}
+
+
+/* ─────────────────────────────────────────────
+   TIPOGRAFÍA UNIFICADA REAL CON MESÓN NERUDIANO
+   Cormorant Garamond + Montserrat
+   Esta capa va al final para anular reglas antiguas.
+───────────────────────────────────────────── */
+
+:root {
+  --font-serif: 'Cormorant Garamond', Georgia, serif !important;
+  --font-sans: 'Montserrat', Arial, sans-serif !important;
+}
+
+/* Base general */
+html,
+body {
+  font-family: 'Montserrat', Arial, sans-serif !important;
+  font-weight: 300 !important;
+}
+
+/* Todo lo funcional / informativo en Montserrat */
+p,
+a,
+button,
+input,
+textarea,
+select,
+label,
+li,
+small,
+strong,
+em,
+span,
+nav,
+footer,
+.btn,
+.button,
+.cta,
+.kicker,
+.eyebrow,
+.meta,
+.event-meta,
+.meta-primary,
+.meta-secondary,
+.tag,
+.tags,
+.caption,
+.lead,
+.hero-text,
+.card p,
+.info-card p,
+.video-card p,
+.project-card p,
+.contact p,
+.bio p,
+.program-copy,
+.section-copy,
+.description,
+.subtitle:not(.hero-sub):not(.hero-title),
+[class*="btn"],
+[class*="button"],
+[class*="meta"],
+[class*="tag"],
+[class*="eyebrow"],
+[class*="kicker"] {
+  font-family: 'Montserrat', Arial, sans-serif !important;
+}
+
+/* Todo lo editorial / título en Cormorant Garamond */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title,
+.title-4,
+.title-estaciones,
+.title-portenas,
+.hero-title,
+.hero-sub,
+.hero-subtitle,
+.section-title,
+.project-title,
+.card-title,
+.quote,
+.manifesto-title,
+.display,
+.big-title,
+.poster-title,
+.bio h3,
+.card h3,
+.info-card h3,
+.video-card h3,
+.contact h2,
+[class*="title"],
+[class*="heading"],
+[class*="quote"] {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 300 !important;
+}
+
+/* Títulos principales: mismo gesto visual del home/Mesón */
+h1,
+.hero-title,
+.title,
+.poster-title {
+  letter-spacing: .045em !important;
+  line-height: .86 !important;
+  text-transform: uppercase !important;
+}
+
+h2,
+.section-title {
+  letter-spacing: .035em !important;
+  line-height: .88 !important;
+  text-transform: uppercase !important;
+}
+
+h3,
+.card h3,
+.info-card h3,
+.video-card h3 {
+  letter-spacing: .035em !important;
+  line-height: .94 !important;
+  text-transform: uppercase !important;
+}
+
+/* Botones idénticos al sistema Mesón */
+.btn,
+.button,
+.cta,
+a[class*="btn"],
+a[class*="button"] {
+  font-family: 'Montserrat', Arial, sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+}
+
+/* Navegación */
+nav a,
+.nav a,
+.site-nav a,
+.logo {
+  font-family: 'Montserrat', Arial, sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+}
+
+/* Evita que clases antiguas impongan otra serif/sans */
+[style*="font-family"] {
+  font-family: inherit;
+}
+
+
+/* ─────────────────────────────────────────────
+   Detalles dorados sutiles sobre el sistema rojo
+───────────────────────────────────────────── */
+
+/* Línea dorada fina para separar secciones */
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(220px, 46vw);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201,169,110,.18),
+    rgba(232,201,138,.72),
+    rgba(201,169,110,.18),
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* Acento dorado editorial en etiquetas */
+.eyebrow::before,
+.kicker::before {
+  content: "";
+  display: inline-block;
+  width: 42px;
+  height: 1px;
+  margin-right: 12px;
+  vertical-align: middle;
+  background: linear-gradient(90deg, rgba(232,201,138,.9), transparent);
+}
+
+/* Brillo dorado mínimo en títulos grandes */
+h1,
+.hero-title,
+.title,
+.poster-title {
+  text-shadow:
+    0 2px 18px rgba(0,0,0,.86),
+    0 0 28px rgba(201,169,110,.12) !important;
+}
+
+/* Palabras o números destacados con dorado suave */
+h1 span,
+.hero-title span,
+.title span,
+strong {
+  color: var(--gold-light);
+}
+
+/* Esquinas doradas muy pequeñas en tarjetas */
+.card,
+article,
+.project-card,
+.info-card,
+.feature-card,
+.video-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::after,
+article::after,
+.project-card::after,
+.info-card::after,
+.feature-card::after,
+.video-card::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  border-top: 1px solid rgba(232,201,138,.55);
+  border-right: 1px solid rgba(232,201,138,.55);
+  opacity: .55;
+  pointer-events: none;
+}
+
+/* Botones con halo dorado sobrio */
+.btn,
+.button,
+.cta,
+a[class*="btn"],
+a[class*="button"] {
+  box-shadow: inset 0 0 0 1px rgba(232,201,138,.05);
+}
+
+.btn:hover,
+.button:hover,
+.cta:hover,
+a[class*="btn"]:hover,
+a[class*="button"]:hover {
+  box-shadow:
+    0 12px 34px rgba(201,169,110,.12),
+    inset 0 0 0 1px rgba(232,201,138,.22);
+}
+
+/* Pequeñas partículas doradas en el fondo teatral */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: .08;
+  mix-blend-mode: screen;
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(232,201,138,.9) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 74% 36%, rgba(201,169,110,.8) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 46% 78%, rgba(232,201,138,.6) 0 1px, transparent 1.4px);
+  background-size: 160px 160px, 220px 220px, 280px 280px;
+}
+
+/* Filete dorado alrededor de imágenes/poster sin recargar */
+img[src*="poster"],
+.poster img,
+.hero img {
+  box-shadow:
+    0 0 0 1px rgba(201,169,110,.34),
+    0 0 0 8px rgba(201,169,110,.025),
+    0 24px 72px rgba(0,0,0,.52) !important;
+}
+
+/* Detalle móvil: menos partículas para evitar ruido visual */
+@media (max-width: 640px) {
+  body::after {
+    opacity: .045;
+  }
+
+  .card::after,
+  article::after,
+  .project-card::after,
+  .info-card::after,
+  .feature-card::after,
+  .video-card::after {
+    width: 26px;
+    height: 26px;
+    top: 14px;
+    right: 14px;
+    opacity: .42;
+  }
+
+  section::before {
+    width: min(160px, 42vw);
+  }
+}
+
 </style>
 </head>
 <body>
+<div class="smoke-bg"><span class="smoke-third" aria-hidden="true"></span></div>
 <div class="noise"></div>
 
 <nav class="nav">
