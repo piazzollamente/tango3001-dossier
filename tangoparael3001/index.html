@@ -1372,6 +1372,370 @@ img[src*="poster"],
   }
 }
 
+
+/* ─────────────────────────────────────────────
+   Corrección contraste: sección Viaje escénico
+───────────────────────────────────────────── */
+
+/* Aplica a la sección por id/clase si existe y también por estructura cercana */
+#viaje-escenico,
+#viaje,
+.viaje-escenico,
+.viaje,
+.escenic-journey,
+.journey,
+section:has(.viaje-escenico),
+section:has([class*="viaje"]),
+section:has([id*="viaje"]) {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(181,53,42,.18), transparent 34%),
+    radial-gradient(circle at 82% 68%, rgba(201,169,110,.12), transparent 38%),
+    linear-gradient(180deg, #110b0b 0%, #090605 100%) !important;
+  color: #fff7ed !important;
+}
+
+/* Fuerza lectura blanca/crema en todo el bloque */
+#viaje-escenico *,
+#viaje *,
+.viaje-escenico *,
+.viaje *,
+.escenic-journey *,
+.journey *,
+section:has(.viaje-escenico) *,
+section:has([class*="viaje"]) *,
+section:has([id*="viaje"]) * {
+  color: #fff7ed !important;
+}
+
+/* Textos secundarios más claros, sin gris oscuro */
+#viaje-escenico p,
+#viaje p,
+.viaje-escenico p,
+.viaje p,
+.escenic-journey p,
+.journey p,
+section:has(.viaje-escenico) p,
+section:has([class*="viaje"]) p,
+section:has([id*="viaje"]) p {
+  color: rgba(255,247,237,.86) !important;
+}
+
+/* Etiquetas / números con dorado visible */
+#viaje-escenico .eyebrow,
+#viaje-escenico .kicker,
+#viaje-escenico strong,
+#viaje .eyebrow,
+#viaje .kicker,
+#viaje strong,
+.viaje-escenico .eyebrow,
+.viaje-escenico .kicker,
+.viaje-escenico strong,
+.viaje .eyebrow,
+.viaje .kicker,
+.viaje strong,
+section:has(.viaje-escenico) .eyebrow,
+section:has(.viaje-escenico) .kicker,
+section:has(.viaje-escenico) strong,
+section:has([class*="viaje"]) .eyebrow,
+section:has([class*="viaje"]) .kicker,
+section:has([class*="viaje"]) strong,
+section:has([id*="viaje"]) .eyebrow,
+section:has([id*="viaje"]) .kicker,
+section:has([id*="viaje"]) strong {
+  color: #e8c98a !important;
+}
+
+/* Cards internas del viaje: más contraste y borde dorado */
+#viaje-escenico article,
+#viaje-escenico .card,
+#viaje-escenico .item,
+#viaje .card,
+#viaje article,
+.viaje-escenico article,
+.viaje-escenico .card,
+.viaje-escenico .item,
+.viaje article,
+.viaje .card,
+.viaje .item,
+section:has(.viaje-escenico) article,
+section:has(.viaje-escenico) .card,
+section:has(.viaje-escenico) .item,
+section:has([class*="viaje"]) article,
+section:has([class*="viaje"]) .card,
+section:has([class*="viaje"]) .item,
+section:has([id*="viaje"]) article,
+section:has([id*="viaje"]) .card,
+section:has([id*="viaje"]) .item {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(181,53,42,.20), transparent 38%),
+    linear-gradient(135deg, rgba(28,16,14,.98), rgba(8,6,5,.98)) !important;
+  border-color: rgba(232,201,138,.34) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,.42) !important;
+}
+
+/* Si hay líneas o divisores oscuros, hacerlos dorados */
+#viaje-escenico hr,
+#viaje hr,
+.viaje-escenico hr,
+.viaje hr,
+section:has(.viaje-escenico) hr,
+section:has([class*="viaje"]) hr,
+section:has([id*="viaje"]) hr {
+  border-color: rgba(232,201,138,.36) !important;
+}
+
+/* Fallback por texto: si la sección no tiene clase/id claro, mejora contraste en bloques tipo timeline/programa */
+.timeline,
+.journey-grid,
+.program-grid,
+.escenas,
+.escena-grid {
+  color: #fff7ed !important;
+}
+
+.timeline p,
+.journey-grid p,
+.program-grid p,
+.escenas p,
+.escena-grid p {
+  color: rgba(255,247,237,.86) !important;
+}
+
+
+/* ─────────────────────────────────────────────
+   FIX CONTRASTE REAL: cards del viaje escénico
+   Especialmente bloque "CIUDAD Y HERIDA"
+───────────────────────────────────────────── */
+
+/* Cards oscuras dentro de la página: texto visible sí o sí */
+.card,
+article,
+.info-card,
+.feature-card,
+.video-card,
+.project-card,
+[class*="card"],
+[class*="item"],
+[class*="bloque"],
+[class*="escena"],
+[class*="viaje"],
+[class*="journey"] {
+  color: #fff7ed !important;
+}
+
+/* Títulos dentro de cards */
+.card h1, .card h2, .card h3, .card h4,
+article h1, article h2, article h3, article h4,
+.info-card h1, .info-card h2, .info-card h3, .info-card h4,
+.feature-card h1, .feature-card h2, .feature-card h3, .feature-card h4,
+.video-card h1, .video-card h2, .video-card h3, .video-card h4,
+.project-card h1, .project-card h2, .project-card h3, .project-card h4,
+[class*="card"] h1, [class*="card"] h2, [class*="card"] h3, [class*="card"] h4,
+[class*="item"] h1, [class*="item"] h2, [class*="item"] h3, [class*="item"] h4,
+[class*="bloque"] h1, [class*="bloque"] h2, [class*="bloque"] h3, [class*="bloque"] h4,
+[class*="escena"] h1, [class*="escena"] h2, [class*="escena"] h3, [class*="escena"] h4,
+[class*="viaje"] h1, [class*="viaje"] h2, [class*="viaje"] h3, [class*="viaje"] h4 {
+  color: #fff7ed !important;
+  opacity: 1 !important;
+  text-shadow: 0 2px 14px rgba(0,0,0,.52) !important;
+}
+
+/* Párrafos dentro de cards */
+.card p,
+article p,
+.info-card p,
+.feature-card p,
+.video-card p,
+.project-card p,
+[class*="card"] p,
+[class*="item"] p,
+[class*="bloque"] p,
+[class*="escena"] p,
+[class*="viaje"] p,
+[class*="journey"] p {
+  color: rgba(255,247,237,.86) !important;
+  opacity: 1 !important;
+}
+
+/* Números o marcas rojas en cards: dorado/rojo visible */
+.card small, .card span, .card strong,
+article small, article span, article strong,
+[class*="card"] small, [class*="card"] span, [class*="card"] strong,
+[class*="escena"] small, [class*="escena"] span, [class*="escena"] strong,
+[class*="viaje"] small, [class*="viaje"] span, [class*="viaje"] strong {
+  opacity: 1 !important;
+}
+
+/* Si alguna card tiene fondo demasiado parecido al texto, oscurecer y contrastar */
+.card,
+article,
+.info-card,
+.feature-card,
+.video-card,
+.project-card,
+[class*="card"],
+[class*="item"],
+[class*="bloque"],
+[class*="escena"] {
+  background:
+    radial-gradient(circle at 16% 0%, rgba(181,53,42,.24), transparent 36%),
+    linear-gradient(135deg, rgba(35,20,17,.98), rgba(7,5,4,.98)) !important;
+  border-color: rgba(232,201,138,.34) !important;
+}
+
+/* Corrección específica por texto visible en la captura */
+h1, h2, h3, h4, p {
+  opacity: 1;
+}
+
+/* Para navegadores compatibles: card que contiene el título exacto */
+article:has(h3),
+.card:has(h3),
+[class*="card"]:has(h3),
+[class*="escena"]:has(h3) {
+  color: #fff7ed !important;
+}
+
+article:has(h3) h3,
+.card:has(h3) h3,
+[class*="card"]:has(h3) h3,
+[class*="escena"]:has(h3) h3 {
+  color: #fff7ed !important;
+}
+
+article:has(h3) p,
+.card:has(h3) p,
+[class*="card"]:has(h3) p,
+[class*="escena"]:has(h3) p {
+  color: rgba(255,247,237,.88) !important;
+}
+
+
+/* ─────────────────────────────────────────────
+   Números romanos destacados en Viaje escénico
+───────────────────────────────────────────── */
+
+/* Detecta marcas romanas típicas: I, II, III, IV, V, VI, VII, VIII */
+.card > span:first-child,
+.card > small:first-child,
+.card .number,
+.card .numero,
+.card .roman,
+.card .romano,
+article > span:first-child,
+article > small:first-child,
+[class*="card"] > span:first-child,
+[class*="card"] > small:first-child,
+[class*="escena"] > span:first-child,
+[class*="escena"] > small:first-child,
+[class*="viaje"] > span:first-child,
+[class*="viaje"] > small:first-child {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: max-content !important;
+  min-width: 42px !important;
+  min-height: 30px !important;
+  margin-bottom: 18px !important;
+  padding: 6px 12px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(232,201,138,.48) !important;
+  background:
+    linear-gradient(135deg, rgba(181,53,42,.42), rgba(80,18,16,.28)) !important;
+  color: #e8c98a !important;
+  font-family: 'Montserrat', Arial, sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: .22em !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  opacity: 1 !important;
+  box-shadow:
+    0 0 0 1px rgba(181,53,42,.22),
+    0 8px 24px rgba(181,53,42,.18) !important;
+}
+
+/* Para numeración romana dentro de timelines/listas */
+.timeline strong:first-child,
+.journey-grid strong:first-child,
+.program-grid strong:first-child,
+.escenas strong:first-child,
+.escena-grid strong:first-child,
+.timeline span:first-child,
+.journey-grid span:first-child,
+.program-grid span:first-child,
+.escenas span:first-child,
+.escena-grid span:first-child {
+  color: #e8c98a !important;
+  opacity: 1 !important;
+  font-weight: 700 !important;
+}
+
+/* Acento lateral dorado en cada bloque del viaje */
+.card,
+article,
+[class*="card"],
+[class*="escena"],
+[class*="viaje"] {
+  position: relative;
+}
+
+.card::before,
+article::before,
+[class*="card"]::before,
+[class*="escena"]::before,
+[class*="viaje"]::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 0;
+  width: 3px;
+  height: 42px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #e8c98a, rgba(181,53,42,.88));
+  opacity: .72;
+  pointer-events: none;
+}
+
+/* Si el número romano está como texto suelto dentro del primer párrafo o div */
+.card p:first-child,
+article p:first-child,
+[class*="card"] p:first-child,
+[class*="escena"] p:first-child,
+[class*="viaje"] p:first-child {
+  color: #e8c98a !important;
+  font-weight: 600 !important;
+  letter-spacing: .16em !important;
+}
+
+/* Ajuste móvil */
+@media (max-width: 640px) {
+  .card > span:first-child,
+  .card > small:first-child,
+  article > span:first-child,
+  article > small:first-child,
+  [class*="card"] > span:first-child,
+  [class*="card"] > small:first-child,
+  [class*="escena"] > span:first-child,
+  [class*="escena"] > small:first-child,
+  [class*="viaje"] > span:first-child,
+  [class*="viaje"] > small:first-child {
+    min-width: 38px !important;
+    min-height: 28px !important;
+    padding: 6px 10px !important;
+    font-size: 9px !important;
+  }
+
+  .card::before,
+  article::before,
+  [class*="card"]::before,
+  [class*="escena"]::before,
+  [class*="viaje"]::before {
+    top: 18px;
+    height: 34px;
+  }
+}
+
 </style>
 </head>
 <body>
