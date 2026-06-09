@@ -1,0 +1,316 @@
+/*
+  Sistema visual Piazzollamente · criterio A
+  Base dominante: Mesón Nerudiano
+  Uso: capa de unificación para Home, Tango para el 3001 y Próximos shows.
+*/
+
+:root {
+  --pm-dark: #0e0b09;
+  --pm-dark-deep: #080605;
+  --pm-dark-soft: #1a1410;
+  --pm-cream: #f5ede0;
+  --pm-cream-light: #fff7ed;
+  --pm-gold: #c9a96e;
+  --pm-gold-light: #e8c98a;
+  --pm-red: #b5352a;
+  --pm-red-dark: #8f1f1a;
+  --pm-muted: rgba(245, 237, 224, .72);
+  --pm-line: rgba(201, 169, 110, .22);
+  --pm-font-serif: 'Cormorant Garamond', Georgia, serif;
+  --pm-font-sans: 'Montserrat', Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--pm-dark);
+  color: var(--pm-cream);
+  font-family: var(--pm-font-sans);
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .24;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(201,169,110,.13), transparent 24%),
+    radial-gradient(circle at 82% 20%, rgba(181,53,42,.13), transparent 28%),
+    radial-gradient(circle at 50% 100%, rgba(201,169,110,.08), transparent 34%),
+    repeating-linear-gradient(0deg, rgba(255,247,237,.018) 0 1px, transparent 1px 4px);
+}
+
+main,
+header,
+section,
+nav,
+footer,
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.hero-title,
+.hero-sub,
+.section-title,
+.project-title,
+.card-title,
+.quote,
+.big-quote,
+.poster-title,
+[class*="title"],
+[class*="heading"],
+[class*="quote"] {
+  font-family: var(--pm-font-serif) !important;
+  font-weight: 300 !important;
+}
+
+h1,
+.hero-title,
+.poster-title {
+  letter-spacing: .045em !important;
+  line-height: .86 !important;
+  text-transform: uppercase !important;
+  text-shadow:
+    0 2px 18px rgba(0,0,0,.86),
+    0 0 28px rgba(201,169,110,.12) !important;
+}
+
+h2,
+.section-title {
+  letter-spacing: .035em !important;
+  line-height: .88 !important;
+  text-transform: uppercase !important;
+}
+
+p,
+a,
+button,
+input,
+textarea,
+select,
+label,
+li,
+small,
+nav,
+footer,
+.btn,
+.button,
+.cta,
+.eyebrow,
+.kicker,
+.meta,
+.tag,
+.lead,
+[class*="btn"],
+[class*="button"],
+[class*="meta"],
+[class*="tag"],
+[class*="eyebrow"],
+[class*="kicker"] {
+  font-family: var(--pm-font-sans) !important;
+}
+
+.nav,
+nav,
+.site-nav {
+  background: rgba(8,6,5,.78) !important;
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(201,169,110,.16) !important;
+}
+
+.logo,
+.nav a,
+.site-nav a {
+  font-family: var(--pm-font-sans) !important;
+  font-weight: 600 !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+}
+
+.hero,
+header {
+  background:
+    radial-gradient(circle at 70% 20%, rgba(181,53,42,.16), transparent 32%),
+    radial-gradient(circle at 18% 12%, rgba(201,169,110,.14), transparent 28%),
+    linear-gradient(180deg, rgba(14,11,9,.96), rgba(8,6,5,.98)) !important;
+}
+
+section {
+  border-top: 1px solid rgba(201,169,110,.12);
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(220px, 46vw);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(201,169,110,.18), rgba(232,201,138,.72), rgba(201,169,110,.18), transparent);
+  pointer-events: none;
+}
+
+.btn,
+.button,
+.cta,
+a[class*="btn"],
+a[class*="button"] {
+  border-radius: 999px !important;
+  border: 1px solid rgba(201,169,110,.34) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+  transition: transform .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease;
+  box-shadow: inset 0 0 0 1px rgba(232,201,138,.05);
+}
+
+.btn:hover,
+.button:hover,
+.cta:hover,
+a[class*="btn"]:hover,
+a[class*="button"]:hover {
+  transform: translateY(-2px);
+  border-color: var(--pm-gold-light) !important;
+  box-shadow:
+    0 12px 34px rgba(201,169,110,.12),
+    inset 0 0 0 1px rgba(232,201,138,.22);
+}
+
+.btn-red,
+.btn-primary,
+.btn-portal {
+  background: linear-gradient(135deg, var(--pm-red) 0%, var(--pm-red-dark) 100%) !important;
+  color: var(--pm-cream-light) !important;
+  border-color: rgba(181,53,42,.75) !important;
+}
+
+.card,
+article,
+.project-card,
+.info-card,
+.feature-card,
+.video-card,
+.tray-item,
+.prensa-card,
+.trayectoria-card,
+.ficha-bloque {
+  border-color: rgba(201,169,110,.22) !important;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(164,25,31,.14), transparent 38%),
+    linear-gradient(135deg, rgba(26,20,16,.94), rgba(14,11,9,.94)) !important;
+  box-shadow: 0 24px 70px rgba(0,0,0,.24);
+}
+
+.card p,
+.info-card p,
+.video-card p,
+.project-card p,
+.tray-item span,
+.prensa-card span {
+  color: var(--pm-muted) !important;
+}
+
+.eyebrow,
+.kicker,
+[class*="eyebrow"],
+[class*="kicker"] {
+  color: var(--pm-gold-light) !important;
+}
+
+.eyebrow::before,
+.kicker::before {
+  content: "";
+  display: inline-block;
+  width: 42px;
+  height: 1px;
+  margin-right: 12px;
+  vertical-align: middle;
+  background: linear-gradient(90deg, rgba(232,201,138,.9), transparent);
+}
+
+h1 span,
+.hero-title span,
+.title span,
+strong {
+  color: var(--pm-gold-light);
+}
+
+img[src*="poster"],
+.poster img,
+.hero img,
+.hero-poster img {
+  border-radius: 24px;
+  box-shadow:
+    0 0 0 1px rgba(201,169,110,.24),
+    0 22px 68px rgba(0,0,0,.48);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card,
+  article,
+  .project-card,
+  .info-card,
+  .feature-card,
+  .video-card,
+  .tray-item,
+  .prensa-card {
+    transition: transform .32s ease, border-color .32s ease, box-shadow .32s ease;
+  }
+
+  .card:hover,
+  article:hover,
+  .project-card:hover,
+  .info-card:hover,
+  .feature-card:hover,
+  .video-card:hover,
+  .tray-item:hover,
+  .prensa-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(242,214,154,.46) !important;
+    box-shadow: 0 32px 90px rgba(0,0,0,.42);
+  }
+}
+
+@media (max-width: 640px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  h1,
+  .hero-title,
+  .title,
+  .poster-title {
+    font-size: clamp(42px, 13.4vw, 68px) !important;
+    line-height: .92 !important;
+    letter-spacing: .01em !important;
+    overflow-wrap: anywhere;
+  }
+
+  img[src*="poster"],
+  .poster img,
+  .hero img,
+  .hero-poster img {
+    max-width: calc(100vw - 36px);
+    margin-inline: auto;
+    border-radius: 22px;
+  }
+}
