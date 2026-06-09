@@ -1,8 +1,9 @@
 /* Ajustes Home · Piazzollamente
    - Videos como botones antes del manifiesto
    - Prensa más visible dentro de trayectoria
-   - Ocultar tarjeta Dirección en trayectoria
+   - Ocultar tarjetas redundantes en trayectoria
    - Cambiar visualmente “Ver dossier” por “Ver propuesta”
+   - Renombrar tarjetas de prensa/circulación
 */
 
 body:has(#manifiesto):has(#videos) {
@@ -100,7 +101,10 @@ body:has(#manifiesto):has(#videos) #videos .video-link-card:hover {
   transform: translateY(-3px) !important;
 }
 
-body:has(#trayectoria) #trayectoria .timeline .hit:last-child {
+/* Ocultar tarjetas redundantes de trayectoria: Prensa, Escena y Dirección */
+body:has(#trayectoria) #trayectoria .timeline .hit:nth-child(6),
+body:has(#trayectoria) #trayectoria .timeline .hit:nth-child(7),
+body:has(#trayectoria) #trayectoria .timeline .hit:nth-child(8) {
   display: none !important;
 }
 
@@ -142,6 +146,41 @@ body:has(#trayectoria) #trayectoria .press-card {
 
 body:has(#trayectoria) #trayectoria .press-card:hover {
   background: rgba(201,169,110,.10) !important;
+}
+
+/* Renombrar visualmente tarjetas de prensa */
+body:has(#trayectoria) #trayectoria .press-card {
+  font-size: 0 !important;
+}
+
+body:has(#trayectoria) #trayectoria .press-card::before {
+  font-size: 10px !important;
+  line-height: 1.35;
+  font-family: var(--pm-font-sans, 'Montserrat', Arial, sans-serif) !important;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(255,247,237,.74);
+}
+
+body:has(#trayectoria) #trayectoria .press-card:nth-child(1)::before {
+  content: "Valparatango 2026";
+}
+
+body:has(#trayectoria) #trayectoria .press-card:nth-child(2)::before {
+  content: "Entrevista Radio Universidad de Chile";
+}
+
+body:has(#trayectoria) #trayectoria .press-card:nth-child(3)::before {
+  content: "Gira MINCAP 2025";
+}
+
+body:has(#trayectoria) #trayectoria .press-card:nth-child(4)::before {
+  content: "Radio UTN Argentina";
+}
+
+body:has(#trayectoria) #trayectoria .press-card:nth-child(5)::before {
+  content: "Verano Porteño · INAMU Argentina";
 }
 
 body:has(#proyectos) #proyectos .card:first-child .btn[href="/tangoparael3001/"] {
