@@ -1,0 +1,180 @@
+/* Ajustes Home · Piazzollamente
+   - Videos como botones antes del manifiesto
+   - Prensa más visible dentro de trayectoria
+   - Ocultar tarjeta Dirección en trayectoria
+   - Cambiar visualmente “Ver dossier” por “Ver propuesta”
+*/
+
+body:has(#manifiesto):has(#videos) {
+  display: flex;
+  flex-direction: column;
+}
+
+body:has(#manifiesto):has(#videos) .nav { order: 0; }
+body:has(#manifiesto):has(#videos) .hero { order: 1; }
+body:has(#manifiesto):has(#videos) #videos { order: 2; }
+body:has(#manifiesto):has(#videos) main { order: 3; }
+body:has(#manifiesto):has(#videos) .footer { order: 4; }
+
+body:has(#manifiesto):has(#videos) #videos.videos-section {
+  padding: clamp(34px, 5vw, 58px) 0 clamp(40px, 5vw, 64px) !important;
+  border-top: 1px solid rgba(201,169,110,.16) !important;
+  border-bottom: 1px solid rgba(201,169,110,.10) !important;
+  background:
+    radial-gradient(circle at 80% 0%, rgba(181,53,42,.12), transparent 28%),
+    linear-gradient(180deg, rgba(8,6,5,.98), rgba(15,11,9,.98)) !important;
+}
+
+body:has(#manifiesto):has(#videos) #videos .section-head {
+  display: block !important;
+  margin-bottom: 20px !important;
+}
+
+body:has(#manifiesto):has(#videos) #videos .section-head h2 {
+  font-size: clamp(32px, 4vw, 52px) !important;
+  line-height: .92 !important;
+  margin-top: 6px !important;
+}
+
+body:has(#manifiesto):has(#videos) #videos .section-head p:last-child {
+  max-width: 620px;
+  margin-top: 10px;
+  color: rgba(245,237,224,.66) !important;
+  font-size: 13px !important;
+}
+
+body:has(#manifiesto):has(#videos) #videos .videos-grid {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 12px !important;
+  margin-top: 18px !important;
+}
+
+body:has(#manifiesto):has(#videos) #videos .video-link-card {
+  width: auto !important;
+  min-height: 0 !important;
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+  padding: 15px 18px 15px 20px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(201,169,110,.34) !important;
+  background: rgba(201,169,110,.07) !important;
+  box-shadow: inset 0 0 0 1px rgba(232,201,138,.04), 0 14px 38px rgba(0,0,0,.18) !important;
+}
+
+body:has(#manifiesto):has(#videos) #videos .video-link-card::before,
+body:has(#manifiesto):has(#videos) #videos .video-card-kicker {
+  display: none !important;
+}
+
+body:has(#manifiesto):has(#videos) #videos .video-link-card h3 {
+  margin: 0 !important;
+  font-family: var(--pm-font-sans, 'Montserrat', Arial, sans-serif) !important;
+  font-size: 10px !important;
+  line-height: 1 !important;
+  font-weight: 600 !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+  color: var(--pm-cream-light, #fff7ed) !important;
+}
+
+body:has(#manifiesto):has(#videos) #videos .video-card-action {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  font-size: 11px !important;
+  line-height: 1 !important;
+  color: var(--pm-gold-light, #e8c98a) !important;
+}
+
+body:has(#manifiesto):has(#videos) #videos .video-card-action::after {
+  content: " →";
+}
+
+body:has(#manifiesto):has(#videos) #videos .video-link-card:hover {
+  background: rgba(181,53,42,.18) !important;
+  border-color: rgba(232,201,138,.58) !important;
+  transform: translateY(-3px) !important;
+}
+
+body:has(#trayectoria) #trayectoria .timeline .hit:last-child {
+  display: none !important;
+}
+
+body:has(#trayectoria) #trayectoria .press-grid {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  margin-top: 34px !important;
+  padding: 28px !important;
+  border-radius: 28px !important;
+  border: 1px solid rgba(201,169,110,.26) !important;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(181,53,42,.18), transparent 36%),
+    linear-gradient(135deg, rgba(26,20,16,.82), rgba(8,6,5,.90)) !important;
+  box-shadow: 0 24px 70px rgba(0,0,0,.22);
+}
+
+body:has(#trayectoria) #trayectoria .press-grid::before {
+  content: "Prensa y registros";
+  grid-column: 1 / -1;
+  margin-bottom: 4px;
+  color: var(--pm-gold-light, #e8c98a);
+  font-family: var(--pm-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: .9;
+  text-transform: uppercase;
+  letter-spacing: .035em;
+}
+
+body:has(#trayectoria) #trayectoria .press-card {
+  min-height: 72px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border-color: rgba(201,169,110,.26) !important;
+  background: rgba(255,247,237,.045) !important;
+}
+
+body:has(#trayectoria) #trayectoria .press-card:hover {
+  background: rgba(201,169,110,.10) !important;
+}
+
+body:has(#proyectos) #proyectos .card:first-child .btn[href="/tangoparael3001/"] {
+  font-size: 0 !important;
+}
+
+body:has(#proyectos) #proyectos .card:first-child .btn[href="/tangoparael3001/"]::before {
+  content: "Ver propuesta";
+  font-size: 10px !important;
+  font-family: var(--pm-font-sans, 'Montserrat', Arial, sans-serif) !important;
+  font-weight: 600 !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+}
+
+@media (max-width: 980px) {
+  body:has(#manifiesto):has(#videos) #videos .videos-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  body:has(#manifiesto):has(#videos) #videos .video-link-card {
+    width: 100% !important;
+  }
+
+  body:has(#trayectoria) #trayectoria .press-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  body:has(#trayectoria) #trayectoria .press-grid {
+    grid-template-columns: 1fr !important;
+    padding: 22px !important;
+  }
+}
