@@ -487,6 +487,32 @@
       margin: 28px 0;
     }
 
+    .guest-section { padding-top: 0; }
+    .guest-grid { grid-template-columns: 0.9fr 1.1fr; }
+    .guest-photo {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(26,20,16,0.74), rgba(14,11,9,0.34));
+      border: 1px solid rgba(201,169,110,0.16);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.34);
+      min-height: 100%;
+    }
+    .guest-photo::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        linear-gradient(to bottom, rgba(8,5,4,0.04), transparent 48%, rgba(8,5,4,0.28)),
+        radial-gradient(circle at center, transparent 56%, rgba(0,0,0,0.20) 100%);
+    }
+    .guest-photo img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center top;
+      filter: brightness(0.92) contrast(1.04) saturate(1.02);
+    }
+
     /* ── TICKET SECTION ── */
     .ticket-section {
       position: relative; z-index: 1;
@@ -659,6 +685,7 @@
       .about-body { font-size: 14px; line-height: 1.85; }
       .presenter { font-size: 22px; letter-spacing: 0.14em; margin-bottom: 14px; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .guest-grid { gap: 28px; }
       .ticket-card { grid-template-columns: 1fr; }
       .ticket-price-block {
         border-left: none; border-top: 1px dashed rgba(201,169,110,0.2);
@@ -1019,6 +1046,25 @@
       <a href="https://www.portaldisc.com/evento/piazzolla-intimo-meson-nerudiano" target="_blank" rel="noopener noreferrer" class="about-cta-link" aria-label="Comprar entradas en PortalTickets">
           <p class="about-cta">Comprar entradas</p>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- INVITADA ESPECIAL -->
+<section class="about-section guest-section">
+  <div class="about-grid guest-grid">
+    <div class="guest-photo">
+      <img src="valeria-chacon-pianista-invitada.png" alt="Valeria Chacón Piñeiro, pianista invitada de Piazzollamente">
+    </div>
+
+    <div class="about-text">
+      <p class="section-label">Invitada especial</p>
+      <h2 class="about-title">Valeria Chacón Piñeiro</h2>
+      <p class="about-cta">Pianista invitada</p>
+      <div class="about-divider"></div>
+      <p class="about-body">
+        Pianista chilena de destacada trayectoria, Valeria Chacón Piñeiro se ha desarrollado como solista y músico de cámara, consolidando una voz interpretativa sensible, rigurosa y expresiva. Su participación como invitada especial aporta una nueva dimensión musical al universo de Piazzollamente.
+      </p>
     </div>
   </div>
 </section>
