@@ -1,0 +1,74 @@
+name: Configurar vista previa social del Mesón Nerudiano
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/patch-meson-social-preview.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch-social-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Agregar metadatos Open Graph y Twitter
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("mesonnerudiano/index.html")
+          html = path.read_text(encoding="utf-8")
+
+          title = "  <title>Las 4 Estaciones · Mesón Nerudiano</title>"
+          metadata = '''  <title>Las 4 Estaciones · Mesón Nerudiano</title>
+  <meta name="description" content="Las 4 Estaciones de Piazzollamente en el Mesón Nerudiano. Sábado 15 de agosto de 2026, puertas 20:00 y show 20:45.">
+  <link rel="canonical" href="https://piazzollamente.cl/mesonnerudiano/">
+
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Piazzollamente">
+  <meta property="og:title" content="Las 4 Estaciones · Mesón Nerudiano">
+  <meta property="og:description" content="Piazzollamente presenta Las 4 Estaciones. Sábado 15 de agosto de 2026 en el Mesón Nerudiano.">
+  <meta property="og:url" content="https://piazzollamente.cl/mesonnerudiano/">
+  <meta property="og:image" content="https://piazzollamente.cl/mesonnerudiano/imagen.png?v=20260710">
+  <meta property="og:image:secure_url" content="https://piazzollamente.cl/mesonnerudiano/imagen.png?v=20260710">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Los cuatro músicos de Piazzollamente para Las 4 Estaciones en el Mesón Nerudiano">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Las 4 Estaciones · Mesón Nerudiano">
+  <meta name="twitter:description" content="Piazzollamente presenta Las 4 Estaciones. Sábado 15 de agosto de 2026 en el Mesón Nerudiano.">
+  <meta name="twitter:image" content="https://piazzollamente.cl/mesonnerudiano/imagen.png?v=20260710">
+  <meta name="twitter:image:alt" content="Los cuatro músicos de Piazzollamente para Las 4 Estaciones en el Mesón Nerudiano">'''
+
+          if 'property="og:image"' in html:
+              print("Los metadatos sociales ya existen; no se modifica el archivo.")
+          elif title not in html:
+              raise SystemExit("No se encontró la etiqueta <title> esperada.")
+          else:
+              html = html.replace(title, metadata, 1)
+              path.write_text(html, encoding="utf-8")
+              print("Metadatos sociales agregados.")
+          PY
+
+      - name: Guardar cambio
+        shell: bash
+        run: |
+          if git diff --quiet -- mesonnerudiano/index.html; then
+            echo "No hay cambios pendientes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add mesonnerudiano/index.html
+          git commit -m "Fija foto grupal en vista previa social del Mesón"
+          git push
