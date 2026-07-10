@@ -72,3 +72,5 @@ jobs:
           git add mesonnerudiano/index.html
           git commit -m "Fija foto grupal en vista previa social del Mesón"
           git push
+
+# Segunda activación: el flujo ya existe en main antes de este push.
