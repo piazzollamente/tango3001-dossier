@@ -24,6 +24,19 @@
 .next{text-align:center;background:linear-gradient(180deg,#110c0b,#080605)}.next h2{max-width:900px;margin:auto}.next .lead{margin:24px auto 0}.next-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:11px;margin-top:34px}.footer{padding:34px 0;border-top:1px solid var(--line);font-size:11px;color:rgba(255,247,237,.48)}.footer .container{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.footer a{color:var(--gold2)}.reveal{opacity:0;transform:translateY(22px);transition:.7s ease}.reveal.visible{opacity:1;transform:none}
 @media(max-width:900px){.nav-links{display:none}.menu-toggle{display:block}.nav.open .nav-links{display:grid;position:absolute;top:60px;left:18px;right:18px;padding:14px;background:rgba(8,6,5,.97);border:1px solid var(--line);border-radius:20px}.nav.open .nav-links a{padding:12px}.hero{min-height:92svh;padding-top:98px}.hero::before{background:linear-gradient(0deg,rgba(8,6,5,.96) 0%,rgba(8,6,5,.60) 62%,rgba(8,6,5,.18) 100%)}.hero-content{padding-top:35vh}.intro-grid,.live-grid{grid-template-columns:1fr}.journey-row{grid-template-columns:50px 1fr;gap:14px}.journey-row p{grid-column:2}.state{grid-template-columns:1fr;gap:10px}.live-photo{min-height:500px}}
 @media(max-width:620px){h1{font-size:clamp(54px,17vw,82px);line-height:.83}.hero-kicker{font-size:29px}.section{padding:72px 0}.video-caption{align-items:flex-start;flex-direction:column}.live-photo{min-height:420px}.live-card{min-height:300px}.journey-row.final{margin-inline:-8px}.footer .container{display:grid}.hero-photo{object-position:52% center}}
+
+.hero-portraits{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin:0 0 24px auto;max-width:560px}
+.hero-portrait{width:74px;height:74px;overflow:hidden;border-radius:999px;border:1px solid rgba(242,214,154,.28);background:rgba(255,247,237,.06);box-shadow:0 14px 34px rgba(0,0,0,.24)}
+.hero-portrait img{width:100%;height:100%;object-fit:cover}
+.portrait-flute{width:104px;height:132px;border-radius:22px}
+.portrait-piano img{object-position:52% 38%}.portrait-bass img{object-position:50% 28%}.portrait-flute img{object-position:52% 34%}.portrait-guitar img{object-position:58% 30%}.portrait-violin img{object-position:48% 28%}
+@media(max-width:620px){
+  .hero-content{max-width:none}
+  .hero-portraits{width:100vw;max-width:none;margin:0 0 24px calc(50% - 50vw);display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+  .hero-portrait,.portrait-flute{width:auto;height:30vw;max-height:132px;border:0;border-right:1px solid rgba(242,214,154,.16);border-radius:0;box-shadow:none}
+  .hero-portrait:last-child{border-right:0}
+}
+
 </style>
 </head>
 <body>
@@ -44,6 +57,13 @@
 <header class="hero">
   <img class="hero-photo hero-source" id="heroPhoto" alt="Piazzollamente en concierto junto al público del Mesón Nerudiano" />
   <div class="container hero-content">
+<div class="hero-portraits" aria-label="Piazzollamente en vivo">
+  <figure class="hero-portrait portrait-piano"><img src="/assets/las4-piano.webp" alt="Piano de Piazzollamente en vivo"></figure>
+  <figure class="hero-portrait portrait-bass"><img src="/assets/las4-contrabajo.webp" alt="Contrabajo de Piazzollamente en vivo"></figure>
+  <figure class="hero-portrait portrait-flute"><img src="/assets/las4-flauta.webp" alt="Flauta de Piazzollamente en vivo"></figure>
+  <figure class="hero-portrait portrait-guitar"><img src="/assets/las4-guitarra.webp" alt="Guitarra de Piazzollamente en vivo"></figure>
+  <figure class="hero-portrait portrait-violin"><img src="/assets/las4-violin.webp" alt="Violín de Piazzollamente en vivo"></figure>
+</div>
     <p class="eyebrow">Piazzollamente · Concierto instrumental</p>
     <h1>Las 4 Estaciones <span>Porteñas</span></h1>
     <p class="hero-kicker">Un viaje a Buenos Aires a través de la música de Astor Piazzolla.</p>
