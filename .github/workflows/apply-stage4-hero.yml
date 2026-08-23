@@ -1,0 +1,68 @@
+name: Aplicar etapa 4 del Home
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'stage4-hero-trigger.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Actualizar hero e identidad inicial
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          if '/assets/home-stage4.css' not in s:
+              s = s.replace('<link rel="stylesheet" href="/assets/home-stage3.css">', '<link rel="stylesheet" href="/assets/home-stage3.css">\n<link rel="stylesheet" href="/assets/home-stage4.css">', 1)
+
+          start = s.index('<header class="hero" id="inicio">')
+          end = s.index('</header>', start) + len('</header>')
+          new_hero = '''<header class="hero" id="inicio">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Piazzolla · música en vivo · escena</p>
+      <h1>Piazzollamente</h1>
+      <p class="hero-claim">La música de Astor Piazzolla desde <em>otra respiración.</em></p>
+      <p class="hero-definition"><strong>Piazzollamente</strong> es un proyecto artístico chileno dirigido por Valentina Galaz. Su formación base —flauta traversa, violín, guitarra eléctrica, piano y contrabajo— reconfigura el quinteto desde una identidad sonora propia y se despliega hoy en dos espectáculos.</p>
+      <div class="hero-actions">
+        <a href="/las4estaciones/" class="btn btn-red">Las 4 Estaciones Porteñas</a>
+        <a href="/tangoparael3001/" class="btn btn-gold">Tango para el 3001</a>
+        <a href="/agenda/" class="btn">Próximas funciones</a>
+      </div>
+      <div class="hero-secondary" aria-label="Datos principales de Piazzollamente">
+        <span>Flauta · violín · guitarra eléctrica · piano · contrabajo</span>
+        <span>Chile · Argentina</span>
+        <span>Trayectoria 2023–2026</span>
+      </div>
+    </div>
+    <figure class="hero-visual">
+      <img src="/assets/portada-piazzollamente.jpg" alt="Piazzollamente en escena" fetchpriority="high">
+      <figcaption class="hero-visual-caption">
+        <div><strong>Piazzollamente hoy</strong><span>Interpretación · investigación · escena</span></div>
+        <a href="#piazzollamente-hoy">Conocer el proyecto ↓</a>
+      </figcaption>
+    </figure>
+  </div>
+</header>'''
+          s = s[:start] + new_hero + s[end:]
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Guardar cambios
+        run: |
+          git config user.name 'piazzollamente'
+          git config user.email 'valen.galaz@gmail.com'
+          git add index.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Etapa 4: redefine el hero e identidad inicial'
+          git push
