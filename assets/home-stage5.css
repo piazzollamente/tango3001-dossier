@@ -161,6 +161,25 @@
   filter:brightness(1.04);
 }
 
+/* Identidad Piazzollamente · logotipo oficial */
+.nav .logo{
+  display:block;
+  width:176px;
+  height:38px;
+  padding:0;
+  font-size:0!important;
+  line-height:0;
+  background:url('/assets/hero/Identidad%20Piazzollamente-02.png') left center/contain no-repeat;
+}
+.hero h1{
+  width:min(100%,650px);
+  height:132px;
+  margin:0 0 24px!important;
+  font-size:0!important;
+  line-height:0!important;
+  background:url('/assets/hero/Identidad%20Piazzollamente-02.png') left center/contain no-repeat;
+}
+
 @media(max-width:980px){
   .show-media-link{height:380px}
 }
@@ -177,4 +196,15 @@
   .show-actions .btn{width:100%!important}
   .show-secondary-link{text-align:center;padding:8px 0}
   .show-media-topline{left:12px;right:12px;top:12px}
+  .nav .logo{
+    width:146px;
+    height:32px;
+  }
+  .hero h1{
+    width:min(76vw,340px);
+    height:min(76vw,340px);
+    margin:0 auto 18px!important;
+    background-image:url('/assets/hero/Identidad%20Piazzollamente-04.png');
+    background-position:center;
+  }
 }
