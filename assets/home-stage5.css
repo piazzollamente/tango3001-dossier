@@ -164,20 +164,34 @@
 /* Identidad Piazzollamente · logotipo oficial */
 .nav .logo{
   display:block;
-  width:176px;
-  height:38px;
+  width:190px;
+  height:40px;
   padding:0;
   font-size:0!important;
   line-height:0;
-  background:url('/assets/hero/Identidad%20Piazzollamente-02.png') left center/contain no-repeat;
+  background-image:url('/assets/hero/Identidad%20Piazzollamente-02.png');
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:128% auto;
 }
 .hero h1{
-  width:min(100%,650px);
-  height:132px;
+  width:100%;
+  height:clamp(138px,12vw,168px);
   margin:0 0 24px!important;
   font-size:0!important;
   line-height:0!important;
-  background:url('/assets/hero/Identidad%20Piazzollamente-02.png') left center/contain no-repeat;
+  background-image:url('/assets/hero/Identidad%20Piazzollamente-02.png');
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:128% auto;
+}
+
+@media(min-width:981px){
+  .hero-grid{
+    grid-template-columns:minmax(0,1.08fr) minmax(380px,.92fr)!important;
+    gap:clamp(30px,4vw,58px)!important;
+  }
+  .hero-copy{max-width:760px!important}
 }
 
 @media(max-width:980px){
@@ -197,14 +211,16 @@
   .show-secondary-link{text-align:center;padding:8px 0}
   .show-media-topline{left:12px;right:12px;top:12px}
   .nav .logo{
-    width:146px;
-    height:32px;
+    width:154px;
+    height:34px;
+    background-size:128% auto;
   }
   .hero h1{
-    width:min(76vw,340px);
-    height:min(76vw,340px);
+    width:min(92vw,430px);
+    height:clamp(176px,50vw,226px);
     margin:0 auto 18px!important;
     background-image:url('/assets/hero/Identidad%20Piazzollamente-04.png');
     background-position:center;
+    background-size:126% auto;
   }
 }
