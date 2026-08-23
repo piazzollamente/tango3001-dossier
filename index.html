@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Piazzollamente · Música, escena y ciudad</title>
-<meta name="description" content="Piazzollamente: proyecto artístico dedicado a la interpretación y reelaboración de la música de Astor Piazzolla.">
+<meta name="description" content="Piazzollamente: proyecto artístico dedicado a la interpretación y reelaboración de la música de Astor Piazzolla. Conoce Las 4 Estaciones Porteñas y Tango para el 3001.">
 <link rel="canonical" href="https://piazzollamente.cl/">
 <link rel="icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/piazzollamente-system.css">
-<link rel="stylesheet" href="/assets/home-stage2.css">
+<link rel="stylesheet" href="/assets/home-stage3.css">
 </head>
 <body>
 <nav class="nav" id="nav">
@@ -19,7 +19,8 @@
     <a href="/" class="logo">Piazzollamente</a>
     <button class="menu-toggle" id="menu" type="button" aria-label="Abrir menú" aria-expanded="false">Menú</button>
     <div class="nav-links">
-      <a href="#proyectos">Espectáculos</a>
+      <a href="#espectaculos">Espectáculos</a>
+      <a href="#en-el-tiempo">En el tiempo</a>
       <a href="/trayectoria/">Trayectoria</a>
       <a href="/agenda/">Agenda</a>
       <a href="/programacion/">Programación</a>
@@ -29,84 +30,190 @@
 
 <header class="hero" id="inicio">
   <div class="hero-grid">
-    <div>
+    <div class="hero-copy">
       <p class="eyebrow">Música · escena · ciudad</p>
       <h1>Piazzollamente</h1>
       <p class="hero-sub">Entrar en la música de Astor Piazzolla no como quien visita un repertorio, sino como quien atraviesa una ciudad.</p>
-      <p class="hero-text">Piazzollamente trabaja desde la música en vivo, la escena y la investigación interpretativa para construir una lectura propia del universo de Astor Piazzolla.</p>
+      <p class="hero-text">Proyecto artístico chileno dedicado a la interpretación y reelaboración de la música de Astor Piazzolla, con dirección artística de Valentina Galaz y una búsqueda que articula sonido, escena y trayectoria.</p>
       <div class="hero-actions">
-        <a href="#proyectos" class="btn btn-red">Ver espectáculos</a>
-        <a href="/trayectoria/" class="btn btn-gold">Ver trayectoria</a>
-        <a href="/agenda/" class="btn">Agenda</a>
+        <a href="/las4estaciones/" class="btn btn-red">Las 4 Estaciones Porteñas</a>
+        <a href="/tangoparael3001/" class="btn btn-gold">Tango para el 3001</a>
+        <a href="/agenda/" class="btn">Próximas funciones</a>
+      </div>
+      <div class="hero-proof" aria-label="Resumen de trayectoria">
+        <span>Trayectoria 2023–2026</span>
+        <span>Chile · Argentina</span>
+        <span>Concierto · escena</span>
       </div>
     </div>
-    <figure class="hero-visual"><img src="/assets/portada-piazzollamente.jpg" alt="Piazzollamente"></figure>
+    <figure class="hero-visual"><img src="/assets/portada-piazzollamente.jpg" alt="Piazzollamente" fetchpriority="high"></figure>
   </div>
 </header>
 
 <main>
-<section class="manifesto" id="manifiesto">
-  <div class="container">
-    <p class="kicker">Manifiesto</p>
-    <div class="quote">Piazzolla no ordena la realidad.<span>La desborda.</span></div>
-    <p>En su música hay deseo, ruido, ternura, calle, furia, belleza y herida. Piazzollamente trabaja desde ese desborde: no para reproducir un repertorio, sino para construir experiencias donde la música abre otras formas de escuchar la ciudad.</p>
-  </div>
-</section>
-
-<section class="projects" id="proyectos">
+<section class="spectacles" id="espectaculos">
   <div class="container">
     <div class="section-head">
       <p class="kicker">Espectáculos</p>
-      <div><h2>Dos formas de entrar a Piazzollamente.</h2><p class="lead">El proyecto se despliega actualmente en dos propuestas diferenciadas: un concierto instrumental y un espectáculo escénico-musical.</p></div>
+      <div>
+        <h2 class="section-title">Dos formas de entrar a Piazzollamente.</h2>
+        <p class="lead">El proyecto se despliega actualmente en dos propuestas diferenciadas: un concierto instrumental y un espectáculo escénico-musical.</p>
+      </div>
     </div>
-    <div class="project-grid">
-      <article class="card"><h3>Las 4 Estaciones Porteñas</h3><p>Concierto instrumental en torno a las Estaciones Porteñas y otras obras de Astor Piazzolla, desde el quinteto de Piazzollamente.</p><a class="btn btn-red" href="/las4estaciones/">Conocer espectáculo</a></article>
-      <article class="card"><h3>Tango para el 3001</h3><p>Espectáculo escénico-musical que articula música en vivo, voces, cuerpo y dramaturgia.</p><a class="btn btn-gold" href="/tangoparael3001/">Conocer espectáculo</a></article>
-      <article class="card"><p class="eyebrow">Teatros · festivales · centros culturales</p><h3>Programación</h3><p>Información para presentar ambos espectáculos en salas, festivales, ciclos y espacios culturales.</p><a class="btn btn-gold" href="/programacion/">Información para programadores</a></article>
+
+    <div class="show-grid">
+      <article class="show-card">
+        <div class="show-media portrait-strip" aria-label="Quinteto de Las 4 Estaciones Porteñas">
+          <img src="/assets/las4-piano.webp" alt="Piano" loading="lazy">
+          <img src="/assets/las4-contrabajo.webp" alt="Contrabajo" loading="lazy">
+          <img src="/assets/las4-flauta.webp" alt="Flauta traversa" loading="lazy">
+          <img src="/assets/las4-guitarra.webp" alt="Guitarra" loading="lazy">
+          <img src="/assets/las4-violin.webp" alt="Violín" loading="lazy">
+        </div>
+        <div class="show-body">
+          <span class="show-type">Concierto instrumental · quinteto</span>
+          <h3>Las 4 Estaciones Porteñas</h3>
+          <p>Un viaje a Buenos Aires a través de las Estaciones Porteñas y otras obras de Astor Piazzolla, desde el sonido del quinteto de Piazzollamente.</p>
+          <a class="btn btn-red" href="/las4estaciones/">Conocer espectáculo</a>
+        </div>
+      </article>
+
+      <article class="show-card tango">
+        <div class="show-media"><img src="/assets/poster.jpg" alt="Tango para el 3001" loading="lazy"></div>
+        <div class="show-body">
+          <span class="show-type">Espectáculo escénico-musical</span>
+          <h3>Tango para el 3001</h3>
+          <p>Música de Astor Piazzolla y textos de Horacio Ferrer articulados desde la escena, las voces, los cuerpos y una dramaturgia sin texto hablado.</p>
+          <a class="btn btn-gold" href="/tangoparael3001/">Conocer espectáculo</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<section id="trayectoria-resumen">
+<section class="identity" id="piazzollamente-hoy">
+  <div class="container identity-grid">
+    <div class="identity-visual" aria-label="Instrumentos del quinteto de Piazzollamente">
+      <img src="/assets/las4-piano.webp" alt="Piano de Piazzollamente" loading="lazy">
+      <img src="/assets/las4-contrabajo.webp" alt="Contrabajo de Piazzollamente" loading="lazy">
+      <img src="/assets/las4-flauta.webp" alt="Flauta traversa de Piazzollamente" loading="lazy">
+      <img src="/assets/las4-guitarra.webp" alt="Guitarra de Piazzollamente" loading="lazy">
+      <img src="/assets/las4-violin.webp" alt="Violín de Piazzollamente" loading="lazy">
+    </div>
+    <div class="identity-copy">
+      <p class="kicker">Piazzollamente hoy</p>
+      <h2>Otra respiración para el quinteto.</h2>
+      <p>Piazzollamente trabaja la música de Piazzolla desde una formación en la que la flauta traversa desplaza el centro tímbrico hacia otra respiración, otra articulación y otra forma de frasear, en diálogo con violín, guitarra eléctrica, piano y contrabajo.</p>
+      <p>La identidad del proyecto se construye entre interpretación, investigación musical y escena, y se proyecta hoy en dos espectáculos con lenguajes propios.</p>
+      <div class="instrument-line"><span>Flauta</span><span>Violín</span><span>Guitarra eléctrica</span><span>Piano</span><span>Contrabajo</span></div>
+      <div class="identity-meta">
+        <div><strong>Dirección artística</strong><span>Valentina Galaz</span></div>
+        <div><strong>Circulación</strong><span>Chile · Argentina</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="current-video" id="escuchar">
+  <div class="container video-grid">
+    <div class="video-copy">
+      <p class="kicker">Escucha Piazzollamente hoy</p>
+      <h2>Adiós Nonino · en vivo</h2>
+      <p>Un registro reciente permite escuchar primero el presente del proyecto antes de retroceder por su historia audiovisual.</p>
+      <div class="section-actions"><a class="btn btn-red" href="/las4estaciones/">Ir a Las 4 Estaciones</a></div>
+    </div>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube-nocookie.com/embed/0kuwCU1FVhw?rel=0" title="Adiós Nonino · Piazzollamente en vivo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <div class="video-caption"><strong>Adiós Nonino · Piazzollamente</strong><span>Mesón Nerudiano · Santiago · 2026</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="av-journey" id="en-el-tiempo">
   <div class="container">
-    <div class="section-head"><p class="kicker">Trayectoria</p><div><h2>Un trabajo en circulación.</h2><p class="lead">Piazzollamente ha desarrollado un recorrido artístico entre Chile y Argentina, atravesando salas, teatros, festivales y una gira regional financiada por el Ministerio de las Culturas.</p></div></div>
-    <div class="timeline">
-      <div class="hit"><strong>2026</strong><span>ValparaTango.</span></div>
-      <div class="hit"><strong>2025</strong><span>Tango para el 3001 · Sala Master.</span></div>
-      <div class="hit"><strong>2025</strong><span>Gira Región de Coquimbo · MINCAP.</span></div>
-      <div class="hit"><strong>2025</strong><span>Sala SCD Plaza Egaña.</span></div>
-      <div class="hit"><strong>2024</strong><span>Teatro Regional Lucho Gatica.</span></div>
-      <div class="hit"><strong>2023</strong><span>Mendoza · San Vicente Tango.</span></div>
+    <div class="journey-head">
+      <p class="kicker">Trayectoria audiovisual</p>
+      <h2>Piazzollamente en el tiempo.</h2>
+      <p>Un recorrido desde el presente hacia los primeros registros. La trayectoria no se cuenta solamente con fechas: también puede escucharse y verse.</p>
     </div>
-    <div class="hero-actions"><a class="btn btn-gold" href="/trayectoria/">Ver trayectoria completa</a></div>
+
+    <div class="av-list">
+      <a class="av-item" href="https://youtu.be/0kuwCU1FVhw?si=O3gjvz7U9Tt5NagZ" target="_blank" rel="noopener">
+        <div class="av-year">2026</div><div class="av-thumb"><img src="https://i.ytimg.com/vi/0kuwCU1FVhw/hqdefault.jpg" alt="Adiós Nonino en vivo" loading="lazy"></div><div class="av-content"><span>Piazzollamente hoy</span><h3>Adiós Nonino</h3><p>Mesón Nerudiano · Santiago. El sonido actual del proyecto.</p></div>
+      </a>
+      <a class="av-item" href="https://youtu.be/XjByifJmH48?si=9qWOM-u-4YIw2F5q" target="_blank" rel="noopener">
+        <div class="av-year">2025</div><div class="av-thumb"><img src="https://i.ytimg.com/vi/XjByifJmH48/hqdefault.jpg" alt="Fuga y Misterio · Gira Coquimbo" loading="lazy"></div><div class="av-content"><span>Circulación territorial</span><h3>Fuga y Misterio</h3><p>Gira por la Región de Coquimbo. El proyecto sale de Santiago y amplía su circulación.</p></div>
+      </a>
+      <a class="av-item" href="https://youtu.be/zQTaWo5-s7g?si=sG6AFuDiU5VjzhGG" target="_blank" rel="noopener">
+        <div class="av-year">2024</div><div class="av-thumb"><img src="https://i.ytimg.com/vi/zQTaWo5-s7g/hqdefault.jpg" alt="Balada para un loco · Teatro Regional Lucho Gatica" loading="lazy"></div><div class="av-content"><span>Expansión escénica</span><h3>Balada para un loco</h3><p>Teatro Regional Lucho Gatica. Voz, colaboración y un escenario de mayor escala.</p></div>
+      </a>
+      <a class="av-item" href="https://youtu.be/iKshS7Y0m_o?si=rinKKUOPoxDMxEd4" target="_blank" rel="noopener">
+        <div class="av-year">2023</div><div class="av-thumb"><img src="https://i.ytimg.com/vi/iKshS7Y0m_o/hqdefault.jpg" alt="Verano Porteño · Mendoza" loading="lazy"></div><div class="av-content"><span>Argentina</span><h3>Verano Porteño</h3><p>Mendoza. Una etapa temprana y decisiva en la construcción del lenguaje del proyecto.</p></div>
+      </a>
+      <a class="av-item" href="https://youtu.be/KsF2MACabKo?si=fsWlKhBC8DqcQEll" target="_blank" rel="noopener">
+        <div class="av-year">Inicio</div><div class="av-thumb"><img src="https://i.ytimg.com/vi/KsF2MACabKo/hqdefault.jpg" alt="La Muerte del Ángel · primeros registros" loading="lazy"></div><div class="av-content"><span>Primeros formatos</span><h3>La Muerte del Ángel</h3><p>Uno de los registros que permite observar una etapa anterior al quinteto actual.</p></div>
+      </a>
+      <a class="av-item" href="https://youtu.be/S9nTWdcNU58?si=4Axz4kGwS46UO_eO" target="_blank" rel="noopener">
+        <div class="av-year">Inicio</div><div class="av-thumb"><img src="https://i.ytimg.com/vi/S9nTWdcNU58/hqdefault.jpg" alt="Concert d’aujourd’hui · Trío Piazzollamente" loading="lazy"></div><div class="av-content"><span>Origen audiovisual</span><h3>Concert d’aujourd’hui</h3><p>Trío Piazzollamente. Un registro de los primeros formatos y del comienzo de la búsqueda sonora.</p></div>
+      </a>
+    </div>
+    <div class="section-actions"><a class="btn btn-gold" href="https://youtube.com/@piazzollamente" target="_blank" rel="noopener">Ver canal de YouTube</a></div>
   </div>
 </section>
 
-<section id="direccion">
-  <div class="container split">
-    <div class="portrait"><img src="/assets/valentina-02.jpg" alt="Valentina Galaz" onerror="this.src='/assets/valentina-01.jpg'"></div>
-    <div class="bio"><p class="kicker">Dirección artística</p><h3>Valentina Galaz</h3><p>Flautista, creadora y directora artística de Piazzollamente. Su trabajo cruza interpretación, investigación, gestión y escena dentro de una lectura contemporánea de la música de Astor Piazzolla.</p></div>
-  </div>
-</section>
-
-<section id="videos">
+<section class="milestones" id="hitos">
   <div class="container">
-    <div class="section-head"><p class="kicker">Registros</p><div><h2>Videos</h2><p class="lead">Los registros audiovisuales actuales serán reorganizados como una trayectoria en el tiempo durante las próximas etapas de esta actualización.</p></div></div>
-    <div class="videos-grid">
-      <a class="video-card" href="https://drive.google.com/file/d/1BcEYBQJI6pGu1WougaBJScSl9bb1T7iU/view?usp=sharing" target="_blank" rel="noopener"><h3>Fuga y Misterio</h3><span class="btn btn-gold">Ver registro</span></a>
-      <a class="video-card" href="https://drive.google.com/file/d/1SU_0CphgxhgA3yJX0AB0cnhrGj3P57W_/view?usp=drive_link" target="_blank" rel="noopener"><h3>Tango para el 3001</h3><span class="btn btn-gold">Ver registro</span></a>
+    <div class="section-head">
+      <p class="kicker">Hitos y circulación</p>
+      <div><h2 class="section-title">La trayectoria también se mide en escenarios y territorios.</h2><p class="lead">Una selección de antecedentes que sitúan el recorrido del proyecto más allá de sus registros audiovisuales.</p></div>
+    </div>
+    <div class="milestone-grid">
+      <div class="milestone"><strong>2026</strong><span>ValparaTango · Valparaíso.</span></div>
+      <div class="milestone"><strong>2025</strong><span>Tango para el 3001 · Sala Master.</span></div>
+      <div class="milestone"><strong>2025</strong><span>Gira por la Región de Coquimbo · Fondo de la Música.</span></div>
+      <div class="milestone"><strong>2025</strong><span>Sala SCD Plaza Egaña · Santiago.</span></div>
+      <div class="milestone"><strong>2024</strong><span>Teatro Regional Lucho Gatica · Rancagua.</span></div>
+      <div class="milestone"><strong>2023</strong><span>Argentina · Mendoza · San Vicente Tango · apoyo INAMU.</span></div>
+    </div>
+    <div class="section-actions"><a class="btn btn-red" href="/trayectoria/">Ver trayectoria completa</a></div>
+  </div>
+</section>
+
+<section class="choice" id="elegir-espectaculo">
+  <div class="container">
+    <p class="kicker">Después del recorrido</p>
+    <h2>Dos maneras de entrar a Piazzollamente.</h2>
+    <p>Ahora que conoces parte de la historia del proyecto, puedes entrar directamente a uno de sus dos espectáculos.</p>
+    <div class="choice-grid">
+      <article class="choice-card"><h3>Las 4 Estaciones Porteñas</h3><p>La ciudad desde el concierto instrumental.</p><a class="btn btn-red" href="/las4estaciones/">Entrar al espectáculo</a></article>
+      <article class="choice-card"><h3>Tango para el 3001</h3><p>La ciudad transformada en escena.</p><a class="btn btn-gold" href="/tangoparael3001/">Entrar al espectáculo</a></article>
     </div>
   </div>
 </section>
 
-<section class="contact" id="contacto">
-  <div class="container"><p class="eyebrow">Programación</p><h2>Programar Piazzollamente</h2><p>Los dos espectáculos cuentan con páginas permanentes y una ruta específica para programación profesional.</p><div class="contact-actions"><a class="btn btn-red" href="/programacion/">Información para programadores</a><a class="btn btn-gold" href="/agenda/">Próximas funciones</a></div></div>
+<section class="programming" id="programacion">
+  <div class="container">
+    <p class="eyebrow">Teatros · festivales · centros culturales</p>
+    <h2>Programar Piazzollamente</h2>
+    <p>Accede a la información profesional de los dos espectáculos: formato, duración, materiales audiovisuales, dossier, rider y contacto.</p>
+    <div class="section-actions"><a class="btn btn-red" href="/programacion/">Información para programadores</a><a class="btn btn-gold" href="/agenda/">Agenda</a></div>
+  </div>
 </section>
 </main>
 
-<footer class="footer"><div class="container"><span>© Piazzollamente</span><span><a href="/trayectoria/">Trayectoria</a> · <a href="/agenda/">Agenda</a> · <a href="/programacion/">Programación</a></span></div></footer>
+<footer class="footer">
+  <div class="container">
+    <span>© Piazzollamente</span>
+    <div class="footer-links"><a href="/las4estaciones/">Las 4 Estaciones</a><a href="/tangoparael3001/">Tango para el 3001</a><a href="/trayectoria/">Trayectoria</a><a href="/agenda/">Agenda</a><a href="/programacion/">Programación</a><a href="https://youtube.com/@piazzollamente" target="_blank" rel="noopener">YouTube</a></div>
+  </div>
+</footer>
 <script>
-const nav=document.getElementById('nav'),menu=document.getElementById('menu');if(menu){menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open?'true':'false')});document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));}
+const nav=document.getElementById('nav'),menu=document.getElementById('menu');
+if(menu){
+  menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open?'true':'false')});
+  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
+  document.addEventListener('click',e=>{if(!nav.contains(e.target)){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}});
+}
 </script>
 </body>
 </html>
