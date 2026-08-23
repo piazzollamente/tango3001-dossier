@@ -1,0 +1,59 @@
+name: Aplicar retratos Las 4 Estaciones
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'las4-hero-trigger.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Insertar retratos en el hero
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('las4estaciones/index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = '<div class="container hero-content">'
+          block = '''<div class="hero-portraits" aria-label="Piazzollamente en vivo">
+            <figure class="hero-portrait portrait-piano"><img src="/assets/las4-piano.webp" alt="Piano de Piazzollamente en vivo"></figure>
+            <figure class="hero-portrait portrait-bass"><img src="/assets/las4-contrabajo.webp" alt="Contrabajo de Piazzollamente en vivo"></figure>
+            <figure class="hero-portrait portrait-flute"><img src="/assets/las4-flauta.webp" alt="Flauta de Piazzollamente en vivo"></figure>
+            <figure class="hero-portrait portrait-guitar"><img src="/assets/las4-guitarra.webp" alt="Guitarra de Piazzollamente en vivo"></figure>
+            <figure class="hero-portrait portrait-violin"><img src="/assets/las4-violin.webp" alt="Violín de Piazzollamente en vivo"></figure>
+          </div>'''
+          css = '''
+          .hero-portraits{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin:0 0 24px auto;max-width:560px}
+          .hero-portrait{width:74px;height:74px;overflow:hidden;border-radius:999px;border:1px solid rgba(242,214,154,.28);background:rgba(255,247,237,.06);box-shadow:0 14px 34px rgba(0,0,0,.24)}
+          .hero-portrait img{width:100%;height:100%;object-fit:cover}
+          .portrait-flute{width:104px;height:132px;border-radius:22px}
+          .portrait-piano img{object-position:52% 38%}.portrait-bass img{object-position:50% 28%}.portrait-flute img{object-position:52% 34%}.portrait-guitar img{object-position:58% 30%}.portrait-violin img{object-position:48% 28%}
+          @media(max-width:620px){
+            .hero-content{max-width:none}
+            .hero-portraits{width:100vw;max-width:none;margin:0 0 24px calc(50% - 50vw);display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+            .hero-portrait,.portrait-flute{width:auto;height:30vw;max-height:132px;border:0;border-right:1px solid rgba(242,214,154,.16);border-radius:0;box-shadow:none}
+            .hero-portrait:last-child{border-right:0}
+          }
+          '''
+          if 'class="hero-portraits"' not in s:
+              s = s.replace(marker, marker + '\n' + block, 1)
+          if '.hero-portraits{' not in s:
+              s = s.replace('</style>', css + '\n</style>', 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Guardar cambio
+        run: |
+          git config user.name 'piazzollamente'
+          git config user.email 'valen.galaz@gmail.com'
+          git add las4estaciones/index.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Ordena los retratos del quinteto en el hero'
+          git push
