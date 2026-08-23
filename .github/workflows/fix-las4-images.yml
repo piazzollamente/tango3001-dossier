@@ -1,0 +1,40 @@
+name: Fix Las4 hero images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-las4-images.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace external image URLs
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('las4estaciones/index.html')
+          s = p.read_text(encoding='utf-8')
+          replacements = {
+              'https://lh3.googleusercontent.com/d/1QV8R7RlTuwq4QZ822SdQQvkoU1BnMi_J=w800': '/assets/las4/piano.webp',
+              'https://lh3.googleusercontent.com/d/1rGRFKEIsx6KqtSRllm2JtzsTXPZtOaeC=w800': '/assets/las4/bass.webp',
+              'https://lh3.googleusercontent.com/d/1QBmLM1FWfNI--SQeCMVRgwQoKMIN9siU=w800': '/assets/las4/flute.webp',
+              'https://lh3.googleusercontent.com/d/1qgXYEDTHUXBC-x5AI3z2HeNEzaXi9uFK=w800': '/assets/las4/guitar.webp',
+              'https://lh3.googleusercontent.com/d/1E_TttqoEwFAEcLnclxJxR8nR6b3B57Ko=w800': '/assets/las4/violin.webp',
+          }
+          for old, new in replacements.items():
+              s = s.replace(old, new)
+          p.write_text(s, encoding='utf-8')
+      - name: Commit fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add las4estaciones/index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Corrige carga de retratos del hero"
+          git push
