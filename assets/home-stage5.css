@@ -210,17 +210,35 @@
   .show-actions .btn{width:100%!important}
   .show-secondary-link{text-align:center;padding:8px 0}
   .show-media-topline{left:12px;right:12px;top:12px}
+
+  /* Hero móvil: texto primero, fotografía después y logotipo completo */
+  .hero-grid{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:24px!important;
+  }
+  .hero-copy{
+    order:-1!important;
+    max-width:none!important;
+  }
+  .hero-visual{
+    order:0!important;
+    max-width:none!important;
+    margin:0!important;
+  }
   .nav .logo{
     width:154px;
     height:34px;
+    background-image:url('/assets/hero/Identidad%20Piazzollamente-02.png');
+    background-position:left center;
     background-size:128% auto;
   }
   .hero h1{
     width:min(92vw,430px);
-    height:clamp(176px,50vw,226px);
-    margin:0 auto 18px!important;
-    background-image:url('/assets/hero/Identidad%20Piazzollamente-04.png');
-    background-position:center;
-    background-size:126% auto;
+    height:clamp(92px,24vw,118px);
+    margin:0 0 18px!important;
+    background-image:url('/assets/hero/Identidad%20Piazzollamente-02.png');
+    background-position:left center;
+    background-size:128% auto;
   }
 }
