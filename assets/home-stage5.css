@@ -1,0 +1,180 @@
+/* Etapa 5 · Presentación de los dos espectáculos en el Home */
+.spectacles{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 12% 12%,rgba(181,53,42,.13),transparent 24%),
+    radial-gradient(circle at 88% 88%,rgba(242,214,154,.08),transparent 26%),
+    linear-gradient(180deg,#100c0a 0%,#080605 100%)!important;
+}
+.spectacles .section-head{
+  margin-bottom:48px;
+}
+.spectacles .section-title{
+  max-width:900px;
+}
+.show-grid{
+  gap:22px!important;
+  align-items:stretch;
+}
+.show-card{
+  position:relative;
+  min-height:100%;
+  overflow:hidden;
+  border-radius:30px!important;
+  background:#0d0908!important;
+}
+.show-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:3;
+  border-radius:inherit;
+  border:1px solid rgba(242,214,154,.10);
+}
+.show-card-las4{
+  background:linear-gradient(145deg,rgba(92,27,22,.34),rgba(12,9,8,.98))!important;
+}
+.show-card-tango{
+  background:linear-gradient(145deg,rgba(73,18,22,.42),rgba(10,8,8,.98))!important;
+}
+.show-media-link{
+  position:relative;
+  display:block;
+  height:410px;
+  overflow:hidden;
+  background:#090706;
+}
+.show-media-link img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .55s ease,filter .55s ease;
+}
+.show-card-las4 .show-media-link img{
+  object-position:center 45%;
+}
+.show-card-tango .show-media-link img{
+  object-position:center;
+}
+.show-media-link::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(8,6,5,.02) 36%,rgba(8,6,5,.78) 100%);
+}
+.show-media-topline{
+  position:absolute;
+  z-index:2;
+  left:18px;
+  right:18px;
+  top:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.show-number,.show-format{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:7px 10px;
+  border:1px solid rgba(255,247,237,.22);
+  border-radius:999px;
+  background:rgba(8,6,5,.58);
+  backdrop-filter:blur(10px);
+  color:rgba(255,247,237,.82);
+  font-size:8px;
+  font-weight:600;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.show-number{
+  color:var(--gold);
+}
+.show-body{
+  padding:30px 30px 32px!important;
+}
+.show-facts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-bottom:18px;
+}
+.show-facts span{
+  display:inline-flex;
+  padding:6px 9px;
+  border-radius:999px;
+  border:1px solid rgba(242,214,154,.14);
+  color:rgba(255,247,237,.58);
+  font-size:8px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.show-card h3{
+  max-width:560px;
+  font-size:clamp(42px,4.8vw,66px)!important;
+  line-height:.87!important;
+  margin:0!important;
+}
+.show-card .show-description{
+  margin:18px 0 0!important;
+  max-width:590px;
+  color:rgba(255,247,237,.72)!important;
+  font-size:15px!important;
+  line-height:1.65;
+}
+.show-concept{
+  margin-top:18px;
+  padding-top:17px;
+  border-top:1px solid rgba(242,214,154,.13);
+  font-family:var(--serif);
+  font-size:23px;
+  line-height:1.12;
+  color:var(--gold);
+}
+.show-actions{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:13px 18px;
+  margin-top:26px;
+}
+.show-actions .btn{
+  margin-top:0!important;
+  width:auto!important;
+}
+.show-secondary-link{
+  color:rgba(255,247,237,.62);
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.show-secondary-link:hover{
+  color:var(--gold);
+}
+.show-card:hover .show-media-link img{
+  transform:scale(1.025);
+  filter:brightness(1.04);
+}
+
+@media(max-width:980px){
+  .show-media-link{height:380px}
+}
+
+@media(max-width:680px){
+  .spectacles .section-head{margin-bottom:30px}
+  .show-grid{gap:16px!important}
+  .show-media-link{height:310px}
+  .show-body{padding:24px 20px 24px!important}
+  .show-card h3{font-size:clamp(38px,12vw,52px)!important}
+  .show-card .show-description{font-size:14px!important}
+  .show-concept{font-size:21px}
+  .show-actions{display:grid;gap:12px}
+  .show-actions .btn{width:100%!important}
+  .show-secondary-link{text-align:center;padding:8px 0}
+  .show-media-topline{left:12px;right:12px;top:12px}
+}
