@@ -1,929 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Piazzollamente · Música, escena y ciudad</title>
-<meta name="description" content="Piazzollamente: entrar en la música de Astor Piazzolla no como quien visita un repertorio, sino como quien atraviesa una ciudad." />
+<meta name="description" content="Piazzollamente: proyecto artístico dedicado a la interpretación y reelaboración de la música de Astor Piazzolla.">
+<link rel="canonical" href="https://piazzollamente.cl/">
+<link rel="icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/piazzollamente-system.css">
-  <link rel="stylesheet" href="/assets/home-overrides.css">
-  <style>
-:root{
-  --dark:#080605;
-  --dark2:#120c0b;
-  --dark3:#1b1210;
-  --cream:#fff7ed;
-  --cream2:#f5ede0;
-  --gold:#c9a96e;
-  --gold2:#f2d69a;
-  --gold-light:#e8c98a;
-  --red:#b5352a;
-  --red2:#8f1f1a;
-  --muted:rgba(255,247,237,.72);
-  --line:rgba(201,169,110,.24);
-  --font-serif:'Cormorant Garamond', Georgia, serif;
-  --font-sans:'Montserrat', Arial, sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  background:var(--dark);
-  color:var(--cream);
-  font-family:'Montserrat', Arial, sans-serif;
-  font-weight:300;
-  line-height:1.7;
-  overflow-x:hidden;
-}
-
-.smoke-bg{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden;mix-blend-mode:screen}
-.smoke-bg::before,.smoke-bg::after,.smoke-bg .smoke-third{content:"";position:absolute;border-radius:50%;filter:blur(120px);animation:smokeDrift 18s ease-in-out infinite alternate}
-.smoke-bg::before{width:680px;height:680px;background:radial-gradient(circle, rgba(201,169,110,.34), transparent 70%);top:-140px;right:-140px;opacity:.28}
-.smoke-bg::after{width:620px;height:620px;background:radial-gradient(circle, rgba(181,53,42,.30), transparent 70%);bottom:50px;left:-180px;animation-delay:-9s;opacity:.24}
-@keyframes smokeDrift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(60px,40px) scale(1.15)}}
-.smoke-bg .smoke-third{width:520px;height:520px;background:radial-gradient(circle, rgba(255,247,237,.16), transparent 68%);top:18%;left:36%;opacity:.15;animation-delay:-4s}
-body:before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.28;
-  background:
-    radial-gradient(circle at 18% 12%, rgba(201,169,110,.13), transparent 24%),
-    radial-gradient(circle at 82% 20%, rgba(181,53,42,.13), transparent 28%),
-    radial-gradient(circle at 50% 100%, rgba(201,169,110,.08), transparent 34%),
-    repeating-linear-gradient(0deg, rgba(255,247,237,.018) 0 1px, transparent 1px 4px);
-}
-body:after{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.03;mix-blend-mode:overlay;
-  background-image:
-    radial-gradient(circle at 18% 12%, rgba(255,247,237,.55) 0 1px, transparent 1.3px),
-    radial-gradient(circle at 78% 42%, rgba(201,169,110,.35) 0 1px, transparent 1.3px);
-  background-size:118px 118px,158px 158px;
-}
-img,video{display:block;width:100%;max-width:100%}
-a{color:inherit;text-decoration:none}
-::selection{background:var(--red);color:var(--cream)}
-.container{width:min(1160px,calc(100% - 34px));margin:0 auto;position:relative;z-index:2}
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  background:rgba(8,6,5,.76);backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(201,169,110,.16);
-}
-.nav-inner{width:min(1160px,calc(100% - 34px));min-height:68px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:22px}
-.logo{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--cream)}
-.nav-links{display:flex;align-items:center;gap:18px;color:rgba(255,247,237,.68);font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
-.nav-links a:hover{color:var(--gold2)}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-height:48px;padding:14px 24px;border-radius:999px;
-  border:1px solid rgba(201,169,110,.32);
-  font-family:var(--font-sans);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
-  transition:transform .22s ease,background .22s ease,border-color .22s ease,box-shadow .22s ease;
-}
-.btn:hover{transform:translateY(-2px);border-color:var(--gold2)}
-.btn-red{background:linear-gradient(135deg,var(--red) 0%,var(--red2) 100%);color:var(--cream);border-color:rgba(181,53,42,.75)}
-.btn-red:hover{box-shadow:0 12px 34px rgba(181,53,42,.32)}
-.btn-gold{background:rgba(201,169,110,.08);color:var(--gold2)}
-.btn-ghost{background:transparent;color:var(--cream)}
-.hero{position:relative;z-index:2;min-height:100svh;padding:112px 0 76px;display:flex;align-items:center;overflow:hidden}
-.hero:before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(to bottom,rgba(8,6,5,.10),rgba(8,6,5,.42) 72%,var(--dark) 100%)}
-.hero:after{content:"";position:absolute;inset:6% -8% auto -8%;height:72%;z-index:1;pointer-events:none;filter:blur(42px);opacity:.9;background:radial-gradient(circle at 24% 46%, rgba(181,53,42,.22), transparent 28%),radial-gradient(circle at 70% 28%, rgba(201,169,110,.22), transparent 32%),radial-gradient(circle at 54% 70%, rgba(255,247,237,.08), transparent 22%)}
-.hero-grid{width:min(1220px,calc(100% - 34px));margin:auto;display:grid;grid-template-columns:.72fr 1.28fr;gap:40px;align-items:center;position:relative;z-index:2}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;
-  color:var(--gold2);font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;
-}
-.eyebrow:before{content:"";width:44px;height:1px;background:linear-gradient(to right,var(--gold),transparent)}
-h1,h2,h3{font-family:'Cormorant Garamond', Georgia, serif;font-weight:300;letter-spacing:.035em}
-h1{font-size:clamp(64px,11vw,148px);line-height:.84;text-transform:uppercase;font-weight:600;letter-spacing:.045em;text-shadow:0 2px 18px rgba(0,0,0,.92),0 0 34px rgba(0,0,0,.80),0 0 22px rgba(201,169,110,.12)}
-h1 span{display:block;color:var(--gold-light);font-weight:300;letter-spacing:.14em}
-.hero-sub{margin-top:30px;max-width:700px;color:var(--cream);font-family:var(--font-serif);font-size:clamp(32px,4.6vw,64px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
-.hero-text{max-width:620px;margin-top:24px;color:var(--muted);font-size:15px;font-weight:300;letter-spacing:.01em}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
-.hero-visual{position:relative;border-radius:34px;padding:12px;background:linear-gradient(135deg,rgba(201,169,110,.16),rgba(181,53,42,.10),rgba(255,247,237,.03));border:1px solid rgba(201,169,110,.22);box-shadow:0 30px 90px rgba(0,0,0,.42);overflow:visible}
-.hero-visual:before{content:"";position:absolute;inset:0;border-radius:34px;background:linear-gradient(to bottom,rgba(255,247,237,.07),transparent 18%,transparent 72%,rgba(8,6,5,.18));pointer-events:none;z-index:2}
-.hero-visual:after{content:"";position:absolute;inset:auto auto -6% -8%;width:72%;height:38%;border-radius:50%;background:radial-gradient(circle, rgba(181,53,42,.28), transparent 72%);filter:blur(38px);pointer-events:none;z-index:1}
-.hero-visual img{display:block;width:100%;height:auto;max-height:min(82svh,980px);object-fit:contain;object-position:center center;border-radius:24px;background:#050403;position:relative;z-index:2;padding:0}
-.hero-note{display:none}
-section{position:relative;z-index:2;padding:98px 0;border-top:1px solid rgba(201,169,110,.12)}
-.section-head{display:grid;grid-template-columns:.72fr 1.28fr;gap:46px;align-items:start;margin-bottom:42px}
-.kicker{color:var(--gold2);font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase}
-h2{font-size:clamp(48px,7.2vw,96px);line-height:.82;text-transform:uppercase;text-wrap:balance;color:var(--cream)}
-.lead{max-width:760px;color:var(--muted);font-size:clamp(17px,2vw,23px);line-height:1.45;font-weight:300;text-wrap:balance}
-.manifesto{background:linear-gradient(180deg,var(--dark),#130b0b 48%,var(--dark));overflow:hidden}
-.manifesto:before{content:"";position:absolute;inset:auto 0 0 0;height:1px;background:linear-gradient(to right,transparent,rgba(201,169,110,.48),transparent)}
-.quote{font-family:var(--font-serif);font-size:clamp(56px,10vw,136px);line-height:.79;letter-spacing:-.06em;text-transform:uppercase;max-width:1040px;color:var(--cream)}
-.quote span{display:block;color:var(--red)}
-.manifesto p{margin-top:34px;max-width:760px;color:var(--muted);font-size:clamp(17px,2vw,22px);font-weight:300;line-height:1.5}
-.projects{background:linear-gradient(180deg,#110d0b 0%,#080605 100%)}
-.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
-.card{min-height:100%;display:flex;flex-direction:column;overflow:hidden;border-radius:24px;border:1px solid rgba(201,169,110,.22);background:radial-gradient(circle at 20% 0%,rgba(164,25,31,.16),transparent 38%),linear-gradient(135deg,rgba(26,20,16,.94),rgba(14,11,9,.94));box-shadow:0 24px 70px rgba(0,0,0,.24);position:relative}
-.card::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(242,214,154,.08),transparent 36%,rgba(164,25,31,.08));pointer-events:none}
-.card-body{position:relative;padding:34px;display:flex;flex-direction:column;gap:17px;flex:1;min-height:360px}
-.card h3{font-size:36px;line-height:.94;text-transform:uppercase;color:var(--cream)}
-.card p{font-size:14px;color:rgba(255,247,237,.70);font-weight:300;line-height:1.6}
-.card .btn{width:max-content;margin-top:auto;color:var(--gold2)}
-.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}
-.hit{padding:22px;border:1px solid rgba(201,169,110,.20);background:rgba(255,247,237,.035);border-radius:18px;min-height:138px}
-.hit strong{display:block;color:var(--gold2);font-family:var(--font-serif);font-size:30px;font-weight:300;line-height:1}
-.hit span{display:block;margin-top:12px;color:rgba(255,247,237,.72);font-size:13px;line-height:1.48;font-weight:300}
-.press-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:28px}
-.press-card{padding:18px;border-radius:16px;border:1px solid rgba(201,169,110,.20);background:rgba(255,247,237,.035);font-size:10px;text-transform:uppercase;letter-spacing:.16em;font-weight:500;color:rgba(255,247,237,.70);text-align:center}
-.press-card:hover{border-color:rgba(242,214,154,.46);color:var(--gold2)}
-.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
-.portrait{border:1px solid rgba(201,169,110,.22);padding:12px;background:rgba(255,247,237,.035);border-radius:28px;overflow:hidden}
-.portrait img{aspect-ratio:4/5;object-fit:cover;border-radius:20px;background:#050403}
-.bio h3{font-size:clamp(48px,6vw,82px);line-height:.86;text-transform:uppercase;color:var(--cream)}
-.bio p{margin-top:18px;color:var(--muted);font-size:16px;font-weight:300;max-width:720px}
-.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
-.tag{padding:9px 12px;border-radius:999px;border:1px solid rgba(201,169,110,.28);font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2);background:rgba(201,169,110,.035)}
-.contact{text-align:center;background:linear-gradient(180deg,#130d0e,var(--dark))}
-.contact h2{max-width:900px;margin:auto}
-.contact p{max-width:720px;margin:24px auto 0;color:var(--muted);font-size:18px;font-weight:300}
-.contact-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:34px}
-.footer{position:relative;z-index:2;padding:30px 0;border-top:1px solid rgba(201,169,110,.16);color:rgba(255,247,237,.50);font-size:12px;font-weight:300}
-.footer .container{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
-@media(max-width:980px){
-  .nav-links{display:none}
-  .hero{padding:90px 0 64px;min-height:auto}
-  .hero-grid{grid-template-columns:1fr;gap:28px}
-  .hero-visual{order:-1;max-width:760px;margin:auto;width:100%;border-radius:26px;padding:10px}
-  .hero-visual img{height:auto;max-height:72svh;border-radius:18px;padding:0}
-  .hero-note{display:none}
-  .section-head,.split{grid-template-columns:1fr;gap:24px}
-  .project-grid{grid-template-columns:1fr}
-  .timeline{grid-template-columns:repeat(2,1fr)}
-  .press-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:560px){
-  .nav-inner{min-height:62px;width:min(100% - 24px,1160px)}
-  .container,.hero-grid{width:min(100% - 24px,1160px)}
-  .logo{font-size:10px}
-  .hero{padding-top:82px}
-  .hero-visual{border-radius:22px;padding:8px;margin-inline:auto;max-width:100%}
-  .hero-visual img{height:auto;max-height:none;border-radius:14px;padding:0}
-  h1{font-size:clamp(44px,14vw,72px);line-height:.9;letter-spacing:.02em}
-  h1 span{letter-spacing:.08em}
-  .hero-sub{font-size:clamp(24px,8vw,38px);line-height:1.02}
-  .hero{padding-top:78px}
-  .hero-grid{gap:22px}
-  .eyebrow{font-size:10px;letter-spacing:.22em}
-  .hero-text{font-size:13px}
-  .hero-actions .btn{width:100%}
-  .hero-visual:after{width:90%;height:30%;left:5%;right:auto;bottom:-6%;opacity:.9}
-  .hero:after{inset:10% -12% auto -12%;height:58%;filter:blur(52px);opacity:1;background:radial-gradient(circle at 18% 42%, rgba(181,53,42,.28), transparent 26%),radial-gradient(circle at 72% 26%, rgba(201,169,110,.24), transparent 30%),radial-gradient(circle at 50% 64%, rgba(255,247,237,.12), transparent 18%)}
-  .hero-note{display:none}
-  h1{font-size:clamp(60px,18vw,96px)}
-  .hero-sub{font-size:clamp(31px,10vw,46px)}
-  .hero-text{font-size:14px}
-  .btn{width:100%;padding-left:18px;padding-right:18px}
-  .hero-actions,.contact-actions{width:100%}
-  section{padding:72px 0}
-  .timeline,.press-grid{grid-template-columns:1fr}
-}
-
-/* Tipografías unificadas con Mesón Nerudiano */
-h1, h2, h3, .hero-title, .hero-sub, .quote, .project-title, .section-title {
-  font-family: var(--font-serif) !important;
-}
-body, p, a, button, .btn, nav, .eyebrow, .kicker, .meta, .project-copy, .section-copy, li, span {
-  font-family: var(--font-sans) !important;
-}
-
-
-/* ── Animaciones editoriales ── */
-@media (prefers-reduced-motion: no-preference) {
-  .nav {
-    animation: navEnter .7s ease both;
-  }
-
-  .hero-content > * {
-    opacity: 0;
-    transform: translateY(18px);
-    animation: fadeUp .82s ease forwards;
-  }
-
-  .hero-content .eyebrow { animation-delay: .12s; }
-  .hero-content h1 { animation-delay: .24s; }
-  .hero-content .hero-sub { animation-delay: .36s; }
-  .hero-content .hero-text { animation-delay: .48s; }
-  .hero-content .hero-actions { animation-delay: .60s; }
-
-  .hero-visual {
-    opacity: 0;
-    transform: translateY(18px) scale(.985);
-    animation: imageEnter .95s ease .22s forwards, imageBreath 7.5s ease-in-out 1.4s infinite alternate;
-  }
-
-  .hero-visual::after {
-    animation: smokePulse 6.5s ease-in-out infinite alternate;
-  }
-
-  .card,
-  .hit,
-  .press-card,
-  .portrait,
-  .bio,
-  .section-head,
-  .quote,
-  .manifesto p,
-  .contact h2,
-  .contact p,
-  .contact-actions {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .72s ease, transform .72s ease;
-  }
-
-  .is-visible {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-  }
-
-  .card.is-visible:nth-child(2) { transition-delay: .08s; }
-  .card.is-visible:nth-child(3) { transition-delay: .16s; }
-  .hit.is-visible:nth-child(2) { transition-delay: .06s; }
-  .hit.is-visible:nth-child(3) { transition-delay: .12s; }
-  .hit.is-visible:nth-child(4) { transition-delay: .18s; }
-
-  .card:hover {
-    transform: translateY(-7px);
-    border-color: rgba(242,214,154,.46);
-    box-shadow: 0 32px 90px rgba(0,0,0,.42);
-  }
-
-  .press-card:hover {
-    transform: translateY(-4px);
-  }
-
-  .btn {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    transform: translateX(-115%);
-    background: linear-gradient(90deg, transparent, rgba(255,247,237,.18), transparent);
-    transition: transform .65s ease;
-  }
-
-  .btn:hover::after {
-    transform: translateX(115%);
-  }
-
-  @keyframes navEnter {
-    from { opacity: 0; transform: translateY(-12px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes imageEnter {
-    to { opacity: 1; transform: translateY(0) scale(1); }
-  }
-
-  @keyframes imageBreath {
-    from { transform: translateY(0) scale(1); }
-    to { transform: translateY(-8px) scale(1.008); }
-  }
-
-  @keyframes smokePulse {
-    from { opacity: .55; transform: scale(.96); }
-    to { opacity: 1; transform: scale(1.08); }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-  }
-}
-
-
-/* ── Solución mobile definitiva: imagen sin marco externo recortable ── */
-@media (max-width: 640px) {
-  html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: clip;
-  }
-
-  .hero {
-    padding-top: 76px;
-    padding-bottom: 54px;
-  }
-
-  .hero-grid {
-    width: 100%;
-    max-width: 100%;
-    padding-inline: 18px;
-    gap: 26px;
-  }
-
-  .hero-visual {
-    width: min(100%, 420px);
-    max-width: calc(100vw - 36px);
-    margin-inline: auto;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-    overflow: visible;
-    transform: none;
-  }
-
-  .hero-visual::before {
-    inset: auto;
-    top: -18px;
-    left: -14px;
-    right: -14px;
-    bottom: -18px;
-    border-radius: 28px;
-    background:
-      radial-gradient(circle at 20% 78%, rgba(181,53,42,.24), transparent 46%),
-      radial-gradient(circle at 80% 18%, rgba(201,169,110,.18), transparent 42%);
-    filter: blur(18px);
-    opacity: .95;
-    z-index: 0;
-  }
-
-  .hero-visual::after {
-    inset: -10px;
-    width: auto;
-    height: auto;
-    border-radius: 28px;
-    background: linear-gradient(135deg, rgba(201,169,110,.18), rgba(181,53,42,.10), rgba(255,247,237,.035));
-    filter: none;
-    opacity: 1;
-    z-index: 1;
-  }
-
-  .hero-visual img {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    max-height: none;
-    display: block;
-    object-fit: contain;
-    border-radius: 22px;
-    padding: 0;
-    background: #050403;
-    box-shadow:
-      0 0 0 1px rgba(201,169,110,.24),
-      inset 0 0 0 1px rgba(201,169,110,.16),
-      0 22px 68px rgba(0,0,0,.48);
-  }
-
-  .hero-content {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  h1 {
-    max-width: 100%;
-    font-size: clamp(42px, 13.4vw, 68px);
-    line-height: .92;
-    letter-spacing: .01em;
-    overflow-wrap: anywhere;
-  }
-
-  h1 span {
-    letter-spacing: .055em;
-  }
-
-  .hero-sub {
-    font-size: clamp(24px, 7.6vw, 36px);
-    line-height: 1.02;
-  }
-
-  .hero-text {
-    font-size: 13px;
-  }
-}
-
-
-/* ─────────────────────────────────────────────
-   Menú hamburguesa Home / Piazzollamente
-───────────────────────────────────────────── */
-.hamburger-toggle{
-  display:none;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:10px 14px;
-  border-radius:999px;
-  border:1px solid rgba(201,169,110,.42);
-  background:linear-gradient(135deg,rgba(181,53,42,.26),rgba(8,6,5,.88));
-  color:var(--cream);
-  cursor:pointer;
-  font-family:'Montserrat',Arial,sans-serif;
-  font-size:10px;
-  font-weight:600;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  box-shadow:0 14px 38px rgba(0,0,0,.24), inset 0 0 0 1px rgba(255,247,237,.04);
-}
-
-.hamburger-icon{
-  width:22px;
-  height:16px;
-  position:relative;
-  display:inline-block;
-  flex:none;
-}
-
-.hamburger-icon span{
-  position:absolute;
-  left:0;
-  width:100%;
-  height:1px;
-  background:var(--gold-light);
-  border-radius:999px;
-  transition:transform .22s ease, opacity .22s ease, top .22s ease;
-}
-
-.hamburger-icon span:nth-child(1){top:0}
-.hamburger-icon span:nth-child(2){top:7px}
-.hamburger-icon span:nth-child(3){top:14px}
-
-.nav.menu-open .hamburger-icon span:nth-child(1){
-  top:7px;
-  transform:rotate(45deg);
-}
-.nav.menu-open .hamburger-icon span:nth-child(2){
-  opacity:0;
-}
-.nav.menu-open .hamburger-icon span:nth-child(3){
-  top:7px;
-  transform:rotate(-45deg);
-}
-
-@media(max-width:820px){
-  .hamburger-toggle{
-    display:inline-flex;
-  }
-
-  .nav-links{
-    position:absolute;
-    top:calc(100% + 10px);
-    left:17px;
-    right:17px;
-    display:grid !important;
-    grid-template-columns:1fr;
-    gap:0;
-    padding:10px;
-    border:1px solid rgba(201,169,110,.24);
-    border-radius:22px;
-    background:rgba(8,6,5,.96);
-    backdrop-filter:blur(18px);
-    box-shadow:0 24px 70px rgba(0,0,0,.42);
-    opacity:0;
-    pointer-events:none;
-    transform:translateY(-8px);
-    transition:opacity .22s ease, transform .22s ease;
-  }
-
-  .nav.menu-open .nav-links{
-    opacity:1;
-    pointer-events:auto;
-    transform:translateY(0);
-  }
-
-  .nav-links a{
-    width:100%;
-    display:flex !important;
-    align-items:center;
-    justify-content:space-between;
-    padding:14px 14px !important;
-    border-radius:14px;
-    color:rgba(245,237,224,.82) !important;
-    text-align:left;
-  }
-
-  .nav-links a::after{
-    content:"→";
-    color:var(--gold-light);
-    opacity:.72;
-    font-size:13px;
-  }
-
-  .nav-links a:hover{
-    background:rgba(201,169,110,.08);
-    color:var(--cream) !important;
-  }
-}
-
-
-/* ─────────────────────────────────────────────
-   Sección videos / registros
-───────────────────────────────────────────── */
-.videos-section{
-  position:relative;
-  z-index:2;
-  padding:clamp(78px,9vw,124px) 0;
-  border-top:1px solid rgba(201,169,110,.12);
-  background:
-    radial-gradient(circle at 82% 18%, rgba(181,53,42,.14), transparent 32%),
-    radial-gradient(circle at 20% 92%, rgba(201,169,110,.08), transparent 28%),
-    linear-gradient(180deg, rgba(8,6,5,.96), rgba(14,11,9,.98));
-}
-
-.videos-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px;
-  margin-top:34px;
-}
-
-.video-link-card{
-  min-height:260px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  padding:30px;
-  border-radius:30px;
-  border:1px solid rgba(201,169,110,.24);
-  background:
-    radial-gradient(circle at 18% 0%, rgba(181,53,42,.20), transparent 38%),
-    linear-gradient(135deg, rgba(26,20,16,.94), rgba(8,6,5,.94));
-  box-shadow:0 24px 70px rgba(0,0,0,.24);
-  overflow:hidden;
-  position:relative;
-  transition:transform .28s ease, border-color .28s ease, box-shadow .28s ease;
-}
-
-.video-link-card::before{
-  content:"";
-  position:absolute;
-  top:22px;
-  right:22px;
-  width:42px;
-  height:42px;
-  border-top:1px solid rgba(232,201,138,.52);
-  border-right:1px solid rgba(232,201,138,.52);
-  opacity:.55;
-  pointer-events:none;
-}
-
-.video-link-card:hover{
-  transform:translateY(-6px);
-  border-color:rgba(232,201,138,.48);
-  box-shadow:0 32px 90px rgba(0,0,0,.42);
-}
-
-.video-card-kicker{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  color:var(--gold-light);
-  font-size:10px;
-  font-weight:600;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  margin-bottom:18px;
-}
-
-.video-card-kicker::before{
-  content:"";
-  width:26px;
-  height:1px;
-  background:linear-gradient(90deg, var(--gold-light), transparent);
-}
-
-.video-link-card h3{
-  font-family:var(--font-serif);
-  font-size:clamp(36px,4vw,56px);
-  line-height:.92;
-  font-weight:300;
-  letter-spacing:.025em;
-  color:var(--cream);
-  text-transform:uppercase;
-  margin-bottom:16px;
-}
-
-.video-link-card p{
-  color:rgba(245,237,224,.72);
-  max-width:420px;
-  font-size:15px;
-  line-height:1.75;
-}
-
-.video-card-action{
-  margin-top:28px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:max-content;
-  padding:13px 20px;
-  border-radius:999px;
-  border:1px solid rgba(201,169,110,.42);
-  color:var(--gold-light);
-  font-family:'Montserrat',Arial,sans-serif;
-  font-size:10px;
-  font-weight:600;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  transition:.22s ease;
-}
-
-.video-link-card:hover .video-card-action{
-  background:rgba(201,169,110,.10);
-  color:var(--cream);
-  border-color:var(--gold-light);
-}
-
-@media(max-width:760px){
-  .videos-grid{
-    grid-template-columns:1fr;
-  }
-  .video-link-card{
-    min-height:230px;
-    padding:24px;
-    border-radius:24px;
-  }
-}
-
-
-/* Ajuste sección videos: solo título + registro general */
-.video-link-card{
-  min-height: 210px;
-}
-
-.video-link-card h3{
-  margin-bottom: 0;
-}
-
-.video-link-card p{
-  display: none;
-}
-
-@media(max-width:760px){
-  .video-link-card{
-    min-height: 180px;
-  }
-}
-
-</style>
+<link rel="stylesheet" href="/assets/home-stage2.css">
 </head>
 <body>
-<div class="smoke-bg"><span class="smoke-third" aria-hidden="true"></span></div>
-<nav class="nav">
+<nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="logo">Piazzollamente</a>
-
-    <button class="hamburger-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-      <span>Menú</span>
-      <span class="hamburger-icon" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
-    </button>
-
+    <button class="menu-toggle" id="menu" type="button" aria-label="Abrir menú" aria-expanded="false">Menú</button>
     <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/tangoparael3001/">Tango para el 3001</a>
-      <a href="/mesonnerudiano/">Próximos shows</a>
+      <a href="#proyectos">Espectáculos</a>
+      <a href="/trayectoria/">Trayectoria</a>
+      <a href="/agenda/">Agenda</a>
+      <a href="/programacion/">Programación</a>
     </div>
   </div>
 </nav>
 
 <header class="hero" id="inicio">
   <div class="hero-grid">
-    <div class="hero-content">
+    <div>
       <p class="eyebrow">Música · escena · ciudad</p>
-      <h1>Piazzolla<span>mente</span></h1>
+      <h1>Piazzollamente</h1>
       <p class="hero-sub">Entrar en la música de Astor Piazzolla no como quien visita un repertorio, sino como quien atraviesa una ciudad.</p>
-      <p class="hero-text">Piazzollamente trabaja desde la música en vivo, la escena, el cuerpo y la emoción colectiva para crear experiencias en torno al universo de Astor Piazzolla.</p>
+      <p class="hero-text">Piazzollamente trabaja desde la música en vivo, la escena y la investigación interpretativa para construir una lectura propia del universo de Astor Piazzolla.</p>
       <div class="hero-actions">
-        <a href="#proyectos" class="btn btn-red">Ver proyectos</a>
-        <a href="mailto:piazzollamente@gmail.com?subject=Programaci%C3%B3n%20Piazzollamente" class="btn btn-gold">Escribir para programación</a>
-        <a href="#trayectoria" class="btn btn-ghost">Ver trayectoria</a>
+        <a href="#proyectos" class="btn btn-red">Ver espectáculos</a>
+        <a href="/trayectoria/" class="btn btn-gold">Ver trayectoria</a>
+        <a href="/agenda/" class="btn">Agenda</a>
       </div>
     </div>
-    <figure class="hero-visual" aria-label="Piazzollamente">
-      <img src="assets/portada-piazzollamente.jpg" alt="Piazzollamente">
-    </figure>
+    <figure class="hero-visual"><img src="/assets/portada-piazzollamente.jpg" alt="Piazzollamente"></figure>
   </div>
 </header>
 
 <main>
-  <section class="manifesto" id="manifiesto">
-    <div class="container">
-      <p class="kicker">Manifiesto</p>
-      <div class="quote">Piazzolla no ordena la realidad.<span>La desborda.</span></div>
-      <p>En su música hay deseo, ruido, ternura, calle, furia, belleza y herida. Piazzollamente trabaja desde ese desborde: no para reproducir un repertorio, sino para construir experiencias escénicas donde la música abre una ciudad posible.</p>
-    </div>
-  </section>
+<section class="manifesto" id="manifiesto">
+  <div class="container">
+    <p class="kicker">Manifiesto</p>
+    <div class="quote">Piazzolla no ordena la realidad.<span>La desborda.</span></div>
+    <p>En su música hay deseo, ruido, ternura, calle, furia, belleza y herida. Piazzollamente trabaja desde ese desborde: no para reproducir un repertorio, sino para construir experiencias donde la música abre otras formas de escuchar la ciudad.</p>
+  </div>
+</section>
 
-  <section class="projects" id="proyectos">
-    <div class="container">
-      <div class="section-head">
-        <p class="kicker">Proyectos</p>
-        <div>
-          <h2>Una casa, varias puertas.</h2>
-          <p class="lead">Cada proyecto abre una forma distinta de entrar al universo piazzolliano: semi ópera, concierto íntimo, escena, cámara y programación cultural.</p>
-        </div>
-      </div>
-
-      <div class="project-grid">
-        <article class="card">
-          <div class="card-body">
-            <h3>Tango para el 3001</h3>
-            <p>Semi ópera escénico-musical inspirada en el universo de Astor Piazzolla. Una ciudad cae para poder volver a fundarse.</p>
-            <a class="btn btn-gold" href="/tangoparael3001/">Ver dossier</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-body">
-            <h3>Las 4 Estaciones</h3>
-            <p>Concierto íntimo en el Mesón Nerudiano en torno a Las Estaciones Porteñas. Una noche de tango, cámara y ciudad.</p>
-            <a class="btn btn-gold" href="/mesonnerudiano/">Reservar entrada</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-body">
-            <p class="eyebrow">Contratación</p>
-            <h3>Programación</h3>
-            <p>Formatos escénico-musicales para teatros, festivales, salas culturales, ciclos de música y espacios especiales.</p>
-            <a class="btn btn-gold" href="mailto:piazzollamente@gmail.com?subject=Programaci%C3%B3n%20Piazzollamente">Escribir para programación</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="trayectoria">
-    <div class="container">
-      <div class="section-head">
-        <p class="kicker">Trayectoria</p>
-        <div>
-          <h2>Un trabajo en circulación.</h2>
-          <p class="lead">Piazzollamente ha construido un camino de interpretación, circulación y escena entre salas, festivales, giras y espacios culturales.</p>
-        </div>
-      </div>
-      <div class="timeline">
-        <div class="hit"><strong>2026</strong><span>Valparatango · programación y circulación.</span></div>
-        <div class="hit"><strong>2025</strong><span>Sala Master · SCD Egaña · Teatro El Cachafaz · Mesón Nerudiano.</span></div>
-        <div class="hit"><strong>2025</strong><span>Gira MINCAP por la Región de Coquimbo.</span></div>
-        <div class="hit"><strong>2024</strong><span>Teatro Regional Lucho Gatica y espacios culturales asociados.</span></div>
-        <div class="hit"><strong>2023</strong><span>Buenos Aires · Mendoza · San Vicente Tango.</span></div>
-        <div class="hit"><strong>Prensa</strong><span>Medios nacionales, regionales y argentinos.</span></div>
-        <div class="hit"><strong>Escena</strong><span>Música en vivo, dramaturgia, cuerpo y ciudad.</span></div>
-        <div class="hit"><strong>Dirección</strong><span>Dirección artística de Valentina Galaz.</span></div>
-      </div>
-
-      <div class="press-grid">
-        <a class="press-card" href="https://www.observador.cl/valparaiso-celebra-valparatango-2026-en-la-plaza-civica/" target="_blank" rel="noopener">El Observador</a>
-        <a class="press-card" href="https://www.youtube.com/watch?v=s0G9W0a7Z1g" target="_blank" rel="noopener">Radio Universidad de Chile</a>
-        <a class="press-card" href="https://regiondecoquimbo.cl/2025/07/14/piazzollamente-se-presenta-este-viernes-en-la-serena-dentro-de-una-itinerancia-por-la-region-de-coquimbo/" target="_blank" rel="noopener">Región de Coquimbo</a>
-        <a class="press-card" href="https://www.youtube.com/watch?v=pb2yxVqDsCA" target="_blank" rel="noopener">Radio UTN Argentina</a>
-        <a class="press-card" href="https://www.youtube.com/watch?v=iKshS7Y0m_o" target="_blank" rel="noopener">INAMU Argentina</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="direccion">
-    <div class="container split">
-      <div class="portrait"><img src="assets/valentina-02.jpg" alt="Valentina Galaz" onerror="this.src='assets/valentina-01.jpg'"></div>
-      <div class="bio">
-        <p class="kicker">Dirección artística</p>
-        <h3>Valentina Galaz</h3>
-        <p>Flautista, creadora y directora artística de Piazzollamente. Su trabajo cruza interpretación, gestión, escena y construcción de experiencias musicales con una mirada sensible, rigurosa y situada.</p>
-        <div class="tags">
-          <span class="tag">Flauta</span>
-          <span class="tag">Dirección artística</span>
-          <span class="tag">Piazzolla</span>
-          <span class="tag">Escena</span>
-          <span class="tag">Circulación</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contacto">
-    <div class="container">
-      <p class="eyebrow">Contacto</p>
-      <h2>Programar Piazzollamente</h2>
-      <p>Para teatros, festivales, salas culturales, conciertos íntimos, ciclos de música y proyectos escénico-musicales.</p>
-      <div class="contact-actions">
-        <a class="btn btn-red" href="mailto:piazzollamente@gmail.com?subject=Programaci%C3%B3n%20Piazzollamente">Escribir para programación</a>
-        <a class="btn btn-gold" href="/tangoparael3001/">Ver Tango para el 3001</a>
-        <a class="btn btn-ghost" href="/mesonnerudiano/">Las 4 Estaciones</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-
-<section id="videos" class="videos-section">
+<section class="projects" id="proyectos">
   <div class="container">
     <div class="section-head">
-      <p class="eyebrow">Registros</p>
-      <h2>Videos</h2>
-      <p>Registro en Sala Master · Universidad de Chile · Octubre 2025.</p>
+      <p class="kicker">Espectáculos</p>
+      <div><h2>Dos formas de entrar a Piazzollamente.</h2><p class="lead">El proyecto se despliega actualmente en dos propuestas diferenciadas: un concierto instrumental y un espectáculo escénico-musical.</p></div>
     </div>
-
-    <div class="videos-grid">
-      <a class="video-link-card" href="https://drive.google.com/file/d/1BcEYBQJI6pGu1WougaBJScSl9bb1T7iU/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-        <div>
-          <span class="video-card-kicker">Video</span>
-          <h3>Fuga y misterio</h3>
-          
-        </div>
-        <span class="video-card-action">Ver video</span>
-      </a>
-
-      <a class="video-link-card" href="https://drive.google.com/file/d/1SU_0CphgxhgA3yJX0AB0cnhrGj3P57W_/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-        <div>
-          <span class="video-card-kicker">Video</span>
-          <h3>Tango para el 3001</h3>
-          
-        </div>
-        <span class="video-card-action">Ver video</span>
-      </a>
+    <div class="project-grid">
+      <article class="card"><h3>Las 4 Estaciones Porteñas</h3><p>Concierto instrumental en torno a las Estaciones Porteñas y otras obras de Astor Piazzolla, desde el quinteto de Piazzollamente.</p><a class="btn btn-red" href="/las4estaciones/">Conocer espectáculo</a></article>
+      <article class="card"><h3>Tango para el 3001</h3><p>Espectáculo escénico-musical que articula música en vivo, voces, cuerpo y dramaturgia.</p><a class="btn btn-gold" href="/tangoparael3001/">Conocer espectáculo</a></article>
+      <article class="card"><p class="eyebrow">Teatros · festivales · centros culturales</p><h3>Programación</h3><p>Información para presentar ambos espectáculos en salas, festivales, ciclos y espacios culturales.</p><a class="btn btn-gold" href="/programacion/">Información para programadores</a></article>
     </div>
   </div>
 </section>
 
-
-<footer class="footer">
+<section id="trayectoria-resumen">
   <div class="container">
-    <span>© Piazzollamente</span>
-    <span>piazzollamente@gmail.com · @piazzollamente</span>
+    <div class="section-head"><p class="kicker">Trayectoria</p><div><h2>Un trabajo en circulación.</h2><p class="lead">Piazzollamente ha desarrollado un recorrido artístico entre Chile y Argentina, atravesando salas, teatros, festivales y una gira regional financiada por el Ministerio de las Culturas.</p></div></div>
+    <div class="timeline">
+      <div class="hit"><strong>2026</strong><span>ValparaTango.</span></div>
+      <div class="hit"><strong>2025</strong><span>Tango para el 3001 · Sala Master.</span></div>
+      <div class="hit"><strong>2025</strong><span>Gira Región de Coquimbo · MINCAP.</span></div>
+      <div class="hit"><strong>2025</strong><span>Sala SCD Plaza Egaña.</span></div>
+      <div class="hit"><strong>2024</strong><span>Teatro Regional Lucho Gatica.</span></div>
+      <div class="hit"><strong>2023</strong><span>Mendoza · San Vicente Tango.</span></div>
+    </div>
+    <div class="hero-actions"><a class="btn btn-gold" href="/trayectoria/">Ver trayectoria completa</a></div>
   </div>
-</footer>
+</section>
 
+<section id="direccion">
+  <div class="container split">
+    <div class="portrait"><img src="/assets/valentina-02.jpg" alt="Valentina Galaz" onerror="this.src='/assets/valentina-01.jpg'"></div>
+    <div class="bio"><p class="kicker">Dirección artística</p><h3>Valentina Galaz</h3><p>Flautista, creadora y directora artística de Piazzollamente. Su trabajo cruza interpretación, investigación, gestión y escena dentro de una lectura contemporánea de la música de Astor Piazzolla.</p></div>
+  </div>
+</section>
+
+<section id="videos">
+  <div class="container">
+    <div class="section-head"><p class="kicker">Registros</p><div><h2>Videos</h2><p class="lead">Los registros audiovisuales actuales serán reorganizados como una trayectoria en el tiempo durante las próximas etapas de esta actualización.</p></div></div>
+    <div class="videos-grid">
+      <a class="video-card" href="https://drive.google.com/file/d/1BcEYBQJI6pGu1WougaBJScSl9bb1T7iU/view?usp=sharing" target="_blank" rel="noopener"><h3>Fuga y Misterio</h3><span class="btn btn-gold">Ver registro</span></a>
+      <a class="video-card" href="https://drive.google.com/file/d/1SU_0CphgxhgA3yJX0AB0cnhrGj3P57W_/view?usp=drive_link" target="_blank" rel="noopener"><h3>Tango para el 3001</h3><span class="btn btn-gold">Ver registro</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="container"><p class="eyebrow">Programación</p><h2>Programar Piazzollamente</h2><p>Los dos espectáculos cuentan con páginas permanentes y una ruta específica para programación profesional.</p><div class="contact-actions"><a class="btn btn-red" href="/programacion/">Información para programadores</a><a class="btn btn-gold" href="/agenda/">Próximas funciones</a></div></div>
+</section>
+</main>
+
+<footer class="footer"><div class="container"><span>© Piazzollamente</span><span><a href="/trayectoria/">Trayectoria</a> · <a href="/agenda/">Agenda</a> · <a href="/programacion/">Programación</a></span></div></footer>
 <script>
-(function(){
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return;
-
-  const items = document.querySelectorAll(
-    '.card, .hit, .press-card, .portrait, .bio, .section-head, .quote, .manifesto p, .contact h2, .contact p, .contact-actions'
-  );
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.16,
-    rootMargin: '0px 0px -8% 0px'
-  });
-
-  items.forEach((item) => observer.observe(item));
-})();
+const nav=document.getElementById('nav'),menu=document.getElementById('menu');if(menu){menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open?'true':'false')});document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));}
 </script>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const nav = document.querySelector('.nav');
-  const toggle = document.querySelector('.hamburger-toggle');
-  const links = document.querySelectorAll('.nav-links a');
-
-  if (!nav || !toggle) return;
-
-  toggle.addEventListener('click', function () {
-    const isOpen = nav.classList.toggle('menu-open');
-    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
-
-  links.forEach(function (link) {
-    link.addEventListener('click', function () {
-      nav.classList.remove('menu-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  document.addEventListener('click', function (event) {
-    if (!nav.contains(event.target)) {
-      nav.classList.remove('menu-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-});
-</script>
-
 </body>
 </html>
