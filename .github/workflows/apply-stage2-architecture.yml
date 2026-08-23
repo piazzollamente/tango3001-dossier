@@ -1,0 +1,62 @@
+name: Aplicar arquitectura etapa 2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'stage2-architecture-trigger.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Actualizar navegación y enlaces permanentes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          nav_home = '''<div class="nav-links">
+      <a href="#proyectos">Espectáculos</a>
+      <a href="/trayectoria/">Trayectoria</a>
+      <a href="/agenda/">Agenda</a>
+      <a href="/programacion/">Programación</a>
+    </div>'''
+
+          nav_global = '''<div class="nav-links"><a href="/#proyectos">Espectáculos</a><a href="/trayectoria/">Trayectoria</a><a href="/agenda/">Agenda</a><a href="/programacion/">Programación</a></div>'''
+
+          # Home
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          s = re.sub(r'<div class="nav-links">.*?</div>', nav_home, s, count=1, flags=re.S)
+          s = s.replace('href="/mesonnerudiano/"', 'href="/las4estaciones/"')
+          s = s.replace('>Reservar entrada<', '>Conocer espectáculo<')
+          s = s.replace('>Ver dossier<', '>Conocer espectáculo<')
+          p.write_text(s, encoding='utf-8')
+
+          # Las 4 Estaciones: navegación general del sitio
+          p = Path('las4estaciones/index.html')
+          s = p.read_text(encoding='utf-8')
+          s = re.sub(r'<div class="nav-links">.*?</div>', nav_global, s, count=1, flags=re.S)
+          p.write_text(s, encoding='utf-8')
+
+          # Tango para el 3001: navegación general del sitio
+          p = Path('tangoparael3001/index.html')
+          s = p.read_text(encoding='utf-8')
+          s = re.sub(r'<div class="nav-links">.*?</div>', nav_global, s, count=1, flags=re.S)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Guardar arquitectura
+        run: |
+          git config user.name 'piazzollamente'
+          git config user.email 'valen.galaz@gmail.com'
+          git add index.html las4estaciones/index.html tangoparael3001/index.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Aplica arquitectura general del sitio'
+          git push
