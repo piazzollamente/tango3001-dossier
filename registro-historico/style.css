@@ -51,3 +51,27 @@
 a[href="/agenda/"]{
   display:none!important;
 }
+
+/* Móvil: la imagen 17 cierra el bloque 2026 como una base panorámica a todo el ancho. */
+@media(max-width:820px){
+  .collage-2026 .gallery-item:last-child{
+    column-span:all;
+    display:block!important;
+    width:100vw!important;
+    margin:0 0 0 calc(50% - 50vw)!important;
+    border-left:0;
+    border-right:0;
+    border-radius:0;
+    overflow:hidden;
+  }
+  .collage-2026 .gallery-item:last-child a{
+    width:100%;
+    height:auto!important;
+  }
+  .collage-2026 .gallery-item:last-child img{
+    width:100%;
+    height:auto!important;
+    display:block;
+    object-fit:contain!important;
+  }
+}
