@@ -6,19 +6,28 @@
 <title>Piazzollamente · Música, escena y ciudad</title>
 <meta name="description" content="Piazzollamente es una agrupación formada en Argentina y radicada en Chile, dirigida por Valentina Galaz. Conoce Las 4 Estaciones Porteñas y Tango para el 3001.">
 <link rel="canonical" href="https://piazzollamente.cl/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Piazzollamente · Música, escena y ciudad">
+<meta property="og:description" content="Dos espectáculos construidos desde la música de Astor Piazzolla: Las 4 Estaciones Porteñas y Tango para el 3001.">
+<meta property="og:url" content="https://piazzollamente.cl/">
+<meta property="og:image" content="https://piazzollamente.cl/assets/portada-piazzollamente.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico">
+<link rel="preload" as="image" href="/assets/piazzollamente-integrantes-home.webp" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/typography.css?v=1">
 <link rel="stylesheet" href="/assets/piazzollamente-system.css">
-<link rel="stylesheet" href="/assets/home.css?v=identity-ensemble-20260823">
+<link rel="stylesheet" href="/assets/home.css?v=opening-responsive-20260824">
 </head>
 <body>
-<nav class="nav" id="nav">
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<nav class="nav" id="nav" aria-label="Navegación principal">
   <div class="nav-inner">
-    <button class="menu-toggle" id="menu" type="button" aria-label="Abrir menú" aria-expanded="false">Menú</button>
-    <div class="nav-links">
+    <a class="nav-brand" href="#inicio" aria-label="Ir al inicio de Piazzollamente">Piazzollamente</a>
+    <button class="menu-toggle" id="menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">Menú</button>
+    <div class="nav-links" id="nav-links">
       <a href="#espectaculos">Espectáculos</a>
       <a href="#en-el-tiempo">En el tiempo</a>
       <a href="/trayectoria/">Trayectoria</a>
@@ -28,23 +37,35 @@
   </div>
 </nav>
 
-<main>
+<main id="contenido">
 <header class="hero-opening" id="inicio">
   <div class="hero-opening-inner">
     <div class="hero-copy">
       <h1 class="hero-title">
-        <span>PIAZZOLLA</span>
-        <span class="hero-mente">MENTE</span>
+        <span class="hero-word hero-word-piazzolla">PIAZZOLLA</span>
+        <span class="hero-word hero-mente">MENTE</span>
       </h1>
       <p class="hero-context">Música de Astor Piazzolla · Dos espectáculos</p>
       <nav class="hero-show-links" aria-label="Elegir espectáculo">
-        <a href="/las4estaciones/">Las 4 Estaciones Porteñas</a>
-        <a href="/tangoparael3001/">Tango para el 3001</a>
+        <a href="/las4estaciones/">
+          <span class="hero-link-index" aria-hidden="true">01</span>
+          <span class="hero-link-title">Las 4 Estaciones Porteñas</span>
+          <span class="hero-link-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="/tangoparael3001/">
+          <span class="hero-link-index" aria-hidden="true">02</span>
+          <span class="hero-link-title">Tango para el 3001</span>
+          <span class="hero-link-arrow" aria-hidden="true">↗</span>
+        </a>
       </nav>
     </div>
-    <div class="hero-photo" aria-label="Retrato de la agrupación">
-      <img src="/assets/Piazzollamente%204%20integrantes.png" alt="Piazzollamente">
-    </div>
+    <figure class="hero-photo">
+      <img src="/assets/piazzollamente-integrantes-home.webp" width="1024" height="1536" alt="Integrantes de Piazzollamente" fetchpriority="high" decoding="async">
+    </figure>
+    <a class="hero-scroll" href="#espectaculos" aria-label="Descubrir los espectáculos">
+      <span>Descubrir</span>
+      <span class="hero-scroll-line" aria-hidden="true"></span>
+    </a>
   </div>
 </header>
 
@@ -211,9 +232,12 @@
 <script>
 const nav=document.getElementById('nav'),menu=document.getElementById('menu');
 if(menu){
-  menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open?'true':'false')});
-  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
-  document.addEventListener('click',e=>{if(!nav.contains(e.target)){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}});
+  const closeMenu=()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Abrir menú')};
+  menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open?'true':'false');menu.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú')});
+  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',closeMenu));
+  document.addEventListener('click',e=>{if(!nav.contains(e.target))closeMenu()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){closeMenu();menu.focus()}});
+  window.addEventListener('resize',()=>{if(window.innerWidth>980)closeMenu()},{passive:true});
 }
 if(nav){
   const updateNav=()=>nav.classList.toggle('scrolled',window.scrollY>16);
