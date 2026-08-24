@@ -37,6 +37,16 @@
   padding:0;
 }
 
+/* Los flyers quedan completamente estáticos para reducir repintados y carga de GPU. */
+.gallery-item.flyer{
+  animation:none!important;
+}
+.gallery-item.flyer::before,
+.gallery-item.flyer a::before{
+  display:none!important;
+  animation:none!important;
+}
+
 /* El visor también respeta siempre la imagen completa en escritorio y móvil. */
 .lightbox-image{
   width:auto!important;
