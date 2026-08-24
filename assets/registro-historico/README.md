@@ -1,36 +1,23 @@
 # Registro histórico de imágenes de Piazzollamente
 
-Esta carpeta reúne las fotografías que formarán la sección visual de trayectoria del sitio.
+Esta carpeta reúne las copias web del archivo visual de Piazzollamente. La galería se organiza desde la formación actual hacia las etapas más antiguas del proyecto, sin atribuir fechas ni lugares que no estén comprobados.
 
-## Orden de los archivos
+## Nombres de archivo
 
-Nombrar cada imagen comenzando por la fecha para conservar el orden cronológico, sin incorporar una localización:
-
-```text
-AAAA-MM-DD-001.webp
-AAAA-MM-DD-002.webp
-```
-
-Si solo se conoce el año:
+Usar nombres neutrales y numeración sucesiva dentro de cada etapa visual:
 
 ```text
-AAAA-001.webp
+actual-001.webp
+actual-002.webp
+anterior-001.webp
+origen-001.webp
 ```
 
-Ejemplos:
+## Criterios de orden
 
-```text
-2023-001.webp
-2024-001.webp
-2025-001.webp
-2026-001.webp
-```
-
-## Criterios
-
-- Usar minúsculas, números y guiones; evitar espacios, tildes y caracteres especiales.
-- Mantener una numeración sucesiva dentro de cada año o serie fotográfica.
-- Usar la fecha original de captura como primera referencia, pero contrastarla con nombres de archivo, continuidad visual y antecedentes documentados.
-- Cuando una fecha no pueda comprobarse, ordenar la imagen dentro del año estimado sin inventar día, mes ni localización.
-- Conservar aparte los datos de autoría y procedencia disponibles; la galería pública mostrará únicamente el orden cronológico y los años.
+- Ordenar primero la formación actual, luego las etapas de transformación y finalmente los primeros registros.
+- Priorizar la identificación visible de los integrantes y la continuidad de una misma serie fotográfica.
+- No inferir ni publicar años, fechas, lugares o hitos cuando no exista información comprobable.
+- Conservar en `registro.json` el nombre original, el grupo, el orden y el criterio usado para cada imagen.
+- Mantener la galería pública como una secuencia visual del presente al origen, sin fechas ni localizaciones.
 - Preparar las copias para web en formato WebP, sin reemplazar ni eliminar los originales de alta resolución.
