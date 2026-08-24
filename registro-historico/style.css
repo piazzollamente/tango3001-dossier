@@ -23,17 +23,25 @@ h1 em{display:block;color:var(--red);font-weight:400}
 main{background:linear-gradient(180deg,#0d0908,var(--night-soft) 55%,var(--night))}
 .archive-sequence{width:min(1240px,calc(100% - 40px));margin:auto;padding:clamp(32px,4vw,58px) 0 clamp(64px,7vw,98px)}
 .gallery-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-flow:dense;gap:8px;align-items:start}
-.gallery-item{height:clamp(108px,10vw,160px);margin:0;overflow:hidden;border:1px solid rgba(242,214,154,.1);border-radius:10px;background:#090706}
+.gallery-item{position:relative;height:clamp(108px,10vw,160px);margin:0;overflow:hidden;border:1px solid rgba(242,214,154,.1);border-radius:10px;background:#090706}
 .gallery-item.wide{grid-column:span 2}
-/* Los flyers son exactamente 20% más altos que una foto normal para favorecer su lectura sin romper la densidad del archivo. */
-.gallery-item.flyer{height:clamp(130px,12vw,192px)}
+/* Los flyers son 20% más altos que una foto normal y funcionan como hitos visuales. */
+.gallery-item.flyer{height:clamp(130px,12vw,192px);overflow:visible;z-index:2;border-color:rgba(242,214,154,.52);box-shadow:0 0 0 1px rgba(242,214,154,.12),0 0 18px rgba(242,214,154,.22),0 0 38px rgba(242,214,154,.13);animation:flyerPulse 3.2s ease-in-out infinite}
+.gallery-item.flyer::before{content:"";position:absolute;z-index:-1;inset:-14px;border-radius:18px;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(255,231,160,.28) 0%,rgba(242,214,154,.16) 34%,rgba(181,53,42,.08) 58%,transparent 76%);filter:blur(14px);opacity:.8;animation:flyerAura 3.2s ease-in-out infinite}
 .gallery-item a{display:block;width:100%;height:100%;position:relative;cursor:zoom-in}
-.gallery-item a::after{content:"↗";position:absolute;right:9px;bottom:9px;display:grid;place-items:center;width:26px;height:26px;border:1px solid rgba(255,247,237,.32);border-radius:50%;background:rgba(8,6,5,.68);font-size:11px;opacity:0;transform:translateY(4px);transition:.22s ease}
+.gallery-item.flyer a{overflow:hidden;border-radius:inherit;background:#090706;isolation:isolate}
+.gallery-item a::after{content:"↗";position:absolute;right:9px;bottom:9px;display:grid;place-items:center;width:26px;height:26px;border:1px solid rgba(255,247,237,.32);border-radius:50%;background:rgba(8,6,5,.68);font-size:11px;opacity:0;transform:translateY(4px);transition:.22s ease;z-index:4}
+.gallery-item.flyer a::before{content:"";position:absolute;z-index:3;top:-35%;bottom:-35%;left:-55%;width:34%;pointer-events:none;background:linear-gradient(105deg,transparent 0%,rgba(255,236,170,.08) 26%,rgba(255,246,209,.82) 50%,rgba(242,214,154,.14) 74%,transparent 100%);filter:blur(1px);transform:skewX(-14deg) translateX(-180%);mix-blend-mode:screen;animation:flyerShine 4.6s cubic-bezier(.45,0,.2,1) infinite}
 .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .35s ease}
 .gallery-item.contain img{object-fit:contain;padding:4px}
 .gallery-item a:hover img{transform:scale(1.035);filter:brightness(1.05)}
+.gallery-item.flyer:hover{border-color:rgba(255,232,171,.82);box-shadow:0 0 0 1px rgba(255,236,185,.28),0 0 25px rgba(242,214,154,.44),0 0 58px rgba(242,214,154,.26),0 0 82px rgba(181,53,42,.12)}
+.gallery-item.flyer:hover img{filter:brightness(1.12) contrast(1.03)}
 .gallery-item a:hover::after{opacity:1;transform:none}
 .gallery-item a:focus-visible{outline:2px solid var(--gold);outline-offset:-3px}
+@keyframes flyerPulse{0%,100%{box-shadow:0 0 0 1px rgba(242,214,154,.12),0 0 16px rgba(242,214,154,.20),0 0 34px rgba(242,214,154,.12)}50%{box-shadow:0 0 0 1px rgba(255,238,191,.30),0 0 25px rgba(242,214,154,.42),0 0 58px rgba(242,214,154,.24),0 0 82px rgba(181,53,42,.10)}}
+@keyframes flyerAura{0%,100%{opacity:.58;transform:scale(.98)}50%{opacity:1;transform:scale(1.045)}}
+@keyframes flyerShine{0%,58%{transform:skewX(-14deg) translateX(-180%);opacity:0}62%{opacity:.95}76%{transform:skewX(-14deg) translateX(620%);opacity:.72}82%,100%{transform:skewX(-14deg) translateX(620%);opacity:0}}
 
 /* Visor secuencial */
 .lightbox[hidden]{display:none}
@@ -45,6 +53,11 @@ main{background:linear-gradient(180deg,#0d0908,var(--night-soft) 55%,var(--night
 .lightbox-meta{width:min(760px,100%);display:flex;align-items:baseline;justify-content:center;gap:18px;color:var(--cream);text-align:center}
 .lightbox-date{font-family:var(--serif);font-size:clamp(20px,2.2vw,30px);font-weight:500;letter-spacing:.01em}
 .lightbox-counter{color:rgba(255,247,237,.5);font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+/* Las fechas se muestran solo en flyers. Las fotos conservan únicamente el contador para evitar atribuciones incorrectas. */
+.lightbox-stage:has(.lightbox-image[src*="/actual-"]) .lightbox-date,
+.lightbox-stage:has(.lightbox-image[src*="/anterior-"]) .lightbox-date,
+.lightbox-stage:has(.lightbox-image[src*="/origen-"]) .lightbox-date,
+.lightbox-stage:has(.lightbox-image[src*="rancagua-la-camorra-foto-"]) .lightbox-date{display:none}
 .lightbox-nav,.lightbox-close{border:1px solid rgba(255,247,237,.2);background:rgba(8,6,5,.58);color:var(--cream);cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease,opacity .2s ease}
 .lightbox-nav{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:34px;line-height:1}
 .lightbox-nav:hover:not(:disabled),.lightbox-close:hover{background:rgba(181,53,42,.2);border-color:rgba(242,214,154,.55);color:var(--gold)}
@@ -66,6 +79,7 @@ main{background:linear-gradient(180deg,#0d0908,var(--night-soft) 55%,var(--night
   .gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
   .gallery-item{height:clamp(88px,28vw,134px);border-radius:7px}
   .gallery-item.flyer{height:clamp(106px,33.6vw,161px)}
+  .gallery-item.flyer::before{inset:-10px;filter:blur(11px)}
   .lightbox{padding:12px}
   .lightbox-shell{height:calc(100dvh - 24px);grid-template-columns:44px minmax(0,1fr) 44px;gap:6px}
   .lightbox-image{max-height:calc(100dvh - 122px)}
@@ -86,4 +100,4 @@ main{background:linear-gradient(180deg,#0d0908,var(--night-soft) 55%,var(--night
   .lightbox-image{max-height:calc(100dvh - 120px)}
   .lightbox-date{font-size:20px}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.gallery-item img,.lightbox-nav,.lightbox-close{transition:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.gallery-item img,.gallery-item.flyer,.gallery-item.flyer::before,.gallery-item.flyer a::before,.lightbox-nav,.lightbox-close{transition:none;animation:none}}
