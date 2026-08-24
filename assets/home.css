@@ -712,7 +712,7 @@ section {
   object-position:center 45%;
 }
 .show-card-tango .show-media-link img{
-  object-position:center;
+  object-position:60% 52%;
 }
 .show-media-link::after{
   content:"";
@@ -905,6 +905,7 @@ section {
   .show-actions .btn{width:100%!important}
   .show-secondary-link{text-align:center;padding:8px 0}
   .show-media-topline{left:12px;right:12px;top:12px}
+  .show-card-tango .show-media-link img{object-fit:contain;object-position:center}
   .brand-hero{padding:64px 16px 20px}
   .brand-hero h1{font-size:clamp(30px,9.7vw,68px)!important;line-height:.88!important;letter-spacing:.01em!important;white-space:nowrap}
   .opening-photo{width:100%}
