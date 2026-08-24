@@ -51,13 +51,9 @@ main{background:linear-gradient(180deg,#0d0908,var(--night-soft) 55%,var(--night
 .lightbox-image-wrap{width:100%;height:100%;min-height:0;display:grid;place-items:center;overflow:hidden}
 .lightbox-image{width:auto;height:auto;max-width:100%;max-height:calc(100dvh - 138px);object-fit:contain;box-shadow:0 24px 70px rgba(0,0,0,.35);user-select:none;-webkit-user-drag:none}
 .lightbox-meta{width:min(760px,100%);display:flex;align-items:baseline;justify-content:center;gap:18px;color:var(--cream);text-align:center}
-.lightbox-date{font-family:var(--serif);font-size:clamp(20px,2.2vw,30px);font-weight:500;letter-spacing:.01em}
+/* Sin subtítulos ni fechas en ninguna imagen del visor. Se conserva únicamente el contador. */
+.lightbox-date{display:none!important}
 .lightbox-counter{color:rgba(255,247,237,.5);font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
-/* Las fechas se muestran solo en flyers. Las fotos conservan únicamente el contador para evitar atribuciones incorrectas. */
-.lightbox-stage:has(.lightbox-image[src*="/actual-"]) .lightbox-date,
-.lightbox-stage:has(.lightbox-image[src*="/anterior-"]) .lightbox-date,
-.lightbox-stage:has(.lightbox-image[src*="/origen-"]) .lightbox-date,
-.lightbox-stage:has(.lightbox-image[src*="rancagua-la-camorra-foto-"]) .lightbox-date{display:none}
 .lightbox-nav,.lightbox-close{border:1px solid rgba(255,247,237,.2);background:rgba(8,6,5,.58);color:var(--cream);cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease,opacity .2s ease}
 .lightbox-nav{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:34px;line-height:1}
 .lightbox-nav:hover:not(:disabled),.lightbox-close:hover{background:rgba(181,53,42,.2);border-color:rgba(242,214,154,.55);color:var(--gold)}
@@ -98,6 +94,5 @@ main{background:linear-gradient(180deg,#0d0908,var(--night-soft) 55%,var(--night
   .lightbox-shell{height:calc(100dvh - 16px);grid-template-columns:38px minmax(0,1fr) 38px;gap:3px}
   .lightbox-nav{width:34px;height:34px;font-size:24px;border-color:rgba(255,247,237,.16)}
   .lightbox-image{max-height:calc(100dvh - 120px)}
-  .lightbox-date{font-size:20px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.gallery-item img,.gallery-item.flyer,.gallery-item.flyer::before,.gallery-item.flyer a::before,.lightbox-nav,.lightbox-close{transition:none;animation:none}}
