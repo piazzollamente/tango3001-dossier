@@ -45,9 +45,17 @@ img {
   position:fixed;
   inset:0 0 auto;
   z-index:50;
-  background:rgba(8,6,5,.56)!important;
+  background:transparent!important;
+  -webkit-backdrop-filter:none;
+  backdrop-filter:none;
+  border-bottom:1px solid transparent!important;
+  transition:background-color .24s ease,border-color .24s ease,backdrop-filter .24s ease
+}
+.nav.scrolled {
+  background:rgba(8,6,5,.78)!important;
+  -webkit-backdrop-filter:blur(18px);
   backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(242,214,154,.08)!important
+  border-bottom-color:rgba(242,214,154,.10)!important
 }
 .nav-inner {
   width:min(1160px,calc(100% - 36px));
@@ -809,7 +817,7 @@ section {
   filter:brightness(1.04);
 }
 
-/* Apertura definitiva · marca, personas, historia y espectáculos */
+/* Apertura editorial continua · marca, personas e historia */
 .visually-hidden{
   position:absolute!important;
   width:1px!important;
@@ -822,12 +830,28 @@ section {
   border:0!important;
 }
 
+.opening-sequence{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 10%,rgba(181,53,42,.08),transparent 34%),
+    radial-gradient(ellipse at 50% 72%,rgba(127,33,28,.12),transparent 42%),
+    linear-gradient(180deg,#080605 0%,#0b0707 54%,#100a09 100%);
+}
+.opening-sequence .brand-hero,
+.opening-sequence section{
+  position:relative;
+  border:0!important;
+  background:transparent!important;
+}
+.opening-sequence section::before{
+  display:none!important;
+}
 .brand-hero{
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:84px 24px 44px;
-  background:#080605!important;
+  padding:70px 24px 24px;
 }
 .brand-hero-logo{
   display:block;
@@ -838,38 +862,36 @@ section {
 .opening-photo{
   display:flex;
   justify-content:center;
-  width:min(1100px,100%);
+  width:100%;
   margin:0 auto;
   padding:0!important;
-  border:0!important;
-  background:#000!important;
 }
 .opening-photo::before{
   display:none;
 }
 .opening-photo img{
   display:block;
-  width:auto;
+  width:min(760px,72vw);
   max-width:100%;
   height:auto;
-  max-height:calc(100svh - 56px);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 96%,rgba(0,0,0,.94) 98%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 96%,rgba(0,0,0,.94) 98%,transparent 100%);
 }
 .group-intro{
-  padding:clamp(72px,9vw,124px) 0!important;
-  background:linear-gradient(180deg,#080605,#100c0a)!important;
+  padding:clamp(40px,4vw,56px) 0 clamp(88px,8vw,116px)!important;
 }
 .group-intro .container{
-  width:min(980px,calc(100% - 36px));
+  width:min(900px,calc(100% - 36px));
 }
 .group-intro p{
   font-family:var(--serif);
-  font-size:clamp(27px,3.2vw,46px);
-  line-height:1.28;
-  letter-spacing:-.015em;
-  color:rgba(255,247,237,.88);
+  font-size:clamp(24px,2.5vw,36px);
+  line-height:1.3;
+  letter-spacing:-.01em;
+  color:rgba(255,247,237,.84);
 }
 .group-intro strong{
-  color:var(--gold);
+  color:rgba(242,214,154,.92);
   font-weight:500;
 }
 
@@ -890,11 +912,11 @@ section {
   .show-actions .btn{width:100%!important}
   .show-secondary-link{text-align:center;padding:8px 0}
   .show-media-topline{left:12px;right:12px;top:12px}
-  .brand-hero{padding:76px 20px 28px}
+  .brand-hero{padding:64px 20px 18px}
   .brand-hero-logo{width:min(88vw,420px)}
   .opening-photo{width:100%}
-  .opening-photo img{width:100%;max-height:none}
-  .group-intro{padding:64px 0!important}
-  .group-intro .container{width:min(100% - 32px,980px)}
-  .group-intro p{font-size:clamp(25px,7.4vw,36px);line-height:1.32}
+  .opening-photo img{width:100%}
+  .group-intro{padding:36px 0 76px!important}
+  .group-intro .container{width:min(100% - 32px,900px)}
+  .group-intro p{font-size:clamp(21px,6vw,28px);line-height:1.38;letter-spacing:0}
 }

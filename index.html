@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/piazzollamente-system.css">
-<link rel="stylesheet" href="/assets/home.css?v=20260823">
+<link rel="stylesheet" href="/assets/home.css?v=opening-flow-20260824">
 </head>
 <body>
 <nav class="nav" id="nav">
@@ -27,21 +27,23 @@
   </div>
 </nav>
 
+<main>
+<div class="opening-sequence">
 <header class="brand-hero" id="inicio">
   <h1 class="visually-hidden">Piazzollamente</h1>
   <img src="/assets/hero/Identidad%20Piazzollamente-02.png?v=2062273" alt="Piazzollamente" class="brand-hero-logo" fetchpriority="high">
 </header>
 
-<main>
 <section class="opening-photo" aria-label="Retrato de la agrupación">
   <img src="/assets/Piazzollamente%204%20integrantes.png" alt="Piazzollamente">
 </section>
 
 <section class="group-intro" aria-label="Descripción de Piazzollamente">
   <div class="container">
-    <p><strong>Piazzollamente</strong> nació en Argentina y hoy continúa su camino en Chile, bajo la dirección de <strong>Valentina Galaz</strong>. Su propuesta aborda la música de <strong>Astor Piazzolla</strong> desde una mirada íntima y expresiva, en un trabajo profundamente colectivo donde cada integrante aporta su experiencia, sensibilidad y personalidad musical. De ese encuentro nace una interpretación viva y cercana, capaz de conectar directamente con el público.</p>
+    <p><strong>Piazzollamente</strong> nació en Argentina y hoy continúa su camino en Chile, bajo la dirección de Valentina Galaz. Su propuesta aborda la música de Astor Piazzolla desde una mirada íntima y expresiva, en un trabajo profundamente colectivo donde cada integrante aporta su experiencia, sensibilidad y personalidad musical. De ese encuentro nace una interpretación viva y cercana, capaz de conectar directamente con el público.</p>
   </div>
 </section>
+</div>
 
 <section class="spectacles" id="espectaculos">
   <div class="container">
@@ -207,6 +209,11 @@ if(menu){
   menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open?'true':'false')});
   document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
   document.addEventListener('click',e=>{if(!nav.contains(e.target)){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}});
+}
+if(nav){
+  const updateNav=()=>nav.classList.toggle('scrolled',window.scrollY>16);
+  updateNav();
+  window.addEventListener('scroll',updateNav,{passive:true});
 }
 </script>
 </body>
