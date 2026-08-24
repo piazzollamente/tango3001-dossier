@@ -46,3 +46,8 @@
   object-fit:contain!important;
   object-position:center;
 }
+
+/* Agenda retirada temporalmente del sitio. */
+a[href="/agenda/"]{
+  display:none!important;
+}
