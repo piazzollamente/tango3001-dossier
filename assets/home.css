@@ -817,26 +817,11 @@ section {
   filter:brightness(1.04);
 }
 
-/* Apertura editorial continua · marca, personas e historia */
-.visually-hidden{
-  position:absolute!important;
-  width:1px!important;
-  height:1px!important;
-  padding:0!important;
-  margin:-1px!important;
-  overflow:hidden!important;
-  clip:rect(0,0,0,0)!important;
-  white-space:nowrap!important;
-  border:0!important;
-}
-
+/* Apertura editorial tipográfica · nombre y retrato */
 .opening-sequence{
   position:relative;
   overflow:hidden;
-  background:
-    radial-gradient(ellipse at 50% 10%,rgba(181,53,42,.08),transparent 34%),
-    radial-gradient(ellipse at 50% 72%,rgba(127,33,28,.12),transparent 42%),
-    linear-gradient(180deg,#080605 0%,#0b0707 54%,#100a09 100%);
+  background:linear-gradient(180deg,#080605 0%,#0b0707 100%);
 }
 .opening-sequence .brand-hero,
 .opening-sequence section{
@@ -851,13 +836,20 @@ section {
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:70px 24px 24px;
+  padding:72px 24px 28px;
 }
-.brand-hero-logo{
-  display:block;
-  width:min(720px,78vw);
-  height:auto;
-  object-fit:contain;
+.brand-hero h1{
+  max-width:100%;
+  margin:0;
+  color:var(--cream);
+  font-family:var(--serif)!important;
+  font-size:clamp(64px,10vw,150px);
+  font-weight:400!important;
+  line-height:.82!important;
+  letter-spacing:.015em!important;
+  text-align:center;
+  text-transform:uppercase;
+  text-shadow:none!important;
 }
 .opening-photo{
   display:flex;
@@ -878,13 +870,14 @@ section {
   mask-image:linear-gradient(to bottom,#000 0%,#000 96%,rgba(0,0,0,.94) 98%,transparent 100%);
 }
 .group-intro{
-  padding:clamp(40px,4vw,56px) 0 clamp(88px,8vw,116px)!important;
+  padding:clamp(72px,7vw,100px) 0!important;
+  background:linear-gradient(180deg,#080605 0%,#100a09 100%)!important;
 }
 .group-intro .container{
   width:min(900px,calc(100% - 36px));
 }
 .group-intro p{
-  font-family:var(--serif);
+  font-family:var(--serif)!important;
   font-size:clamp(24px,2.5vw,36px);
   line-height:1.3;
   letter-spacing:-.01em;
@@ -912,11 +905,11 @@ section {
   .show-actions .btn{width:100%!important}
   .show-secondary-link{text-align:center;padding:8px 0}
   .show-media-topline{left:12px;right:12px;top:12px}
-  .brand-hero{padding:64px 20px 18px}
-  .brand-hero-logo{width:min(88vw,420px)}
+  .brand-hero{padding:64px 16px 20px}
+  .brand-hero h1{font-size:clamp(30px,9.7vw,68px)!important;line-height:.88!important;letter-spacing:.01em!important;white-space:nowrap}
   .opening-photo{width:100%}
   .opening-photo img{width:100%}
-  .group-intro{padding:36px 0 76px!important}
+  .group-intro{padding:64px 0 72px!important}
   .group-intro .container{width:min(100% - 32px,900px)}
   .group-intro p{font-size:clamp(21px,6vw,28px);line-height:1.38;letter-spacing:0}
 }
