@@ -83,7 +83,9 @@ section { scroll-margin-top: 72px; }
 .photo-sequence figure:nth-child(3) img { object-position: 50% 33%; }
 .photo-sequence figure:nth-child(4) img { object-position: 42% 38%; }
 .photo-sequence figure:nth-child(5) img { object-position: 50% 35%; }
-.photo-sequence figcaption { padding-top: 9px; color: var(--muted); font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
+.photo-sequence figcaption { padding-top: 14px; }
+.photo-sequence figcaption strong { display: block; color: rgba(255, 255, 255, .9); font-family: var(--serif); font-size: 20px; font-weight: 500; line-height: 1.05; }
+.photo-sequence figcaption span { display: block; margin-top: 7px; color: var(--muted); font-size: 9px; letter-spacing: .12em; line-height: 1.45; text-transform: uppercase; }
 
 .repertoire { background: var(--paper); color: var(--ink); }
 .repertoire .section-label { color: var(--wine); }
