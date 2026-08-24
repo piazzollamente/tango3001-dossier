@@ -54,8 +54,8 @@ section { scroll-margin-top: 72px; }
 .button-outline:hover, .button-outline:focus-visible { background: currentColor; color: var(--night); }
 .text-link { display: inline-flex; align-items: center; gap: 9px; color: inherit; font-size: 12px; font-weight: 500; letter-spacing: .05em; text-underline-offset: 5px; }
 .hero-visual { position: relative; min-width: 0; min-height: 780px; margin: 0; overflow: hidden; }
-.hero-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--night) 0, transparent 15%), linear-gradient(0deg, rgba(16, 13, 12, .46), transparent 32%); pointer-events: none; }
-.hero-visual img { width: 100%; height: 100%; object-fit: cover; object-position: 55% 55%; }
+.hero-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(16, 13, 12, .4), transparent 28%); pointer-events: none; }
+.hero-visual img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; }
 .hero-visual figcaption { position: absolute; z-index: 2; right: 26px; bottom: 22px; margin: 0; color: rgba(255, 255, 255, .7); font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
 
 .section { padding: 116px 0; }
