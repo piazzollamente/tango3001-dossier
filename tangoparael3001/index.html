@@ -618,11 +618,6 @@ h1 span{display:block;color:var(--red)}
   font-size:11px;font-weight:600;letter-spacing:.06em;
   margin-right:5px;margin-bottom:3px;
 }
-.rider-download{
-  margin-top:32px;
-  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
-}
-.rider-download p{color:rgba(244,234,220,.6);font-size:14px}
 .btn-outline-gold{
   border:1px solid var(--gold);color:var(--gold);
   padding:14px 24px;
@@ -849,7 +844,7 @@ h1 span{display:block;color:var(--red)}
 }
 
 /* ─────────────────────────────────────────────
-   Sistema visual unificado Piazzollamente / Mesón
+   Sistema visual unificado Piazzollamente
    Mantiene contenido de Tango para el 3001, pero alinea atmósfera,
    color, tipografía, botones, tarjetas y animaciones.
 ───────────────────────────────────────────── */
@@ -1583,11 +1578,9 @@ table,
 .requerimientos-audio,
 .tech,
 .tech-card,
-.rider,
 [class*="ficha"],
 [class*="requerimiento"],
 [class*="audio"],
-[class*="rider"],
 [class*="tech"] {
   color: #fff7ed !important;
 }
@@ -1601,11 +1594,9 @@ table *,
 .requerimientos-audio *,
 .tech *,
 .tech-card *,
-.rider *,
 [class*="ficha"] *,
 [class*="requerimiento"] *,
 [class*="audio"] *,
-[class*="rider"] *,
 [class*="tech"] * {
   color: rgba(255,247,237,.86) !important;
   opacity: 1 !important;
@@ -1620,11 +1611,9 @@ table th,
 .requerimientos-audio h1, .requerimientos-audio h2, .requerimientos-audio h3, .requerimientos-audio h4,
 .tech h1, .tech h2, .tech h3, .tech h4,
 .tech-card h1, .tech-card h2, .tech-card h3, .tech-card h4,
-.rider h1, .rider h2, .rider h3, .rider h4,
 [class*="ficha"] h1, [class*="ficha"] h2, [class*="ficha"] h3, [class*="ficha"] h4,
 [class*="requerimiento"] h1, [class*="requerimiento"] h2, [class*="requerimiento"] h3, [class*="requerimiento"] h4,
 [class*="audio"] h1, [class*="audio"] h2, [class*="audio"] h3, [class*="audio"] h4,
-[class*="rider"] h1, [class*="rider"] h2, [class*="rider"] h3, [class*="rider"] h4,
 [class*="tech"] h1, [class*="tech"] h2, [class*="tech"] h3, [class*="tech"] h4 {
   color: #fff7ed !important;
   opacity: 1 !important;
@@ -1640,11 +1629,9 @@ table th:first-child,
 .requerimientos td:first-child,
 .requerimientos-audio td:first-child,
 .tech td:first-child,
-.rider td:first-child,
 [class*="ficha"] td:first-child,
 [class*="requerimiento"] td:first-child,
 [class*="audio"] td:first-child,
-[class*="rider"] td:first-child,
 [class*="tech"] td:first-child,
 [class*="label"],
 .label,
@@ -1689,11 +1676,9 @@ table tr,
 .ficha tr,
 .requerimientos tr,
 .tech tr,
-.rider tr,
 [class*="ficha"] tr,
 [class*="requerimiento"] tr,
 [class*="audio"] tr,
-[class*="rider"] tr,
 [class*="tech"] tr {
   border-color: rgba(232,201,138,.14) !important;
 }
@@ -1705,11 +1690,9 @@ table tr,
 .requerimientos-audio,
 .tech,
 .tech-card,
-.rider,
 [class*="ficha"],
 [class*="requerimiento"],
 [class*="audio"],
-[class*="rider"],
 [class*="tech"] {
   background:
     radial-gradient(circle at 18% 0%, rgba(181,53,42,.22), transparent 36%),
@@ -2009,7 +1992,7 @@ table caption {
       <div class="ficha-bloque">
         <div class="ficha-bloque-head">Requerimientos de audio</div>
         <table class="ficha-table">
-          <tr><td>Canales</td><td>22 canales (rider adjunto)</td></tr>
+          <tr><td>Canales</td><td>22 canales</td></tr>
           <tr><td>Percusión</td><td><span>10 ch</span> Bombo in/out, caja, bordona, HiHat, Tom×2, Timbal, Overhead L/R</td></tr>
           <tr><td>Cuerdas / teclas</td><td><span>6 ch</span> Contrabajo×2, Piano×2, Guitarra, Violín</td></tr>
           <tr><td>Viento</td><td><span>2 ch</span> Flauta (mic propio), Voz flauta</td></tr>
@@ -2021,14 +2004,6 @@ table caption {
 
     </div>
 
-    <div class="rider-download">
-      <p>Rider técnico completo disponible para descarga</p>
-      <a class="btn btn-outline-gold" href="../assets/Rider_Técnico_Piazzollamente.docx" download>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Descargar rider técnico
-      </a>
-    </div>
-
   </div>
 </section>
 
@@ -2037,7 +2012,7 @@ table caption {
     <div>
       <div class="eyebrow">Contacto</div>
       <h2>Tango para el 3001</h2>
-      <p style="margin-top:18px;color:rgba(244,234,220,.58);font-size:15px;line-height:1.7;max-width:420px">¿Quieres programar este espectáculo en tu teatro o festival? Escríbenos para coordinar una presentación, solicitar el rider técnico completo o agendar una conversación con el equipo artístico.</p>
+      <p style="margin-top:18px;color:rgba(244,234,220,.58);font-size:15px;line-height:1.7;max-width:420px">¿Quieres presentar este espectáculo en tu teatro o festival? Escríbenos para conocer disponibilidad y conversar con el equipo artístico.</p>
     </div>
     <div class="contact-list">
       <strong>Piazzollamente</strong>

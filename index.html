@@ -19,7 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/typography.css?v=1">
 <link rel="stylesheet" href="/assets/piazzollamente-system.css">
-<link rel="stylesheet" href="/assets/home.css?v=opening-responsive-20260824">
+<link rel="stylesheet" href="/assets/home.css?v=opening-framed-20260824">
 </head>
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -32,7 +32,6 @@
       <a href="#en-el-tiempo">En el tiempo</a>
       <a href="/trayectoria/">Trayectoria</a>
       <a href="/agenda/">Agenda</a>
-      <a href="/programacion/">Programación</a>
     </div>
   </div>
 </nav>
@@ -60,12 +59,11 @@
       </nav>
     </div>
     <figure class="hero-photo">
-      <img src="/assets/piazzollamente-integrantes-home.webp" width="1024" height="1536" alt="Integrantes de Piazzollamente" fetchpriority="high" decoding="async">
+      <div class="hero-photo-frame">
+        <img src="/assets/piazzollamente-integrantes-home.webp" width="1024" height="1536" alt="Integrantes de Piazzollamente" fetchpriority="high" decoding="async">
+      </div>
+      <figcaption><span>Argentina · Chile</span><span>Trayectoria 2022—2026</span></figcaption>
     </figure>
-    <a class="hero-scroll" href="#espectaculos" aria-label="Descubrir los espectáculos">
-      <span>Descubrir</span>
-      <span class="hero-scroll-line" aria-hidden="true"></span>
-    </a>
   </div>
 </header>
 
@@ -104,7 +102,7 @@
           <h3>Tango para el 3001</h3>
           <p class="show-description">Una semi-ópera construida desde la música de Piazzolla, que mira las heridas de la ciudad y propone un profundo mensaje de transformación.</p>
           <p class="show-concept">La ciudad convertida en escena y transformación.</p>
-          <div class="show-actions"><a class="btn btn-gold" href="/tangoparael3001/">Ver Tango para el 3001</a><a class="show-secondary-link" href="/programacion/">Información para programación →</a></div>
+          <div class="show-actions"><a class="btn btn-gold" href="/tangoparael3001/">Ver Tango para el 3001</a><a class="show-secondary-link" href="/trayectoria/">Ver trayectoria →</a></div>
         </div>
       </article>
     </div>
@@ -146,7 +144,7 @@
     </div>
     <div class="video-wrap">
       <iframe src="https://www.youtube-nocookie.com/embed/0kuwCU1FVhw?rel=0" title="Adiós Nonino · Piazzollamente en vivo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      <div class="video-caption"><strong>Adiós Nonino · Piazzollamente</strong><span>Mesón Nerudiano · Santiago · 2026</span></div>
+      <div class="video-caption"><strong>Adiós Nonino · Piazzollamente</strong><span>Registro en vivo · Santiago · 2026</span></div>
     </div>
   </div>
 </section>
@@ -161,7 +159,7 @@
 
     <div class="av-list">
       <a class="av-item" href="https://youtu.be/0kuwCU1FVhw?si=O3gjvz7U9Tt5NagZ" target="_blank" rel="noopener">
-        <div class="av-year">2026</div><div class="av-thumb"><img src="https://i.ytimg.com/vi/0kuwCU1FVhw/hqdefault.jpg" alt="Adiós Nonino en vivo" loading="lazy"></div><div class="av-content"><span>Piazzollamente hoy</span><h3>Adiós Nonino</h3><p>Mesón Nerudiano · Santiago. El sonido actual del proyecto.</p></div>
+        <div class="av-year">2026</div><div class="av-thumb"><img src="https://i.ytimg.com/vi/0kuwCU1FVhw/hqdefault.jpg" alt="Adiós Nonino en vivo" loading="lazy"></div><div class="av-content"><span>Piazzollamente hoy</span><h3>Adiós Nonino</h3><p>Registro en vivo en Santiago. El sonido actual del proyecto.</p></div>
       </a>
       <a class="av-item" href="https://youtu.be/XjByifJmH48?si=9qWOM-u-4YIw2F5q" target="_blank" rel="noopener">
         <div class="av-year">2025</div><div class="av-thumb"><img src="https://i.ytimg.com/vi/XjByifJmH48/hqdefault.jpg" alt="Fuga y Misterio · Gira Coquimbo" loading="lazy"></div><div class="av-content"><span>Circulación territorial</span><h3>Fuga y Misterio</h3><p>Gira por la Región de Coquimbo. El proyecto sale de Santiago y amplía su circulación.</p></div>
@@ -213,20 +211,12 @@
   </div>
 </section>
 
-<section class="programming" id="programacion">
-  <div class="container">
-    <p class="eyebrow">Teatros · festivales · centros culturales</p>
-    <h2>Programar Piazzollamente</h2>
-    <p>Accede a la información profesional de los dos espectáculos: formato, duración, materiales audiovisuales, dossier, rider y contacto.</p>
-    <div class="section-actions"><a class="btn btn-red" href="/programacion/">Información para programadores</a><a class="btn btn-gold" href="/agenda/">Agenda</a></div>
-  </div>
-</section>
 </main>
 
 <footer class="footer">
   <div class="container">
     <span>© Piazzollamente</span>
-    <div class="footer-links"><a href="/las4estaciones/">Las 4 Estaciones</a><a href="/tangoparael3001/">Tango para el 3001</a><a href="/trayectoria/">Trayectoria</a><a href="/agenda/">Agenda</a><a href="/programacion/">Programación</a><a href="https://youtube.com/@piazzollamente" target="_blank" rel="noopener">YouTube</a></div>
+    <div class="footer-links"><a href="/las4estaciones/">Las 4 Estaciones</a><a href="/tangoparael3001/">Tango para el 3001</a><a href="/trayectoria/">Trayectoria</a><a href="/agenda/">Agenda</a><a href="https://youtube.com/@piazzollamente" target="_blank" rel="noopener">YouTube</a></div>
   </div>
 </footer>
 <script>
