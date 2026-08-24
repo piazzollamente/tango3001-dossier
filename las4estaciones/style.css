@@ -59,8 +59,8 @@ section { scroll-margin-top: 72px; }
 .hero-visual figcaption { position: absolute; z-index: 2; right: 26px; bottom: 22px; margin: 0; color: rgba(255, 255, 255, .7); font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
 
 .section { padding: 116px 0; }
-.section-heading h2, .concept h2, .live h2, .history h2, .schedule h2, .programming h2 { margin: 0; font-family: var(--serif); font-size: clamp(48px, 5vw, 76px); font-weight: 400; letter-spacing: -.025em; line-height: .96; }
-.section-heading > p:last-child, .concept-copy > p, .live-copy > p, .history-copy > p, .schedule-grid > div > p, .programming-grid > div > p { color: rgba(255, 255, 255, .7); font-size: 17px; }
+.section-heading h2, .concept h2, .live h2, .history h2, .programming h2 { margin: 0; font-family: var(--serif); font-size: clamp(48px, 5vw, 76px); font-weight: 400; letter-spacing: -.025em; line-height: .96; }
+.section-heading > p:last-child, .concept-copy > p, .live-copy > p, .history-copy > p, .programming-grid > div > p { color: rgba(255, 255, 255, .7); font-size: 17px; }
 .narrow { max-width: 790px; }
 .narrow > p:last-child { max-width: 700px; }
 .split-heading { display: grid; grid-template-columns: 1fr .88fr; gap: 9vw; align-items: end; }
@@ -122,14 +122,6 @@ section { scroll-margin-top: 72px; }
 .history-copy > p:not(.section-label, .history-date, .history-place) { max-width: 520px; }
 .history-copy .text-link { margin-top: 22px; }
 
-.schedule { padding: 78px 0; background: var(--paper-deep); color: var(--ink); }
-.schedule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: center; }
-.schedule .section-label { color: var(--wine); }
-.schedule h2 { font-size: clamp(42px, 4vw, 64px); }
-.schedule-grid > div > p { max-width: 520px; margin: 0 0 26px; color: rgba(23, 19, 15, .7); }
-.inline-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; }
-.schedule .button-outline:hover, .schedule .button-outline:focus-visible { background: var(--ink); color: var(--paper); }
-
 .programming { background: var(--night); }
 .programming-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9vw; align-items: start; }
 .programming-grid > div > p { max-width: 530px; }
@@ -182,10 +174,10 @@ section { scroll-margin-top: 72px; }
   .hero-visual figcaption { right: 14px; bottom: 12px; }
 
   .section { padding: 82px 0; }
-  .section-heading h2, .concept h2, .live h2, .history h2, .schedule h2, .programming h2 { font-size: clamp(43px, 14vw, 58px); }
-  .split-heading, .concept-grid, .live-grid, .history-grid, .schedule-grid, .programming-grid { grid-template-columns: 1fr; gap: 44px; }
+  .section-heading h2, .concept h2, .live h2, .history h2, .programming h2 { font-size: clamp(43px, 14vw, 58px); }
+  .split-heading, .concept-grid, .live-grid, .history-grid, .programming-grid { grid-template-columns: 1fr; gap: 44px; }
   .split-heading { gap: 28px; }
-  .section-heading > p:last-child, .concept-copy > p, .live-copy > p, .history-copy > p, .schedule-grid > div > p, .programming-grid > div > p { font-size: 15px; }
+  .section-heading > p:last-child, .concept-copy > p, .live-copy > p, .history-copy > p, .programming-grid > div > p { font-size: 15px; }
   .city-word { font-size: clamp(78px, 27vw, 112px); }
   .concept-copy > p { margin-top: 22px; }
 
@@ -211,8 +203,6 @@ section { scroll-margin-top: 72px; }
   .history-grid { gap: 38px; }
   .history-photo img { max-height: 620px; }
   .history-date { font-size: 74px !important; }
-  .schedule { padding: 66px 0; }
-  .schedule-grid { gap: 28px; }
   .programming-panel { padding: 24px 18px; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
 }
