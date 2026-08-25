@@ -88,3 +88,46 @@ figcaption {
   font-family: var(--font-sans);
   font-weight: 600;
 }
+
+/* Contacto institucional permanente en el cierre de todas las páginas. */
+.footer {
+  flex-wrap: wrap;
+}
+
+.footer a[href^="mailto:"],
+.footer a[href^="tel:"] {
+  display: none !important;
+}
+
+.footer::after,
+body:not(:has(.footer))::after {
+  content: "Contacto: Piazzollamente@gmail.com · +56981527088";
+  display: block;
+  flex: 0 0 100%;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 18px;
+  padding: 16px max(18px, calc((100vw - 1160px) / 2));
+  border-top: 1px solid rgba(242, 214, 154, .16);
+  background: #080605;
+  color: rgba(255, 247, 237, .72);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: .08em;
+  text-align: left;
+}
+
+body:not(:has(.footer))::after {
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+  .footer::after,
+  body:not(:has(.footer))::after {
+    padding-inline: 18px;
+    font-size: 9px;
+    letter-spacing: .05em;
+  }
+}
