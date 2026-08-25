@@ -96,3 +96,4 @@ jobs:
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "Fuerza grilla compacta 2x2 en trayectoria móvil"
           git push
+# trigger 2026-08-25
