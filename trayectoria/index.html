@@ -15,10 +15,11 @@
 <style>
 :root{
   --night:#080605;
-  --paper:#f7efe5;
+  --paper:#f5ede2;
   --ink:#261f1c;
   --body:#625850;
   --wine:#7b1d21;
+  --gold:#d0ad72;
   --line:rgba(72,53,45,.16);
 }
 *{box-sizing:border-box}
@@ -28,116 +29,162 @@ a{color:inherit}
 img{display:block;max-width:100%}
 .container{width:min(1120px,calc(100% - 36px));margin:auto}
 
+/* Apertura: una sola imagen, tratada como plano inicial */
 .hero{
-  min-height:46vh;
+  min-height:72vh;
   display:flex;
   align-items:flex-end;
-  padding:118px 0 58px;
+  padding:132px 0 68px;
+  position:relative;
+  isolation:isolate;
   background:
-    radial-gradient(circle at 82% 12%,rgba(181,53,42,.15),transparent 31%),
-    #080605;
+    linear-gradient(180deg,rgba(5,4,4,.28) 0%,rgba(5,4,4,.54) 58%,rgba(5,4,4,.92) 100%),
+    url('/assets/registro-historico/actual-008.webp') center 36%/cover no-repeat;
 }
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(90deg,rgba(8,6,5,.34),transparent 58%);
+}
+.hero-copy{max-width:760px}
 .kicker{
-  margin:0 0 12px;
-  color:rgba(242,214,154,.78);
+  margin:0 0 13px;
+  color:rgba(242,214,154,.82);
   font-size:9px;
   font-weight:600;
-  letter-spacing:.17em;
+  letter-spacing:.18em;
   text-transform:uppercase;
 }
 .hero h1{
   margin:0;
   font-family:var(--font-display);
-  font-size:clamp(62px,9vw,108px);
+  font-size:clamp(66px,10vw,118px);
   font-weight:400;
-  line-height:.86;
-  letter-spacing:-.03em;
+  line-height:.84;
+  letter-spacing:-.035em;
+  text-shadow:0 12px 32px rgba(0,0,0,.24);
 }
 
 .story{
   background:var(--paper);
   color:var(--ink);
-  padding:clamp(68px,8vw,104px) 0 clamp(92px,11vw,144px);
+  padding:clamp(72px,8vw,106px) 0 clamp(96px,11vw,148px);
 }
 .article{
   width:min(720px,calc(100% - 40px));
   margin:0 auto;
 }
 .article p{
-  margin:0 0 1.55em;
+  margin:0 0 1.58em;
   color:var(--body);
-  font-size:clamp(16.5px,1.35vw,19px);
+  font-size:clamp(16.5px,1.34vw,19px);
   line-height:1.92;
-  letter-spacing:0;
 }
 .article .standfirst{
-  margin-bottom:2.05em;
+  margin-bottom:2.2em;
   color:#403733;
-  font-size:clamp(19px,1.65vw,22px);
+  font-size:clamp(19px,1.7vw,22px);
   line-height:1.82;
-  font-weight:400;
 }
 .article em{color:#493933}
 .article strong{color:var(--ink)}
 
-/* Citas: pausa editorial, no titular */
-.article .short{
-  width:min(620px,100%);
-  margin:3.2em auto;
-  color:#493934;
-  font-family:var(--font-display);
-  font-size:clamp(23px,2.3vw,28px);
-  font-style:italic;
-  font-weight:400;
-  line-height:1.36;
-  letter-spacing:-.008em;
-  text-align:center;
+/* Planos fotográficos a pantalla completa entre bloques de texto */
+.scene{
+  width:100vw;
+  margin:clamp(84px,10vw,132px) 0 clamp(88px,10vw,138px) calc(50% - 50vw);
+  position:relative;
+  background:#0b0908;
+  overflow:hidden;
 }
-
-/* Secuencia: mantiene el ritmo sin convertirse en otro sistema tipográfico */
-.article .sequence{
-  width:min(620px,100%);
-  margin:3.3em auto;
-  padding:22px 0 20px 24px;
-  border-left:1px solid rgba(123,29,33,.34);
-}
-.article .sequence p{
-  margin:0 0 .7em;
-  color:#4b403a;
-  font-family:var(--font-sans);
-  font-size:clamp(16px,1.35vw,18px);
-  font-weight:400;
-  line-height:1.65;
-}
-.article .sequence p:last-child{margin-bottom:0}
-
-/* Fotografías como escenas entre capítulos */
-.story-image{
-  width:min(880px,calc(100% - 36px));
-  margin:clamp(72px,9vw,112px) auto clamp(78px,9vw,118px);
-}
-.story-image img{
+.scene img{
   width:100%;
-  max-height:620px;
+  height:clamp(430px,62vw,760px);
   object-fit:cover;
   object-position:center;
 }
-.story-image:nth-of-type(even){width:min(790px,calc(100% - 52px))}
-.story-image figcaption{
-  margin-top:10px;
-  color:#8a7c73;
+.scene::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:34%;
+  pointer-events:none;
+  background:linear-gradient(180deg,transparent,rgba(6,5,5,.64));
+}
+.scene figcaption{
+  position:absolute;
+  left:max(18px,calc((100vw - 1120px)/2));
+  right:18px;
+  bottom:18px;
+  z-index:2;
+  margin:0;
+  color:rgba(255,247,237,.78);
   font-family:var(--font-sans);
   font-size:8.5px;
   font-weight:500;
   line-height:1.5;
-  letter-spacing:.08em;
+  letter-spacing:.10em;
   text-transform:uppercase;
+}
+.scene.rancagua img{object-position:center 40%}
+.scene.coquimbo img{object-position:center 50%}
+
+/* Cita cinematográfica contenida: pausa, no titular */
+.intertitle{
+  width:100vw;
+  margin:clamp(78px,9vw,118px) 0 clamp(82px,9vw,124px) calc(50% - 50vw);
+  padding:clamp(52px,6vw,78px) 20px;
+  background:#0b0908;
+  border-top:1px solid rgba(208,173,114,.13);
+  border-bottom:1px solid rgba(208,173,114,.13);
+}
+.intertitle p{
+  width:min(700px,100%);
+  margin:0 auto;
+  color:rgba(255,247,237,.86);
+  font-family:var(--font-display);
+  font-size:clamp(23px,2.3vw,29px);
+  font-style:italic;
+  font-weight:400;
+  line-height:1.45;
+  text-align:center;
+  letter-spacing:-.005em;
+}
+
+/* Secuencia verbal en el mismo registro tipográfico del cuerpo */
+.sequence{
+  width:min(620px,100%);
+  margin:3.1em auto 3.3em;
+  padding:4px 0 4px 22px;
+  border-left:1px solid rgba(123,29,33,.32);
+}
+.sequence p{
+  margin:0 0 .72em;
+  color:#4a403a;
+  font-size:clamp(16px,1.3vw,17.5px);
+  line-height:1.62;
+}
+.sequence p:last-child{margin-bottom:0}
+
+.final-quote{
+  width:min(650px,100%);
+  margin:3.4em auto 2.6em;
+  padding-top:24px;
+  border-top:1px solid rgba(123,29,33,.22);
+  color:#4b3d37!important;
+  font-family:var(--font-display);
+  font-size:clamp(22px,2.2vw,27px)!important;
+  font-style:italic;
+  line-height:1.42!important;
+  text-align:center;
 }
 
 .archive-end{
   width:min(720px,calc(100% - 40px));
-  margin:clamp(88px,11vw,138px) auto 0;
-  padding-top:38px;
+  margin:clamp(92px,11vw,142px) auto 0;
+  padding-top:40px;
   border-top:1px solid var(--line);
 }
 .archive-end .label{
@@ -177,22 +224,20 @@ img{display:block;max-width:100%}
 .institutional-footer{border-top:1px solid rgba(242,214,154,.16)}
 
 @media(max-width:700px){
-  .hero{min-height:40vh;padding-top:104px;padding-bottom:48px}
-  .hero h1{font-size:clamp(58px,18vw,82px)}
-  .story{padding-top:58px}
+  .hero{min-height:62vh;padding-top:108px;padding-bottom:46px;background-position:center 34%}
+  .hero h1{font-size:clamp(60px,19vw,88px)}
+  .story{padding-top:60px}
   .article{width:min(100% - 34px,720px)}
   .article p{font-size:16.5px;line-height:1.88}
   .article .standfirst{font-size:19px;line-height:1.78}
-  .article .short{font-size:24px;line-height:1.4;margin:2.8em auto}
-  .article .sequence{padding-left:18px;margin:2.8em auto}
-  .article .sequence p{font-size:16px}
-  .story-image,
-  .story-image:nth-of-type(even){
-    width:calc(100% - 28px);
-    margin-top:62px;
-    margin-bottom:70px;
-  }
-  .story-image img{max-height:none}
+  .scene{margin-top:68px;margin-bottom:76px}
+  .scene img{height:58vh;min-height:390px;max-height:560px}
+  .scene figcaption{left:16px;bottom:14px;font-size:8px}
+  .intertitle{margin-top:68px;margin-bottom:76px;padding:44px 22px}
+  .intertitle p{font-size:23px;line-height:1.45}
+  .sequence{padding-left:18px;margin:2.8em auto}
+  .sequence p{font-size:16px}
+  .final-quote{font-size:23px!important}
 }
 </style>
 </head>
@@ -214,7 +259,7 @@ img{display:block;max-width:100%}
 </nav>
 
 <header class="hero">
-  <div class="container">
+  <div class="container hero-copy">
     <p class="kicker">Piazzollamente · Argentina — Chile</p>
     <h1>Trayectoria</h1>
   </div>
@@ -231,7 +276,7 @@ img{display:block;max-width:100%}
     <p>Ese mismo período permitió que el proyecto dejara de ser solamente una experiencia de conciertos. Comenzaron los registros audiovisuales, las sesiones en vivo y un trabajo sistemático de documentación. El apoyo obtenido a través de INAMU en Argentina significó además un primer reconocimiento institucional y permitió sostener producción y desarrollo. Piazzollamente empezó a construir algo fundamental para cualquier proyecto destinado a crecer: archivo, repertorio, identidad visual, registros profesionales y antecedentes verificables de circulación.</p>
   </article>
 
-  <figure class="story-image">
+  <figure class="scene argentina">
     <img src="/assets/registro-historico/origen-001.webp" alt="Piazzollamente en una etapa temprana del proyecto en Argentina" loading="lazy" decoding="async">
     <figcaption>Argentina · 2023 · una de las primeras etapas documentadas de Piazzollamente</figcaption>
   </figure>
@@ -244,7 +289,7 @@ img{display:block;max-width:100%}
     <p>En junio estrenó una etapa importante de <em>Las 4 Estaciones Porteñas</em>, un concierto que transforma las estaciones de Piazzolla en un recorrido emocional por Buenos Aires. Ya no se trataba solamente de tocar un repertorio: comenzaba a definirse una experiencia artística reconocible, con narrativa, concepto y una identidad tímbrica particular.</p>
   </article>
 
-  <figure class="story-image">
+  <figure class="scene rancagua">
     <img src="/assets/registro-historico/2024-10-09-rancagua-la-camorra-foto-01.png" alt="Piazzollamente en La Camorra en el Teatro Regional Lucho Gatica de Rancagua" loading="lazy" decoding="async">
     <figcaption>La Camorra · Teatro Regional Lucho Gatica · Rancagua · 2024</figcaption>
   </figure>
@@ -257,7 +302,7 @@ img{display:block;max-width:100%}
     <p>Esa evolución es central para comprender qué es Piazzollamente hoy. El proyecto posee actualmente dos formatos con identidades propias. <em>Las 4 Estaciones Porteñas</em> concentra la fuerza del quinteto instrumental y convierte Buenos Aires en un recorrido sonoro; <em>Tango para el 3001</em> expande ese universo hacia una experiencia escénico-musical en la que la ciudad, sus heridas y sus transformaciones se convierten en dramaturgia.</p>
   </article>
 
-  <figure class="story-image">
+  <figure class="scene coquimbo">
     <img src="/assets/registro-historico/anterior-005.webp" alt="Piazzollamente durante la gira por la Región de Coquimbo" loading="lazy" decoding="async">
     <figcaption>Puentes, Caminos y Encuentros · Región de Coquimbo · 2025</figcaption>
   </figure>
@@ -267,12 +312,16 @@ img{display:block;max-width:100%}
 
     <p>En agosto de 2026, el proyecto volvió al Mesón Nerudiano de Santiago con <em>Las 4 Estaciones</em>, en una función cuya preventa se agotó antes del concierto. Este dato, aparentemente menor frente a un festival o un gran teatro, es particularmente importante desde la producción: significa que Piazzollamente ya no solo puede ser seleccionado por instituciones o festivales, sino que comienza a demostrar capacidad propia de convocatoria.</p>
 
-    <p class="short">Ese recorrido —desde una pequeña sala en Mendoza hasta festivales, teatros regionales, salas profesionales, giras financiadas y producciones escénicas— explica mejor a Piazzollamente que cualquier enumeración de premios.</p>
+    <p>Ese recorrido —desde una pequeña sala en Mendoza hasta festivales, teatros regionales, salas profesionales, giras financiadas y producciones escénicas— explica mejor a Piazzollamente que cualquier enumeración de premios.</p>
 
     <p>Porque su crecimiento no ha consistido únicamente en tocar ante más personas.</p>
+  </article>
 
-    <p class="short">Ha consistido en aumentar progresivamente la escala de su lenguaje.</p>
+  <section class="intertitle" aria-label="Idea central de la trayectoria">
+    <p>Ha consistido en aumentar progresivamente la escala de su lenguaje.</p>
+  </section>
 
+  <article class="article">
     <div class="sequence" aria-label="Evolución de Piazzollamente">
       <p>De un trío a un ensamble de mayor formato.</p>
       <p>Del concierto a la escena.</p>
@@ -281,14 +330,7 @@ img{display:block;max-width:100%}
       <p>Del registro casero al archivo audiovisual profesional.</p>
       <p>De interpretar Piazzolla a construir un universo propio alrededor de su música.</p>
     </div>
-  </article>
 
-  <figure class="story-image">
-    <img src="/assets/registro-historico/actual-008.webp" alt="Piazzollamente en una etapa reciente del proyecto" loading="lazy" decoding="async">
-    <figcaption>Piazzollamente · etapa actual · 2026</figcaption>
-  </figure>
-
-  <article class="article">
     <p>Y hay un elemento que atraviesa toda esa evolución: la flauta traversa. En lugar de intentar reproducir literalmente el sonido histórico del quinteto piazzolliano, Piazzollamente ha ido construyendo una identidad en la que la flauta modifica la respiración, la articulación y el color de esta música. Violín, guitarra eléctrica, piano y contrabajo completan un sonido colectivo que reconoce la tradición sin quedar subordinado a ella.</p>
 
     <p>Desde la perspectiva de un espectáculo destinado a crecer, ahí está probablemente su mayor fortaleza: Piazzollamente no vende nostalgia por Piazzolla; ofrece una forma contemporánea de entrar en su universo.</p>
@@ -297,7 +339,7 @@ img{display:block;max-width:100%}
 
     <p>Por eso su trayectoria puede leerse como una expansión concéntrica: primero se construyó el lenguaje; después, el repertorio; luego, los registros; después llegaron las salas, los festivales, la circulación territorial y la dramaturgia. El siguiente crecimiento lógico ya no consiste solamente en acumular nuevas fechas. Consiste en llevar estos dos espectáculos a escenarios de mayor escala y convertir una trayectoria artística comprobable en una propuesta cultural capaz de convocar públicos masivos.</p>
 
-    <p class="short">Piazzollamente llega a esa etapa con algo que no puede improvisarse: una historia.</p>
+    <p class="final-quote">Piazzollamente llega a esa etapa con algo que no puede improvisarse: una historia.</p>
 
     <p>Una historia construida entre Argentina y Chile, acumulada durante años en pequeños escenarios, museos, bares, salas, teatros, festivales y caminos; una historia que hoy permite que cada nuevo escenario no sea un comienzo, sino la continuación natural de un recorrido.</p>
   </article>
