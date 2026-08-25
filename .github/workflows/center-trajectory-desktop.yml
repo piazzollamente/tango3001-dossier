@@ -1,0 +1,41 @@
+name: Center trajectory desktop
+on:
+  push:
+    paths:
+      - '.github/workflows/center-trajectory-desktop.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Center desktop visuals and update archive CTA
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('trayectoria/index.html')
+          s = p.read_text(encoding='utf-8')
+
+          s = s.replace(
+            '.visual-single.align-left{margin-left:max(18px,calc((100vw - 1120px)/2));margin-right:auto;width:min(700px,calc(100% - 36px))}\n.visual-single.align-right{margin-right:max(18px,calc((100vw - 1120px)/2));margin-left:auto;width:min(700px,calc(100% - 36px))}',
+            '.visual-single.align-left,\n.visual-single.align-right{\n  margin-left:auto;\n  margin-right:auto;\n  width:min(700px,calc(100% - 36px));\n}'
+          )
+
+          s = s.replace(
+            '<p>Esta página utiliza una selección documental para acompañar cada etapa del relato. El archivo histórico conserva el resto de las fotografías, flyers y documentos visuales del proyecto.</p>\n    <a href="/registro-historico/">Abrir registro histórico →</a>',
+            '<p>Si quieres ver más imágenes, entra al archivo visual.</p>\n    <a href="/registro-historico/">Entrar al archivo visual →</a>'
+          )
+
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add trayectoria/index.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Centra imágenes de Trayectoria y ajusta acceso al archivo visual"
+          git push
