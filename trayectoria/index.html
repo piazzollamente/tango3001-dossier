@@ -112,48 +112,54 @@ img{display:block;max-width:100%}
 .visual-single,
 .visual-group{
   width:min(980px,calc(100% - 36px));
-  margin:clamp(58px,7vw,92px) auto clamp(68px,8vw,104px);
+  margin:clamp(54px,6vw,78px) auto clamp(60px,7vw,88px);
 }
-.visual-single.narrow{width:min(660px,calc(100% - 36px))}
+.visual-single.narrow{width:min(620px,calc(100% - 36px))}
 .visual-group{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:clamp(28px,4vw,54px);
+  gap:24px;
   align-items:start;
 }
 .visual-group.three{grid-template-columns:repeat(3,minmax(0,1fr))}
-.visual-group.four{grid-template-columns:repeat(4,minmax(0,1fr));gap:26px}
+.visual-group.four{
+  width:min(920px,calc(100% - 36px));
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:18px;
+}
 .visual-item{margin:0;min-width:0}
 .visual-frame{
   display:flex;
   align-items:center;
   justify-content:center;
-  min-height:260px;
+  min-height:0;
   padding:0;
   background:transparent;
 }
-.visual-item.photo .visual-frame{min-height:0}
 .visual-item img{
   width:auto;
   max-width:100%;
   height:auto;
-  max-height:560px;
+  max-height:360px;
   object-fit:contain;
   object-position:center;
 }
-.visual-item.photo img{
-  width:100%;
-  max-height:none;
+.visual-group .visual-item.photo img{
+  width:auto;
+  max-width:100%;
+  max-height:330px;
+  object-fit:contain;
 }
+.visual-group.four .visual-item img{max-height:285px}
 .visual-item figcaption,
 .visual-single figcaption{
-  margin-top:10px;
+  margin-top:8px;
   color:#887970;
   font-family:var(--font-sans);
-  font-size:8.5px;
+  font-size:8px;
   font-weight:500;
-  line-height:1.5;
-  letter-spacing:.085em;
+  line-height:1.45;
+  letter-spacing:.075em;
   text-transform:uppercase;
 }
 .visual-single figure{margin:0}
@@ -167,11 +173,11 @@ img{display:block;max-width:100%}
 .visual-single.flyer img{
   width:auto;
   max-width:100%;
-  max-height:700px;
+  max-height:620px;
   margin:0 auto;
 }
-.visual-single.align-left{margin-left:max(18px,calc((100vw - 1120px)/2));margin-right:auto;width:min(760px,calc(100% - 36px))}
-.visual-single.align-right{margin-right:max(18px,calc((100vw - 1120px)/2));margin-left:auto;width:min(760px,calc(100% - 36px))}
+.visual-single.align-left{margin-left:max(18px,calc((100vw - 1120px)/2));margin-right:auto;width:min(700px,calc(100% - 36px))}
+.visual-single.align-right{margin-right:max(18px,calc((100vw - 1120px)/2));margin-left:auto;width:min(700px,calc(100% - 36px))}
 
 /* Pausas de relato */
 .intertitle{
@@ -264,6 +270,8 @@ img{display:block;max-width:100%}
 
 @media(max-width:860px){
   .visual-group.three,.visual-group.four{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .visual-group.four{width:min(680px,calc(100% - 32px));gap:22px 16px}
+  .visual-group.four .visual-item img{max-height:240px}
 }
 @media(max-width:700px){
   .hero{padding-top:64px}
@@ -279,16 +287,25 @@ img{display:block;max-width:100%}
   .visual-single.align-right,
   .visual-group{
     width:calc(100% - 28px);
-    margin:54px auto 66px;
+    margin:46px auto 54px;
   }
   .visual-group,
   .visual-group.three,
   .visual-group.four{
     grid-template-columns:1fr 1fr;
-    gap:26px 14px;
+    gap:22px 12px;
   }
-  .visual-frame{min-height:0}
-  .visual-item img,
+  .visual-group.four{width:calc(100% - 24px)}
+  .visual-item img{max-height:225px}
+  .visual-group .visual-item.photo img{width:auto;max-height:215px}
+  .visual-group.four .visual-item img{max-height:205px}
+  .visual-item figcaption,
+  .visual-single figcaption{
+    margin-top:7px;
+    font-size:7.4px;
+    line-height:1.4;
+    letter-spacing:.06em;
+  }
   .visual-single img,
   .visual-single.flyer img{
     width:auto;
@@ -298,7 +315,6 @@ img{display:block;max-width:100%}
     object-fit:contain;
     margin:0 auto;
   }
-  .visual-item.photo img{width:100%}
   .intertitle{margin-top:68px;margin-bottom:76px;padding:44px 22px}
   .intertitle p{font-size:23px;line-height:1.45}
   .sequence{padding-left:18px;margin:2.8em auto}
@@ -306,9 +322,16 @@ img{display:block;max-width:100%}
   .final-quote{font-size:23px!important}
 }
 @media(max-width:460px){
+  /* En teléfono, los grupos se mantienen en 2 × 2 para acortar el recorrido. */
   .visual-group,
   .visual-group.three,
-  .visual-group.four{grid-template-columns:1fr;gap:34px}
+  .visual-group.four{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px 10px;
+  }
+  .visual-group.four .visual-item img{max-height:180px}
+  .visual-group .visual-item.photo img{max-height:185px}
+  .visual-item figcaption{font-size:7px}
 }
 </style>
 </head>
