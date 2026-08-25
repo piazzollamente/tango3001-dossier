@@ -1,0 +1,126 @@
+name: Aplicar menú principal v2
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-main-menu-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Actualizar navegación y dirección artística
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          PRIMARY = {
+              'home': '''<div class="nav-primary" aria-label="Menú principal">
+        <a href="/" aria-current="page">Home</a>
+        <a href="/las4estaciones/">Las 4 Estaciones</a>
+        <a href="/tangoparael3001/">Tango para el 3001</a>
+        <a href="/tangoparael3001/#direccion-artistica">Dirección artística</a>
+        <a href="/registro-historico/">Registro histórico</a>
+      </div>''',
+              'las4': '''<div class="nav-primary" aria-label="Menú principal">
+        <a href="/">Home</a>
+        <a href="/las4estaciones/" aria-current="page">Las 4 Estaciones</a>
+        <a href="/tangoparael3001/">Tango para el 3001</a>
+        <a href="/tangoparael3001/#direccion-artistica">Dirección artística</a>
+        <a href="/registro-historico/">Registro histórico</a>
+      </div>''',
+              'tango': '''<div class="nav-primary" aria-label="Menú principal">
+        <a href="/">Home</a>
+        <a href="/las4estaciones/">Las 4 Estaciones</a>
+        <a href="/tangoparael3001/" aria-current="page">Tango para el 3001</a>
+        <a href="#direccion-artistica">Dirección artística</a>
+        <a href="/registro-historico/">Registro histórico</a>
+      </div>''',
+              'archivo': '''<div class="nav-primary" aria-label="Menú principal">
+        <a href="/">Home</a>
+        <a href="/las4estaciones/">Las 4 Estaciones</a>
+        <a href="/tangoparael3001/">Tango para el 3001</a>
+        <a href="/tangoparael3001/#direccion-artistica">Dirección artística</a>
+        <a href="/registro-historico/" aria-current="page">Registro histórico</a>
+      </div>''',
+              'trayectoria': '''<div class="nav-primary" aria-label="Menú principal">
+        <a href="/">Home</a>
+        <a href="/las4estaciones/">Las 4 Estaciones</a>
+        <a href="/tangoparael3001/">Tango para el 3001</a>
+        <a href="/tangoparael3001/#direccion-artistica">Dirección artística</a>
+        <a href="/registro-historico/">Registro histórico</a>
+      </div>'''
+          }
+
+          def replace_primary(path, key):
+              p = Path(path)
+              s = p.read_text(encoding='utf-8')
+              pat = re.compile(r'<div class="nav-primary" aria-label="Menú principal">.*?</div>', re.S)
+              if not pat.search(s):
+                  raise SystemExit(f'No se encontró nav-primary en {path}')
+              s = pat.sub(PRIMARY[key], s, count=1)
+              p.write_text(s, encoding='utf-8')
+
+          replace_primary('index.html', 'home')
+          replace_primary('las4estaciones/index.html', 'las4')
+          replace_primary('tangoparael3001/index.html', 'tango')
+
+          # Tango para el 3001: mover la dirección desde el hero a una sección propia.
+          p = Path('tangoparael3001/index.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('      <p class="hero-direction"><strong>Dirección</strong>: Valentina Galaz y Francisca Cristopulos</p>\n', '', 1)
+
+          if 'id="direccion-artistica"' not in s:
+              section = '''\n<section id="direccion-artistica" class="section direccion-artistica">\n  <div class="container direccion-artistica-inner">\n    <div class="eyebrow">Dirección artística</div>\n    <h2 class="section-title">Valentina Galaz<br>Francisca Cristopulos</h2>\n    <p class="lead">Tango para el 3001</p>\n  </div>\n</section>\n'''
+              s = s.replace('</header>\n\n<section class="manifiesto">', '</header>' + section + '\n<section class="manifiesto">', 1)
+
+          marker = '/* DIRECCION ARTISTICA SECCION 2026-08-25 */'
+          if marker not in s:
+              css = '''\n\n/* DIRECCION ARTISTICA SECCION 2026-08-25 */\n.direccion-artistica{\n  scroll-margin-top:76px;\n  padding:clamp(62px,8vw,104px) 0;\n  background:\n    radial-gradient(circle at 84% 18%, rgba(176,20,34,.12), transparent 30%),\n    linear-gradient(180deg,#0a0807,#100b09);\n  border-top:1px solid rgba(244,234,220,.10);\n  border-bottom:1px solid rgba(196,146,85,.16);\n}\n.direccion-artistica-inner{\n  display:grid;\n  grid-template-columns:minmax(160px,.55fr) minmax(0,1.45fr);\n  column-gap:clamp(28px,6vw,84px);\n  align-items:start;\n}\n.direccion-artistica .eyebrow{grid-column:1;margin:0;color:var(--gold)}\n.direccion-artistica .section-title{grid-column:2;margin:0;color:var(--bone);font-size:clamp(46px,7vw,88px)}\n.direccion-artistica .lead{grid-column:2;margin:18px 0 0;color:rgba(244,234,220,.62);font-size:14px;text-transform:uppercase;letter-spacing:.12em;font-weight:600}\n@media(max-width:700px){\n  .direccion-artistica-inner{grid-template-columns:1fr;gap:20px}\n  .direccion-artistica .eyebrow,\n  .direccion-artistica .section-title,\n  .direccion-artistica .lead{grid-column:1}\n  .direccion-artistica .section-title{font-size:clamp(44px,14vw,68px)}\n}\n'''
+              s = s.replace('</style>\n<link rel="stylesheet" href="/assets/site-navigation.css', css + '\n</style>\n<link rel="stylesheet" href="/assets/site-navigation.css', 1)
+          p.write_text(s, encoding='utf-8')
+
+          # Registro histórico: migrar al menú unificado.
+          p = Path('registro-historico/index.html')
+          s = p.read_text(encoding='utf-8')
+          if '/assets/site-navigation.css' not in s:
+              s = s.replace('  <link rel="stylesheet" href="style.css?v=gallery-20260824-6">', '  <link rel="stylesheet" href="style.css?v=gallery-20260824-6">\n  <link rel="stylesheet" href="/assets/site-navigation.css?v=20260825-2">', 1)
+          nav_pat = re.compile(r'  <nav class="nav" id="nav" aria-label="Navegación principal">.*?  </nav>', re.S)
+          archive_nav = '''  <nav class="nav unified-nav" id="nav" aria-label="Navegación principal">\n    <div class="nav-inner">\n      <a class="brand" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a>\n      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">Menú</button>\n      <div class="nav-links" id="nav-links">\n        ''' + PRIMARY['archivo'] + '''\n      </div>\n    </div>\n  </nav>'''
+          if nav_pat.search(s):
+              s = nav_pat.sub(archive_nav, s, count=1)
+          else:
+              raise SystemExit('No se encontró nav antiguo en registro-historico')
+          p.write_text(s, encoding='utf-8')
+
+          # Trayectoria: aunque ya no sea un ítem principal, mantener el mismo menú global.
+          p = Path('trayectoria/index.html')
+          s = p.read_text(encoding='utf-8')
+          if '/assets/site-navigation.css' not in s:
+              s = s.replace('</style>\n</head>', '</style>\n<link rel="stylesheet" href="/assets/site-navigation.css?v=20260825-2">\n</head>', 1)
+          old_nav = re.compile(r'<nav class="nav"><div class="nav-inner">.*?</nav>', re.S)
+          new_nav = '''<nav class="nav unified-nav" id="nav" aria-label="Navegación principal">\n  <div class="nav-inner">\n    <a class="logo" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a>\n    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">Menú</button>\n    <div class="nav-links" id="nav-links">\n      ''' + PRIMARY['trayectoria'] + '''\n    </div>\n  </div>\n</nav>'''
+          if old_nav.search(s):
+              s = old_nav.sub(new_nav, s, count=1)
+          if 'const nav=document.getElementById(\'nav\')' not in s:
+              script = '''\n<script>\nconst nav=document.getElementById('nav'),toggle=document.getElementById('menu-toggle'),links=document.getElementById('nav-links');\nif(nav&&toggle&&links){\n  const close=()=>{nav.classList.remove('menu-open');toggle.setAttribute('aria-expanded','false')};\n  toggle.addEventListener('click',()=>{const open=nav.classList.toggle('menu-open');toggle.setAttribute('aria-expanded',String(open))});\n  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));\n  document.addEventListener('click',e=>{if(!nav.contains(e.target))close()});\n}\n</script>\n'''
+              s = s.replace('</body>', script + '</body>', 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html las4estaciones/index.html tangoparael3001/index.html registro-historico/index.html trayectoria/index.html
+          git commit -m "Reordena menú principal y separa dirección artística"
+          git push origin main
