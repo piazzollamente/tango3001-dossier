@@ -1,0 +1,190 @@
+name: Reorganizar Trayectoria y navegación
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-trajectory-architecture.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Reorganizar navegación y contenidos
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          pages = {
+              Path('index.html'): 'home',
+              Path('las4estaciones/index.html'): 'las4',
+              Path('tangoparael3001/index.html'): 'tango',
+              Path('registro-historico/index.html'): 'registro',
+          }
+
+          def nav_html(current):
+              def a(label, href, key):
+                  current_attr = ' aria-current="page"' if current == key else ''
+                  return f'        <a href="{href}"{current_attr}>{label}</a>'
+              return '\n'.join([
+                  '      <div class="nav-primary" aria-label="Menú principal">',
+                  a('Home', '/', 'home'),
+                  a('Trayectoria', '/trayectoria/', 'trayectoria'),
+                  a('Las 4 Estaciones', '/las4estaciones/', 'las4'),
+                  a('Tango para el 3001', '/tangoparael3001/', 'tango'),
+                  a('Dirección artística', '/direccion-artistica/', 'direccion'),
+                  '      </div>'
+              ])
+
+          for path, current in pages.items():
+              html = path.read_text(encoding='utf-8')
+              html, count = re.subn(
+                  r'\s*<div class="nav-primary" aria-label="Menú principal">.*?</div>',
+                  '\n' + nav_html(current),
+                  html,
+                  count=1,
+                  flags=re.S,
+              )
+              if count != 1:
+                  raise SystemExit(f'No se pudo actualizar nav-primary en {path}: {count}')
+              html = html.replace('/assets/site-navigation.css?v=20260825-2', '/assets/site-navigation.css?v=20260825-3')
+              html = html.replace('/assets/site-navigation.js?v=20260825-1', '/assets/site-navigation.js?v=20260825-2')
+              path.write_text(html, encoding='utf-8')
+
+          # Las 4 Estaciones: trayectoria sale del show y pasa a la sección global.
+          path = Path('las4estaciones/index.html')
+          html = path.read_text(encoding='utf-8')
+          html = html.replace('<a class="text-link" href="#trayectoria">Conocer la trayectoria <span aria-hidden="true">↘</span></a>', '<a class="text-link" href="/trayectoria/">Conocer la trayectoria <span aria-hidden="true">↘</span></a>')
+          html = html.replace('          <a href="#trayectoria">Trayectoria</a>\n', '')
+          html, count = re.subn(r'\n\s*<section class="section trajectory" id="trayectoria">.*?</section>', '', html, count=1, flags=re.S)
+          if count != 1:
+              raise SystemExit(f'No se encontró la sección trayectoria de Las 4 Estaciones: {count}')
+          path.write_text(html, encoding='utf-8')
+
+          # Tango 3001: retirar la biografía de dirección artística del show.
+          path = Path('tangoparael3001/index.html')
+          html = path.read_text(encoding='utf-8')
+          html = re.sub(
+              r'(<article class="cast"><img src="\.\./assets/valentina-01\.jpg" alt="Valentina Galaz"><div><strong>Valentina Galaz</strong><span>Dirección artística · Flauta traversa</span>)<span style="[^"]*">.*?</span>(</div></article>)',
+              r'\1\2',
+              html,
+              count=1,
+              flags=re.S,
+          )
+          html, count = re.subn(
+              r'\n\s*<!-- ══ TRAYECTORIA / PRENSA ══ -->\s*<section class="section">\s*<div class="container">\s*<div id="direccion-artistica" class="eyebrow">Dirección artística</div>.*?</section>',
+              '',
+              html,
+              count=1,
+              flags=re.S,
+          )
+          if count != 1:
+              raise SystemExit(f'No se encontró la sección de dirección artística en Tango 3001: {count}')
+          path.write_text(html, encoding='utf-8')
+
+          # JS compartido: Trayectoria pasa a ser un menú desplegable global.
+          js = Path('assets/site-navigation.js')
+          text = js.read_text(encoding='utf-8')
+          text = text.replace("  const menus = {\n", "  const menus = {\n    '/trayectoria/': {\n      label: 'Trayectoria',\n      links: [\n        ['Trayectoria artística', '/trayectoria/'],\n        ['Registro histórico', '/registro-historico/']\n      ]\n    },\n")
+          text = text.replace("        ['En vivo', '/las4estaciones/#envivo'],\n        ['Trayectoria', '/las4estaciones/#trayectoria']", "        ['En vivo', '/las4estaciones/#envivo']")
+          text = text.replace("const submenuId = `nav-submenu-${navIndex}-${path.includes('las4') ? 'las4' : 'tango'}`;", "const submenuKey = path.includes('trayectoria') ? 'trayectoria' : (path.includes('las4') ? 'las4' : 'tango');\n        const submenuId = `nav-submenu-${navIndex}-${submenuKey}`;")
+          js.write_text(text, encoding='utf-8')
+
+          # Nueva página central de Trayectoria.
+          Path('trayectoria/index.html').write_text(r'''<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trayectoria · Piazzollamente</title>
+<meta name="description" content="Trayectoria artística de Piazzollamente entre Argentina y Chile: conciertos, circulación, apoyos y desarrollo del proyecto.">
+<link rel="canonical" href="https://piazzollamente.cl/trayectoria/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/typography.css?v=footer-20260825-2">
+<link rel="stylesheet" href="/assets/site-navigation.css?v=20260825-3">
+<script defer src="/assets/site-navigation.js?v=20260825-2"></script>
+<style>
+:root{--bg:#080605;--cream:#fff7ed;--muted:rgba(255,247,237,.68);--gold:#f2d69a;--red:#b5352a;--line:rgba(242,214,154,.16)}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 82% 4%,rgba(181,53,42,.16),transparent 28%),var(--bg);color:var(--cream)}a{color:inherit;text-decoration:none}.container{width:min(1120px,calc(100% - 36px));margin:auto}.hero{padding:132px 0 72px}.kicker{color:var(--gold);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}.hero h1{font-family:var(--font-display);font-size:clamp(68px,12vw,142px);font-weight:400;line-height:.82;letter-spacing:-.035em;margin:18px 0 28px}.lead{max-width:850px;color:var(--muted);font-size:clamp(18px,2.2vw,27px);line-height:1.65}.intro-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;padding:52px 0 78px;border-top:1px solid var(--line)}.intro-grid h2{font-family:var(--font-display);font-size:clamp(42px,6vw,74px);font-weight:400;line-height:.94;margin:0}.intro-grid p{color:var(--muted);font-size:17px;line-height:1.8;margin:0}.timeline{border-top:1px solid var(--line)}.year-block{display:grid;grid-template-columns:120px 1fr;gap:34px;padding:42px 0;border-bottom:1px solid var(--line)}.year{font-family:var(--font-display);font-size:44px;color:var(--gold);line-height:1}.events{display:grid;gap:26px}.event h3{font-family:var(--font-display);font-size:31px;font-weight:500;line-height:1.05;margin:0 0 8px}.event p{margin:0;color:var(--muted);font-size:15px;line-height:1.7}.event-meta{display:block;margin-bottom:6px;color:rgba(242,214,154,.72);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}.support{padding:76px 0;border-bottom:1px solid var(--line)}.support h2{font-family:var(--font-display);font-size:clamp(42px,6vw,70px);font-weight:400;margin:0 0 32px}.support-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.support-card{padding:24px;border:1px solid var(--line);border-radius:22px;background:rgba(255,247,237,.025)}.support-card strong{display:block;color:var(--gold);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}.support-card p{margin:0;color:var(--muted);line-height:1.65}.archive-cta{padding:78px 0}.archive-panel{display:flex;align-items:end;justify-content:space-between;gap:28px;padding:32px;border:1px solid rgba(242,214,154,.2);border-radius:26px;background:linear-gradient(135deg,rgba(181,53,42,.12),rgba(242,214,154,.04))}.archive-panel h2{font-family:var(--font-display);font-size:clamp(38px,5vw,62px);font-weight:400;margin:0 0 8px}.archive-panel p{margin:0;color:var(--muted)}.archive-link{flex:none;padding:13px 19px;border:1px solid rgba(242,214,154,.32);border-radius:999px;color:var(--gold);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase}.institutional-footer{border-top:1px solid var(--line)}@media(max-width:760px){.hero{padding-top:108px}.intro-grid,.year-block,.support-grid{grid-template-columns:1fr}.intro-grid{gap:24px}.year-block{gap:16px}.archive-panel{align-items:flex-start;flex-direction:column}.year{font-size:36px}}
+</style>
+</head>
+<body>
+<nav class="nav unified-nav" id="nav" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a class="logo" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">Menú</button>
+    <div class="nav-links" id="nav-links">
+      <div class="nav-primary" aria-label="Menú principal">
+        <a href="/">Home</a>
+        <a href="/trayectoria/" aria-current="page">Trayectoria</a>
+        <a href="/las4estaciones/">Las 4 Estaciones</a>
+        <a href="/tangoparael3001/">Tango para el 3001</a>
+        <a href="/direccion-artistica/">Dirección artística</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<header class="hero"><div class="container"><p class="kicker">Piazzollamente · Argentina — Chile</p><h1>Trayectoria</h1><p class="lead">Aquí se concentran los antecedentes del proyecto que antes aparecían repartidos entre los espectáculos: presentaciones, circulación territorial, apoyos y etapas de desarrollo artístico.</p></div></header>
+<main>
+<section class="container intro-grid"><h2>Un recorrido construido entre escenarios, territorios y formatos.</h2><p>Piazzollamente ha desarrollado su trabajo entre Argentina y Chile a través de conciertos, producción audiovisual, circulación territorial y la creación de formatos instrumentales y escénicos. Esta página reúne la trayectoria del proyecto como una línea común; los dos espectáculos actuales conservan sus páginas propias y se concentran en su propuesta artística.</p></section>
+<section class="container timeline" aria-label="Hitos de trayectoria">
+  <article class="year-block"><div class="year">2026</div><div class="events"><div class="event"><span class="event-meta">20 febrero · Chile</span><h3>ValparaTango</h3><p>Participación de Piazzollamente en ValparaTango.</p></div><div class="event"><span class="event-meta">15 agosto · Santiago</span><h3>Las Cuatro Estaciones Porteñas · Mesón Nerudiano</h3><p>Presentación del formato instrumental del proyecto en Santiago.</p></div></div></article>
+  <article class="year-block"><div class="year">2025</div><div class="events"><div class="event"><span class="event-meta">3 mayo · Santiago</span><h3>Sala SCD Plaza Egaña</h3><p>Concierto de Piazzollamente en Sala SCD.</p></div><div class="event"><span class="event-meta">13 junio · Santiago</span><h3>Estaciones Porteñas · Mesón Nerudiano</h3><p>Presentación del programa instrumental dedicado a la música de Astor Piazzolla.</p></div><div class="event"><span class="event-meta">Julio · Región de Coquimbo</span><h3>Gira Puentes, caminos y encuentros</h3><p>Itinerancia territorial financiada por el Ministerio de las Culturas, las Artes y el Patrimonio.</p></div><div class="event"><span class="event-meta">Octubre · Santiago</span><h3>Tango para el 3001 · Sala Master</h3><p>Desarrollo escénico-musical del proyecto en Sala Master.</p></div></div></article>
+  <article class="year-block"><div class="year">2024</div><div class="events"><div class="event"><span class="event-meta">16 marzo · Mendoza</span><h3>Donde Duerme la Luna</h3><p>Presentación de Piazzollamente en Mendoza, Argentina.</p></div><div class="event"><span class="event-meta">9 octubre · Rancagua</span><h3>La Camorra · Teatro Regional Lucho Gatica</h3><p>Presentación del proyecto en el Teatro Regional Lucho Gatica.</p></div></div></article>
+  <article class="year-block"><div class="year">2023</div><div class="events"><div class="event"><span class="event-meta">Argentina</span><h3>Verano Porteño · apoyo INAMU</h3><p>Apoyo o reconocimiento del Instituto Nacional de la Música de Argentina para el desarrollo audiovisual de Verano Porteño.</p></div><div class="event"><span class="event-meta">7 octubre · Argentina</span><h3>San Vicente Tango</h3><p>Presentación de Piazzollamente en Argentina.</p></div><div class="event"><span class="event-meta">9 diciembre · Argentina</span><h3>Etapa de presentaciones y registros</h3><p>Continuidad del desarrollo del proyecto en Argentina durante 2023.</p></div></div></article>
+  <article class="year-block"><div class="year">2022</div><div class="events"><div class="event"><span class="event-meta">Primeros formatos</span><h3>Primeros registros audiovisuales</h3><p>Registros como <em>La Muerte del Ángel</em> y <em>Concert d’aujourd’hui</em> documentan una etapa anterior al quinteto actual y el comienzo de la búsqueda sonora de Piazzollamente.</p></div></div></article>
+</section>
+<section class="support"><div class="container"><p class="kicker">Apoyos y circulación</p><h2>Antecedentes institucionales</h2><div class="support-grid"><div class="support-card"><strong>INAMU · Argentina · 2023</strong><p>Apoyo o reconocimiento asociado al audiovisual de <em>Verano Porteño</em>.</p></div><div class="support-card"><strong>Ministerio de las Culturas · Chile · 2025</strong><p>Financiamiento de la gira territorial por la Región de Coquimbo.</p></div></div></div></section>
+<section class="archive-cta"><div class="container"><div class="archive-panel"><div><p class="kicker">Archivo visual</p><h2>Registro histórico</h2><p>Fotografías, flyers y documentos visuales ordenados desde el presente hacia los primeros registros.</p></div><a class="archive-link" href="/registro-historico/">Abrir registro histórico</a></div></div></section>
+</main>
+<footer id="contacto" class="institutional-footer" aria-label="Pie de página"><div class="institutional-footer-inner"><p><span class="institutional-footer-label">Piazzollamente</span>© 2026 Piazzollamente · Todos los derechos reservados.</p><p><span class="institutional-footer-label">Contacto</span><a href="mailto:Piazzollamente@gmail.com">Piazzollamente@gmail.com</a><br><a href="tel:+56981527088">+56 9 8152 7088</a></p><p class="institutional-footer-credit"><span class="institutional-footer-label">Sitio web</span>Creado por Valentina Galaz</p></div></footer>
+<script>(()=>{const nav=document.getElementById('nav'),toggle=document.getElementById('menu-toggle'),links=document.getElementById('nav-links');if(!nav||!toggle||!links)return;const close=()=>{nav.classList.remove('menu-open');toggle.setAttribute('aria-expanded','false')};toggle.addEventListener('click',()=>{const open=nav.classList.toggle('menu-open');toggle.setAttribute('aria-expanded',String(open))});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));document.addEventListener('click',e=>{if(!nav.contains(e.target))close()})})();</script>
+</body>
+</html>
+''', encoding='utf-8')
+
+          # Dirección artística como página independiente: solo biografía + footer institucional.
+          direction = Path('direccion-artistica')
+          direction.mkdir(exist_ok=True)
+          (direction / 'index.html').write_text(r'''<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dirección artística · Valentina Galaz · Piazzollamente</title>
+<meta name="description" content="Biografía de Valentina Galaz, directora artística y flautista de Piazzollamente.">
+<link rel="canonical" href="https://piazzollamente.cl/direccion-artistica/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/typography.css?v=footer-20260825-2">
+<link rel="stylesheet" href="/assets/site-navigation.css?v=20260825-3">
+<script defer src="/assets/site-navigation.js?v=20260825-2"></script>
+<style>:root{--bg:#080605;--cream:#fff7ed;--muted:rgba(255,247,237,.7);--gold:#f2d69a;--red:#b5352a;--line:rgba(242,214,154,.16)}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 78% 8%,rgba(181,53,42,.14),transparent 30%),var(--bg);color:var(--cream)}a{color:inherit;text-decoration:none}.container{width:min(1100px,calc(100% - 36px));margin:auto}.hero{padding:132px 0 54px}.kicker{color:var(--gold);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}.hero h1{font-family:var(--font-display);font-size:clamp(60px,10vw,120px);font-weight:400;line-height:.85;letter-spacing:-.03em;margin:18px 0 0}.bio{display:grid;grid-template-columns:minmax(260px,360px) 1fr;gap:clamp(36px,7vw,92px);padding:48px 0 94px;border-top:1px solid var(--line)}.photo{position:sticky;top:92px}.photo img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 20%;border-radius:28px;border:1px solid var(--line)}.copy p{color:var(--muted);font-size:clamp(16px,1.5vw,20px);line-height:1.82;margin:0 0 20px}.copy strong{color:var(--gold)}.hitos{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px}.hitos span{padding:8px 11px;border:1px solid var(--line);border-radius:999px;color:rgba(255,247,237,.72);font-size:10px;letter-spacing:.08em}.institutional-footer{border-top:1px solid var(--line)}@media(max-width:760px){.hero{padding-top:108px}.bio{grid-template-columns:1fr}.photo{position:static}.photo img{max-width:460px}}</style>
+</head>
+<body>
+<nav class="nav unified-nav" id="nav" aria-label="Navegación principal"><div class="nav-inner"><a class="logo" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a><button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">Menú</button><div class="nav-links" id="nav-links"><div class="nav-primary" aria-label="Menú principal"><a href="/">Home</a><a href="/trayectoria/">Trayectoria</a><a href="/las4estaciones/">Las 4 Estaciones</a><a href="/tangoparael3001/">Tango para el 3001</a><a href="/direccion-artistica/" aria-current="page">Dirección artística</a></div></div></div></nav>
+<header class="hero"><div class="container"><p class="kicker">Dirección artística</p><h1>Valentina Galaz</h1></div></header>
+<main class="container bio"><div class="photo"><img src="/assets/valentina-02.jpg" alt="Valentina Galaz"></div><div class="copy"><p>Flautista chilena, directora artística y creadora de proyectos donde la interpretación, la formación y la escena se cruzan con una mirada sensible, contemporánea y profundamente latinoamericana.</p><p>Desde 2021 dirige artísticamente <strong>Piazzollamente</strong>, agrupación dedicada a explorar la obra de Astor Piazzolla desde una lectura actual, escénica y expresiva. Su trabajo con el proyecto se ha presentado en el Teatro Regional Lucho Gatica, Sala SCD, Sala Master y el Festival Valparatango, con financiamiento del <strong>Ministerio de las Culturas de Chile</strong> e <strong>INAMU Argentina</strong>.</p><p>Su interés por Piazzolla nace desde una pregunta más profunda: cómo una música puede hablar del desarraigo, la migración, la ciudad, la memoria y la transformación. En su trabajo artístico ha buscado construir programas con sentido narrativo y abrir una forma de escucha donde la música no sea únicamente repertorio, sino experiencia.</p><p>Licenciada en Flauta Traversa por la Universidad Nacional de Cuyo (Argentina). Ha realizado estudios en la UNESP de Brasil, cursado la Cátedra Libre Astor Piazzolla en IUPA, y actualmente desarrolla una Maestría en Música Latinoamericana y una Diplomatura en Tango en la Universidad Nacional de San Martín.</p><p>Ha participado en estrenos, festivales y colaboraciones internacionales en <strong>Chile, Argentina, Paraguay, Brasil y Estados Unidos</strong>, incluyendo el Festival FEMUSC en Brasil y el Festival Darwin Vargas en Chile.</p><div class="hitos"><span>Teatro Regional Lucho Gatica</span><span>Sala SCD</span><span>Sala Master</span><span>Festival Valparatango</span><span>Ministerio de las Culturas</span><span>INAMU Argentina</span></div></div></main>
+<footer id="contacto" class="institutional-footer" aria-label="Pie de página"><div class="institutional-footer-inner"><p><span class="institutional-footer-label">Piazzollamente</span>© 2026 Piazzollamente · Todos los derechos reservados.</p><p><span class="institutional-footer-label">Contacto</span><a href="mailto:Piazzollamente@gmail.com">Piazzollamente@gmail.com</a><br><a href="tel:+56981527088">+56 9 8152 7088</a></p><p class="institutional-footer-credit"><span class="institutional-footer-label">Sitio web</span>Creado por Valentina Galaz</p></div></footer>
+<script>(()=>{const nav=document.getElementById('nav'),toggle=document.getElementById('menu-toggle'),links=document.getElementById('nav-links');if(!nav||!toggle||!links)return;const close=()=>{nav.classList.remove('menu-open');toggle.setAttribute('aria-expanded','false')};toggle.addEventListener('click',()=>{const open=nav.classList.toggle('menu-open');toggle.setAttribute('aria-expanded',String(open))});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));document.addEventListener('click',e=>{if(!nav.contains(e.target))close()})})();</script>
+</body>
+</html>''', encoding='utf-8')
+          PY
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html las4estaciones/index.html tangoparael3001/index.html registro-historico/index.html trayectoria/index.html direccion-artistica/index.html assets/site-navigation.js
+          git commit -m "Centraliza trayectoria y separa dirección artística"
+          git push origin main
