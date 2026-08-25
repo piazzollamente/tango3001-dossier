@@ -1,13 +1,19 @@
 (() => {
   const menus = {
+    '/trayectoria/': {
+      label: 'Trayectoria',
+      links: [
+        ['Trayectoria artística', '/trayectoria/'],
+        ['Registro histórico', '/registro-historico/']
+      ]
+    },
     '/las4estaciones/': {
       label: 'Las 4 Estaciones',
       links: [
         ['Concepto', '/las4estaciones/#concepto'],
         ['Quinteto', '/las4estaciones/#quinteto'],
         ['Repertorio', '/las4estaciones/#repertorio'],
-        ['En vivo', '/las4estaciones/#envivo'],
-        ['Trayectoria', '/las4estaciones/#trayectoria']
+        ['En vivo', '/las4estaciones/#envivo']
       ]
     },
     '/tangoparael3001/': {
@@ -49,7 +55,8 @@
         const toggle = document.createElement('button');
         toggle.className = 'nav-submenu-toggle';
         toggle.type = 'button';
-        const submenuId = `nav-submenu-${navIndex}-${path.includes('las4') ? 'las4' : 'tango'}`;
+        const submenuKey = path.includes('trayectoria') ? 'trayectoria' : (path.includes('las4') ? 'las4' : 'tango');
+        const submenuId = `nav-submenu-${navIndex}-${submenuKey}`;
         toggle.setAttribute('aria-expanded', 'false');
         toggle.setAttribute('aria-controls', submenuId);
         toggle.setAttribute('aria-label', `Mostrar submenú de ${config.label}`);
