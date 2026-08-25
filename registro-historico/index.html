@@ -16,19 +16,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/typography.css?v=1">
   <link rel="stylesheet" href="style.css?v=gallery-20260824-6">
+  <link rel="stylesheet" href="/assets/site-navigation.css?v=20260825-1">
 </head>
 <body>
   <a class="skip-link" href="#archivo">Saltar al archivo</a>
 
-  <nav class="nav" id="nav" aria-label="Navegación principal">
+  <nav class="nav unified-nav" id="nav" aria-label="Navegación principal">
     <div class="nav-inner">
-      <a class="brand" href="/">Piazzollamente</a>
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menú</button>
+      <a class="brand" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">Menú</button>
       <div class="nav-links" id="nav-links">
-        <a href="/#espectaculos">Espectáculos</a>
-        <a href="/trayectoria/">Trayectoria</a>
-        <a href="/registro-historico/" aria-current="page">Archivo visual</a>
-        <a href="/agenda/">Agenda</a>
+        <div class="nav-primary" aria-label="Menú principal">
+          <a href="/">Home</a>
+          <a href="/las4estaciones/">Las 4 Estaciones</a>
+          <a href="/tangoparael3001/">Tango para el 3001</a>
+          <a href="/tangoparael3001/#direccion-artistica">Dirección artística</a>
+          <a href="/registro-historico/" aria-current="page">Registro histórico</a>
+        </div>
       </div>
     </div>
   </nav>
