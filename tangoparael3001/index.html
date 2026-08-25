@@ -14,7 +14,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <meta name="theme-color" content="#0e0b09">
-<link rel="stylesheet" href="/assets/typography.css?v=1">
+<link rel="stylesheet" href="/assets/typography.css?v=footer-20260825-2">
 <link rel="stylesheet" href="/assets/piazzollamente-system.css">
   <style>
 :root{
@@ -1712,24 +1712,35 @@ table caption {
 }
 
 </style>
+<link rel="stylesheet" href="/assets/site-navigation.css?v=20260825-1">
 </head>
 <body>
 <div class="smoke-bg"><span class="smoke-third" aria-hidden="true"></span></div>
 <div class="noise"></div>
 
-<nav class="nav">
+<nav class="nav unified-nav" aria-label="Navegación principal">
   <div class="nav-inner">
-    <a class="logo" href="../">Piazzollamente</a>
+    <a class="logo" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a>
     <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
-      <span class="menu-label">Explorar dossier</span>
-      <span class="menu-mark"><i></i></span>
+      <span class="menu-label">Menú</span>
+      <span class="menu-mark" aria-hidden="true"><i></i></span>
     </button>
     <div class="nav-links">
-      <a href="#sinopsis">Sinopsis</a>
-      <a href="#programa">Programa</a>
-      <a href="#videos">Videos</a>
-      <a href="#tecnico">Info técnica</a>
-      <a class="btn btn-red" href="#contacto">Contacto</a>
+      <div class="nav-primary" aria-label="Menú principal">
+        <a href="/">Home</a>
+        <a href="/las4estaciones/">Las 4 Estaciones</a>
+        <a href="/tangoparael3001/" aria-current="page">Tango para el 3001</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="nav-context" aria-label="Submenú de Tango para el 3001">
+        <span class="nav-context-label">En esta página · Tango para el 3001</span>
+        <div class="nav-context-links">
+          <a href="#sinopsis">Sinopsis</a>
+          <a href="#programa">Programa</a>
+          <a href="#videos">Videos</a>
+          <a href="#tecnico">Info técnica</a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>

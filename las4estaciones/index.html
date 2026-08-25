@@ -14,25 +14,37 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/typography.css?v=1">
+  <link rel="stylesheet" href="/assets/typography.css?v=footer-20260825-2">
   <link rel="stylesheet" href="style.css?v=trajectory-20260824">
+<link rel="stylesheet" href="/assets/site-navigation.css?v=20260825-1">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <nav class="nav" id="nav" aria-label="Navegación principal">
-    <div class="nav-inner">
-      <a class="brand" href="/">Piazzollamente</a>
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menú</button>
-      <div class="nav-links" id="nav-links">
-        <a href="#concepto">Concepto</a>
-        <a href="#quinteto">Quinteto</a>
-        <a href="#repertorio">Repertorio</a>
-        <a href="#envivo">En vivo</a>
-        <a href="#trayectoria">Trayectoria</a>
+  <nav class="nav unified-nav" id="nav" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a class="brand" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">Menú</button>
+    <div class="nav-links" id="nav-links">
+      <div class="nav-primary" aria-label="Menú principal">
+        <a href="/">Home</a>
+        <a href="/las4estaciones/" aria-current="page">Las 4 Estaciones</a>
+        <a href="/tangoparael3001/">Tango para el 3001</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="nav-context" aria-label="Submenú de Las 4 Estaciones">
+        <span class="nav-context-label">En esta página · Las 4 Estaciones</span>
+        <div class="nav-context-links">
+          <a href="#concepto">Concepto</a>
+          <a href="#quinteto">Quinteto</a>
+          <a href="#repertorio">Repertorio</a>
+          <a href="#envivo">En vivo</a>
+          <a href="#trayectoria">Trayectoria</a>
+        </div>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <header class="hero">
     <div class="hero-copy">
@@ -167,7 +179,7 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer id="contacto" class="footer">
     <div class="container footer-grid">
       <div><a class="footer-brand" href="/">Piazzollamente</a><p>Las 4 Estaciones Porteñas</p></div>
       <div class="footer-links"><a href="/">Inicio</a><a href="/tangoparael3001/">Tango para el 3001</a><a href="/trayectoria/">Trayectoria</a></div>
