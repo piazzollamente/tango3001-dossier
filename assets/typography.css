@@ -287,3 +287,9 @@ body:has(#programa) .section-paper .grid-3 .card p {
     padding: 5px 11px !important;
   }
 }
+
+/* Trayectoria · pies de imagen centrados bajo flyers y fotografías */
+body:has(.archive-end) .visual-item figcaption,
+body:has(.archive-end) .visual-single figcaption {
+  text-align: center !important;
+}
