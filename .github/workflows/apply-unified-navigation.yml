@@ -1,0 +1,125 @@
+name: Aplicar navegación unificada
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-unified-navigation.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Actualizar menús
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          css_link = '<link rel="stylesheet" href="/assets/site-navigation.css?v=20260825-1">'
+
+          nav_home = '''<nav class="nav unified-nav" id="nav" aria-label="Navegación principal">
+            <div class="nav-inner">
+              <a class="nav-brand" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a>
+              <button class="menu-toggle" id="menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">Menú</button>
+              <div class="nav-links" id="nav-links">
+                <div class="nav-primary" aria-label="Menú principal">
+                  <a href="/" aria-current="page">Home</a>
+                  <a href="/las4estaciones/">Las 4 Estaciones</a>
+                  <a href="/tangoparael3001/">Tango para el 3001</a>
+                  <a href="#contacto">Contacto</a>
+                </div>
+              </div>
+            </div>
+          </nav>'''
+
+          nav_las4 = '''<nav class="nav unified-nav" id="nav" aria-label="Navegación principal">
+            <div class="nav-inner">
+              <a class="brand" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a>
+              <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">Menú</button>
+              <div class="nav-links" id="nav-links">
+                <div class="nav-primary" aria-label="Menú principal">
+                  <a href="/">Home</a>
+                  <a href="/las4estaciones/" aria-current="page">Las 4 Estaciones</a>
+                  <a href="/tangoparael3001/">Tango para el 3001</a>
+                  <a href="#contacto">Contacto</a>
+                </div>
+                <div class="nav-context" aria-label="Submenú de Las 4 Estaciones">
+                  <span class="nav-context-label">En esta página · Las 4 Estaciones</span>
+                  <div class="nav-context-links">
+                    <a href="#concepto">Concepto</a>
+                    <a href="#quinteto">Quinteto</a>
+                    <a href="#repertorio">Repertorio</a>
+                    <a href="#envivo">En vivo</a>
+                    <a href="#trayectoria">Trayectoria</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>'''
+
+          nav_tango = '''<nav class="nav unified-nav" aria-label="Navegación principal">
+            <div class="nav-inner">
+              <a class="logo" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a>
+              <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+                <span class="menu-label">Menú</span>
+                <span class="menu-mark" aria-hidden="true"><i></i></span>
+              </button>
+              <div class="nav-links">
+                <div class="nav-primary" aria-label="Menú principal">
+                  <a href="/">Home</a>
+                  <a href="/las4estaciones/">Las 4 Estaciones</a>
+                  <a href="/tangoparael3001/" aria-current="page">Tango para el 3001</a>
+                  <a href="#contacto">Contacto</a>
+                </div>
+                <div class="nav-context" aria-label="Submenú de Tango para el 3001">
+                  <span class="nav-context-label">En esta página · Tango para el 3001</span>
+                  <div class="nav-context-links">
+                    <a href="#sinopsis">Sinopsis</a>
+                    <a href="#programa">Programa</a>
+                    <a href="#videos">Videos</a>
+                    <a href="#tecnico">Info técnica</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>'''
+
+          def patch(path, nav_markup, footer_anchor=False):
+              p = Path(path)
+              s = p.read_text(encoding='utf-8')
+              # Reemplazar únicamente la primera navegación principal.
+              s, n = re.subn(r'<nav\s+class="nav"[^>]*>.*?</nav>', nav_markup, s, count=1, flags=re.S)
+              if n != 1:
+                  raise RuntimeError(f'No se pudo reemplazar la navegación en {path}')
+              if css_link not in s:
+                  s = s.replace('</head>', f'{css_link}\n</head>', 1)
+              s = s.replace('/assets/typography.css?v=1', '/assets/typography.css?v=footer-20260825-2')
+              if footer_anchor:
+                  s = s.replace('<footer class="footer">', '<footer id="contacto" class="footer">', 1)
+              p.write_text(s, encoding='utf-8')
+
+          patch('index.html', nav_home)
+          patch('las4estaciones/index.html', nav_las4, footer_anchor=True)
+          patch('tangoparael3001/index.html', nav_tango)
+          PY
+
+      - name: Publicar cambios
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html las4estaciones/index.html tangoparael3001/index.html
+          if git diff --cached --quiet; then
+            echo "Sin cambios"
+          else
+            git commit -m "Unifica menú principal y submenús de espectáculos"
+            git push origin main
+          fi
