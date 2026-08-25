@@ -74,7 +74,6 @@ jobs:
           replace_primary('las4estaciones/index.html', 'las4')
           replace_primary('tangoparael3001/index.html', 'tango')
 
-          # Tango para el 3001: mover la dirección desde el hero a una sección propia.
           p = Path('tangoparael3001/index.html')
           s = p.read_text(encoding='utf-8')
           s = s.replace('      <p class="hero-direction"><strong>Dirección</strong>: Valentina Galaz y Francisca Cristopulos</p>\n', '', 1)
@@ -89,7 +88,6 @@ jobs:
               s = s.replace('</style>\n<link rel="stylesheet" href="/assets/site-navigation.css', css + '\n</style>\n<link rel="stylesheet" href="/assets/site-navigation.css', 1)
           p.write_text(s, encoding='utf-8')
 
-          # Registro histórico: migrar al menú unificado.
           p = Path('registro-historico/index.html')
           s = p.read_text(encoding='utf-8')
           if '/assets/site-navigation.css' not in s:
@@ -102,7 +100,6 @@ jobs:
               raise SystemExit('No se encontró nav antiguo en registro-historico')
           p.write_text(s, encoding='utf-8')
 
-          # Trayectoria: aunque ya no sea un ítem principal, mantener el mismo menú global.
           p = Path('trayectoria/index.html')
           s = p.read_text(encoding='utf-8')
           if '/assets/site-navigation.css' not in s:
@@ -111,7 +108,7 @@ jobs:
           new_nav = '''<nav class="nav unified-nav" id="nav" aria-label="Navegación principal">\n  <div class="nav-inner">\n    <a class="logo" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a>\n    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">Menú</button>\n    <div class="nav-links" id="nav-links">\n      ''' + PRIMARY['trayectoria'] + '''\n    </div>\n  </div>\n</nav>'''
           if old_nav.search(s):
               s = old_nav.sub(new_nav, s, count=1)
-          if 'const nav=document.getElementById(\'nav\')' not in s:
+          if "const nav=document.getElementById('nav')" not in s:
               script = '''\n<script>\nconst nav=document.getElementById('nav'),toggle=document.getElementById('menu-toggle'),links=document.getElementById('nav-links');\nif(nav&&toggle&&links){\n  const close=()=>{nav.classList.remove('menu-open');toggle.setAttribute('aria-expanded','false')};\n  toggle.addEventListener('click',()=>{const open=nav.classList.toggle('menu-open');toggle.setAttribute('aria-expanded',String(open))});\n  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));\n  document.addEventListener('click',e=>{if(!nav.contains(e.target))close()});\n}\n</script>\n'''
               s = s.replace('</body>', script + '</body>', 1)
           p.write_text(s, encoding='utf-8')
@@ -124,3 +121,5 @@ jobs:
           git add index.html las4estaciones/index.html tangoparael3001/index.html registro-historico/index.html trayectoria/index.html
           git commit -m "Reordena menú principal y separa dirección artística"
           git push origin main
+
+# Activación 2026-08-25
