@@ -89,45 +89,54 @@ figcaption {
   font-weight: 600;
 }
 
-/* Contacto institucional permanente en el cierre de todas las páginas. */
+/* Footer institucional unificado */
 .footer {
-  flex-wrap: wrap;
+  display: block !important;
+  padding: 34px 0 30px !important;
+  border-top: 0 !important;
+  background: #080605 !important;
+  color: rgba(255,247,237,.72) !important;
 }
 
-.footer a[href^="mailto:"],
-.footer a[href^="tel:"] {
+.footer > * {
   display: none !important;
 }
 
 .footer::after,
 body:not(:has(.footer))::after {
-  content: "Contacto: Piazzollamente@gmail.com · +56981527088";
+  content: "© 2026 PIAZZOLLAMENTE · Todos los derechos reservados.\A\A Contacto · Piazzollamente@gmail.com · +56981527088\A\A Sitio web creado por Valentina Galaz";
   display: block;
-  flex: 0 0 100%;
-  width: 100%;
+  width: min(1160px, calc(100% - 36px));
   box-sizing: border-box;
-  margin-top: 18px;
-  padding: 16px max(18px, calc((100vw - 1160px) / 2));
-  border-top: 1px solid rgba(242, 214, 154, .16);
-  background: #080605;
-  color: rgba(255, 247, 237, .72);
+  margin: 0 auto;
+  padding: 24px 0 0;
+  border-top: 1px solid rgba(242,214,154,.22);
+  color: rgba(255,247,237,.68);
   font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: .08em;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: .045em;
+  white-space: pre-line;
   text-align: left;
 }
 
 body:not(:has(.footer))::after {
-  margin-top: 0;
+  padding-bottom: 30px;
+  background: #080605;
 }
 
 @media (max-width: 640px) {
+  .footer {
+    padding: 28px 0 26px !important;
+  }
+
   .footer::after,
   body:not(:has(.footer))::after {
-    padding-inline: 18px;
+    width: min(100% - 28px, 1160px);
+    padding-top: 20px;
     font-size: 9px;
-    letter-spacing: .05em;
+    line-height: 1.75;
+    letter-spacing: .035em;
   }
 }
