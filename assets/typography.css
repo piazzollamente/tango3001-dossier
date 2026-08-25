@@ -175,6 +175,78 @@ body:not(:has(.footer)):not(:has(.institutional-footer))::after {
   background: #080605;
 }
 
+/* Tango para el 3001 · contraste editorial fuerte (opción 2). */
+body:has(#programa) .section-paper .section-title {
+  color: #211b1b !important;
+  text-shadow: none !important;
+}
+
+body:has(#programa) .section-paper .lead,
+body:has(#programa) #programa .work p {
+  color: #625955 !important;
+}
+
+body:has(#programa) .section-paper .eyebrow {
+  color: #74131b !important;
+  border-color: rgba(116,19,27,.30) !important;
+  background: rgba(116,19,27,.055) !important;
+  box-shadow: none !important;
+}
+
+body:has(#programa) .section-paper .eyebrow::before {
+  background: linear-gradient(90deg, #74131b, rgba(116,19,27,.08)) !important;
+}
+
+body:has(#programa) #programa .work {
+  border-top-color: rgba(116,19,27,.28) !important;
+}
+
+body:has(#programa) #programa .work-num {
+  color: #7a171d !important;
+  font-weight: 700 !important;
+}
+
+body:has(#programa) #programa .work h3 {
+  color: #211b1b !important;
+}
+
+body:has(#programa) #programa .pill {
+  background: #74131b !important;
+  color: #fff7ed !important;
+  border: 1px solid #74131b !important;
+  box-shadow: none !important;
+  font-weight: 700 !important;
+  letter-spacing: .12em !important;
+}
+
+body:has(#programa) .section-paper .grid-3 .card {
+  border: 1px solid rgba(232,201,138,.46) !important;
+  box-shadow: 0 20px 56px rgba(0,0,0,.24) !important;
+}
+
+body:has(#programa) .section-paper .grid-3 .card > small:first-child {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 48px !important;
+  min-height: 30px !important;
+  padding: 6px 12px !important;
+  border: 1px solid rgba(242,214,154,.58) !important;
+  border-radius: 999px !important;
+  background: rgba(116,19,27,.24) !important;
+  color: #f2d69a !important;
+  font-weight: 700 !important;
+  letter-spacing: .15em !important;
+}
+
+body:has(#programa) .section-paper .grid-3 .card h3 {
+  color: #fff7ed !important;
+}
+
+body:has(#programa) .section-paper .grid-3 .card p {
+  color: rgba(255,247,237,.84) !important;
+}
+
 @media (max-width: 760px) {
   .institutional-footer {
     padding: 34px 0 30px;
@@ -197,5 +269,21 @@ body:not(:has(.footer)):not(:has(.institutional-footer))::after {
     padding-top: 20px;
     font-size: 9px;
     line-height: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  body:has(#programa) #programa .work {
+    border-top-color: rgba(116,19,27,.32) !important;
+  }
+
+  body:has(#programa) #programa .work p {
+    color: #5d544f !important;
+  }
+
+  body:has(#programa) .section-paper .grid-3 .card > small:first-child {
+    min-width: 44px !important;
+    min-height: 28px !important;
+    padding: 5px 11px !important;
   }
 }
