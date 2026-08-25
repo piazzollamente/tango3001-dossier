@@ -220,3 +220,59 @@ img[src*="poster"],
     border-radius: 22px;
   }
 }
+
+/* Entrada editorial mínima · solo Home */
+@media (prefers-reduced-motion: no-preference) {
+  html:has(body > main > .hero-opening)::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    visibility: visible;
+    pointer-events: auto;
+    touch-action: none;
+    background:
+      radial-gradient(circle at 50% 42%, rgba(181,53,42,.10), transparent 30%),
+      linear-gradient(180deg, #080605 0%, #0d0908 100%);
+    animation: pm-editorial-curtain .68s cubic-bezier(.22,.72,.16,1) forwards;
+  }
+
+  body:has(> main > .hero-opening)::after {
+    content: "PIAZZOLLA\A MENTE";
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 9999;
+    white-space: pre;
+    transform: translate(-50%,-50%);
+    font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+    font-size: clamp(46px, 8vw, 92px);
+    font-weight: 500;
+    line-height: .78;
+    letter-spacing: -.025em;
+    text-align: left;
+    color: transparent;
+    background: linear-gradient(to bottom, var(--pm-cream-light) 0 50%, var(--pm-red) 50% 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    pointer-events: none;
+    animation: pm-editorial-mark .62s cubic-bezier(.22,.72,.16,1) forwards;
+  }
+}
+
+@keyframes pm-editorial-curtain {
+  0%,64% { opacity:1; visibility:visible }
+  100% { opacity:0; visibility:hidden; pointer-events:none }
+}
+
+@keyframes pm-editorial-mark {
+  0% { opacity:0; transform:translate(-50%,calc(-50% + 8px)) }
+  20%,66% { opacity:1; transform:translate(-50%,-50%) }
+  100% { opacity:0; transform:translate(-50%,calc(-50% - 4px)) }
+}
+
+@media (max-width:640px) and (prefers-reduced-motion:no-preference) {
+  body:has(> main > .hero-opening)::after {
+    font-size: clamp(44px, 16vw, 68px);
+  }
+}
