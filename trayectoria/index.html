@@ -6,413 +6,159 @@
 <title>Trayectoria · Piazzollamente</title>
 <meta name="description" content="Piazzollamente: trayectoria artística entre Argentina y Chile, desde sus primeras presentaciones hasta sus espectáculos actuales.">
 <link rel="canonical" href="https://piazzollamente.cl/trayectoria/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Trayectoria · Piazzollamente">
+<meta property="og:description" content="Una trayectoria construida entre Argentina y Chile: salas, festivales, giras y creación escénica.">
+<meta property="og:url" content="https://piazzollamente.cl/trayectoria/">
+<meta property="og:image" content="https://piazzollamente.cl/assets/registro-historico/actual-008.webp">
+<link rel="icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/typography.css?v=footer-20260825-2">
+<link rel="stylesheet" href="/assets/piazzollamente-system.css">
+<link rel="stylesheet" href="/assets/home.css?v=editorial-columns-20260824">
 <link rel="stylesheet" href="/assets/site-navigation.css?v=20260825-3">
-<script defer src="/assets/site-navigation.js?v=20260825-2"></script>
+<script defer src="/assets/site-navigation.js?v=20260828-1"></script>
 <style>
 :root{
-  --night:#080605;
-  --paper:#f5ede2;
-  --ink:#261f1c;
-  --body:#625850;
-  --wine:#7b1d21;
-  --gold:#d0ad72;
-  --line:rgba(72,53,45,.16);
+  --traj-paper:#f5ede0;
+  --traj-ink:#211915;
+  --traj-body:#675a53;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--night);color:#fff7ed;overflow-x:hidden}
-a{color:inherit}
-img{display:block;max-width:100%}
-.container{width:min(1120px,calc(100% - 36px));margin:auto}
 
-/* Apertura cinematográfica sin recortar la fotografía */
-.hero{
+.traj-hero{
   position:relative;
-  background:#080605;
-  padding-top:64px;
-  overflow:hidden;
-}
-.hero-media{
-  position:relative;
-  width:100%;
-  background:#090706;
-}
-.hero-media img{
-  width:100%;
-  height:auto;
-  max-height:none;
-  object-fit:contain;
-  object-position:center;
-  opacity:.88;
-}
-.hero-media::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:
-    linear-gradient(180deg,rgba(5,4,4,.08) 0%,rgba(5,4,4,.18) 42%,rgba(5,4,4,.82) 100%),
-    linear-gradient(90deg,rgba(5,4,4,.30),transparent 58%);
-}
-.hero-copy{
-  position:absolute;
-  z-index:2;
-  left:50%;
-  bottom:clamp(26px,5vw,66px);
-  transform:translateX(-50%);
-  width:min(1120px,calc(100% - 36px));
-}
-.kicker{
-  margin:0 0 12px;
-  color:rgba(242,214,154,.86);
-  font-size:9px;
-  font-weight:600;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-}
-.hero h1{
-  margin:0;
-  font-family:var(--font-display);
-  font-size:clamp(64px,10vw,118px);
-  font-weight:400;
-  line-height:.84;
-  letter-spacing:-.035em;
-  text-shadow:0 12px 32px rgba(0,0,0,.28);
-}
-
-.story{
-  background:var(--paper);
-  color:var(--ink);
-  padding:clamp(72px,8vw,106px) 0 clamp(96px,11vw,148px);
-}
-.article{
-  width:min(720px,calc(100% - 40px));
-  margin:0 auto;
-}
-.article p{
-  margin:0 0 1.58em;
-  color:var(--body);
-  font-size:clamp(16.5px,1.34vw,19px);
-  line-height:1.92;
-}
-.article .standfirst{
-  margin-bottom:2.2em;
-  color:#403733;
-  font-size:clamp(19px,1.7vw,22px);
-  line-height:1.82;
-}
-.article em{color:#493933}
-.article strong{color:var(--ink)}
-
-/* Archivo visual intercalado: imagen completa, sin recortar músicos */
-.visual-single,
-.visual-group{
-  width:min(980px,calc(100% - 36px));
-  margin:clamp(54px,6vw,78px) auto clamp(60px,7vw,88px);
-}
-.visual-single.narrow{width:min(620px,calc(100% - 36px))}
-.visual-group{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:24px;
-  align-items:start;
-}
-.visual-group.three{grid-template-columns:repeat(3,minmax(0,1fr))}
-.visual-group.four{
-  width:min(920px,calc(100% - 36px));
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:18px;
-}
-.visual-item{margin:0;min-width:0}
-.visual-frame{
+  min-height:84vh;
   display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:0;
-  padding:0;
-  background:transparent;
+  align-items:flex-end;
+  overflow:hidden;
+  padding:0!important;
+  border-top:0!important;
+  background:#080605;
 }
-.visual-item img{
-  width:auto;
-  max-width:100%;
-  height:auto;
-  max-height:360px;
-  object-fit:contain;
-  object-position:center;
+.traj-hero-media{position:absolute;inset:0}
+.traj-hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.traj-hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(8,6,5,.08) 0%,rgba(8,6,5,.18) 38%,rgba(8,6,5,.92) 100%),
+    linear-gradient(90deg,rgba(8,6,5,.62) 0%,rgba(8,6,5,.08) 68%);
 }
-.visual-group .visual-item.photo img{
-  width:auto;
-  max-width:100%;
-  max-height:330px;
-  object-fit:contain;
-}
-.visual-group.four .visual-item img{max-height:285px}
-.visual-item figcaption,
-.visual-single figcaption{
-  margin-top:8px;
-  color:#887970;
-  font-family:var(--font-sans);
-  font-size:8px;
-  font-weight:500;
-  line-height:1.45;
-  letter-spacing:.075em;
-  text-transform:uppercase;
-}
-.visual-single figure{margin:0}
-.visual-single img{
-  width:100%;
-  height:auto;
-  max-height:none;
-  object-fit:contain;
-  object-position:center;
-}
-.visual-single.flyer img{
-  width:auto;
-  max-width:100%;
-  max-height:620px;
-  margin:0 auto;
-}
-.visual-single.align-left,
-.visual-single.align-right{
-  margin-left:auto;
-  margin-right:auto;
-  width:min(700px,calc(100% - 36px));
-}
+.traj-hero-copy{position:relative;z-index:2;width:min(1160px,calc(100% - 36px));margin:0 auto;padding:clamp(150px,18vw,230px) 0 clamp(60px,7vw,90px)}
+.traj-hero h1{margin:14px 0 0;max-width:1080px;font-family:var(--font-display);font-size:clamp(68px,11vw,142px);font-weight:400;line-height:.82;letter-spacing:-.045em;text-transform:uppercase}
+.traj-hero-bottom{display:grid;grid-template-columns:.82fr 1.18fr;gap:46px;align-items:end;margin-top:30px}
+.traj-hero-bottom p{margin:0;max-width:720px;color:rgba(255,247,237,.74);font-size:clamp(16px,1.7vw,20px);line-height:1.72}
+.traj-meta{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:8px}
+.traj-meta span{padding:8px 11px;border:1px solid var(--line);border-radius:999px;color:var(--gold);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
 
-/* Pausas de relato */
-.intertitle{
-  width:100vw;
-  margin:clamp(78px,9vw,118px) 0 clamp(82px,9vw,124px) calc(50% - 50vw);
-  padding:clamp(50px,6vw,74px) 20px;
-  background:#0b0908;
-  border-top:1px solid rgba(208,173,114,.13);
-  border-bottom:1px solid rgba(208,173,114,.13);
-}
-.intertitle p{
-  width:min(700px,100%);
-  margin:0 auto;
-  color:rgba(255,247,237,.86);
-  font-family:var(--font-display);
-  font-size:clamp(23px,2.3vw,29px);
-  font-style:italic;
-  font-weight:400;
-  line-height:1.45;
-  text-align:center;
-  letter-spacing:-.005em;
-}
-.sequence{
-  width:min(620px,100%);
-  margin:3.1em auto 3.3em;
-  padding:4px 0 4px 22px;
-  border-left:1px solid rgba(123,29,33,.32);
-}
-.sequence p{
-  margin:0 0 .72em;
-  color:#4a403a;
-  font-size:clamp(16px,1.3vw,17.5px);
-  line-height:1.62;
-}
-.sequence p:last-child{margin-bottom:0}
-.final-quote{
-  width:min(650px,100%);
-  margin:3.4em auto 2.6em;
-  padding-top:24px;
-  border-top:1px solid rgba(123,29,33,.22);
-  color:#4b3d37!important;
-  font-family:var(--font-display);
-  font-size:clamp(22px,2.2vw,27px)!important;
-  font-style:italic;
-  line-height:1.42!important;
-  text-align:center;
-}
+.traj-intro{background:var(--traj-paper)!important;color:var(--traj-ink)}
+.traj-intro .kicker{color:var(--wine)}
+.traj-intro .section-title{color:var(--traj-ink)}
+.traj-intro .lead{color:var(--traj-body)}
+.traj-intro-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:42px;align-items:start}
+.traj-intro-copy p{margin:0 0 20px;color:var(--traj-body);font-size:clamp(16px,1.45vw,19px);line-height:1.86}
+.traj-intro-copy p:first-child{font-size:clamp(19px,1.9vw,23px);color:#403733}
 
-.archive-end{
-  width:min(720px,calc(100% - 40px));
-  margin:clamp(92px,11vw,142px) auto 0;
-  padding-top:40px;
-  border-top:1px solid var(--line);
-}
-.archive-end .label{
-  display:block;
-  margin-bottom:11px;
-  color:var(--wine);
-  font-size:8.5px;
-  font-weight:600;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-}
-.archive-end h2{
-  margin:0 0 16px;
-  font-family:var(--font-display);
-  font-size:clamp(34px,4vw,48px);
-  font-weight:400;
-  line-height:1;
-  letter-spacing:-.015em;
-}
-.archive-end p{
-  margin:0 0 20px;
-  color:var(--body);
-  font-size:16px;
-  line-height:1.82;
-}
-.archive-end a{
-  display:inline-block;
-  color:var(--wine);
-  font-size:9px;
-  font-weight:600;
-  letter-spacing:.13em;
-  text-transform:uppercase;
-  text-decoration:none;
-  border-bottom:1px solid rgba(123,29,33,.38);
-  padding-bottom:4px;
-}
-.institutional-footer{border-top:1px solid rgba(242,214,154,.16)}
+.traj-era{background:linear-gradient(180deg,#100c0a,#080605)!important}
+.traj-era.alt-dark{background:radial-gradient(circle at 88% 0%,rgba(181,53,42,.12),transparent 28%),linear-gradient(180deg,#080605,#100c0a)!important}
+.traj-era .section-head{margin-bottom:40px}
+.traj-era .section-title{max-width:860px}
+.traj-era .lead{max-width:760px}
+.traj-text{display:grid;grid-template-columns:.78fr 1.22fr;gap:42px;align-items:start;margin:34px 0 42px}
+.traj-text .year-mark{font-family:var(--font-display);font-size:clamp(48px,6vw,82px);line-height:.9;color:var(--gold);letter-spacing:-.03em}
+.traj-text .copy p{margin:0 0 18px;color:var(--muted);font-size:15px;line-height:1.78}
 
-@media(max-width:860px){
-  .visual-group.three,.visual-group.four{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .visual-group.four{width:min(680px,calc(100% - 32px));gap:22px 16px}
-  .visual-group.four .visual-item img{max-height:240px}
-}
-@media(max-width:700px){
-  .hero{padding-top:64px}
-  .hero-copy{bottom:22px}
-  .hero h1{font-size:clamp(56px,18vw,82px)}
-  .hero-media img{width:100%;height:auto;object-fit:contain}
-  .story{padding-top:58px}
-  .article{width:min(100% - 34px,720px)}
-  .article p{font-size:16.5px;line-height:1.88}
-  .article .standfirst{font-size:19px;line-height:1.78}
-  .visual-single,
-  .visual-single.align-left,
-  .visual-single.align-right,
-  .visual-group{
-    width:calc(100% - 28px);
-    margin:46px auto 54px;
-  }
-  .visual-group,
-  .visual-group.three,
-  .visual-group.four{
-    grid-template-columns:1fr 1fr;
-    gap:22px 12px;
-  }
-  .visual-group.four{width:calc(100% - 24px)}
-  .visual-item img{max-height:225px}
-  .visual-group .visual-item.photo img{width:auto;max-height:215px}
-  .visual-group.four .visual-item img{max-height:205px}
-  .visual-item figcaption,
-  .visual-single figcaption{
-    margin-top:7px;
-    font-size:7.4px;
-    line-height:1.4;
-    letter-spacing:.06em;
-  }
-  .visual-single img,
-  .visual-single.flyer img{
-    width:auto;
-    max-width:100%;
-    height:auto;
-    max-height:none;
-    object-fit:contain;
-    margin:0 auto;
-  }
-  .intertitle{margin-top:68px;margin-bottom:76px;padding:44px 22px}
-  .intertitle p{font-size:23px;line-height:1.45}
-  .sequence{padding-left:18px;margin:2.8em auto}
-  .sequence p{font-size:16px}
-  .final-quote{font-size:23px!important}
-}
-@media(max-width:460px){
-  /* En teléfono, los grupos se mantienen en 2 × 2 para acortar el recorrido. */
-  .visual-group,
-  .visual-group.three,
-  .visual-group.four{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:18px 10px;
-  }
-  .visual-group.four .visual-item img{max-height:180px}
-  .visual-group .visual-item.photo img{max-height:185px}
-  .visual-item figcaption{font-size:7px}
-}
+.traj-card-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.traj-card{overflow:hidden;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,rgba(26,20,16,.96),rgba(12,9,8,.96));box-shadow:0 22px 60px rgba(0,0,0,.22)}
+.traj-card-media{height:250px;background:#0c0908;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.traj-card-media img{width:100%;height:100%;object-fit:contain;background:#100c0a}
+.traj-card.photo .traj-card-media img{object-fit:cover}
+.traj-card-body{padding:18px 18px 20px}
+.traj-card-body span{display:block;color:var(--gold);font-size:8px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;line-height:1.5}
+.traj-card-body h3{margin:8px 0 0;font-family:var(--font-display);font-size:clamp(24px,2.4vw,32px);font-weight:500;line-height:.96}
 
-/* trajectory-compact-grid-force-v3 */
-@media(max-width:700px){
-  section.visual-group,
-  section.visual-group.three,
-  section.visual-group.four{
-    display:grid!important;
-    grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    width:calc(100% - 24px)!important;
-    max-width:none!important;
-    gap:16px 10px!important;
-    align-items:start!important;
-    margin:38px auto 46px!important;
-  }
-  section.visual-group > figure.visual-item{
-    width:auto!important;
-    min-width:0!important;
-    max-width:none!important;
-    margin:0!important;
-  }
-  section.visual-group .visual-frame{
-    display:flex!important;
-    width:100%!important;
-    height:190px!important;
-    min-height:190px!important;
-    align-items:center!important;
-    justify-content:center!important;
-    overflow:hidden!important;
-  }
-  section.visual-group .visual-frame img,
-  section.visual-group .visual-item.photo .visual-frame img,
-  section.visual-group.four .visual-frame img{
-    width:100%!important;
-    height:100%!important;
-    max-width:100%!important;
-    max-height:100%!important;
-    object-fit:contain!important;
-    object-position:center!important;
-  }
-  section.visual-group .visual-item figcaption{
-    display:block!important;
-    margin-top:6px!important;
-    min-height:2.8em!important;
-    font-size:7px!important;
-    line-height:1.35!important;
-    letter-spacing:.055em!important;
-  }
-}
-@media(max-width:430px){
-  section.visual-group,
-  section.visual-group.three,
-  section.visual-group.four{
-    grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    gap:14px 8px!important;
-    width:calc(100% - 20px)!important;
-  }
-  section.visual-group .visual-frame{
-    height:172px!important;
-    min-height:172px!important;
-  }
-  section.visual-group .visual-item figcaption{
-    font-size:6.7px!important;
-  }
-}
+.traj-feature{background:var(--traj-paper)!important;color:var(--traj-ink)}
+.traj-feature .kicker{color:var(--wine)}
+.traj-feature .section-title{color:var(--traj-ink)}
+.traj-feature .lead{color:var(--traj-body)}
+.traj-feature-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(36px,6vw,74px);align-items:center}
+.traj-feature-media{overflow:hidden;border-radius:28px;background:#e8ddd0;box-shadow:0 26px 70px rgba(61,43,34,.10)}
+.traj-feature-media img{width:100%;height:100%;max-height:680px;object-fit:contain}
+.traj-feature-copy h2{margin:14px 0 22px;font-family:var(--font-display);font-size:clamp(48px,6vw,82px);font-weight:400;line-height:.92;letter-spacing:-.025em;text-transform:uppercase}
+.traj-feature-copy p{margin:0 0 18px;color:var(--traj-body);font-size:16px;line-height:1.82}
 
+.traj-2025{background:radial-gradient(circle at 0% 50%,rgba(181,53,42,.12),transparent 28%),linear-gradient(180deg,#080605,#110c0a)!important}
+.traj-milestones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:34px 0 16px}
+.traj-milestone{padding:28px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,rgba(181,53,42,.10),rgba(255,247,237,.025))}
+.traj-milestone .tag{display:block;color:var(--gold);font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.traj-milestone h3{margin:12px 0 12px;font-family:var(--font-display);font-size:clamp(32px,3.5vw,46px);font-weight:500;line-height:.94}
+.traj-milestone p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
+.traj-milestone-media{margin-top:20px;overflow:hidden;border-radius:16px;background:#0b0908;aspect-ratio:16/10}
+.traj-milestone-media img{width:100%;height:100%;object-fit:contain}
+
+.traj-2026{background:var(--traj-paper)!important;color:var(--traj-ink)}
+.traj-2026 .kicker{color:var(--wine)}
+.traj-2026 .section-title{color:var(--traj-ink)}
+.traj-2026 .lead{color:var(--traj-body)}
+.traj-2026-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+.traj-2026-card{display:grid;grid-template-columns:.85fr 1.15fr;min-height:330px;overflow:hidden;border:1px solid rgba(127,33,28,.16);border-radius:24px;background:rgba(255,255,255,.30)}
+.traj-2026-media{background:#e8ddd0;display:flex;align-items:center;justify-content:center}
+.traj-2026-media img{width:100%;height:100%;object-fit:contain;max-height:420px}
+.traj-2026-body{padding:28px;display:flex;flex-direction:column;justify-content:center}
+.traj-2026-body .year{color:var(--wine);font-size:9px;font-weight:600;letter-spacing:.15em;text-transform:uppercase}
+.traj-2026-body h3{margin:12px 0 12px;font-family:var(--font-display);font-size:clamp(30px,3.2vw,44px);font-weight:500;line-height:.94}
+.traj-2026-body p{margin:0;color:var(--traj-body);font-size:13px;line-height:1.7}
+
+.traj-evolution{background:linear-gradient(180deg,#100c0a,#080605)!important}
+.traj-evolution-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:50px;align-items:start}
+.traj-evolution-list{position:relative;display:grid;gap:10px}
+.traj-evolution-item{display:grid;grid-template-columns:42px 1fr;gap:18px;align-items:start;padding:17px 0;border-bottom:1px solid var(--line)}
+.traj-evolution-item b{font-family:var(--font-display);font-size:24px;font-weight:400;color:var(--gold)}
+.traj-evolution-item span{color:var(--cream);font-size:16px;line-height:1.5}
+.traj-evolution-copy p{margin:0 0 18px;color:var(--muted);font-size:15px;line-height:1.8}
+.traj-current{margin-top:30px;overflow:hidden;border:1px solid var(--line);border-radius:26px;background:#0c0908}
+.traj-current img{width:100%;max-height:620px;object-fit:contain}
+.traj-current figcaption{padding:12px 16px;color:rgba(255,247,237,.48);font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+
+.traj-final{background:var(--traj-paper)!important;color:var(--traj-ink);text-align:center}
+.traj-final .kicker{color:var(--wine)}
+.traj-final h2{max-width:980px;margin:14px auto 28px;font-family:var(--font-display);font-size:clamp(52px,7.5vw,98px);font-weight:400;line-height:.88;letter-spacing:-.035em;text-transform:uppercase}
+.traj-final p{max-width:760px;margin:0 auto 18px;color:var(--traj-body);font-size:17px;line-height:1.78}
+.traj-final-quote{max-width:860px;margin:40px auto 0;padding:34px 0;border-top:1px solid rgba(127,33,28,.18);border-bottom:1px solid rgba(127,33,28,.18);font-family:var(--font-display);font-size:clamp(30px,4vw,52px);font-style:italic;line-height:1.12;color:#4b3d37}
+.traj-final .section-actions{justify-content:center;margin-top:34px}
+
+@media(max-width:980px){
+  .traj-hero-bottom,.traj-intro-grid,.traj-text,.traj-feature-grid,.traj-evolution-grid{grid-template-columns:1fr}
+  .traj-meta{justify-content:flex-start}
+  .traj-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .traj-milestones{grid-template-columns:1fr}
+  .traj-2026-grid{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .traj-hero{min-height:72vh}
+  .traj-hero-copy{width:min(100% - 24px,1160px);padding-top:130px}
+  .traj-hero h1{font-size:clamp(58px,18vw,84px)}
+  .traj-card-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .traj-card-media{height:190px}
+  .traj-card-body{padding:14px}
+  .traj-card-body h3{font-size:23px}
+  .traj-2026-card{grid-template-columns:1fr}
+  .traj-2026-media{min-height:260px}
+  .traj-feature-media img{max-height:520px}
+}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 <nav class="nav unified-nav" id="nav" aria-label="Navegación principal">
   <div class="nav-inner">
-    <a class="logo" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a>
+    <a class="nav-brand" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a>
     <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">Menú</button>
     <div class="nav-links" id="nav-links">
       <div class="nav-primary" aria-label="Menú principal">
-        <a href="/">Home</a>
         <a href="/trayectoria/" aria-current="page">Trayectoria</a>
+        <a href="/prensa-y-difusion/">Prensa y difusión</a>
         <a href="/las4estaciones/">Las 4 Estaciones</a>
         <a href="/tangoparael3001/">Tango para el 3001</a>
         <a href="/direccion-artistica/">Dirección artística</a>
@@ -421,264 +167,169 @@ img{display:block;max-width:100%}
   </div>
 </nav>
 
-<header class="hero">
-  <div class="hero-media">
-    <img src="/assets/registro-historico/origen-005.webp" alt="Registro histórico de Piazzollamente en Mendoza" fetchpriority="high" decoding="async">
-    <div class="hero-copy">
-      <p class="kicker">Piazzollamente · Argentina — Chile</p>
-      <h1>Trayectoria</h1>
+<main id="contenido">
+<section class="traj-hero">
+  <div class="traj-hero-media"><img src="/assets/registro-historico/origen-005.webp" alt="Registro histórico de Piazzollamente en Mendoza" fetchpriority="high" decoding="async"></div>
+  <div class="traj-hero-copy">
+    <p class="kicker">Piazzollamente · Argentina — Chile</p>
+    <h1>Trayectoria</h1>
+    <div class="traj-hero-bottom">
+      <p>Una historia construida escenario por escenario: desde los primeros espacios autogestionados en Mendoza hasta teatros, festivales, giras territoriales y producciones escénicas en Chile.</p>
+      <div class="traj-meta"><span>2022—2026</span><span>Argentina · Chile</span><span>Concierto · escena · circulación</span></div>
     </div>
   </div>
-</header>
+</section>
 
-<main class="story">
-  <article class="article">
-    <p class="standfirst">Piazzollamente es un proyecto artístico nacido en Argentina y desarrollado posteriormente en Chile que ha convertido la música de Astor Piazzolla en un lenguaje escénico propio. Su trayectoria no se construyó de un salto ni a partir de una única gran aparición: se desarrolló escenario por escenario, desde espacios íntimos y autogestionados hasta teatros, festivales internacionales, circuitos territoriales financiados por fondos públicos y producciones escénicas de mayor escala.</p>
+<section class="traj-intro">
+  <div class="container traj-intro-grid">
+    <div>
+      <p class="kicker">El recorrido</p>
+      <h2 class="section-title">Una trayectoria que creció con su lenguaje.</h2>
+    </div>
+    <div class="traj-intro-copy">
+      <p>Piazzollamente es un proyecto artístico nacido en Argentina y desarrollado posteriormente en Chile que ha convertido la música de Astor Piazzolla en un lenguaje escénico propio.</p>
+      <p>Su trayectoria no se construyó de un salto ni a partir de una única gran aparición: se desarrolló escenario por escenario, desde espacios íntimos y autogestionados hasta teatros, festivales internacionales, circuitos territoriales financiados por fondos públicos y producciones escénicas de mayor escala.</p>
+    </div>
+  </div>
+</section>
 
-    <p>El proyecto comenzó a tomar forma en Mendoza a fines de 2022. Uno de sus primeros hitos confirmados fue una presentación en la Academia Pianoforte, el 13 de noviembre de ese año. Era todavía una etapa pequeña en escala, pero decisiva en términos de identidad: Piazzollamente comenzó allí a probar una manera propia de acercarse a Piazzolla, alejándose progresivamente de la lógica de la reproducción estilística para buscar una interpretación más personal, expresiva y contemporánea.</p>
-  </article>
-
-  <section class="visual-single flyer narrow align-left" aria-label="Academia Pianoforte 2022">
-    <figure>
-      <img src="/assets/registro-historico/2022-11-13-pianoforte-cuarta-de-fierro.webp" alt="Flyer de Piazzollamente en Academia Pianoforte, 13 de noviembre de 2022" loading="lazy" decoding="async">
-      <figcaption>Academia Pianoforte · Mendoza · 13 noviembre 2022</figcaption>
-    </figure>
-  </section>
-
-  <article class="article">
-    <p>Durante 2023, esa primera experiencia comenzó a transformarse en circulación real. Piazzollamente volvió a presentarse en Pianoforte con <em>Celebra Piazzolla</em> y pasó luego a espacios culturales y programaciones de mayor visibilidad: <em>Música Clásica por los Caminos del Vino</em>, en el Museo Nacional del Vino y la Vendimia; <em>Noches de Música</em> en el Museo Carlos Alonso; y el espectáculo <em>Camorra: el tango transgresor de Astor Piazzolla</em>.</p>
-  </article>
-
-  <section class="visual-group four" aria-label="Circulación de Piazzollamente en Mendoza durante 2023">
-    <figure class="visual-item photo">
-      <div class="visual-frame"><img src="/assets/registro-historico/2023-03-11-celebra-piazzolla-pianoforte-foto.png" alt="Registro fotográfico de Celebra Piazzolla en Academia Pianoforte" loading="lazy" decoding="async"></div>
-      <figcaption>Celebra Piazzolla · Academia Pianoforte · 2023</figcaption>
-    </figure>
-    <figure class="visual-item">
-      <div class="visual-frame"><img src="/assets/registro-historico/2023-04-07-caminos-del-vino-museo-nacional-del-vino.png" alt="Flyer de Música Clásica por los Caminos del Vino" loading="lazy" decoding="async"></div>
-      <figcaption>Música Clásica por los Caminos del Vino · 2023</figcaption>
-    </figure>
-    <figure class="visual-item">
-      <div class="visual-frame"><img src="/assets/registro-historico/2023-05-17-museo-carlos-alonso-noches-de-musica.png" alt="Flyer de Noches de Música en el Museo Carlos Alonso" loading="lazy" decoding="async"></div>
-      <figcaption>Noches de Música · Museo Carlos Alonso · 2023</figcaption>
-    </figure>
-    <figure class="visual-item">
-      <div class="visual-frame"><img src="/assets/registro-historico/2023-07-08-camorra-donde-duerme-la-luna.png" alt="Flyer de Camorra en Donde Duerme la Luna" loading="lazy" decoding="async"></div>
-      <figcaption>Camorra · Donde Duerme la Luna · 2023</figcaption>
-    </figure>
-  </section>
-
-  <article class="article">
-    <p>También hubo presentaciones en El Botellón, Cantina del Juglar y Campus Barcala; y finalmente el Festival San Vicente Tango, uno de los encuentros tangueros relevantes de Mendoza.</p>
-  </article>
-
-  <section class="visual-group four" aria-label="Presentaciones de Piazzollamente en Mendoza durante 2023">
-    <figure class="visual-item">
-      <div class="visual-frame"><img src="/assets/registro-historico/2023-08-16-el-botellon.png" alt="Flyer de Piazzollamente en El Botellón" loading="lazy" decoding="async"></div>
-      <figcaption>El Botellón · Mendoza · 2023</figcaption>
-    </figure>
-    <figure class="visual-item">
-      <div class="visual-frame"><img src="/assets/registro-historico/2023-09-30-cantina-del-juglar-cena-show.jpg" alt="Flyer de Piazzollamente en Cantina del Juglar" loading="lazy" decoding="async"></div>
-      <figcaption>Cantina del Juglar · Mendoza · 2023</figcaption>
-    </figure>
-    <figure class="visual-item">
-      <div class="visual-frame"><img src="/assets/registro-historico/2023-09-21-experiencia-tango-joven.png" alt="Flyer de Experiencia Tango Joven en Campus Barcala" loading="lazy" decoding="async"></div>
-      <figcaption>Campus Barcala · Experiencia Tango Joven · 2023</figcaption>
-    </figure>
-    <figure class="visual-item">
-      <div class="visual-frame"><img src="/assets/registro-historico/2023-10-07-san-vicente-tango.png" alt="Programación de Piazzollamente en Festival San Vicente Tango" loading="lazy" decoding="async"></div>
-      <figcaption>Festival San Vicente Tango · 2023</figcaption>
-    </figure>
-  </section>
-
-  <article class="article">
-    <p>Ese mismo período permitió que el proyecto dejara de ser solamente una experiencia de conciertos. Comenzaron los registros audiovisuales, las sesiones en vivo y un trabajo sistemático de documentación. El apoyo obtenido a través de INAMU en Argentina significó además un primer reconocimiento institucional y permitió sostener producción y desarrollo. Piazzollamente empezó a construir algo fundamental para cualquier proyecto destinado a crecer: archivo, repertorio, identidad visual, registros profesionales y antecedentes verificables de circulación.</p>
-  </article>
-
-  <section class="visual-single align-right" aria-label="Etapa de registros audiovisuales en Argentina">
-    <figure>
-      <img src="/assets/registro-historico/origen-006.webp" alt="Registro histórico de Piazzollamente durante su etapa argentina" loading="lazy" decoding="async">
-      <figcaption>Etapa de registros y desarrollo audiovisual · Argentina · 2023</figcaption>
-    </figure>
-  </section>
-
-  <article class="article">
-    <p>Con su traslado y desarrollo en Chile, el proyecto entró en una segunda etapa. En 2024, la presentación de <em>La Camorra</em> en el Teatro Regional Lucho Gatica de Rancagua marcó un cambio de escala. Piazzollamente pasó de los espacios de cercanía a enfrentarse a una infraestructura teatral mayor, ampliando también su concepción del concierto: la música comenzó a pensarse cada vez más en relación con la dramaturgia, el espacio y la experiencia completa del espectador.</p>
-  </article>
-
-  <section class="visual-group" aria-label="La Camorra en Rancagua 2024">
-    <figure class="visual-item photo">
-      <div class="visual-frame"><img src="/assets/registro-historico/2024-10-09-rancagua-la-camorra-foto-01.png" alt="Piazzollamente durante La Camorra en el Teatro Regional Lucho Gatica de Rancagua" loading="lazy" decoding="async"></div>
-      <figcaption>La Camorra · Teatro Regional Lucho Gatica · Rancagua · 2024</figcaption>
-    </figure>
-    <figure class="visual-item">
-      <div class="visual-frame"><img src="/assets/registro-historico/2024-10-09-la-camorra-rancagua.png" alt="Flyer de La Camorra de Piazzollamente en Rancagua" loading="lazy" decoding="async"></div>
-      <figcaption>La Camorra · Rancagua · 2024</figcaption>
-    </figure>
-  </section>
-
-  <article class="article">
-    <p>El año 2025 fue el de la consolidación. El grupo sostuvo presentaciones en espacios de distinta naturaleza —Cantares, El Cachafaz, Mesón Nerudiano— y llegó a la Sala SCD Plaza Egaña, incorporándose con mayor claridad al circuito profesional de música en vivo de Santiago.</p>
-  </article>
-
-  <section class="visual-group four" aria-label="Consolidación de Piazzollamente en Santiago durante 2025">
-    <figure class="visual-item">
-      <div class="visual-frame"><img src="/assets/registro-historico/2025-01-10-cantares.png" alt="Flyer de Piazzollamente en Cantares" loading="lazy" decoding="async"></div>
-      <figcaption>Cantares · 2025</figcaption>
-    </figure>
-    <figure class="visual-item">
-      <div class="visual-frame"><img src="/assets/registro-historico/2025-04-09-el-cachafaz.png" alt="Flyer de Piazzollamente en El Cachafaz" loading="lazy" decoding="async"></div>
-      <figcaption>El Cachafaz · 2025</figcaption>
-    </figure>
-    <figure class="visual-item">
-      <div class="visual-frame"><img src="/assets/registro-historico/2025-03-14-meson-nerudiano.png" alt="Flyer de Piazzollamente en Mesón Nerudiano" loading="lazy" decoding="async"></div>
-      <figcaption>Mesón Nerudiano · 2025</figcaption>
-    </figure>
-    <figure class="visual-item">
-      <div class="visual-frame"><img src="/assets/registro-historico/2025-05-03-sala-scd-egana.png" alt="Flyer de Piazzollamente en Sala SCD Plaza Egaña" loading="lazy" decoding="async"></div>
-      <figcaption>Sala SCD Plaza Egaña · 2025</figcaption>
-    </figure>
-  </section>
-
-  <article class="article">
-    <p>En junio estrenó una etapa importante de <em>Las 4 Estaciones Porteñas</em>, un concierto que transforma las estaciones de Piazzolla en un recorrido emocional por Buenos Aires. Ya no se trataba solamente de tocar un repertorio: comenzaba a definirse una experiencia artística reconocible, con narrativa, concepto y una identidad tímbrica particular.</p>
-  </article>
-
-  <section class="visual-single flyer narrow align-left" aria-label="Las 4 Estaciones Porteñas en 2025">
-    <figure>
-      <img src="/assets/registro-historico/2025-06-13-estaciones-portenas-meson-nerudiano.png" alt="Flyer de Estaciones Porteñas de Piazzollamente en Mesón Nerudiano" loading="lazy" decoding="async">
-      <figcaption>Las 4 Estaciones Porteñas · Mesón Nerudiano · junio 2025</figcaption>
-    </figure>
-  </section>
-
-  <article class="article">
-    <p>Pocas semanas después llegó uno de los saltos más significativos del proyecto: “Puentes, Caminos y Encuentros”, una gira financiada por el Fondo de la Música que llevó a Piazzollamente por la Región de Coquimbo. En cinco jornadas consecutivas, el proyecto pasó por Vicuña, Paihuano, Río Hurtado, Ovalle y Coquimbo, articulando teatros municipales, centros culturales y espacios comunitarios. Esa experiencia cambió la dimensión de Piazzollamente: dejó de pensar exclusivamente en funciones aisladas y comenzó a operar como una propuesta capaz de circular territorialmente, adaptarse a distintas infraestructuras y encontrarse con públicos diversos.</p>
-  </article>
-
-  <section class="visual-group" aria-label="Gira Puentes, Caminos y Encuentros 2025">
-    <figure class="visual-item photo">
-      <div class="visual-frame"><img src="/assets/registro-historico/anterior-005.webp" alt="Piazzollamente durante la gira por la Región de Coquimbo" loading="lazy" decoding="async"></div>
-      <figcaption>Puentes, Caminos y Encuentros · Región de Coquimbo · 2025</figcaption>
-    </figure>
-    <figure class="visual-item">
-      <div class="visual-frame"><img src="/assets/registro-historico/anterior-004.webp" alt="Gráfica de la gira Puentes, Caminos y Encuentros de Piazzollamente" loading="lazy" decoding="async"></div>
-      <figcaption>Gira territorial · Región de Coquimbo · 2025</figcaption>
-    </figure>
-  </section>
-
-  <article class="article">
-    <p>En octubre de ese mismo año apareció el otro gran universo artístico del proyecto: <em>Tango para el 3001</em>, presentado en Sala Master. Allí Piazzollamente amplió definitivamente su campo de acción. La música instrumental comenzó a convivir con voces, dramaturgia, personajes, movimiento y construcción escénica. Piazzolla y Horacio Ferrer dejaron de funcionar únicamente como repertorio para convertirse en materia dramática.</p>
-  </article>
-
-  <section class="visual-single flyer narrow align-right" aria-label="Tango para el 3001 en Sala Master">
-    <figure>
-      <img src="/assets/registro-historico/2025-10-09-tango-para-el-3001-sala-master.png" alt="Flyer histórico de Tango para el 3001 en Sala Master" loading="lazy" decoding="async">
-      <figcaption>Tango para el 3001 · Sala Master · 2025</figcaption>
-    </figure>
-  </section>
-
-  <article class="article">
-    <p>Esa evolución es central para comprender qué es Piazzollamente hoy. El proyecto posee actualmente dos formatos con identidades propias. <em>Las 4 Estaciones Porteñas</em> concentra la fuerza del quinteto instrumental y convierte Buenos Aires en un recorrido sonoro; <em>Tango para el 3001</em> expande ese universo hacia una experiencia escénico-musical en la que la ciudad, sus heridas y sus transformaciones se convierten en dramaturgia.</p>
-
-    <p>Durante 2026, la trayectoria alcanzó una nueva instancia de visibilidad con la participación en el XXXVI Festival Internacional ValparaTango, en la Plaza Cívica de Valparaíso. Presentarse en un festival abierto, urbano y de convocatoria transversal supone una relación distinta con el público: Piazzollamente deja de depender únicamente de espectadores que compran una entrada específicamente para el grupo y se enfrenta también a audiencias amplias, heterogéneas y en circulación.</p>
-  </article>
-
-  <section class="visual-single flyer narrow align-left" aria-label="ValparaTango 2026">
-    <figure>
-      <img src="/assets/registro-historico/2026-02-20-valparatango-piazzollamente.png" alt="Flyer de Piazzollamente en ValparaTango 2026" loading="lazy" decoding="async">
-      <figcaption>XXXVI Festival Internacional ValparaTango · Valparaíso · 2026</figcaption>
-    </figure>
-  </section>
-
-  <article class="article">
-    <p>En agosto de 2026, el proyecto volvió al Mesón Nerudiano de Santiago con <em>Las 4 Estaciones</em>, en una función cuya preventa se agotó antes del concierto. Este dato, aparentemente menor frente a un festival o un gran teatro, es particularmente importante desde la producción: significa que Piazzollamente ya no solo puede ser seleccionado por instituciones o festivales, sino que comienza a demostrar capacidad propia de convocatoria.</p>
-  </article>
-
-  <section class="visual-group" aria-label="Las 4 Estaciones en Mesón Nerudiano 2026">
-    <figure class="visual-item photo">
-      <div class="visual-frame"><img src="/assets/registro-historico/actual-002.webp" alt="Registro de Piazzollamente en Mesón Nerudiano" loading="lazy" decoding="async"></div>
-      <figcaption>Mesón Nerudiano · Santiago · 2026</figcaption>
-    </figure>
-    <figure class="visual-item">
-      <div class="visual-frame"><img src="/assets/registro-historico/2026-08-15-las-4-estaciones-meson-nerudiano.png.png" alt="Flyer de Las 4 Estaciones de Piazzollamente en Mesón Nerudiano" loading="lazy" decoding="async"></div>
-      <figcaption>Las 4 Estaciones · Mesón Nerudiano · agosto 2026</figcaption>
-    </figure>
-  </section>
-
-  <article class="article">
-    <p>Ese recorrido —desde una pequeña sala en Mendoza hasta festivales, teatros regionales, salas profesionales, giras financiadas y producciones escénicas— explica mejor a Piazzollamente que cualquier enumeración de premios.</p>
-
-    <p>Porque su crecimiento no ha consistido únicamente en tocar ante más personas.</p>
-  </article>
-
-  <section class="intertitle" aria-label="Idea central de la trayectoria">
-    <p>Ha consistido en aumentar progresivamente la escala de su lenguaje.</p>
-  </section>
-
-  <article class="article">
-    <div class="sequence" aria-label="Evolución de Piazzollamente">
-      <p>De un trío a un ensamble de mayor formato.</p>
-      <p>Del concierto a la escena.</p>
-      <p>De una ciudad a dos países.</p>
-      <p>De una función aislada a una gira territorial.</p>
-      <p>Del registro casero al archivo audiovisual profesional.</p>
-      <p>De interpretar Piazzolla a construir un universo propio alrededor de su música.</p>
+<section class="traj-era">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">2022—2023 · Mendoza</p>
+      <div><h2 class="section-title">El origen y la primera circulación.</h2><p class="lead">Los primeros conciertos permitieron probar una identidad propia y transformar una experiencia inicial en circulación real.</p></div>
     </div>
 
-    <p>Y hay un elemento que atraviesa toda esa evolución: la flauta traversa. En lugar de intentar reproducir literalmente el sonido histórico del quinteto piazzolliano, Piazzollamente ha ido construyendo una identidad en la que la flauta modifica la respiración, la articulación y el color de esta música. Violín, guitarra eléctrica, piano y contrabajo completan un sonido colectivo que reconoce la tradición sin quedar subordinado a ella.</p>
-  </article>
+    <div class="traj-text">
+      <div class="year-mark">2022</div>
+      <div class="copy"><p>El proyecto comenzó a tomar forma en Mendoza a fines de 2022. Uno de sus primeros hitos confirmados fue una presentación en la Academia Pianoforte, el 13 de noviembre de ese año.</p><p>Era todavía una etapa pequeña en escala, pero decisiva en términos de identidad: Piazzollamente comenzó allí a probar una manera propia de acercarse a Piazzolla, alejándose progresivamente de la lógica de la reproducción estilística para buscar una interpretación más personal, expresiva y contemporánea.</p></div>
+    </div>
 
-  <section class="visual-single" aria-label="Piazzollamente en su etapa actual">
-    <figure>
-      <img src="/assets/registro-historico/actual-008.webp" alt="Piazzollamente en una etapa reciente del proyecto" loading="lazy" decoding="async">
-      <figcaption>Piazzollamente · etapa actual · 2026</figcaption>
-    </figure>
-  </section>
+    <div class="traj-card-grid">
+      <article class="traj-card"><div class="traj-card-media"><img src="/assets/registro-historico/2022-11-13-pianoforte-cuarta-de-fierro.webp" alt="Flyer de Piazzollamente en Academia Pianoforte, 13 de noviembre de 2022" loading="lazy"></div><div class="traj-card-body"><span>Mendoza · 2022</span><h3>Academia Pianoforte</h3></div></article>
+      <article class="traj-card photo"><div class="traj-card-media"><img src="/assets/registro-historico/2023-03-11-celebra-piazzolla-pianoforte-foto.png" alt="Registro de Celebra Piazzolla en Academia Pianoforte" loading="lazy"></div><div class="traj-card-body"><span>Mendoza · 2023</span><h3>Celebra Piazzolla</h3></div></article>
+      <article class="traj-card"><div class="traj-card-media"><img src="/assets/registro-historico/2023-04-07-caminos-del-vino-museo-nacional-del-vino.png" alt="Música Clásica por los Caminos del Vino" loading="lazy"></div><div class="traj-card-body"><span>Mendoza · 2023</span><h3>Caminos del Vino</h3></div></article>
+      <article class="traj-card"><div class="traj-card-media"><img src="/assets/registro-historico/2023-05-17-museo-carlos-alonso-noches-de-musica.png" alt="Noches de Música en Museo Carlos Alonso" loading="lazy"></div><div class="traj-card-body"><span>Mendoza · 2023</span><h3>Museo Carlos Alonso</h3></div></article>
+    </div>
 
-  <article class="article">
+    <div class="traj-text">
+      <div class="year-mark">2023</div>
+      <div class="copy"><p>Durante 2023, esa primera experiencia comenzó a transformarse en circulación real. Piazzollamente volvió a presentarse en Pianoforte con <em>Celebra Piazzolla</em> y pasó luego a espacios culturales y programaciones de mayor visibilidad: <em>Música Clásica por los Caminos del Vino</em>, en el Museo Nacional del Vino y la Vendimia; <em>Noches de Música</em> en el Museo Carlos Alonso; y el espectáculo <em>Camorra: el tango transgresor de Astor Piazzolla</em>.</p><p>También hubo presentaciones en El Botellón, Cantina del Juglar y Campus Barcala; y finalmente el Festival San Vicente Tango, uno de los encuentros tangueros relevantes de Mendoza.</p></div>
+    </div>
+
+    <div class="traj-card-grid">
+      <article class="traj-card"><div class="traj-card-media"><img src="/assets/registro-historico/2023-07-08-camorra-donde-duerme-la-luna.png" alt="Camorra en Donde Duerme la Luna" loading="lazy"></div><div class="traj-card-body"><span>Mendoza · 2023</span><h3>Camorra</h3></div></article>
+      <article class="traj-card"><div class="traj-card-media"><img src="/assets/registro-historico/2023-08-16-el-botellon.png" alt="Piazzollamente en El Botellón" loading="lazy"></div><div class="traj-card-body"><span>Mendoza · 2023</span><h3>El Botellón</h3></div></article>
+      <article class="traj-card"><div class="traj-card-media"><img src="/assets/registro-historico/2023-09-21-experiencia-tango-joven.png" alt="Experiencia Tango Joven" loading="lazy"></div><div class="traj-card-body"><span>Mendoza · 2023</span><h3>Experiencia Tango Joven</h3></div></article>
+      <article class="traj-card"><div class="traj-card-media"><img src="/assets/registro-historico/2023-10-07-san-vicente-tango.png" alt="Festival San Vicente Tango" loading="lazy"></div><div class="traj-card-body"><span>Godoy Cruz · 2023</span><h3>San Vicente Tango</h3></div></article>
+    </div>
+
+    <div class="traj-text">
+      <div class="year-mark">Archivo</div>
+      <div class="copy"><p>Ese mismo período permitió que el proyecto dejara de ser solamente una experiencia de conciertos. Comenzaron los registros audiovisuales, las sesiones en vivo y un trabajo sistemático de documentación.</p><p>El apoyo obtenido a través de INAMU en Argentina significó además un primer reconocimiento institucional y permitió sostener producción y desarrollo. Piazzollamente empezó a construir archivo, repertorio, identidad visual, registros profesionales y antecedentes verificables de circulación.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="traj-feature">
+  <div class="container traj-feature-grid">
+    <div class="traj-feature-media"><img src="/assets/registro-historico/2024-10-09-rancagua-la-camorra-foto-01.png" alt="Piazzollamente durante La Camorra en el Teatro Regional Lucho Gatica" loading="lazy"></div>
+    <div class="traj-feature-copy">
+      <p class="kicker">2024 · Chile</p>
+      <h2>Cambio de escala.</h2>
+      <p>Con su traslado y desarrollo en Chile, el proyecto entró en una segunda etapa. La presentación de <em>La Camorra</em> en el Teatro Regional Lucho Gatica de Rancagua marcó un cambio de escala.</p>
+      <p>Piazzollamente pasó de los espacios de cercanía a enfrentarse a una infraestructura teatral mayor, ampliando también su concepción del concierto: la música comenzó a pensarse cada vez más en relación con la dramaturgia, el espacio y la experiencia completa del espectador.</p>
+      <div class="section-actions"><a class="btn btn-gold" href="/registro-historico/">Ver archivo visual</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="traj-2025">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">2025 · Santiago y Región de Coquimbo</p>
+      <div><h2 class="section-title">El año de la consolidación.</h2><p class="lead">Salas profesionales, desarrollo de formatos propios, circulación territorial y una primera expansión escénica de mayor escala.</p></div>
+    </div>
+
+    <div class="traj-card-grid">
+      <article class="traj-card"><div class="traj-card-media"><img src="/assets/registro-historico/2025-01-10-cantares.png" alt="Piazzollamente en Cantares" loading="lazy"></div><div class="traj-card-body"><span>Santiago · 2025</span><h3>Cantares</h3></div></article>
+      <article class="traj-card"><div class="traj-card-media"><img src="/assets/registro-historico/2025-04-09-el-cachafaz.png" alt="Piazzollamente en El Cachafaz" loading="lazy"></div><div class="traj-card-body"><span>Santiago · 2025</span><h3>El Cachafaz</h3></div></article>
+      <article class="traj-card"><div class="traj-card-media"><img src="/assets/registro-historico/2025-03-14-meson-nerudiano.png" alt="Piazzollamente en Mesón Nerudiano" loading="lazy"></div><div class="traj-card-body"><span>Santiago · 2025</span><h3>Mesón Nerudiano</h3></div></article>
+      <article class="traj-card"><div class="traj-card-media"><img src="/assets/registro-historico/2025-05-03-sala-scd-egana.png" alt="Piazzollamente en Sala SCD Plaza Egaña" loading="lazy"></div><div class="traj-card-body"><span>Santiago · 2025</span><h3>Sala SCD</h3></div></article>
+    </div>
+
+    <div class="traj-text">
+      <div class="year-mark">2025</div>
+      <div class="copy"><p>El grupo sostuvo presentaciones en espacios de distinta naturaleza —Cantares, El Cachafaz, Mesón Nerudiano— y llegó a la Sala SCD Plaza Egaña, incorporándose con mayor claridad al circuito profesional de música en vivo de Santiago.</p></div>
+    </div>
+
+    <div class="traj-milestones">
+      <article class="traj-milestone"><span class="tag">Junio 2025 · Santiago</span><h3>Las 4 Estaciones Porteñas</h3><p>El concierto transforma las estaciones de Piazzolla en un recorrido emocional por Buenos Aires. Ya no se trataba solamente de tocar repertorio: comenzaba a definirse una experiencia artística reconocible, con narrativa, concepto e identidad tímbrica particular.</p><div class="traj-milestone-media"><img src="/assets/registro-historico/2025-06-13-estaciones-portenas-meson-nerudiano.png" alt="Las 4 Estaciones Porteñas en Mesón Nerudiano" loading="lazy"></div></article>
+      <article class="traj-milestone"><span class="tag">Julio 2025 · Región de Coquimbo</span><h3>Puentes, Caminos y Encuentros</h3><p>Una gira financiada por el Fondo de la Música llevó a Piazzollamente por Vicuña, Paihuano, Río Hurtado, Ovalle y Coquimbo, articulando teatros municipales, centros culturales y espacios comunitarios.</p><div class="traj-milestone-media"><img src="/assets/registro-historico/anterior-004.webp" alt="Gira Puentes, Caminos y Encuentros" loading="lazy"></div></article>
+      <article class="traj-milestone"><span class="tag">Octubre 2025 · Sala Master</span><h3>Tango para el 3001</h3><p>La música instrumental comenzó a convivir con voces, dramaturgia, personajes, movimiento y construcción escénica. Piazzolla y Horacio Ferrer dejaron de funcionar únicamente como repertorio para convertirse en materia dramática.</p><div class="traj-milestone-media"><img src="/assets/registro-historico/2025-10-09-tango-para-el-3001-sala-master.png" alt="Tango para el 3001 en Sala Master" loading="lazy"></div></article>
+    </div>
+
+    <div class="traj-text">
+      <div class="year-mark">Dos universos</div>
+      <div class="copy"><p>Esa evolución es central para comprender qué es Piazzollamente hoy. El proyecto posee actualmente dos formatos con identidades propias.</p><p><em>Las 4 Estaciones Porteñas</em> concentra la fuerza del quinteto instrumental y convierte Buenos Aires en un recorrido sonoro; <em>Tango para el 3001</em> expande ese universo hacia una experiencia escénico-musical en la que la ciudad, sus heridas y sus transformaciones se convierten en dramaturgia.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="traj-2026">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">2026 · Nuevas audiencias</p>
+      <div><h2 class="section-title">Visibilidad y capacidad de convocatoria.</h2><p class="lead">El proyecto amplía su relación con públicos diversos y comienza a demostrar convocatoria propia.</p></div>
+    </div>
+
+    <div class="traj-2026-grid">
+      <article class="traj-2026-card"><div class="traj-2026-media"><img src="/assets/registro-historico/2026-02-20-valparatango-piazzollamente.png" alt="Piazzollamente en ValparaTango 2026" loading="lazy"></div><div class="traj-2026-body"><span class="year">Febrero 2026 · Valparaíso</span><h3>XXXVI Festival Internacional ValparaTango</h3><p>Presentarse en un festival abierto, urbano y de convocatoria transversal supone una relación distinta con el público: Piazzollamente se enfrenta también a audiencias amplias, heterogéneas y en circulación.</p></div></article>
+      <article class="traj-2026-card"><div class="traj-2026-media"><img src="/assets/registro-historico/2026-08-15-las-4-estaciones-meson-nerudiano.png.png" alt="Las 4 Estaciones en Mesón Nerudiano 2026" loading="lazy"></div><div class="traj-2026-body"><span class="year">Agosto 2026 · Santiago</span><h3>Las 4 Estaciones · Mesón Nerudiano</h3><p>La preventa se agotó antes del concierto. Desde la producción, esto indica que Piazzollamente ya no solo puede ser seleccionado por instituciones o festivales: comienza a demostrar capacidad propia de convocatoria.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="traj-evolution">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">La evolución</p>
+      <div><h2 class="section-title">Aumentar la escala del lenguaje.</h2><p class="lead">El crecimiento de Piazzollamente no ha consistido únicamente en tocar ante más personas.</p></div>
+    </div>
+
+    <div class="traj-evolution-grid">
+      <div class="traj-evolution-list">
+        <div class="traj-evolution-item"><b>01</b><span>De un trío a un ensamble de mayor formato.</span></div>
+        <div class="traj-evolution-item"><b>02</b><span>Del concierto a la escena.</span></div>
+        <div class="traj-evolution-item"><b>03</b><span>De una ciudad a dos países.</span></div>
+        <div class="traj-evolution-item"><b>04</b><span>De una función aislada a una gira territorial.</span></div>
+        <div class="traj-evolution-item"><b>05</b><span>Del registro casero al archivo audiovisual profesional.</span></div>
+        <div class="traj-evolution-item"><b>06</b><span>De interpretar Piazzolla a construir un universo propio alrededor de su música.</span></div>
+      </div>
+      <div class="traj-evolution-copy">
+        <p>Ese recorrido —desde una pequeña sala en Mendoza hasta festivales, teatros regionales, salas profesionales, giras financiadas y producciones escénicas— explica mejor a Piazzollamente que cualquier enumeración de premios.</p>
+        <p>Y hay un elemento que atraviesa toda esa evolución: la flauta traversa. En lugar de intentar reproducir literalmente el sonido histórico del quinteto piazzolliano, Piazzollamente ha ido construyendo una identidad en la que la flauta modifica la respiración, la articulación y el color de esta música. Violín, guitarra eléctrica, piano y contrabajo completan un sonido colectivo que reconoce la tradición sin quedar subordinado a ella.</p>
+        <figure class="traj-current"><img src="/assets/registro-historico/actual-008.webp" alt="Piazzollamente en una etapa reciente del proyecto" loading="lazy"><figcaption>Piazzollamente · etapa actual · 2026</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="traj-final">
+  <div class="container">
+    <p class="kicker">Una historia en movimiento</p>
+    <h2>Una forma contemporánea de entrar en el universo de Piazzolla.</h2>
     <p>Desde la perspectiva de un espectáculo destinado a crecer, ahí está probablemente su mayor fortaleza: Piazzollamente no vende nostalgia por Piazzolla; ofrece una forma contemporánea de entrar en su universo.</p>
-
     <p>El tango aparece, pero también aparecen la ciudad, la memoria, la migración, el vértigo, la violencia, el deseo, la pérdida y la transformación. Eso permite que el proyecto dialogue tanto con quienes conocen profundamente a Piazzolla como con públicos que nunca han entrado al tango.</p>
-
     <p>Por eso su trayectoria puede leerse como una expansión concéntrica: primero se construyó el lenguaje; después, el repertorio; luego, los registros; después llegaron las salas, los festivales, la circulación territorial y la dramaturgia. El siguiente crecimiento lógico ya no consiste solamente en acumular nuevas fechas. Consiste en llevar estos dos espectáculos a escenarios de mayor escala y convertir una trayectoria artística comprobable en una propuesta cultural capaz de convocar públicos masivos.</p>
-
-    <p class="final-quote">Piazzollamente llega a esa etapa con algo que no puede improvisarse: una historia.</p>
-
-    <p>Una historia construida entre Argentina y Chile, acumulada durante años en pequeños escenarios, museos, bares, salas, teatros, festivales y caminos; una historia que hoy permite que cada nuevo escenario no sea un comienzo, sino la continuación natural de un recorrido.</p>
-  </article>
-
-  <section class="archive-end">
-    <span class="label">Archivo visual</span>
-    <h2>El recorrido completo también quedó en imágenes.</h2>
-    <p>Si quieres ver más imágenes, entra al archivo visual.</p>
-    <a href="/registro-historico/">Entrar al archivo visual →</a>
-  </section>
+    <div class="traj-final-quote">Piazzollamente llega a esa etapa con algo que no puede improvisarse: una historia.</div>
+    <p style="margin-top:34px">Una historia construida entre Argentina y Chile, acumulada durante años en pequeños escenarios, museos, bares, salas, teatros, festivales y caminos; una historia que hoy permite que cada nuevo escenario no sea un comienzo, sino la continuación natural de un recorrido.</p>
+    <div class="section-actions"><a class="btn btn-red" href="/registro-historico/">Entrar al archivo visual</a><a class="btn btn-gold" href="/prensa-y-difusion/">Prensa y difusión</a></div>
+  </div>
+</section>
 </main>
 
-<footer id="contacto" class="institutional-footer" aria-label="Pie de página">
-  <div class="institutional-footer-inner">
-    <p><span class="institutional-footer-label">Piazzollamente</span>© 2026 Piazzollamente · Todos los derechos reservados.</p>
-    <p><span class="institutional-footer-label">Contacto</span><a href="mailto:Piazzollamente@gmail.com">Piazzollamente@gmail.com</a><br><a href="tel:+56981527088">+56 9 8152 7088</a></p>
-    <p class="institutional-footer-credit"><span class="institutional-footer-label">Sitio web</span>Creado por Valentina Galaz</p>
-  </div>
-</footer>
-<script>
-(() => {
-  const nav = document.getElementById('nav');
-  const toggle = document.getElementById('menu-toggle');
-  const links = document.getElementById('nav-links');
-  if (!nav || !toggle || !links) return;
-  const close = () => {
-    nav.classList.remove('menu-open');
-    toggle.setAttribute('aria-expanded','false');
-  };
-  toggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('menu-open');
-    toggle.setAttribute('aria-expanded', String(open));
-  });
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
-  document.addEventListener('click', e => { if (!nav.contains(e.target)) close(); });
-})();
-</script>
+<footer id="contacto" class="institutional-footer" aria-label="Pie de página"><div class="institutional-footer-inner"><p><span class="institutional-footer-label">Piazzollamente</span>© 2026 Piazzollamente · Todos los derechos reservados.</p><p><span class="institutional-footer-label">Contacto</span><a href="mailto:Piazzollamente@gmail.com">Piazzollamente@gmail.com</a><br><a href="tel:+56981527088">+56 9 8152 7088</a></p><p class="institutional-footer-credit"><span class="institutional-footer-label">Sitio web</span>Creado por Valentina Galaz</p></div></footer>
+<script>(()=>{const nav=document.getElementById('nav'),toggle=document.getElementById('menu-toggle'),links=document.getElementById('nav-links');if(!nav||!toggle||!links)return;const close=()=>{nav.classList.remove('menu-open');toggle.setAttribute('aria-expanded','false')};toggle.addEventListener('click',()=>{const open=nav.classList.toggle('menu-open');toggle.setAttribute('aria-expanded',String(open))});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));document.addEventListener('click',e=>{if(!nav.contains(e.target))close()})})();</script>
 </body>
 </html>
