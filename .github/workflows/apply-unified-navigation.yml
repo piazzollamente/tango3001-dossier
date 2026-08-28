@@ -24,7 +24,7 @@ jobs:
           from pathlib import Path
           import re
 
-          VERSION = '20260828-6'
+          VERSION = '20260828-7'
           changed = []
 
           for path in Path('.').rglob('*.html'):
