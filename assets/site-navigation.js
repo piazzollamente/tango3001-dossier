@@ -1,5 +1,6 @@
 (() => {
   const primaryLinks = [
+    ['Home', '/'],
     ['Trayectoria', '/trayectoria/'],
     ['Prensa y difusión', '/prensa-y-difusion/'],
     ['Las 4 Estaciones', '/las4estaciones/'],
@@ -37,6 +38,7 @@
   const normalizePath = (href) => {
     try {
       const url = new URL(href, window.location.origin);
+      if (url.pathname === '/') return '/';
       return url.pathname.endsWith('/') ? url.pathname : `${url.pathname}/`;
     } catch (_) {
       return '';
