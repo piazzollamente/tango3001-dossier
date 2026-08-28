@@ -18,8 +18,8 @@
 <link rel="stylesheet" href="/assets/typography.css?v=footer-20260825-2">
 <link rel="stylesheet" href="/assets/piazzollamente-system.css">
 <link rel="stylesheet" href="/assets/home.css?v=editorial-columns-20260824">
-<link rel="stylesheet" href="/assets/site-navigation.css?v=20260828-7">
-<script defer src="/assets/site-navigation.js?v=20260828-7"></script>
+<link rel="stylesheet" href="/assets/site-navigation.css?v=20260828-8">
+<script defer src="/assets/site-navigation.js?v=20260828-8"></script>
 <style>
 :root{
   --traj-paper:#f5ede0;
@@ -157,9 +157,30 @@
   .traj-2026-grid{grid-template-columns:1fr}
 }
 @media(max-width:680px){
-  .traj-hero{min-height:72vh}
-  .traj-hero-copy{width:min(100% - 24px,1160px);padding-top:130px}
-  .traj-hero h1{font-size:clamp(58px,18vw,84px)}
+  .traj-hero{min-height:68svh}
+  .traj-hero-media img{object-position:center 43%}
+  .traj-hero-copy{width:min(100% - 32px,1160px);padding:112px 0 38px}
+  .traj-hero .kicker{font-size:9px!important;letter-spacing:.16em!important;line-height:1.35!important}
+  .traj-hero h1{margin-top:12px;max-width:100%;font-size:clamp(50px,15vw,64px);line-height:.86;letter-spacing:-.035em}
+  .traj-hero-bottom{gap:0;margin-top:22px}
+  .traj-hero-bottom p{max-width:100%;font-size:15px;line-height:1.62}
+  .traj-meta{margin-top:20px;gap:7px}
+  .traj-meta span{padding:7px 10px;font-size:8px;letter-spacing:.11em;line-height:1.2}
+
+  .traj-intro{padding:58px 0 64px!important}
+  .traj-intro-grid{gap:26px}
+  .traj-intro .kicker{margin-bottom:12px!important}
+  .traj-intro .section-title{max-width:100%;font-size:clamp(43px,12.3vw,56px)!important;line-height:.91!important;letter-spacing:-.03em!important}
+  .traj-intro-copy p{margin-bottom:16px;font-size:15px;line-height:1.74}
+  .traj-intro-copy p:first-child{font-size:17px;line-height:1.7}
+
+  .traj-era .section-title,
+  .traj-2025 .section-title,
+  .traj-2026 .section-title,
+  .traj-evolution .section-title{font-size:clamp(42px,11.8vw,54px)!important;line-height:.92!important;letter-spacing:-.028em!important}
+  .traj-feature-copy h2{font-size:clamp(44px,12vw,56px);line-height:.92}
+  .traj-final h2{font-size:clamp(44px,12vw,58px);line-height:.9}
+
   .traj-card-grid{grid-template-columns:1fr 1fr;gap:10px}
   .traj-card-media{height:190px}
   .traj-card-body{padding:14px}
@@ -167,6 +188,15 @@
   .traj-2026-card{grid-template-columns:1fr}
   .traj-2026-media{min-height:260px;border-right:0;border-bottom:1px solid rgba(127,33,28,.12)}
   .traj-feature-media img{max-height:520px}
+}
+@media(max-width:420px){
+  .traj-hero{min-height:66svh}
+  .traj-hero-copy{width:calc(100% - 28px);padding:106px 0 34px}
+  .traj-hero h1{font-size:clamp(48px,14.3vw,58px)}
+  .traj-hero-bottom p{font-size:14.5px;line-height:1.58}
+  .traj-meta{margin-top:18px}
+  .traj-intro{padding:50px 0 56px!important}
+  .traj-intro .section-title{font-size:clamp(40px,11.6vw,50px)!important}
 }
 </style>
 </head>
