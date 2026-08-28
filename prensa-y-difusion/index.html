@@ -10,53 +10,179 @@
 <meta property="og:title" content="Prensa y difusión · Piazzollamente">
 <meta property="og:description" content="Entrevistas, cobertura editorial y respaldos institucionales que documentan la circulación de Piazzollamente en Chile y Argentina.">
 <meta property="og:url" content="https://piazzollamente.cl/prensa-y-difusion/">
+<meta property="og:image" content="https://piazzollamente.cl/assets/registro-historico/2026-02-20-valparatango-piazzollamente.png">
 <link rel="icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/typography.css?v=footer-20260825-2">
+<link rel="stylesheet" href="/assets/piazzollamente-system.css">
+<link rel="stylesheet" href="/assets/home.css?v=editorial-columns-20260824">
 <link rel="stylesheet" href="/assets/site-navigation.css?v=20260825-3">
 <script defer src="/assets/site-navigation.js?v=20260828-1"></script>
 <style>
-:root{
-  --night:#080605;
-  --paper:#f5ede2;
-  --ink:#261f1c;
-  --body:#625850;
-  --wine:#7b1d21;
-  --gold:#d0ad72;
-  --line:rgba(72,53,45,.16);
-  --dark-line:rgba(242,214,154,.16);
+.press-hero{
+  position:relative;
+  min-height:72vh;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  padding:clamp(140px,18vw,220px) 0 clamp(70px,8vw,100px)!important;
+  border-top:0!important;
+  background:
+    linear-gradient(180deg,rgba(8,6,5,.18),rgba(8,6,5,.96)),
+    radial-gradient(circle at 82% 15%,rgba(181,53,42,.24),transparent 32%),
+    #080605;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--night);color:#fff7ed;overflow-x:hidden}
-a{color:inherit}
-.container{width:min(1120px,calc(100% - 36px));margin:auto}
-.hero{padding:clamp(124px,15vw,190px) 0 clamp(72px,9vw,110px);background:radial-gradient(circle at 78% 10%,rgba(123,29,33,.24),transparent 34%),var(--night)}
-.kicker{margin:0 0 16px;color:#f2d69a;font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
-.hero h1{margin:0;font-family:var(--font-display);font-size:clamp(64px,10vw,118px);font-weight:400;line-height:.84;letter-spacing:-.035em}
-.hero .lead{max-width:760px;margin:30px 0 0;color:rgba(255,247,237,.72);font-size:clamp(17px,1.6vw,21px);line-height:1.75}
-.archive{background:var(--paper);color:var(--ink);padding:clamp(72px,8vw,108px) 0 clamp(100px,11vw,148px)}
-.archive-section{margin:0 0 clamp(78px,9vw,118px)}
-.archive-section:last-child{margin-bottom:0}
-.section-head{display:grid;grid-template-columns:88px minmax(0,1fr);gap:24px;align-items:start;padding-bottom:24px;border-bottom:1px solid var(--line)}
-.section-number{padding-top:8px;color:var(--wine);font:600 9px/1 var(--font-sans);letter-spacing:.18em;text-transform:uppercase}
-.section-head h2{margin:0;font-family:var(--font-display);font-size:clamp(38px,5vw,62px);font-weight:400;line-height:.98;letter-spacing:-.025em}
-.section-intro{max-width:690px;margin:18px 0 0;color:var(--body);font-size:15px;line-height:1.75}
-.press-row{display:grid;grid-template-columns:150px minmax(0,1fr) 164px;gap:30px;align-items:start;padding:28px 0;border-bottom:1px solid var(--line)}
-.press-meta{color:#8b7c71;font:500 10px/1.6 var(--font-sans);letter-spacing:.08em;text-transform:uppercase}
-.press-body h3{margin:0 0 8px;font-family:var(--font-display);font-size:clamp(25px,2.8vw,34px);font-weight:500;line-height:1.05}
-.press-body p{max-width:690px;margin:0;color:var(--body);font-size:14px;line-height:1.72}
-.press-links{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
-.press-link{display:inline-flex;align-items:center;gap:8px;color:var(--wine);font:600 9px/1.4 var(--font-sans);letter-spacing:.11em;text-transform:uppercase;text-decoration:none}
-.press-link:hover{text-decoration:underline;text-underline-offset:4px}
-.institutional-footer{border-top:1px solid var(--dark-line)}
-@media(max-width:780px){
-  .section-head{grid-template-columns:1fr;gap:8px}
-  .press-row{grid-template-columns:1fr;gap:10px;padding:24px 0}
-  .press-links{align-items:flex-start;margin-top:5px}
-  .hero{padding-top:112px}
+.press-hero::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:34%;
+  background:linear-gradient(180deg,transparent,#080605);
+  pointer-events:none;
+}
+.press-hero .container{position:relative;z-index:2}
+.press-hero h1{
+  margin:14px 0 0;
+  max-width:1080px;
+  font-family:var(--font-display);
+  font-size:clamp(66px,11vw,140px);
+  font-weight:400;
+  line-height:.82;
+  letter-spacing:-.045em;
+  text-transform:uppercase;
+}
+.press-hero-copy{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:44px;
+  align-items:end;
+  margin-top:34px;
+}
+.press-hero-copy p{margin:0;color:var(--muted);font-size:clamp(16px,1.7vw,20px);max-width:690px}
+.press-hero-meta{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.press-hero-meta span{
+  padding:8px 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  color:var(--gold);
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.press-featured{background:linear-gradient(180deg,#100c0a,#080605)!important}
+.press-featured .section-head{margin-bottom:38px}
+.press-featured-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+.press-feature-card{
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:26px;
+  background:linear-gradient(145deg,rgba(26,20,16,.96),rgba(12,9,8,.96));
+  box-shadow:0 26px 78px rgba(0,0,0,.24);
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+}
+.press-feature-media{aspect-ratio:16/10;overflow:hidden;background:#0c0908}
+.press-feature-media img{width:100%;height:100%;object-fit:cover;transition:none}
+.press-feature-card:nth-child(2) .press-feature-media img{object-position:center 38%}
+.press-feature-card:nth-child(3) .press-feature-media img{object-position:center 44%}
+.press-feature-body{padding:25px;display:flex;flex-direction:column;flex:1}
+.press-feature-type{color:var(--gold);font-size:9px;font-weight:600;letter-spacing:.17em;text-transform:uppercase}
+.press-feature-body h3{
+  margin:12px 0 13px;
+  font-family:var(--font-display);
+  font-size:clamp(31px,3.4vw,46px);
+  font-weight:500;
+  line-height:.94;
+  letter-spacing:-.02em;
+}
+.press-feature-body p{margin:0 0 24px;color:var(--muted);font-size:13px;line-height:1.65}
+.press-feature-link{margin-top:auto;color:var(--gold);font-size:9px;font-weight:600;letter-spacing:.13em;text-transform:uppercase}
+.press-feature-link:hover{text-decoration:underline;text-underline-offset:4px}
+
+.press-facts{background:var(--paper)!important;color:var(--ink)}
+.press-facts .kicker{color:var(--wine)}
+.press-facts .section-title{color:var(--ink)}
+.press-facts .lead{color:#675a53}
+.press-facts .milestone-grid{grid-template-columns:repeat(4,1fr)}
+.press-facts .milestone strong{font-size:clamp(28px,3vw,40px)}
+
+.press-editorial{background:radial-gradient(circle at 88% 0%,rgba(181,53,42,.12),transparent 28%),linear-gradient(180deg,#080605,#100c0a)!important}
+.press-editorial .journey-head{max-width:940px}
+.press-editorial .journey-head h2{max-width:940px}
+.press-editorial .av-item{grid-template-columns:74px 1fr 180px;min-height:122px}
+.press-editorial .av-list::before{left:92px}
+.press-editorial .av-year{font-size:26px}
+.press-editorial .av-content h3{font-size:clamp(28px,3.3vw,40px)}
+.press-item-links{display:flex;flex-direction:column;align-items:flex-end;gap:7px}
+.press-item-links a{color:var(--gold);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.press-item-links a:hover{text-decoration:underline;text-underline-offset:4px}
+
+.press-specialized{background:var(--paper)!important;color:var(--ink)}
+.press-specialized .kicker{color:var(--wine)}
+.press-specialized .section-title{color:var(--ink)}
+.press-specialized .lead{color:#675a53}
+.press-specialized-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:32px}
+.press-specialized-card{
+  min-height:230px;
+  padding:28px;
+  border:1px solid rgba(127,33,28,.16);
+  border-radius:24px;
+  background:linear-gradient(145deg,rgba(255,255,255,.42),rgba(127,33,28,.035));
+  display:flex;
+  flex-direction:column;
+}
+.press-specialized-card .year{color:var(--wine);font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.press-specialized-card h3{margin:14px 0 10px;font-family:var(--font-display);font-size:clamp(30px,3.5vw,45px);font-weight:500;line-height:.95}
+.press-specialized-card p{margin:0 0 20px;color:#685a53;font-size:13px;line-height:1.65}
+.press-specialized-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:auto}
+.press-specialized-links a{color:var(--wine);font-size:9px;font-weight:600;letter-spacing:.11em;text-transform:uppercase}
+.press-specialized-links a:hover{text-decoration:underline;text-underline-offset:4px}
+
+.press-institutional{background:linear-gradient(180deg,#100c0a,#080605)!important;text-align:left!important}
+.press-institutional .section-head{margin-bottom:36px}
+.press-institutional .choice-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:0}
+.press-institutional .choice-card{min-height:220px;display:flex;flex-direction:column}
+.press-institutional .choice-card h3{font-size:clamp(29px,3.4vw,43px);text-transform:none}
+.press-institutional .choice-card p{line-height:1.65}
+.press-institutional .choice-card .section-actions{margin-top:auto}
+.press-institutional .choice-card .btn{min-height:42px;padding:10px 15px;font-size:8px}
+
+.press-audiovisual{background:radial-gradient(circle at 50% 0%,rgba(181,53,42,.14),transparent 36%),#080605!important}
+.press-audiovisual .show-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.press-audiovisual .show-media{height:auto;aspect-ratio:16/9}
+.press-audiovisual .show-media img{width:100%;height:100%;object-fit:cover}
+.press-audiovisual .show-card h3{text-transform:none;font-family:var(--font-display)}
+.press-audiovisual .show-card p{line-height:1.65}
+
+@media(max-width:980px){
+  .press-hero-copy{grid-template-columns:1fr}
+  .press-hero-meta{justify-content:flex-start}
+  .press-featured-grid{grid-template-columns:1fr 1fr}
+  .press-feature-card:last-child{grid-column:1/-1}
+  .press-facts .milestone-grid{grid-template-columns:repeat(2,1fr)}
+  .press-editorial .av-item{grid-template-columns:62px 1fr}
+  .press-editorial .av-list::before{left:80px}
+  .press-item-links{grid-column:2;align-items:flex-start;flex-direction:row;flex-wrap:wrap}
+}
+@media(max-width:680px){
+  .press-hero{min-height:66vh;padding-top:120px!important}
+  .press-hero h1{font-size:clamp(58px,18vw,84px)}
+  .press-featured-grid,.press-specialized-grid,.press-institutional .choice-grid,.press-audiovisual .show-grid{grid-template-columns:1fr}
+  .press-feature-card:last-child{grid-column:auto}
+  .press-facts .milestone-grid{grid-template-columns:1fr 1fr}
+  .press-editorial .av-item{grid-template-columns:1fr;padding:22px}
+  .press-editorial .av-list::before{display:none}
+  .press-editorial .av-year{text-align:left;background:transparent}
+  .press-item-links{grid-column:auto}
 }
 </style>
 </head>
@@ -79,173 +205,129 @@ a{color:inherit}
 </nav>
 
 <main id="contenido">
-<header class="hero">
+<section class="press-hero">
   <div class="container">
     <p class="kicker">Archivo documental</p>
-    <h1>Prensa y difusión</h1>
-    <p class="lead">Entrevistas, cobertura editorial, medios especializados y programación institucional que documentan la circulación de Piazzollamente en Chile y Argentina.</p>
+    <h1>Prensa<br>y difusión</h1>
+    <div class="press-hero-copy">
+      <p>Entrevistas, cobertura editorial, medios especializados y programación institucional que documentan la circulación de Piazzollamente en Chile y Argentina.</p>
+      <div class="press-hero-meta" aria-label="Datos del archivo">
+        <span>2022—2026</span><span>Chile · Argentina</span><span>Radio · prensa · tango</span><span>Archivo vivo</span>
+      </div>
+    </div>
   </div>
-</header>
+</section>
 
-<div class="archive">
+<section class="press-featured">
   <div class="container">
+    <div class="section-head">
+      <p class="kicker">Selección editorial</p>
+      <div><h2 class="section-title">Tres momentos para entrar al archivo.</h2><p class="lead">Entrevistas, medios y festivales que permiten recorrer distintas etapas del proyecto.</p></div>
+    </div>
 
-    <section class="archive-section" aria-labelledby="prensa-entrevistas">
-      <div class="section-head">
-        <div class="section-number">01</div>
-        <div><h2 id="prensa-entrevistas">Prensa y entrevistas</h2><p class="section-intro">Coberturas y conversaciones en medios donde Piazzollamente es objeto de una nota, entrevista o tratamiento editorial.</p></div>
-      </div>
-
-      <article class="press-row">
-        <div class="press-meta">2025 · Chile</div>
-        <div class="press-body"><h3>El Semáforo · Radio Universidad de Chile</h3><p>Entrevista a Piazzollamente en el programa cultural de Radio Universidad de Chile.</p></div>
-        <div class="press-links"><a class="press-link" href="https://www.youtube.com/watch?v=s0G9W0a7Z1g" target="_blank" rel="noopener">Ver entrevista ↗</a></div>
+    <div class="press-featured-grid">
+      <article class="press-feature-card">
+        <a class="press-feature-media" href="https://www.youtube.com/watch?v=s0G9W0a7Z1g" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/s0G9W0a7Z1g/hqdefault.jpg" alt="Entrevista de Piazzollamente en El Semáforo de Radio Universidad de Chile" loading="lazy"></a>
+        <div class="press-feature-body"><span class="press-feature-type">Entrevista · Chile · 2025</span><h3>El Semáforo</h3><p>Radio Universidad de Chile conversa con Piazzollamente sobre el proyecto y su trabajo artístico.</p><a class="press-feature-link" href="https://www.youtube.com/watch?v=s0G9W0a7Z1g" target="_blank" rel="noopener">Ver entrevista ↗</a></div>
       </article>
 
-      <article class="press-row">
-        <div class="press-meta">2025 · Chile</div>
-        <div class="press-body"><h3>Itinerancia por la Región de Coquimbo</h3><p>Cobertura de la gira territorial de Piazzollamente por la Región de Coquimbo.</p></div>
-        <div class="press-links"><a class="press-link" href="https://indieproject.cl/piazzollamente-se-presenta-este-viernes-en-la-serena-dentro-de-una-itinerancia-por-la-region-de-coquimbo/" target="_blank" rel="noopener">IndieProject ↗</a><a class="press-link" href="https://regiondecoquimbo.cl/2025/07/14/piazzollamente-se-presenta-este-viernes-en-la-serena-dentro-de-una-itinerancia-por-la-region-de-coquimbo/" target="_blank" rel="noopener">Región de Coquimbo ↗</a></div>
+      <article class="press-feature-card">
+        <a class="press-feature-media" href="https://www.sitioandino.com.ar/cultura/propuesta-musica-ciudadana-experiencia-tango-joven-n5662352" target="_blank" rel="noopener"><img src="/assets/registro-historico/2023-09-21-experiencia-tango-joven.png" alt="Experiencia Tango Joven con Piazzollamente en Mendoza" loading="lazy"></a>
+        <div class="press-feature-body"><span class="press-feature-type">Prensa · Argentina · 2023</span><h3>Experiencia Tango Joven</h3><p>Sitio Andino dedica una nota a la propuesta de música ciudadana presentada en Mendoza.</p><a class="press-feature-link" href="https://www.sitioandino.com.ar/cultura/propuesta-musica-ciudadana-experiencia-tango-joven-n5662352" target="_blank" rel="noopener">Leer nota ↗</a></div>
       </article>
 
-      <article class="press-row">
-        <div class="press-meta">2024 · Argentina</div>
-        <div class="press-body"><h3>Música Clásica por los Caminos del Vino · Sitio Andino</h3><p>Cobertura de los artistas seleccionados para la edición 2024 del festival mendocino.</p></div>
-        <div class="press-links"><a class="press-link" href="https://www.sitioandino.com.ar/cultura/que-artistas-estaran-musica-clasica-los-caminos-del-vino-n5673112" target="_blank" rel="noopener">Leer nota ↗</a></div>
+      <article class="press-feature-card">
+        <a class="press-feature-media" href="https://valpocultura.cl/valparatango-2026-llega-al-puerto-en-su-version-n36/" target="_blank" rel="noopener"><img src="/assets/registro-historico/2026-02-20-valparatango-piazzollamente.png" alt="Piazzollamente en la programación de ValparaTango 2026" loading="lazy"></a>
+        <div class="press-feature-body"><span class="press-feature-type">Festival · Chile · 2026</span><h3>ValparaTango</h3><p>La participación de Piazzollamente en la edición 2026 circuló en medios y plataformas culturales.</p><a class="press-feature-link" href="https://valpocultura.cl/valparatango-2026-llega-al-puerto-en-su-version-n36/" target="_blank" rel="noopener">Ver publicación ↗</a></div>
       </article>
-
-      <article class="press-row">
-        <div class="press-meta">2023 · Argentina</div>
-        <div class="press-body"><h3>Experiencia Tango Joven · Sitio Andino</h3><p>Nota dedicada a la propuesta de música ciudadana que presentó a Piazzollamente en Mendoza.</p></div>
-        <div class="press-links"><a class="press-link" href="https://www.sitioandino.com.ar/cultura/propuesta-musica-ciudadana-experiencia-tango-joven-n5662352" target="_blank" rel="noopener">Leer nota ↗</a></div>
-      </article>
-
-      <article class="press-row">
-        <div class="press-meta">2023 · Argentina</div>
-        <div class="press-body"><h3>Radio UTN Mendoza</h3><p>Entrevista a Valentina Galaz y Piazzollamente en Radio Universidad Tecnológica Nacional Mendoza.</p></div>
-        <div class="press-links"><a class="press-link" href="https://www.youtube.com/watch?v=pb2yxVqDsCA" target="_blank" rel="noopener">Ver entrevista ↗</a></div>
-      </article>
-
-      <article class="press-row">
-        <div class="press-meta">2023 · Argentina</div>
-        <div class="press-body"><h3>El Buen Salvaje · Radio Andina</h3><p>Entrevista con Piazzollamente en el programa cultural El Buen Salvaje.</p></div>
-        <div class="press-links"><a class="press-link" href="https://podcasts.apple.com/ug/podcast/el-buen-salvaje-entrevista-con-piazzollamente-grupo/id1570377740?i=1000638451628" target="_blank" rel="noopener">Escuchar ↗</a></div>
-      </article>
-
-      <article class="press-row">
-        <div class="press-meta">2023 · Argentina</div>
-        <div class="press-body"><h3>San Vicente Tango</h3><p>Cobertura periodística del festival realizado en Godoy Cruz, Mendoza, con participación de Piazzollamente.</p></div>
-        <div class="press-links"><a class="press-link" href="https://www.sitioandino.com.ar/cultura/el-tango-se-instala-el-fin-semana-godoy-cruz-n5663544" target="_blank" rel="noopener">Sitio Andino ↗</a><a class="press-link" href="https://www.mendovoz.com/godoy-cruz/la-comuna/2023/10/5/tres-dias-para-disfrutar-de-lo-mejor-del-tango-en-godoy-cruz-133745.html" target="_blank" rel="noopener">MendoVoz ↗</a></div>
-      </article>
-
-      <article class="press-row">
-        <div class="press-meta">2022 · Argentina</div>
-        <div class="press-body"><h3>Agenda cultural · Sitio Andino</h3><p>Registro de una presentación de Piazzollamente junto a La Cuarta de Fierro en Mendoza.</p></div>
-        <div class="press-links"><a class="press-link" href="https://www.sitioandino.com.ar/muchoshow/agenda-cultural-sitio-andino-se-corre-el-telon-n5639830" target="_blank" rel="noopener">Leer publicación ↗</a></div>
-      </article>
-    </section>
-
-    <section class="archive-section" aria-labelledby="especializados">
-      <div class="section-head">
-        <div class="section-number">02</div>
-        <div><h2 id="especializados">Medios especializados y difusión editorial</h2><p class="section-intro">Presencia del proyecto en agendas culturales, publicaciones especializadas y cobertura editorial vinculada al tango y la programación musical.</p></div>
-      </div>
-
-      <article class="press-row">
-        <div class="press-meta">2026 · Argentina / Chile</div>
-        <div class="press-body"><h3>Fractura Expuesta · Agenda de tango</h3><p>Piazzollamente en la agenda especializada de tango con su presentación de agosto de 2026 en Santiago.</p></div>
-        <div class="press-links"><a class="press-link" href="https://www.fracturaexpuesta.com.ar/gotan/agenda-de-tango/" target="_blank" rel="noopener">Ver agenda ↗</a></div>
-      </article>
-
-      <article class="press-row">
-        <div class="press-meta">2025 · Argentina / Chile</div>
-        <div class="press-body"><h3>Fractura Expuesta · Tango para el 3001</h3><p>Registro del espectáculo en Sala Master dentro de la agenda de conciertos del medio argentino especializado en tango.</p></div>
-        <div class="press-links"><a class="press-link" href="https://www.fracturaexpuesta.com.ar/gotan/sali-de-tango-con-la-agenda-de-conciertos-de-fractura-expuesta/" target="_blank" rel="noopener">Ver agenda ↗</a></div>
-      </article>
-
-      <article class="press-row">
-        <div class="press-meta">2025 · Chile</div>
-        <div class="press-body"><h3>Cultura Acompañada · Sala SCD</h3><p>Difusión editorial del ciclo latinoamericano de Sala SCD Plaza Egaña con una presentación específica de Piazzollamente.</p></div>
-        <div class="press-links"><a class="press-link" href="https://culturaacompanada.blogspot.com/2025/04/ritmos-de-toda-latinoamerica-aterrizan.html" target="_blank" rel="noopener">Leer publicación ↗</a></div>
-      </article>
-
-      <article class="press-row">
-        <div class="press-meta">2026 · Chile</div>
-        <div class="press-body"><h3>ValparaTango · cobertura en medios</h3><p>Cobertura de la edición 2026 del Festival Internacional ValparaTango y de la participación de Piazzollamente.</p></div>
-        <div class="press-links"><a class="press-link" href="https://presslatam.cl/2026/02/valparatango-2026-llega-al-puerto-en-su-version-n36/" target="_blank" rel="noopener">PressLatam ↗</a><a class="press-link" href="https://www.radiofestival.cl/valparatango-2026-llega-al-puerto-en-su-version-n36/" target="_blank" rel="noopener">Radio Festival ↗</a><a class="press-link" href="https://www.elperiodista.cl/2026/02/festival-internacional-valparatango-2026-llega-a-la-plaza-civica/" target="_blank" rel="noopener">El Periodista ↗</a></div>
-      </article>
-    </section>
-
-    <section class="archive-section" aria-labelledby="institucional">
-      <div class="section-head">
-        <div class="section-number">03</div>
-        <div><h2 id="institucional">Programación y respaldo institucional</h2><p class="section-intro">Publicaciones oficiales de salas, festivales, municipios y organismos culturales que respaldan funciones y circulación del proyecto.</p></div>
-      </div>
-
-      <article class="press-row">
-        <div class="press-meta">2026 · Chile</div>
-        <div class="press-body"><h3>ValparaTango 2026 · ValpoCultura</h3><p>Programación institucional del Festival Internacional ValparaTango.</p></div>
-        <div class="press-links"><a class="press-link" href="https://valpocultura.cl/valparatango-2026-llega-al-puerto-en-su-version-n36/" target="_blank" rel="noopener">Ver publicación ↗</a></div>
-      </article>
-
-      <article class="press-row">
-        <div class="press-meta">2025 · Chile</div>
-        <div class="press-body"><h3>Tango para el 3001 · Sala Master</h3><p>Ficha institucional del espectáculo presentado en Sala Master de Radio Universidad de Chile.</p></div>
-        <div class="press-links"><a class="press-link" href="https://www.salamaster.cl/archivos/evento/tango-para-el-3001" target="_blank" rel="noopener">Sala Master ↗</a><a class="press-link" href="https://portaldisc.com/evento/piazzollamente3001" target="_blank" rel="noopener">PortalDisc ↗</a></div>
-      </article>
-
-      <article class="press-row">
-        <div class="press-meta">2025 · Chile</div>
-        <div class="press-body"><h3>Piazzollamente · Sala SCD Plaza Egaña</h3><p>Programación institucional de la presentación de Piazzollamente en Sala SCD.</p></div>
-        <div class="press-links"><a class="press-link" href="https://salasscd.cl/sitio/events/piazzollamente/" target="_blank" rel="noopener">Ver ficha ↗</a><a class="press-link" href="https://salasscd.cl/sitio/noticia/tango-samba-y-folclore-en-vivo-ritmos-de-toda-latinoamerica-aterrizan-en-sala-scd-egana/" target="_blank" rel="noopener">Ver ciclo ↗</a></div>
-      </article>
-
-      <article class="press-row">
-        <div class="press-meta">2024 · Chile</div>
-        <div class="press-body"><h3>La Camorra · Rancagua Cultura</h3><p>Publicación institucional del Teatro Regional Lucho Gatica / Corporación de la Cultura y las Artes de Rancagua.</p></div>
-        <div class="press-links"><a class="press-link" href="https://rancaguacultura.cl/2024/08/26/piazollamente-presenta-la-camorra/" target="_blank" rel="noopener">Ver publicación ↗</a></div>
-      </article>
-
-      <article class="press-row">
-        <div class="press-meta">2023 · Argentina</div>
-        <div class="press-body"><h3>Música Clásica por los Caminos del Vino · Gobierno de Mendoza</h3><p>Publicación oficial de artistas seleccionados para la edición 2023 del festival.</p></div>
-        <div class="press-links"><a class="press-link" href="https://www.mendoza.gov.ar/prensa/artistas-seleccionados-para-una-nueva-edicion-de-musica-clasica-por-los-caminos-del-vino-2023/" target="_blank" rel="noopener">Ver publicación ↗</a></div>
-      </article>
-
-      <article class="press-row">
-        <div class="press-meta">2023 · Argentina</div>
-        <div class="press-body"><h3>San Vicente Tango · Municipalidad de Godoy Cruz</h3><p>Programación institucional del festival San Vicente Tango 2023.</p></div>
-        <div class="press-links"><a class="press-link" href="https://www.godoycruz.gob.ar/hernan-cucuza-castiello-actuara-san-vicente-tango-2023/" target="_blank" rel="noopener">Ver programación ↗</a></div>
-      </article>
-
-      <article class="press-row">
-        <div class="press-meta">2023 · Argentina</div>
-        <div class="press-body"><h3>Noches de Música · Museo Carlos Alonso</h3><p>Publicación de la programación del museo con participación de Piazzollamente.</p></div>
-        <div class="press-links"><a class="press-link" href="https://www.instagram.com/p/CsJlzLsrdUM/" target="_blank" rel="noopener">Ver registro ↗</a></div>
-      </article>
-    </section>
-
-    <section class="archive-section" aria-labelledby="audiovisual">
-      <div class="section-head">
-        <div class="section-number">04</div>
-        <div><h2 id="audiovisual">Registro audiovisual y archivo</h2><p class="section-intro">Registros externos que documentan etapas del proyecto y complementan su archivo público.</p></div>
-      </div>
-
-      <article class="press-row">
-        <div class="press-meta">2023 · Argentina</div>
-        <div class="press-body"><h3>Verano Porteño · registro audiovisual apoyado por INAMU</h3><p>Registro audiovisual de Piazzollamente vinculado al apoyo del Instituto Nacional de la Música de Argentina.</p></div>
-        <div class="press-links"><a class="press-link" href="https://www.youtube.com/watch?v=iKshS7Y0m_o" target="_blank" rel="noopener">Ver registro ↗</a></div>
-      </article>
-
-      <article class="press-row">
-        <div class="press-meta">2023 · Argentina</div>
-        <div class="press-body"><h3>San Vicente Tango · registro</h3><p>Registro audiovisual asociado a la participación del proyecto en el festival de Godoy Cruz.</p></div>
-        <div class="press-links"><a class="press-link" href="https://www.youtube.com/watch?v=gqUZ9Ma78M8" target="_blank" rel="noopener">Ver registro ↗</a></div>
-      </article>
-    </section>
-
+    </div>
   </div>
-</div>
+</section>
+
+<section class="press-facts milestones">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Archivo en perspectiva</p>
+      <div><h2 class="section-title">Una trayectoria también se documenta.</h2><p class="lead">El archivo reúne coberturas, entrevistas, agendas especializadas, programación institucional y registros audiovisuales.</p></div>
+    </div>
+    <div class="milestone-grid">
+      <div class="milestone"><strong>2022—2026</strong><span>Huella pública reunida en un mismo lugar.</span></div>
+      <div class="milestone"><strong>Chile</strong><span>Radio, salas, festivales y circulación territorial.</span></div>
+      <div class="milestone"><strong>Argentina</strong><span>Prensa, festivales y medios vinculados al tango.</span></div>
+      <div class="milestone"><strong>4 líneas</strong><span>Prensa · difusión · instituciones · audiovisual.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="press-editorial av-journey">
+  <div class="container">
+    <div class="journey-head">
+      <p class="kicker">Prensa y entrevistas</p>
+      <h2>El proyecto visto desde afuera.</h2>
+      <p>Coberturas y conversaciones en medios donde Piazzollamente es objeto de una nota, entrevista o tratamiento editorial.</p>
+    </div>
+
+    <div class="av-list">
+      <article class="av-item"><div class="av-year">2025</div><div class="av-content"><span>Chile · Entrevista</span><h3>El Semáforo · Radio Universidad de Chile</h3><p>Entrevista a Piazzollamente en el programa cultural de Radio Universidad de Chile.</p></div><div class="press-item-links"><a href="https://www.youtube.com/watch?v=s0G9W0a7Z1g" target="_blank" rel="noopener">Ver entrevista ↗</a></div></article>
+      <article class="av-item"><div class="av-year">2025</div><div class="av-content"><span>Chile · Prensa</span><h3>Itinerancia por la Región de Coquimbo</h3><p>Cobertura de la gira territorial de Piazzollamente por la Región de Coquimbo.</p></div><div class="press-item-links"><a href="https://indieproject.cl/piazzollamente-se-presenta-este-viernes-en-la-serena-dentro-de-una-itinerancia-por-la-region-de-coquimbo/" target="_blank" rel="noopener">IndieProject ↗</a><a href="https://regiondecoquimbo.cl/2025/07/14/piazzollamente-se-presenta-este-viernes-en-la-serena-dentro-de-una-itinerancia-por-la-region-de-coquimbo/" target="_blank" rel="noopener">Región de Coquimbo ↗</a></div></article>
+      <article class="av-item"><div class="av-year">2024</div><div class="av-content"><span>Argentina · Prensa</span><h3>Música Clásica por los Caminos del Vino · Sitio Andino</h3><p>Cobertura de los artistas seleccionados para la edición 2024 del festival mendocino.</p></div><div class="press-item-links"><a href="https://www.sitioandino.com.ar/cultura/que-artistas-estaran-musica-clasica-los-caminos-del-vino-n5673112" target="_blank" rel="noopener">Leer nota ↗</a></div></article>
+      <article class="av-item"><div class="av-year">2023</div><div class="av-content"><span>Argentina · Prensa</span><h3>Experiencia Tango Joven · Sitio Andino</h3><p>Nota dedicada a la propuesta de música ciudadana que presentó a Piazzollamente en Mendoza.</p></div><div class="press-item-links"><a href="https://www.sitioandino.com.ar/cultura/propuesta-musica-ciudadana-experiencia-tango-joven-n5662352" target="_blank" rel="noopener">Leer nota ↗</a></div></article>
+      <article class="av-item"><div class="av-year">2023</div><div class="av-content"><span>Argentina · Entrevista</span><h3>Radio UTN Mendoza</h3><p>Entrevista a Valentina Galaz y Piazzollamente en Radio Universidad Tecnológica Nacional Mendoza.</p></div><div class="press-item-links"><a href="https://www.youtube.com/watch?v=pb2yxVqDsCA" target="_blank" rel="noopener">Ver entrevista ↗</a></div></article>
+      <article class="av-item"><div class="av-year">2023</div><div class="av-content"><span>Argentina · Entrevista</span><h3>El Buen Salvaje · Radio Andina</h3><p>Entrevista con Piazzollamente en el programa cultural El Buen Salvaje.</p></div><div class="press-item-links"><a href="https://podcasts.apple.com/ug/podcast/el-buen-salvaje-entrevista-con-piazzollamente-grupo/id1570377740?i=1000638451628" target="_blank" rel="noopener">Escuchar ↗</a></div></article>
+      <article class="av-item"><div class="av-year">2023</div><div class="av-content"><span>Argentina · Prensa</span><h3>San Vicente Tango</h3><p>Cobertura periodística del festival realizado en Godoy Cruz, Mendoza, con participación de Piazzollamente.</p></div><div class="press-item-links"><a href="https://www.sitioandino.com.ar/cultura/el-tango-se-instala-el-fin-semana-godoy-cruz-n5663544" target="_blank" rel="noopener">Sitio Andino ↗</a><a href="https://www.mendovoz.com/godoy-cruz/la-comuna/2023/10/5/tres-dias-para-disfrutar-de-lo-mejor-del-tango-en-godoy-cruz-133745.html" target="_blank" rel="noopener">MendoVoz ↗</a></div></article>
+      <article class="av-item"><div class="av-year">2022</div><div class="av-content"><span>Argentina · Agenda cultural</span><h3>Sitio Andino</h3><p>Registro de una presentación de Piazzollamente junto a La Cuarta de Fierro en Mendoza.</p></div><div class="press-item-links"><a href="https://www.sitioandino.com.ar/muchoshow/agenda-cultural-sitio-andino-se-corre-el-telon-n5639830" target="_blank" rel="noopener">Leer publicación ↗</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="press-specialized">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Medios especializados</p>
+      <div><h2 class="section-title">El tango también registra el recorrido.</h2><p class="lead">Agendas culturales, medios especializados y publicaciones que sitúan a Piazzollamente dentro de una circulación artística más amplia.</p></div>
+    </div>
+
+    <div class="press-specialized-grid">
+      <article class="press-specialized-card"><span class="year">2026 · Argentina / Chile</span><h3>Fractura Expuesta · Agenda de tango</h3><p>Piazzollamente aparece en la agenda especializada con su presentación de agosto de 2026 en Santiago.</p><div class="press-specialized-links"><a href="https://www.fracturaexpuesta.com.ar/gotan/agenda-de-tango/" target="_blank" rel="noopener">Ver agenda ↗</a></div></article>
+      <article class="press-specialized-card"><span class="year">2025 · Argentina / Chile</span><h3>Fractura Expuesta · Tango para el 3001</h3><p>Registro del espectáculo en Sala Master dentro de la agenda de conciertos del medio argentino especializado en tango.</p><div class="press-specialized-links"><a href="https://www.fracturaexpuesta.com.ar/gotan/sali-de-tango-con-la-agenda-de-conciertos-de-fractura-expuesta/" target="_blank" rel="noopener">Ver agenda ↗</a></div></article>
+      <article class="press-specialized-card"><span class="year">2025 · Chile</span><h3>Cultura Acompañada · Sala SCD</h3><p>Difusión editorial del ciclo latinoamericano de Sala SCD Plaza Egaña con una presentación específica de Piazzollamente.</p><div class="press-specialized-links"><a href="https://culturaacompanada.blogspot.com/2025/04/ritmos-de-toda-latinoamerica-aterrizan.html" target="_blank" rel="noopener">Leer publicación ↗</a></div></article>
+      <article class="press-specialized-card"><span class="year">2026 · Chile</span><h3>ValparaTango · cobertura en medios</h3><p>Cobertura de la edición 2026 del Festival Internacional ValparaTango y de la participación de Piazzollamente.</p><div class="press-specialized-links"><a href="https://presslatam.cl/2026/02/valparatango-2026-llega-al-puerto-en-su-version-n36/" target="_blank" rel="noopener">PressLatam ↗</a><a href="https://www.radiofestival.cl/valparatango-2026-llega-al-puerto-en-su-version-n36/" target="_blank" rel="noopener">Radio Festival ↗</a><a href="https://www.elperiodista.cl/2026/02/festival-internacional-valparatango-2026-llega-a-la-plaza-civica/" target="_blank" rel="noopener">El Periodista ↗</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="press-institutional choice">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Programación y respaldo institucional</p>
+      <div><h2 class="section-title">Escenarios, festivales e instituciones.</h2><p class="lead">Publicaciones oficiales que documentan funciones y circulación del proyecto.</p></div>
+    </div>
+
+    <div class="choice-grid">
+      <article class="choice-card"><h3>ValparaTango 2026</h3><p>Programación institucional del Festival Internacional ValparaTango.</p><div class="section-actions"><a class="btn btn-gold" href="https://valpocultura.cl/valparatango-2026-llega-al-puerto-en-su-version-n36/" target="_blank" rel="noopener">ValpoCultura ↗</a></div></article>
+      <article class="choice-card"><h3>Tango para el 3001 · Sala Master</h3><p>Ficha institucional del espectáculo presentado en Sala Master de Radio Universidad de Chile.</p><div class="section-actions"><a class="btn btn-gold" href="https://www.salamaster.cl/archivos/evento/tango-para-el-3001" target="_blank" rel="noopener">Sala Master ↗</a><a class="btn btn-gold" href="https://portaldisc.com/evento/piazzollamente3001" target="_blank" rel="noopener">PortalDisc ↗</a></div></article>
+      <article class="choice-card"><h3>Sala SCD Plaza Egaña</h3><p>Programación institucional de la presentación de Piazzollamente en Sala SCD.</p><div class="section-actions"><a class="btn btn-gold" href="https://salasscd.cl/sitio/events/piazzollamente/" target="_blank" rel="noopener">Ver ficha ↗</a><a class="btn btn-gold" href="https://salasscd.cl/sitio/noticia/tango-samba-y-folclore-en-vivo-ritmos-de-toda-latinoamerica-aterrizan-en-sala-scd-egana/" target="_blank" rel="noopener">Ver ciclo ↗</a></div></article>
+      <article class="choice-card"><h3>La Camorra · Rancagua Cultura</h3><p>Publicación institucional del Teatro Regional Lucho Gatica / Corporación de la Cultura y las Artes de Rancagua.</p><div class="section-actions"><a class="btn btn-gold" href="https://rancaguacultura.cl/2024/08/26/piazollamente-presenta-la-camorra/" target="_blank" rel="noopener">Ver publicación ↗</a></div></article>
+      <article class="choice-card"><h3>Caminos del Vino · Gobierno de Mendoza</h3><p>Publicación oficial de artistas seleccionados para la edición 2023 del festival.</p><div class="section-actions"><a class="btn btn-gold" href="https://www.mendoza.gov.ar/prensa/artistas-seleccionados-para-una-nueva-edicion-de-musica-clasica-por-los-caminos-del-vino-2023/" target="_blank" rel="noopener">Ver publicación ↗</a></div></article>
+      <article class="choice-card"><h3>San Vicente Tango · Godoy Cruz</h3><p>Programación institucional del festival San Vicente Tango 2023.</p><div class="section-actions"><a class="btn btn-gold" href="https://www.godoycruz.gob.ar/hernan-cucuza-castiello-actuara-san-vicente-tango-2023/" target="_blank" rel="noopener">Ver programación ↗</a></div></article>
+      <article class="choice-card"><h3>Noches de Música · Museo Carlos Alonso</h3><p>Publicación de la programación del museo con participación de Piazzollamente.</p><div class="section-actions"><a class="btn btn-gold" href="https://www.instagram.com/p/CsJlzLsrdUM/" target="_blank" rel="noopener">Ver registro ↗</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="press-audiovisual current-video">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Registro audiovisual</p>
+      <div><h2 class="section-title">El archivo también se escucha y se ve.</h2><p class="lead">Registros externos que documentan etapas del proyecto y complementan su huella pública.</p></div>
+    </div>
+
+    <div class="show-grid">
+      <article class="show-card"><a class="show-media" href="https://www.youtube.com/watch?v=iKshS7Y0m_o" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/iKshS7Y0m_o/hqdefault.jpg" alt="Verano Porteño · registro audiovisual de Piazzollamente" loading="lazy"></a><div class="show-body"><span class="show-type">2023 · Argentina</span><h3>Verano Porteño</h3><p>Registro audiovisual de Piazzollamente vinculado al apoyo del Instituto Nacional de la Música de Argentina.</p><a class="btn btn-red" href="https://www.youtube.com/watch?v=iKshS7Y0m_o" target="_blank" rel="noopener">Ver registro</a></div></article>
+      <article class="show-card"><a class="show-media" href="https://www.youtube.com/watch?v=gqUZ9Ma78M8" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/gqUZ9Ma78M8/hqdefault.jpg" alt="San Vicente Tango · registro audiovisual de Piazzollamente" loading="lazy"></a><div class="show-body"><span class="show-type">2023 · Argentina</span><h3>San Vicente Tango</h3><p>Registro audiovisual asociado a la participación del proyecto en el festival de Godoy Cruz.</p><a class="btn btn-gold" href="https://www.youtube.com/watch?v=gqUZ9Ma78M8" target="_blank" rel="noopener">Ver registro</a></div></article>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer id="contacto" class="institutional-footer" aria-label="Pie de página"><div class="institutional-footer-inner"><p><span class="institutional-footer-label">Piazzollamente</span>© 2026 Piazzollamente · Todos los derechos reservados.</p><p><span class="institutional-footer-label">Contacto</span><a href="mailto:Piazzollamente@gmail.com">Piazzollamente@gmail.com</a><br><a href="tel:+56981527088">+56 9 8152 7088</a></p><p class="institutional-footer-credit"><span class="institutional-footer-label">Sitio web</span>Creado por Valentina Galaz</p></div></footer>
