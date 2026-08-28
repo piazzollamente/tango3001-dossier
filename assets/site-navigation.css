@@ -449,3 +449,31 @@
     transition:none!important;
   }
 }
+
+/* Indicador visible en escritorio para ítems con submenú. */
+@media(min-width:901px){
+  .unified-nav .nav-item-row{
+    gap:6px!important;
+  }
+
+  .unified-nav .nav-item-row::after{
+    content:"⌄";
+    display:block;
+    flex:0 0 auto;
+    color:rgba(242,214,154,.62);
+    font-family:Arial,sans-serif;
+    font-size:13px;
+    font-weight:400;
+    line-height:1;
+    transform:translateY(-1px) rotate(0deg);
+    transform-origin:center;
+    transition:color .16s ease,transform .16s ease;
+    pointer-events:none;
+  }
+
+  .unified-nav .nav-item:hover .nav-item-row::after,
+  .unified-nav .nav-item:focus-within .nav-item-row::after{
+    color:#f2d69a;
+    transform:translateY(1px) rotate(180deg);
+  }
+}
