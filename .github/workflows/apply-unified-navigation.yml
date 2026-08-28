@@ -25,7 +25,7 @@ jobs:
           import re
 
           VERSION = '20260828-8'
-          GALLERY_VERSION = 'gallery-20260828-editorial-1'
+          GALLERY_VERSION = 'gallery-20260828-editorial-2'
           changed = []
 
           css_path = Path('assets/site-navigation.css')
