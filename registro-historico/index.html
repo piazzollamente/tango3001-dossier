@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/typography.css?v=1">
-  <link rel="stylesheet" href="style.css?v=gallery-20260828-editorial-2">
+  <link rel="stylesheet" href="style.css?v=gallery-20260828-masonry-1">
   <link rel="stylesheet" href="/assets/site-navigation.css?v=20260828-8">
   <script defer src="/assets/site-navigation.js?v=20260828-8"></script>
 </head>
@@ -140,6 +140,96 @@
       const closeMenu = () => { nav.classList.remove('menu-open'); toggle.setAttribute('aria-expanded', 'false'); };
       toggle.addEventListener('click', () => { const open = nav.classList.toggle('menu-open'); toggle.setAttribute('aria-expanded', String(open)); });
       links.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+
+      const galleryGrid = document.querySelector('.gallery-grid');
+      const currentGrid = document.querySelector('.collage-2026');
+      let archiveGrid = document.querySelector('.archive-masonry');
+
+      if (galleryGrid && currentGrid && !archiveGrid) {
+        archiveGrid = document.createElement('div');
+        archiveGrid.className = 'archive-masonry';
+        Array.from(galleryGrid.children)
+          .filter((child) => child.classList.contains('gallery-item'))
+          .forEach((item) => archiveGrid.appendChild(item));
+        galleryGrid.appendChild(archiveGrid);
+      }
+
+      const masonryGrids = [currentGrid, archiveGrid].filter(Boolean);
+      let layoutFrame = 0;
+
+      const imageRatio = (item) => {
+        const image = item.querySelector('img');
+        if (!image) return 1;
+        const width = image.naturalWidth || Number(image.getAttribute('width')) || 0;
+        const height = image.naturalHeight || Number(image.getAttribute('height')) || 0;
+        if (width > 0 && height > 0) return width / height;
+        return item.classList.contains('flyer') ? 0.76 : 1.35;
+      };
+
+      const columnSpan = (item, ratio, totalColumns, isCurrent, index) => {
+        const mobile = window.innerWidth <= 820;
+        const flyer = item.classList.contains('flyer');
+
+        if (mobile) {
+          if (isCurrent && index === 0) return totalColumns;
+          if (ratio >= 1.24) return totalColumns;
+          return 1;
+        }
+
+        if (isCurrent) {
+          if (index === 0) return Math.min(3, totalColumns);
+          if (ratio >= 1.45) return Math.min(3, totalColumns);
+          if (flyer) return Math.min(2, totalColumns);
+          return Math.min(2, totalColumns);
+        }
+
+        if (ratio >= 1.45) return Math.min(2, totalColumns);
+        return 1;
+      };
+
+      const layoutMasonry = (grid) => {
+        if (!grid) return;
+        const styles = getComputedStyle(grid);
+        const totalColumns = Math.max(1, styles.gridTemplateColumns.split(' ').filter(Boolean).length);
+        const rowHeight = parseFloat(styles.gridAutoRows) || 4;
+        const rowGap = parseFloat(styles.rowGap) || 0;
+        const items = Array.from(grid.children).filter((item) => item.classList.contains('gallery-item'));
+        const isCurrent = grid.classList.contains('collage-2026');
+
+        items.forEach((item, index) => {
+          const ratio = imageRatio(item);
+          const span = Math.max(1, Math.min(totalColumns, columnSpan(item, ratio, totalColumns, isCurrent, index)));
+          item.style.setProperty('--masonry-cols', String(span));
+        });
+
+        requestAnimationFrame(() => {
+          items.forEach((item) => {
+            const ratio = imageRatio(item);
+            const width = item.getBoundingClientRect().width;
+            if (!width || !ratio) return;
+            const targetHeight = width / ratio;
+            const rows = Math.max(2, Math.ceil((targetHeight + rowGap) / (rowHeight + rowGap)));
+            item.style.setProperty('--masonry-rows', String(rows));
+          });
+        });
+      };
+
+      const scheduleMasonry = () => {
+        cancelAnimationFrame(layoutFrame);
+        layoutFrame = requestAnimationFrame(() => masonryGrids.forEach(layoutMasonry));
+      };
+
+      masonryGrids.forEach((grid) => {
+        grid.querySelectorAll('img').forEach((image) => {
+          if (!image.complete) image.addEventListener('load', scheduleMasonry, { once: true });
+        });
+      });
+      window.addEventListener('resize', scheduleMasonry, { passive: true });
+      if ('ResizeObserver' in window) {
+        const observer = new ResizeObserver(scheduleMasonry);
+        masonryGrids.forEach((grid) => observer.observe(grid));
+      }
+      scheduleMasonry();
 
       const galleryLinks = Array.from(document.querySelectorAll('.gallery-item > a'));
       const lightbox = document.getElementById('lightbox');
