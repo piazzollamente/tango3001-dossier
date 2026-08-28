@@ -57,8 +57,90 @@
     });
   };
 
+  const improvePressSpecializedCards = () => {
+    if (!document.querySelector('.press-specialized')) return;
+    if (document.getElementById('press-specialized-contrast-fix')) return;
+
+    const style = document.createElement('style');
+    style.id = 'press-specialized-contrast-fix';
+    style.textContent = `
+      .press-specialized{
+        background:#f5ede0!important;
+      }
+      .press-specialized-grid{
+        gap:18px!important;
+      }
+      .press-specialized-card{
+        position:relative!important;
+        overflow:hidden!important;
+        min-height:250px!important;
+        padding:31px 32px 30px!important;
+        border:1px solid rgba(127,33,28,.16)!important;
+        border-radius:24px!important;
+        background:linear-gradient(145deg,#fffaf3 0%,#f3e7d8 100%)!important;
+        color:#211915!important;
+        box-shadow:0 16px 44px rgba(60,40,28,.08)!important;
+      }
+      .press-specialized-card:nth-child(2),
+      .press-specialized-card:nth-child(3){
+        background:linear-gradient(145deg,#fbf4ea 0%,#eadbca 100%)!important;
+      }
+      .press-specialized-card::before{
+        content:"";
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        height:4px;
+        background:linear-gradient(90deg,#7f211c 0%,#b5352a 52%,#d0ad72 100%);
+      }
+      .press-specialized-card .year{
+        color:#8c2b27!important;
+        font-size:9px!important;
+        font-weight:600!important;
+        letter-spacing:.17em!important;
+      }
+      .press-specialized-card h3{
+        color:#241b17!important;
+        margin:15px 0 13px!important;
+        font-size:clamp(31px,3.4vw,46px)!important;
+        line-height:.96!important;
+      }
+      .press-specialized-card p{
+        color:#675a53!important;
+        font-size:13.5px!important;
+        line-height:1.7!important;
+      }
+      .press-specialized-links{
+        padding-top:17px!important;
+        border-top:1px solid rgba(127,33,28,.12)!important;
+      }
+      .press-specialized-links a{
+        color:#7f211c!important;
+        font-weight:600!important;
+      }
+      .press-specialized-links a::after{
+        content:"";
+        display:inline-block;
+        width:18px;
+        height:1px;
+        margin-left:7px;
+        vertical-align:middle;
+        background:rgba(127,33,28,.45);
+      }
+      @media(max-width:680px){
+        .press-specialized-card{
+          min-height:0!important;
+          padding:27px 24px 25px!important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  };
+
   const enhanceNavigation = () => {
     syncPrimaryNavigation();
+    improvePressSpecializedCards();
 
     document.querySelectorAll('.unified-nav .nav-primary').forEach((primary, navIndex) => {
       if (primary.dataset.submenusReady === 'true') return;
