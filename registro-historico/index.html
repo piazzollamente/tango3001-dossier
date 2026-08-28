@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Archivo visual · Piazzollamente</title>
-  <meta name="description" content="Archivo visual de Piazzollamente, desde la formación actual hacia los primeros registros del proyecto.">
+  <title>Registro histórico · Piazzollamente</title>
+  <meta name="description" content="Registro histórico visual de Piazzollamente, desde la formación actual hacia los primeros registros del proyecto.">
   <link rel="canonical" href="https://piazzollamente.cl/registro-historico/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Archivo visual · Piazzollamente">
+  <meta property="og:title" content="Registro histórico · Piazzollamente">
   <meta property="og:description" content="Una trayectoria visual desde el presente hacia los primeros registros.">
   <meta property="og:url" content="https://piazzollamente.cl/registro-historico/">
   <meta property="og:image" content="https://piazzollamente.cl/assets/registro-historico/actual-001.webp">
@@ -15,9 +15,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/typography.css?v=1">
-  <link rel="stylesheet" href="style.css?v=gallery-20260824-6">
-  <link rel="stylesheet" href="/assets/site-navigation.css?v=20260828-7">
-<script defer src="/assets/site-navigation.js?v=20260828-7"></script>
+  <link rel="stylesheet" href="style.css?v=gallery-20260828-editorial-2">
+  <link rel="stylesheet" href="/assets/site-navigation.css?v=20260828-8">
+  <script defer src="/assets/site-navigation.js?v=20260828-8"></script>
 </head>
 <body>
   <a class="skip-link" href="#archivo">Saltar al archivo</a>
@@ -27,24 +27,24 @@
       <a class="brand" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a>
       <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">Menú</button>
       <div class="nav-links" id="nav-links">
-              <div class="nav-primary" aria-label="Menú principal">
-        <a href="/">Home</a>
-        <a href="/trayectoria/">Trayectoria</a>
-        <a href="/las4estaciones/">Las 4 Estaciones</a>
-        <a href="/tangoparael3001/">Tango para el 3001</a>
-        <a href="/direccion-artistica/">Dirección artística</a>
-      </div>
+        <div class="nav-primary" aria-label="Menú principal">
+          <a href="/">Home</a>
+          <a href="/trayectoria/">Trayectoria</a>
+          <a href="/las4estaciones/">Las 4 Estaciones</a>
+          <a href="/tangoparael3001/">Tango para el 3001</a>
+          <a href="/direccion-artistica/">Dirección artística</a>
+        </div>
       </div>
     </div>
   </nav>
 
   <header class="archive-hero">
-    <div class="hero-inner"><h1>Del presente <em>al origen</em></h1></div>
+    <div class="hero-inner"><h1>Registro <em>histórico</em></h1></div>
   </header>
 
   <main id="archivo">
     <section class="archive-sequence" aria-labelledby="titulo-secuencia">
-      <h2 class="sr-only" id="titulo-secuencia">Archivo visual de Piazzollamente</h2>
+      <h2 class="sr-only" id="titulo-secuencia">Registro histórico visual de Piazzollamente</h2>
       <div class="gallery-grid">
         <div class="collage-2026">
           <figure class="gallery-item wide contain"><a href="/assets/registro-historico/actual-001.webp" aria-label="Abrir imagen en galería"><img src="/assets/registro-historico/actual-001.webp" width="1024" height="1536" alt="Retrato de la formación actual de Piazzollamente" fetchpriority="high" decoding="async"></a></figure>
@@ -119,7 +119,7 @@
   </main>
 
   <div class="lightbox" id="lightbox" hidden aria-hidden="true">
-    <div class="lightbox-shell" role="dialog" aria-modal="true" aria-label="Galería del archivo visual">
+    <div class="lightbox-shell" role="dialog" aria-modal="true" aria-label="Galería del registro histórico">
       <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Cerrar galería">×</button>
       <button class="lightbox-nav lightbox-prev" id="lightbox-prev" type="button" aria-label="Imagen anterior">‹</button>
       <div class="lightbox-stage" id="lightbox-stage">
@@ -157,7 +157,7 @@
         const link = galleryLinks[currentIndex];
         const sourceImage = link.querySelector('img');
         lightboxImage.src = link.href;
-        lightboxImage.alt = sourceImage.alt || 'Imagen del archivo visual de Piazzollamente';
+        lightboxImage.alt = sourceImage.alt || 'Imagen del registro histórico de Piazzollamente';
         lightboxCounter.textContent = `${currentIndex + 1} / ${galleryLinks.length}`;
         lightboxPrev.disabled = currentIndex === 0;
         lightboxNext.disabled = currentIndex === galleryLinks.length - 1;
