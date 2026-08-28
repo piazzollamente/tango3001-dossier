@@ -17,7 +17,7 @@ jobs:
         with:
           ref: main
 
-      - name: Añadir indicadores de submenú y forzar versión nueva
+      - name: Actualizar navegación y versiones de assets
         shell: bash
         run: |
           python3 - <<'PY'
@@ -25,6 +25,7 @@ jobs:
           import re
 
           VERSION = '20260828-8'
+          GALLERY_VERSION = 'gallery-20260828-editorial-1'
           changed = []
 
           css_path = Path('assets/site-navigation.css')
@@ -88,6 +89,13 @@ jobs:
                   text
               )
 
+              if path.as_posix() == 'registro-historico/index.html':
+                  text = re.sub(
+                      r'href="style\.css(?:\?v=[^"]+)?"',
+                      f'href="style.css?v={GALLERY_VERSION}"',
+                      text
+                  )
+
               if 'unified-nav' in text and '/assets/site-navigation.css' not in text:
                   text = text.replace('</head>', f'<link rel="stylesheet" href="/assets/site-navigation.css?v={VERSION}">\n</head>', 1)
               if 'unified-nav' in text and '/assets/site-navigation.js' not in text:
@@ -111,6 +119,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "Sin cambios"
           else
-            git commit -m "Añade chevrons a menús con subpáginas"
+            git commit -m "Refresca assets de navegación y archivo visual"
             git push origin main
           fi
