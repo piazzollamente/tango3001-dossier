@@ -1,4 +1,12 @@
 (() => {
+  const primaryLinks = [
+    ['Trayectoria', '/trayectoria/'],
+    ['Prensa y difusión', '/prensa-y-difusion/'],
+    ['Las 4 Estaciones', '/las4estaciones/'],
+    ['Tango para el 3001', '/tangoparael3001/'],
+    ['Dirección artística', '/direccion-artistica/']
+  ];
+
   const menus = {
     '/trayectoria/': {
       label: 'Trayectoria',
@@ -35,7 +43,23 @@
     }
   };
 
+  const syncPrimaryNavigation = () => {
+    const currentPath = normalizePath(window.location.pathname);
+    document.querySelectorAll('.unified-nav .nav-primary').forEach((primary) => {
+      primary.innerHTML = '';
+      primaryLinks.forEach(([label, href]) => {
+        const link = document.createElement('a');
+        link.href = href;
+        link.textContent = label;
+        if (normalizePath(href) === currentPath) link.setAttribute('aria-current', 'page');
+        primary.appendChild(link);
+      });
+    });
+  };
+
   const enhanceNavigation = () => {
+    syncPrimaryNavigation();
+
     document.querySelectorAll('.unified-nav .nav-primary').forEach((primary, navIndex) => {
       if (primary.dataset.submenusReady === 'true') return;
       primary.dataset.submenusReady = 'true';
