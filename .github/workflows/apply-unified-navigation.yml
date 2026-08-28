@@ -17,15 +17,59 @@ jobs:
         with:
           ref: main
 
-      - name: Forzar versión nueva de navegación
+      - name: Añadir indicadores de submenú y forzar versión nueva
         shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
           import re
 
-          VERSION = '20260828-7'
+          VERSION = '20260828-8'
           changed = []
+
+          css_path = Path('assets/site-navigation.css')
+          css = css_path.read_text(encoding='utf-8')
+          marker_start = '/* DESKTOP-SUBMENU-INDICATORS:START */'
+          marker_end = '/* DESKTOP-SUBMENU-INDICATORS:END */'
+          indicator_block = r'''
+/* DESKTOP-SUBMENU-INDICATORS:START */
+@media(min-width:901px){
+  .unified-nav .nav-item-row{
+    gap:6px!important;
+  }
+
+  .unified-nav .nav-item-row::after{
+    content:"⌄";
+    display:block;
+    flex:0 0 auto;
+    color:rgba(242,214,154,.62);
+    font-family:Arial,sans-serif;
+    font-size:13px;
+    font-weight:400;
+    line-height:1;
+    transform:translateY(-1px) rotate(0deg);
+    transform-origin:center;
+    transition:color .16s ease,transform .16s ease;
+    pointer-events:none;
+  }
+
+  .unified-nav .nav-item:hover .nav-item-row::after,
+  .unified-nav .nav-item:focus-within .nav-item-row::after{
+    color:#f2d69a;
+    transform:translateY(1px) rotate(180deg);
+  }
+}
+/* DESKTOP-SUBMENU-INDICATORS:END */
+'''
+
+          pattern = re.compile(
+              re.escape(marker_start) + r'.*?' + re.escape(marker_end) + r'\n?',
+              re.S
+          )
+          css_new = pattern.sub('', css).rstrip() + '\n\n' + indicator_block.strip() + '\n'
+          if css_new != css:
+              css_path.write_text(css_new, encoding='utf-8')
+              changed.append(str(css_path))
 
           for path in Path('.').rglob('*.html'):
               if '.git' in path.parts:
@@ -63,10 +107,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add '*.html' '**/*.html'
+          git add assets/site-navigation.css '*.html' '**/*.html'
           if git diff --cached --quiet; then
             echo "Sin cambios"
           else
-            git commit -m "Refresca caché de navegación global"
+            git commit -m "Añade chevrons a menús con subpáginas"
             git push origin main
           fi
