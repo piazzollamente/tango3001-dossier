@@ -102,13 +102,34 @@
 .traj-2026 .section-title{color:var(--traj-ink)}
 .traj-2026 .lead{color:var(--traj-body)}
 .traj-2026-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
-.traj-2026-card{display:grid;grid-template-columns:.85fr 1.15fr;min-height:330px;overflow:hidden;border:1px solid rgba(127,33,28,.16);border-radius:24px;background:rgba(255,255,255,.30)}
-.traj-2026-media{background:#e8ddd0;display:flex;align-items:center;justify-content:center}
+.traj-2026-card{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  min-height:330px;
+  overflow:hidden;
+  border:1px solid rgba(127,33,28,.22)!important;
+  border-radius:24px;
+  background:linear-gradient(145deg,#fffaf3 0%,#f0e4d7 100%)!important;
+  box-shadow:0 22px 58px rgba(72,53,45,.14)!important;
+}
+.traj-2026-media{
+  background:#e7d9ca;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-right:1px solid rgba(127,33,28,.12);
+}
 .traj-2026-media img{width:100%;height:100%;object-fit:contain;max-height:420px}
-.traj-2026-body{padding:28px;display:flex;flex-direction:column;justify-content:center}
-.traj-2026-body .year{color:var(--wine);font-size:9px;font-weight:600;letter-spacing:.15em;text-transform:uppercase}
-.traj-2026-body h3{margin:12px 0 12px;font-family:var(--font-display);font-size:clamp(30px,3.2vw,44px);font-weight:500;line-height:.94}
-.traj-2026-body p{margin:0;color:var(--traj-body);font-size:13px;line-height:1.7}
+.traj-2026-body{
+  padding:28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(245,237,224,.96));
+}
+.traj-2026-body .year{color:#9a2d25!important;font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+.traj-2026-body h3{margin:12px 0 12px;font-family:var(--font-display);font-size:clamp(30px,3.2vw,44px);font-weight:500;line-height:.94;color:#211915!important}
+.traj-2026-body p{margin:0;color:#51443d!important;font-size:14px;line-height:1.72}
 
 .traj-evolution{background:linear-gradient(180deg,#100c0a,#080605)!important}
 .traj-evolution-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:50px;align-items:start}
@@ -144,7 +165,7 @@
   .traj-card-body{padding:14px}
   .traj-card-body h3{font-size:23px}
   .traj-2026-card{grid-template-columns:1fr}
-  .traj-2026-media{min-height:260px}
+  .traj-2026-media{min-height:260px;border-right:0;border-bottom:1px solid rgba(127,33,28,.12)}
   .traj-feature-media img{max-height:520px}
 }
 </style>
