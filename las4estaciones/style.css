@@ -211,3 +211,8 @@ section { scroll-margin-top: 72px; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
+
+/* Fotografías oficiales: conservar integrantes e instrumentos completos. */
+.hero-visual{display:flex;align-items:center}
+.hero-visual img{height:auto;object-fit:contain;object-position:center}
+.photo-sequence img{object-fit:contain;object-position:center!important;background:#171716}
