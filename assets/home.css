@@ -1457,3 +1457,9 @@ section {
   .hero-show-links a{min-height:47px;padding-block:7px}
   .hero-photo{width:min(100%,420px)}
 }
+
+/* Fotografías oficiales: conservar encuadres completos. */
+.hero-photo-frame{aspect-ratio:1333/2000}
+.hero-photo-frame img{object-fit:contain;object-position:center}
+.identity-visual{height:auto;aspect-ratio:1600/1066}
+.identity-visual img{width:100%;height:auto;object-fit:contain;object-position:center}
