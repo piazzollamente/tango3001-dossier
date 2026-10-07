@@ -1463,3 +1463,36 @@ section {
 .hero-photo-frame img{object-fit:contain;object-position:center}
 .identity-visual{height:auto;aspect-ratio:1600/1066}
 .identity-visual img{width:100%;height:auto;object-fit:contain;object-position:center}
+
+/* Portada a sangre: recortar únicamente el fondo libre del retrato. */
+#inicio.hero-opening{padding:0;min-height:0;background:none!important}
+#inicio .hero-opening-inner{display:block;width:100%;min-height:0;margin:0;aspect-ratio:1333/1700}
+#inicio .hero-photo{position:absolute;inset:0;width:100%;height:100%;max-width:none;margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;animation:none}
+#inicio .hero-photo-frame{width:100%;height:100%;aspect-ratio:auto;border:0;border-radius:0;background:none}
+#inicio .hero-photo-frame::after{content:none}
+#inicio .hero-photo img{width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;object-position:center 33.333%;filter:none}
+#inicio .hero-copy{position:absolute;inset:clamp(88px,7vw,140px) auto auto 6%;width:42%;max-width:620px;text-shadow:0 2px 12px rgba(0,0,0,.38)}
+#inicio .hero-copy::before{content:"";position:absolute;z-index:-1;inset:-44px -70px;background:radial-gradient(ellipse at center,rgba(0,0,0,.32),transparent 70%);pointer-events:none}
+#inicio .hero-title{font-size:clamp(66px,7.1vw,114px)}
+#inicio .hero-context{color:var(--cream)}
+#inicio .hero-show-links{color:var(--cream)}
+#inicio .hero-show-links,#inicio .hero-show-links a{background:transparent!important;backdrop-filter:none;box-shadow:none}
+#inicio .hero-photo figcaption{position:absolute;z-index:2;inset:auto 6% 28px;padding:0;color:var(--cream);text-shadow:0 2px 8px rgba(0,0,0,.6)}
+@media(max-width:1200px){
+  #inicio .hero-copy{inset:88px 7% 0;width:auto;max-width:none;pointer-events:none}
+  #inicio .hero-title{font-size:clamp(36px,10vw,92px)}
+  #inicio .hero-context{margin-top:8px;font-size:clamp(7px,1.8vw,12px)}
+  #inicio .hero-show-links{position:absolute;inset:auto 0 48px;margin:0;pointer-events:auto}
+  #inicio .hero-show-links a{min-height:44px;padding-block:6px}
+  #inicio .hero-link-title{font-size:clamp(19px,4vw,28px)}
+  #inicio .hero-copy::before{inset:-18px auto auto -28px;width:min(100%,600px);height:clamp(130px,26vw,260px);background:radial-gradient(ellipse at center,rgba(0,0,0,.32),transparent 70%)}
+  #inicio .hero-show-links::before{content:"";position:absolute;z-index:-1;inset:-30px -28px;background:radial-gradient(ellipse,rgba(0,0,0,.36),transparent 75%);pointer-events:none}
+  #inicio .hero-photo figcaption{display:flex;inset:auto 7% 18px;font-size:7px}
+}
+@media(max-width:980px){
+  #inicio.hero-opening{margin-top:64px}
+  #inicio .hero-opening-inner{aspect-ratio:1333/2000}
+  #inicio .hero-photo img{object-position:center}
+  #inicio .hero-copy{top:20px}
+  #inicio .hero-context{font-size:clamp(8px,1.8vw,12px)}
+}
