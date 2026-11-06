@@ -1,0 +1,263 @@
+/* Piazzollamente — Home · Identidad editorial del Dúo
+   2026-11 · Solo diseño: tipografía y color. Sin cambios estructurales.
+   Cargar al final del <head>, después de los estilos heredados e inline.
+   Los alias heredados evitan restos de dorado, terracota y Montserrat.
+*/
+:root {
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Instrument Sans', Arial, sans-serif;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'Instrument Sans', Arial, sans-serif;
+  --pm-editorial-wine: #7c1034;
+  --pm-editorial-wine-deep: #5b0b26;
+  --pm-editorial-night: #131015;
+  --pm-editorial-night-soft: #211a22;
+  --pm-editorial-paper: #f5f1eb;
+  --pm-editorial-blue: #e7eef5;
+  --pm-editorial-blue-light: #cfe2f8;
+  --pm-editorial-ink: #19171a;
+  --pm-editorial-pink: #e5a8ba;
+  /* Compatibilidad con las hojas originales */
+  --dark: #131015;
+  --dark2: #211a22;
+  --cream: #f5f1eb;
+  --paper: #e7eef5;
+  --ink: #19171a;
+  --gold: #cfe2f8;
+  --gold2: #e5a8ba;
+  --red: #7c1034;
+  --wine: #7c1034;
+  --muted: rgba(245,241,235,.79);
+  --line: rgba(245,241,235,.23);
+  --pm-dark: #131015;
+  --pm-dark-deep: #100c10;
+  --pm-dark-soft: #211a22;
+  --pm-cream: #f5f1eb;
+  --pm-cream-light: #fffdf9;
+  --pm-gold: #cfe2f8;
+  --pm-gold-light: #e7eef5;
+  --pm-red: #7c1034;
+  --pm-red-dark: #5b0b26;
+  --pm-muted: rgba(245,241,235,.79);
+  --pm-line: rgba(245,241,235,.23);
+}
+html, body { background: var(--pm-editorial-night); }
+body, button, input, textarea, select { font-family: var(--font-sans) !important; }
+h1, h2, h3, h4, h5, h6,
+.hero-title, .hero-link-title, .section-title, .show-card h3,
+.show-concept, .identity-copy h2, .identity-meta strong,
+.video-copy h2, .journey-head h2, .av-content h3,
+.duo-home-copy h2, .nav-brand, .institutional-footer-label {
+  font-family: var(--font-display) !important;
+  font-weight: 400;
+}
+p, a, span, strong, small, figcaption, .kicker, .eyebrow,
+.hero-context, .hero-link-index, .show-format, .show-facts,
+.show-description, .show-secondary-link, .duo-home-kicker,
+.group-intro p, .institutional-footer,
+.unified-nav .nav-primary a, .unified-nav .nav-item-row>a {
+  font-family: var(--font-sans) !important;
+}
+body::before {
+  background:radial-gradient(circle at 16% 16%,rgba(124,16,52,.10),transparent 32%),
+             radial-gradient(circle at 85% 85%,rgba(207,226,248,.06),transparent 34%) !important;
+  opacity: .14;
+}
+/* Navegación principal: cambios limitados al Home */
+.unified-nav, .unified-nav.nav, .nav.scrolled {
+  background: rgba(19,16,21,.96) !important;
+  border-bottom: 1px solid rgba(207,226,248,.16) !important;
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+}
+.unified-nav .nav-brand,
+.unified-nav .nav-primary>a,
+.unified-nav .nav-item-row>a,
+.unified-nav .nav-submenu>a {
+  color: var(--pm-editorial-paper) !important;
+}
+.unified-nav .nav-brand { font-family: var(--font-display) !important; }
+.unified-nav .nav-primary>a:hover,
+.unified-nav .nav-item-row>a:hover,
+.unified-nav .nav-submenu>a:hover,
+.unified-nav .nav-primary>a[aria-current="page"] {
+  color: var(--pm-editorial-blue-light) !important;
+}
+.unified-nav .nav-primary>a::after,
+.unified-nav .nav-item-row>a::after,
+.unified-nav .nav-submenu-toggle {
+  color: var(--pm-editorial-blue-light) !important;
+  border-color: rgba(207,226,248,.25) !important;
+}
+.unified-nav .nav-submenu,
+.unified-nav .nav-links {
+  background-color: var(--pm-editorial-night) !important;
+  border-color: rgba(207,226,248,.17) !important;
+}
+/* 01 · Portada fotográfica: intacta, con nuevas tintas */
+.hero-opening, #inicio.hero-opening { color: var(--pm-editorial-paper); }
+#inicio .hero-title,
+#inicio .hero-word,
+#inicio .hero-word-piazzolla,
+#inicio .hero-mente,
+#inicio .hero-context,
+#inicio .hero-show-links,
+#inicio .hero-link-title { color: var(--pm-editorial-paper) !important; }
+#inicio .hero-word { font-family:var(--font-display) !important; }
+#inicio .hero-link-index, #inicio .hero-link-arrow,
+#inicio .hero-photo figcaption { color: var(--pm-editorial-blue-light) !important; }
+#inicio .hero-show-links a { border-top-color: rgba(207,226,248,.40) !important; }
+#inicio .hero-show-links a:hover { color:#fff !important; border-top-color:var(--pm-editorial-blue-light) !important; }
+#inicio .hero-show-links a:hover .hero-link-arrow { color:#fff !important; }
+/* 02 · Espectáculos: descansar en una superficie crema */
+.spectacles {
+  background: var(--pm-editorial-paper) !important;
+  color: var(--pm-editorial-wine) !important;
+  border-top: 1px solid rgba(124,16,52,.16) !important;
+}
+.spectacles .kicker { color: var(--pm-editorial-wine) !important; }
+.spectacles .section-title { color:var(--pm-editorial-wine) !important; }
+.spectacles .lead { color:#60424c !important; }
+.spectacles .show-card, .spectacles .show-card-las4,
+.spectacles .show-card-tango {
+  background: #fffdf9 !important;
+  border: 1px solid rgba(124,16,52,.16) !important;
+  box-shadow: 0 16px 40px rgba(61,26,40,.07) !important;
+  color: var(--pm-editorial-ink) !important;
+}
+.spectacles .show-card::before { border-color:rgba(124,16,52,.10) !important; }
+.spectacles .show-media-link { background:var(--pm-editorial-night) !important; }
+.spectacles .show-card h3 { color: var(--pm-editorial-wine) !important; }
+.spectacles .show-number, .spectacles .show-format {
+  color:var(--pm-editorial-paper) !important;
+  background:rgba(19,16,21,.79) !important;
+  border-color:rgba(245,241,235,.24) !important;
+}
+.spectacles .show-facts span {
+  color:#6f4b59 !important;
+  border-color:rgba(124,16,52,.20) !important;
+  background:rgba(231,238,245,.53) !important;
+}
+.spectacles .show-card .show-description { color:#443a42 !important; }
+.spectacles .show-concept {
+  color:var(--pm-editorial-wine) !important;
+  border-top-color:rgba(124,16,52,.15) !important;
+}
+.spectacles .show-secondary-link { color:var(--pm-editorial-wine) !important; }
+.spectacles .show-secondary-link:hover { color:var(--pm-editorial-wine-deep) !important; }
+.btn, .spectacles .show-actions .btn {
+  font-family: var(--font-sans) !important;
+  letter-spacing: .08em;
+}
+.spectacles .btn-red, .spectacles .btn-gold,
+.current-video .btn-red {
+  background: var(--pm-editorial-wine) !important;
+  color: #fffdf9 !important;
+  border:1px solid var(--pm-editorial-wine) !important;
+}
+.spectacles .btn-red:hover, .spectacles .btn-gold:hover,
+.current-video .btn-red:hover {
+  background:var(--pm-editorial-wine-deep) !important;
+  border-color:var(--pm-editorial-wine-deep) !important;
+}
+/* 03 · El Dúo: consolidar el bloque borgoña existente */
+.duo-home-invite { background:var(--pm-editorial-wine) !important; border-color:rgba(255,255,255,.18) !important; }
+.duo-home-kicker { color:var(--pm-editorial-blue-light) !important; font-family:var(--font-sans) !important; }
+.duo-home-copy h2 { color:var(--pm-editorial-paper) !important; font-family:var(--font-display) !important; }
+.duo-home-copy>p:not(.duo-home-kicker) { color:#f3dee6 !important; }
+.duo-home-cta { color:var(--pm-editorial-paper) !important; border-color:rgba(245,241,235,.55) !important; }
+.duo-home-visual { background:#cbd0d2 !important; }
+.duo-home-visual::before { display:none !important; }
+/* 04 · Texto institucional: azul pálido y tinta oscura */
+.group-intro {
+  background: var(--pm-editorial-blue) !important;
+  color:var(--pm-editorial-ink) !important;
+  border-top-color:rgba(124,16,52,.18) !important;
+}
+.group-intro p { color:#36303a !important; font-family:var(--font-sans) !important; font-weight:400; }
+.group-intro strong { color:var(--pm-editorial-wine) !important; }
+/* 05 · El ensamble: contrapunto negro noche */
+.identity {
+  background:var(--pm-editorial-night) !important;
+  color:var(--pm-editorial-paper) !important;
+  border-top-color:rgba(207,226,248,.16) !important;
+}
+.identity .kicker, .identity-copy .kicker { color:var(--pm-editorial-blue-light) !important; }
+.identity-copy h2 { color:var(--pm-editorial-paper) !important; }
+.identity-copy p { color:rgba(245,241,235,.83) !important; }
+.identity-copy .identity-show { color:var(--pm-editorial-blue-light) !important; }
+.identity .instrument-line span {
+  color:var(--pm-editorial-blue-light) !important;
+  background:rgba(207,226,248,.055);
+  border-color:rgba(207,226,248,.24) !important;
+}
+.identity-meta { border-top-color:rgba(207,226,248,.25) !important; }
+.identity-meta strong { color:var(--pm-editorial-paper) !important; }
+.identity-meta span { color:rgba(245,241,235,.70) !important; }
+/* 06 · Video: campo borgoña */
+.current-video {
+  background:var(--pm-editorial-wine) !important;
+  color:var(--pm-editorial-paper) !important;
+  border-top-color:rgba(245,241,235,.16) !important;
+}
+.current-video .kicker { color:var(--pm-editorial-blue-light) !important; }
+.current-video h2 { color:var(--pm-editorial-paper) !important; }
+.current-video .video-copy p { color:rgba(245,241,235,.89) !important; }
+.current-video .btn-red {
+  background:var(--pm-editorial-paper) !important;
+  color:var(--pm-editorial-wine) !important;
+  border-color:var(--pm-editorial-paper) !important;
+}
+.current-video .btn-red:hover {
+  background:var(--pm-editorial-blue) !important;
+  color:var(--pm-editorial-wine-deep) !important;
+  border-color:var(--pm-editorial-blue) !important;
+}
+.video-wrap { border-color:rgba(245,241,235,.30) !important; box-shadow:0 22px 52px rgba(19,16,21,.28); }
+.video-caption { background:var(--pm-editorial-wine-deep) !important; color:rgba(245,241,235,.75) !important; }
+.video-caption strong { color:var(--pm-editorial-paper) !important; }
+/* 07 · Archivo audiovisual: superficie clara editorial */
+.av-journey {
+  background:var(--pm-editorial-blue) !important;
+  color:var(--pm-editorial-wine) !important;
+  border-top-color:rgba(124,16,52,.15) !important;
+}
+.av-journey .kicker { color:var(--pm-editorial-wine) !important; }
+.av-journey .journey-head h2 { color:var(--pm-editorial-wine) !important; }
+.av-journey .journey-head p { color:#4b3e4b !important; }
+.av-journey .av-list::before { background:linear-gradient(var(--pm-editorial-wine),rgba(124,16,52,.08)) !important; }
+.av-journey .av-item {
+  background:#fffdf9 !important;
+  border:1px solid rgba(124,16,52,.16) !important;
+  color:var(--pm-editorial-ink) !important;
+  box-shadow:none !important;
+}
+.av-journey .av-item:hover { border-color:rgba(124,16,52,.50) !important; }
+.av-journey .av-year { background:#fffdf9 !important; color:var(--pm-editorial-wine) !important; }
+.av-journey .av-content span { color:var(--pm-editorial-wine) !important; }
+.av-journey .av-content h3 { color:var(--pm-editorial-ink) !important; }
+.av-journey .av-content p { color:#5b4c57 !important; }
+.av-journey .btn-gold {
+  background:var(--pm-editorial-wine) !important;
+  border-color:var(--pm-editorial-wine) !important;
+  color:#fffdf9 !important;
+}
+.av-journey .btn-gold:hover { background:var(--pm-editorial-wine-deep) !important; }
+/* 08 · Pie institucional */
+.institutional-footer {
+  background:var(--pm-editorial-night) !important;
+  color:rgba(245,241,235,.83) !important;
+  border-top:1px solid rgba(207,226,248,.20) !important;
+}
+.institutional-footer p, .institutional-footer a,
+.institutional-footer .institutional-footer-credit {
+  color:rgba(245,241,235,.83) !important;
+  font-family:var(--font-sans) !important;
+}
+.institutional-footer .institutional-footer-label { color:var(--pm-editorial-blue-light) !important; font-family:var(--font-sans) !important; }
+.institutional-footer a:hover { color:var(--pm-editorial-blue-light) !important; }
+/* Móvil: misma identidad, sin alterar los cortes de diseño existentes */
+@media (max-width: 900px) {
+  .unified-nav .nav-submenu { background:var(--pm-editorial-night) !important; }
+  .unified-nav .nav-submenu-toggle { color:var(--pm-editorial-blue-light) !important; }
+}
