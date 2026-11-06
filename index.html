@@ -1,258 +1,184 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Piazzollamente · Música, escena y ciudad</title>
-<meta name="description" content="Piazzollamente es una agrupación formada en Argentina y radicada en Chile, dirigida por Valentina Galaz. Conoce Las 4 Estaciones Porteñas y Tango para el 3001.">
-<link rel="canonical" href="https://piazzollamente.cl/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Piazzollamente · Música, escena y ciudad">
-<meta property="og:description" content="Dos espectáculos construidos desde la música de Astor Piazzolla: Las 4 Estaciones Porteñas y Tango para el 3001.">
-<meta property="og:url" content="https://piazzollamente.cl/">
-<meta property="og:image" content="https://piazzollamente.cl/assets/grupo-principal-20261007.webp">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.ico">
-<link rel="preload" as="image" href="/assets/grupo-principal-20261007.webp" type="image/webp" fetchpriority="high">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/typography.css?v=footer-20260825-2">
-<link rel="stylesheet" href="/assets/piazzollamente-system.css">
-<link rel="stylesheet" href="/assets/home.css?v=portada-20261007">
-<link rel="stylesheet" href="/assets/site-navigation.css?v=20260828-7">
-<script defer src="/assets/site-navigation.js?v=20260828-7"></script>
-<style>
-@media(max-width:680px){
-  .show-card-las4 .show-media-link{
-    height:auto!important;
-    aspect-ratio:3/2;
-    background:#090706;
-  }
-  .show-card-las4 .show-media-link img{
-    width:100%;
-    height:100%;
-    object-fit:cover!important;
-    object-position:center 50%!important;
-  }
-}
-</style>
-<style id="duo-home-invite-style">
-.duo-home-invite{background:#7c1034;color:#f8edf1;border-top:1px solid rgba(255,255,255,.16)}
-.duo-home-layout{max-width:1330px;margin:auto;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;min-height:430px}
-.duo-home-copy{padding:76px 5vw 70px;align-self:center}
-.duo-home-kicker{font:600 10px/1.5 'Montserrat',Arial,sans-serif;letter-spacing:.2em;color:#efb7c8;margin:0 0 22px}
-.duo-home-copy h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(50px,5.2vw,82px);font-weight:400;line-height:1.05;margin:0 0 24px;color:#fff}
-.duo-home-copy h2 em{font-weight:400}
-.duo-home-copy>p:not(.duo-home-kicker){font-size:16px;line-height:1.75;color:#f6dbe5;max-width:520px;margin-bottom:28px}
-.duo-home-cta{display:inline-flex;gap:25px;align-items:center;color:#fffaf9!important;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.65);font-size:12px;letter-spacing:.05em;padding:9px 0}
-.duo-home-visual{position:relative;overflow:hidden;display:block;background:#b4bdbc;max-height:520px}
-.duo-home-visual img{width:100%;height:100%;object-fit:contain;object-position:center center;display:block}
-.duo-home-visual::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,#7c1034,transparent 27%)}
-@media(max-width:780px){.duo-home-layout{grid-template-columns:1fr}.duo-home-copy{padding:55px 25px 45px}.duo-home-visual{max-height:540px}.duo-home-visual::before{background:linear-gradient(180deg,#7c1034,transparent 22%)}}
-</style>
-<link rel="stylesheet" href="/assets/home-identidad-duo.css?v=20261106-1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#131015">
+  <meta name="description" content="Piazzollamente. Música, mente y espíritu de Astor Piazzolla. Más de 4 años de trayectoria artística entre Argentina y Chile. Conoce sus conciertos, producciones y formato de dúo.">
+  <link rel="canonical" href="https://piazzollamente.cl/">
+  <title>Piazzollamente · Música, mente y espíritu de Astor Piazzolla</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Piazzollamente · Música, mente y espíritu de Astor Piazzolla">
+  <meta property="og:description" content="Más de 4 años de trayectoria. Conoce los proyectos artísticos de Piazzollamente, desde el quinteto y la escena hasta el dúo de flauta y piano.">
+  <meta property="og:url" content="https://piazzollamente.cl/">
+  <meta property="og:image" content="https://piazzollamente.cl/assets/grupo-principal-20261007.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/assets/grupo-principal-20261007.webp" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="/assets/site-navigation.css?v=20261106-duo">
+  <link rel="stylesheet" href="/assets/home-simplificado.css?v=20261106-1">
+  <script defer src="/assets/site-navigation.js?v=20261106-duo"></script>
 </head>
 <body>
-<a class="skip-link" href="#contenido">Saltar al contenido</a>
-<nav class="nav unified-nav" id="nav" aria-label="Navegación principal">
-  <div class="nav-inner">
-    <a class="nav-brand" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a>
-    <button class="menu-toggle" id="menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">Menú</button>
-    <div class="nav-links" id="nav-links">
-            <div class="nav-primary" aria-label="Menú principal">
-        <a href="/" aria-current="page">Home</a>
-        <a href="/trayectoria/">Trayectoria</a>
-        <a href="/las4estaciones/">Las 4 Estaciones</a>
-        <a href="/tangoparael3001/">Tango para el 3001</a>
-        <a href="/direccion-artistica/">Dirección artística</a>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <nav class="nav unified-nav" id="nav" aria-label="Navegación principal">
+    <div class="nav-inner">
+      <a class="nav-brand" href="/" aria-label="Piazzollamente · Inicio">Piazzollamente</a>
+      <button class="menu-toggle" id="menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">Menú</button>
+      <div class="nav-links" id="nav-links">
+        <div class="nav-primary" aria-label="Menú principal">
+          <a href="/" aria-current="page">Home</a>
+          <a href="/trayectoria/">Trayectoria</a>
+          <a href="/las4estaciones/">Las 4 Estaciones</a>
+          <a href="/tangoparael3001/">Tango para el 3001</a>
+          <a href="/duo/">Dúo</a>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<main id="contenido">
-<header class="hero-opening" id="inicio">
-  <div class="hero-opening-inner">
-    <div class="hero-copy">
-      <h1 class="hero-title">
-        <span class="hero-word hero-word-piazzolla">PIAZZOLLA</span>
-        <span class="hero-word hero-mente">MENTE</span>
-      </h1>
-      <p class="hero-context">Música de Astor Piazzolla · Dos espectáculos</p>
-      <nav class="hero-show-links" aria-label="Elegir espectáculo">
-        <a href="/las4estaciones/">
-          <span class="hero-link-index" aria-hidden="true">01</span>
-          <span class="hero-link-title">Las 4 Estaciones Porteñas</span>
-          <span class="hero-link-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a href="/tangoparael3001/">
-          <span class="hero-link-index" aria-hidden="true">02</span>
-          <span class="hero-link-title">Tango para el 3001</span>
-          <span class="hero-link-arrow" aria-hidden="true">↗</span>
-        </a>
-      </nav>
-    </div>
-    <figure class="hero-photo">
-      <div class="hero-photo-frame">
-        <img src="/assets/grupo-principal-20261007.webp" width="1333" height="2000" alt="Integrantes de Piazzollamente" fetchpriority="high" decoding="async">
+  <main id="contenido">
+    <!-- 01 · Una sola idea de apertura. La foto completa tiene su propia columna. -->
+    <header class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow light">Argentina · Chile</p>
+        <h1 id="hero-title">Piazzollamente</h1>
+        <p class="hero-slogan">Música, mente y <em>espíritu</em><span> de Astor Piazzolla.</span></p>
+        <p class="hero-trajectory">Más de 4 años de trayectoria.</p>
+        <a class="text-action light" href="#proyectos">Conocer nuestros proyectos <span aria-hidden="true">↗</span></a>
       </div>
-      <figcaption><span>Argentina · Chile</span><span>Trayectoria 2022—2026</span></figcaption>
-    </figure>
-  </div>
-</header>
+      <figure class="hero-photo">
+        <img src="/assets/grupo-principal-20261007.webp" width="1333" height="2000" alt="Integrantes de Piazzollamente en su fotografía oficial de agrupación" fetchpriority="high" decoding="async">
+      </figure>
+    </header>
 
-<section class="spectacles" id="espectaculos">
-  <div class="container">
-    <div class="section-head">
-      <p class="kicker">Espectáculos</p>
+    <!-- 02 · Tres propuestas, mismo nivel jerárquico y una sola acción cada una. -->
+    <section class="projects section" id="proyectos" aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <div>
+            <p class="eyebrow wine">Nuestra programación</p>
+            <h2 id="projects-title">Proyectos artísticos</h2>
+          </div>
+          <p>Tres formatos para explorar la música de Astor Piazzolla desde la interpretación, la escena y el diálogo camerístico.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project">
+            <a href="/las4estaciones/" aria-label="Conocer Las 4 Estaciones Porteñas">
+              <div class="project-media project-media-las4">
+                <img src="/las4estaciones/quinteto-publico-web.webp" width="2000" height="1335" loading="lazy" alt="Quinteto Piazzollamente interpretando Las 4 Estaciones Porteñas">
+              </div>
+              <div class="project-copy">
+                <span class="project-type">Quinteto · Concierto instrumental</span>
+                <h3>Las 4 Estaciones Porteñas</h3>
+                <div class="project-action"><span>Explorar proyecto</span><span aria-hidden="true">↗</span></div>
+              </div>
+            </a>
+          </article>
+          <article class="project">
+            <a href="/tangoparael3001/" aria-label="Conocer Tango para el 3001">
+              <div class="project-media project-media-tango">
+                <img src="/assets/1F5A4445-home.webp" loading="lazy" alt="Escena de la producción Tango para el 3001">
+              </div>
+              <div class="project-copy">
+                <span class="project-type">Música y escena</span>
+                <h3>Tango para el 3001</h3>
+                <div class="project-action"><span>Explorar proyecto</span><span aria-hidden="true">↗</span></div>
+              </div>
+            </a>
+          </article>
+          <article class="project">
+            <a href="/duo/" aria-label="Conocer el Dúo Piazzollamente">
+              <div class="project-media project-media-duo">
+                <img src="/duo/assets/duo-rojo.webp" width="1600" height="2400" loading="lazy" alt="Valentina Galaz y Valeria Chacón con vestuario rojo, retrato del dúo de flauta y piano">
+              </div>
+              <div class="project-copy">
+                <span class="project-type">Flauta traversa y piano</span>
+                <h3>Dúo Piazzollamente</h3>
+                <div class="project-action"><span>Explorar proyecto</span><span aria-hidden="true">↗</span></div>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · Una presentación breve sustituye los dos bloques redundantes. -->
+    <section class="ensemble section" id="ensamble" aria-labelledby="ensemble-title">
+      <div class="wrap ensemble-grid">
+        <div class="ensemble-copy">
+          <p class="eyebrow blue">El ensamble</p>
+          <h2 id="ensemble-title">Una búsqueda <em>colectiva.</em></h2>
+          <p>Piazzollamente nació en Argentina y continúa su camino en Chile, bajo la dirección artística de Valentina Galaz.</p>
+          <p>La música de Astor Piazzolla cobra vida desde la escucha, la sensibilidad y el diálogo entre intérpretes.</p>
+          <a class="text-action light" href="/trayectoria/">Conocer nuestra trayectoria <span aria-hidden="true">↗</span></a>
+        </div>
+        <figure class="ensemble-photo">
+          <img src="/assets/grupo-bn-20261007.webp" width="1600" height="1066" loading="lazy" alt="Retrato oficial en blanco y negro del ensamble Piazzollamente">
+        </figure>
+      </div>
+    </section>
+
+    <!-- 04 · Un único registro; el archivo completo vive en Trayectoria. -->
+    <section class="performance section" id="escuchar" aria-labelledby="performance-title">
+      <div class="wrap performance-grid">
+        <div class="performance-copy">
+          <p class="eyebrow blue">En escena</p>
+          <h2 id="performance-title">Adiós Nonino <em>en vivo.</em></h2>
+          <p>Un registro de la interpretación actual de Piazzollamente.</p>
+          <a class="text-action light" href="/registro-historico/">Explorar el archivo histórico <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="performance-video">
+          <iframe src="https://www.youtube-nocookie.com/embed/0kuwCU1FVhw?rel=0" title="Adiós Nonino · Piazzollamente en vivo, Santiago 2026" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <p class="video-caption">Adiós Nonino · Santiago, 2026</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 05 · Cierre institucional, sin otro bloque de marketing. -->
+  <footer class="footer" id="contacto" aria-label="Contacto de Piazzollamente">
+    <div class="wrap footer-layout">
       <div>
-        <h2 class="section-title">Dos formas de entrar a Piazzollamente.</h2>
-        <p class="lead">Un concierto instrumental y un espectáculo escénico-musical: dos experiencias autónomas construidas desde la música de Astor Piazzolla.</p>
+        <p class="eyebrow blue">Programación y contacto</p>
+        <h2>Conversemos sobre un concierto.</h2>
+        <a class="footer-mail" href="mailto:Piazzollamente@gmail.com">Piazzollamente@gmail.com <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="footer-details">
+        <a href="tel:+56981527088">+56 9 8152 7088</a>
+        <p>Chile · Argentina</p>
+        <p class="footer-meta">© 2026 Piazzollamente. Todos los derechos reservados.</p>
+        <p class="footer-meta">Sitio web creado por Valentina Galaz.</p>
       </div>
     </div>
+  </footer>
 
-    <div class="show-grid">
-      <article class="show-card show-card-las4">
-        <a class="show-media-link" href="/las4estaciones/" aria-label="Ver Las 4 Estaciones Porteñas">
-          <img src="/las4estaciones/quinteto-publico-web.webp" width="2000" height="1335" alt="Piazzollamente interpretando Las 4 Estaciones Porteñas" loading="lazy" decoding="async">
-          <div class="show-media-topline"><span class="show-number">01</span><span class="show-format">Concierto instrumental</span></div>
-        </a>
-        <div class="show-body">
-          <div class="show-facts"><span>60 min</span><span>5 intérpretes</span><span>Quinteto</span></div>
-          <h3>Las 4 Estaciones Porteñas</h3>
-          <p class="show-description">Un viaje a Buenos Aires a través de las Estaciones Porteñas y otras obras de Astor Piazzolla, desde una formación donde la flauta transforma el centro tímbrico del quinteto.</p>
-          <p class="show-concept">Buenos Aires como una ciudad viva, cambiante y contradictoria.</p>
-          <div class="show-actions"><a class="btn btn-red" href="/las4estaciones/">Ver Las 4 Estaciones</a><a class="show-secondary-link" href="#escuchar">Escuchar registro en vivo →</a></div>
-        </div>
-      </article>
-
-      <article class="show-card show-card-tango tango">
-        <a class="show-media-link" href="/tangoparael3001/" aria-label="Ver Tango para el 3001">
-          <img src="/assets/1F5A4445-home.webp" alt="Piazzollamente en escena interpretando Tango para el 3001" loading="lazy">
-          <div class="show-media-topline"><span class="show-number">02</span><span class="show-format">Música · voces · escena</span></div>
-        </a>
-        <div class="show-body">
-          <div class="show-facts"><span>60 min</span><span>8 intérpretes</span><span>Piazzolla + Ferrer</span></div>
-          <h3>Tango para el 3001</h3>
-          <p class="show-description">Una semi-ópera construida desde la música de Piazzolla, que mira las heridas de la ciudad y propone un profundo mensaje de transformación.</p>
-          <p class="show-concept">La ciudad convertida en escena y transformación.</p>
-          <div class="show-actions"><a class="btn btn-gold" href="/tangoparael3001/">Ver Tango para el 3001</a><a class="show-secondary-link" href="/trayectoria/">Ver trayectoria →</a></div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="duo-home-invite" id="duo" aria-labelledby="duo-home-title">
-  <div class="duo-home-layout">
-    <div class="duo-home-copy">
-      <p class="duo-home-kicker">FORMATO CAMERÍSTICO · PIAZZOLLAMENTE</p>
-      <h2 id="duo-home-title">Dúo <em>Piazzollamente</em></h2>
-      <p>Valentina Galaz y Valeria Chacón llevan el universo musical de Astor Piazzolla al diálogo de la flauta traversa y el piano.</p>
-      <a href="/duo/" class="duo-home-cta">Conocer el dúo <span aria-hidden="true">↗</span></a>
-    </div>
-    <a href="/duo/" class="duo-home-visual" aria-label="Visitar la página del Dúo Piazzollamente"><img src="/duo/assets/duo-rojo.webp" width="1600" height="2400" loading="lazy" alt="Valentina Galaz y Valeria Chacón, retrato del dúo con vestuario rojo"></a>
-  </div>
-</section>
-
-<section class="group-intro" aria-label="Descripción de Piazzollamente">
-  <div class="container">
-    <p><strong>Piazzollamente</strong> nació en Argentina y hoy continúa su camino en Chile, bajo la dirección de Valentina Galaz. Su propuesta aborda la música de Astor Piazzolla desde una mirada íntima y expresiva.</p>
-    <p>Es un trabajo profundamente colectivo, donde cada integrante aporta su experiencia, sensibilidad y personalidad musical. De ese encuentro nace una interpretación viva y cercana, capaz de conectar directamente con el público.</p>
-  </div>
-</section>
-
-<section class="identity" id="piazzollamente-hoy">
-  <div class="container identity-grid">
-    <div class="identity-visual">
-      <img src="/assets/grupo-bn-20261007.webp" width="1600" height="1066" alt="Retrato grupal de Piazzollamente en blanco y negro" loading="lazy">
-    </div>
-    <div class="identity-copy">
-      <p class="kicker">Piazzollamente hoy</p>
-      <h2>Un ensamble, dos universos artísticos.</h2>
-      <p>Piazzollamente reúne intérpretes de sólida trayectoria cuya experiencia, sensibilidad y rigor construyen un lenguaje común. Ese trabajo colectivo hace posible transitar entre la precisión instrumental de <strong class="identity-show">Las 4 Estaciones Porteñas</strong> y la dimensión escénica de <strong class="identity-show">Tango para el 3001</strong>.</p>
-      <p>La flauta aporta una identidad tímbrica particular, pero el sonido de Piazzollamente nace del diálogo, la escucha y la personalidad musical de todos sus integrantes.</p>
-      <div class="instrument-line"><span>Flauta</span><span>Violín</span><span>Guitarra eléctrica</span><span>Piano</span><span>Contrabajo</span></div>
-      <div class="identity-meta">
-        <div><strong>Dirección artística</strong><span>Valentina Galaz</span></div>
-        <div><strong>Circulación</strong><span>Chile · Argentina</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="current-video" id="escuchar">
-  <div class="container video-grid">
-    <div class="video-copy">
-      <p class="kicker">Escucha Piazzollamente hoy</p>
-      <h2>Adiós Nonino · en vivo</h2>
-      <p>Un registro reciente permite escuchar primero el presente del proyecto antes de retroceder por su historia audiovisual.</p>
-      <div class="section-actions"><a class="btn btn-red" href="/las4estaciones/">Ir a Las 4 Estaciones</a></div>
-    </div>
-    <div class="video-wrap">
-      <iframe src="https://www.youtube-nocookie.com/embed/0kuwCU1FVhw?rel=0" title="Adiós Nonino · Piazzollamente en vivo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      <div class="video-caption"><strong>Adiós Nonino · Piazzollamente</strong><span>Registro en vivo · Santiago · 2026</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="av-journey" id="en-el-tiempo">
-  <div class="container">
-    <div class="journey-head">
-      <p class="kicker">Trayectoria audiovisual</p>
-      <h2>Piazzollamente en el tiempo.</h2>
-      <p>Un recorrido desde el presente hacia los primeros registros. La trayectoria no se cuenta solamente con fechas: también puede escucharse y verse.</p>
-    </div>
-
-    <div class="av-list">
-      <a class="av-item" href="https://youtu.be/0kuwCU1FVhw?si=O3gjvz7U9Tt5NagZ" target="_blank" rel="noopener">
-        <div class="av-year">2026</div><div class="av-thumb"><img src="https://i.ytimg.com/vi/0kuwCU1FVhw/hqdefault.jpg" alt="Adiós Nonino en vivo" loading="lazy"></div><div class="av-content"><span>Piazzollamente hoy</span><h3>Adiós Nonino</h3><p>Registro en vivo en Santiago. El sonido actual del proyecto.</p></div>
-      </a>
-      <a class="av-item" href="https://youtu.be/XjByifJmH48?si=9qWOM-u-4YIw2F5q" target="_blank" rel="noopener">
-        <div class="av-year">2025</div><div class="av-thumb"><img src="https://i.ytimg.com/vi/XjByifJmH48/hqdefault.jpg" alt="Fuga y Misterio · Gira Coquimbo" loading="lazy"></div><div class="av-content"><span>Circulación territorial</span><h3>Fuga y Misterio</h3><p>Gira por la Región de Coquimbo. El proyecto sale de Santiago y amplía su circulación.</p></div>
-      </a>
-      <a class="av-item" href="https://youtu.be/zQTaWo5-s7g?si=sG6AFuDiU5VjzhGG" target="_blank" rel="noopener">
-        <div class="av-year">2024</div><div class="av-thumb"><img src="https://i.ytimg.com/vi/zQTaWo5-s7g/hqdefault.jpg" alt="Balada para un loco · Teatro Regional Lucho Gatica" loading="lazy"></div><div class="av-content"><span>Expansión escénica</span><h3>Balada para un loco</h3><p>Teatro Regional Lucho Gatica. Voz, colaboración y un escenario de mayor escala.</p></div>
-      </a>
-      <a class="av-item" href="https://youtu.be/iKshS7Y0m_o?si=rinKKUOPoxDMxEd4" target="_blank" rel="noopener">
-        <div class="av-year">2023</div><div class="av-thumb"><img src="https://i.ytimg.com/vi/iKshS7Y0m_o/hqdefault.jpg" alt="Verano Porteño · Mendoza" loading="lazy"></div><div class="av-content"><span>Argentina</span><h3>Verano Porteño</h3><p>Mendoza. Una etapa temprana y decisiva en la construcción del lenguaje del proyecto.</p></div>
-      </a>
-      <a class="av-item" href="https://youtu.be/KsF2MACabKo?si=fsWlKhBC8DqcQEll" target="_blank" rel="noopener">
-        <div class="av-year">2022</div><div class="av-thumb"><img src="https://i.ytimg.com/vi/KsF2MACabKo/hqdefault.jpg" alt="La Muerte del Ángel · primeros registros" loading="lazy"></div><div class="av-content"><span>Primeros formatos</span><h3>La Muerte del Ángel</h3><p>Uno de los registros que permite observar una etapa anterior al quinteto actual.</p></div>
-      </a>
-      <a class="av-item" href="https://youtu.be/S9nTWdcNU58?si=4Axz4kGwS46UO_eO" target="_blank" rel="noopener">
-        <div class="av-year">2022</div><div class="av-thumb"><img src="https://i.ytimg.com/vi/S9nTWdcNU58/hqdefault.jpg" alt="Concert d’aujourd’hui · Trío Piazzollamente" loading="lazy"></div><div class="av-content"><span>Origen audiovisual</span><h3>Concert d’aujourd’hui</h3><p>Trío Piazzollamente. Un registro de los primeros formatos y del comienzo de la búsqueda sonora.</p></div>
-      </a>
-    </div>
-    <div class="section-actions"><a class="btn btn-gold" href="https://youtube.com/@piazzollamente" target="_blank" rel="noopener">Ver canal de YouTube</a></div>
-  </div>
-</section>
-
-</main>
-
-<footer id="contacto" class="institutional-footer" aria-label="Pie de página">
-  <div class="institutional-footer-inner">
-    <p><span class="institutional-footer-label">Piazzollamente</span>© 2026 Piazzollamente · Todos los derechos reservados.</p>
-    <p><span class="institutional-footer-label">Contacto</span><a href="mailto:Piazzollamente@gmail.com">Piazzollamente@gmail.com</a><br><a href="tel:+56981527088">+56 9 8152 7088</a></p>
-    <p class="institutional-footer-credit"><span class="institutional-footer-label">Sitio web</span>Creado por Valentina Galaz</p>
-  </div>
-</footer>
-<script>
-const nav=document.getElementById('nav'),menu=document.getElementById('menu');
-if(menu){
-  const closeMenu=()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Abrir menú')};
-  menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open?'true':'false');menu.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú')});
-  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',closeMenu));
-  document.addEventListener('click',e=>{if(!nav.contains(e.target))closeMenu()});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){closeMenu();menu.focus()}});
-  window.addEventListener('resize',()=>{if(window.innerWidth>980)closeMenu()},{passive:true});
-}
-if(nav){
-  const updateNav=()=>nav.classList.toggle('scrolled',window.scrollY>16);
-  updateNav();
-  window.addEventListener('scroll',updateNav,{passive:true});
-}
-</script>
+  <script>
+    (() => {
+      const nav = document.getElementById('nav');
+      const btn = document.getElementById('menu');
+      if (!nav || !btn) return;
+      const close = () => {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Abrir menú');
+      };
+      btn.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+        btn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      });
+      document.addEventListener('click', (event) => {
+        if (!nav.contains(event.target)) close();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') close();
+      });
+      nav.querySelectorAll('a').forEach(link => link.addEventListener('click', close));
+    })();
+  </script>
 </body>
 </html>
