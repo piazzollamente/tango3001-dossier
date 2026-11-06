@@ -1,0 +1,315 @@
+/* Piazzollamente · sistema editorial unificado 2026
+   Identidad aprobada: Instrument Serif / Instrument Sans;
+   borgoña, negro noche, crema y azul pálido.
+   Hoja aplicada DESPUÉS de estilos particulares para preservar estructura,
+   imágenes, programación, formularios y tamaños responsivos. */
+
+body.pm-unificada {
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Instrument Sans', Arial, sans-serif;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'Instrument Sans', Arial, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --pm-font-serif: 'Instrument Serif', Georgia, serif;
+  --pm-font-sans: 'Instrument Sans', Arial, sans-serif;
+  --pm-wine: #7c1034;
+  --pm-wine-deep: #5b0b26;
+  --pm-night: #131015;
+  --pm-night-soft: #211a22;
+  --pm-cream: #f5f1eb;
+  --pm-blue: #e7eef5;
+  --pm-blue-light: #cfe2f8;
+  --pm-ink: #19171a;
+  --pm-text-dark: #55414d;
+  --pm-light-muted: rgba(245,241,235,.8);
+  --pm-border-dark: rgba(245,241,235,.2);
+  --pm-border-light: rgba(124,16,52,.2);
+
+  /* Compatibilidad con las distintas generaciones de CSS del sitio. */
+  --bg: var(--pm-night);
+  --black: var(--pm-night);
+  --night: var(--pm-night);
+  --night-soft: var(--pm-night-soft);
+  --dark: var(--pm-night);
+  --dark2: var(--pm-night-soft);
+  --dark3: #2d232d;
+  --cream: var(--pm-cream);
+  --bone: var(--pm-cream);
+  --paper: var(--pm-cream);
+  --paper-deep: var(--pm-blue);
+  --ink: var(--pm-ink);
+  --gold: var(--pm-blue-light);
+  --gold2: var(--pm-blue-light);
+  --gold-light: var(--pm-blue);
+  --red: var(--pm-wine);
+  --wine: var(--pm-wine);
+  --wine-dark: var(--pm-wine-deep);
+  --muted: var(--pm-light-muted);
+  --line: var(--pm-border-dark);
+  --line-dark: var(--pm-border-light);
+  --line-light: var(--pm-border-light);
+  --soft: #655661;
+  --traj-paper: var(--pm-blue);
+  --traj-ink: var(--pm-ink);
+  --traj-body: var(--pm-text-dark);
+  --pm-dark: var(--pm-night);
+  --pm-dark-deep: #100c10;
+  --pm-dark-soft: var(--pm-night-soft);
+  --pm-cream-light: #fffdf9;
+  --pm-gold: var(--pm-blue-light);
+  --pm-gold-light: var(--pm-blue);
+  --pm-red: var(--pm-wine);
+  --pm-red-dark: var(--pm-wine-deep);
+  --pm-muted: var(--pm-light-muted);
+  --pm-line: var(--pm-border-dark);
+  background: var(--pm-night);
+  color: var(--pm-cream);
+  font-family: var(--font-sans) !important;
+}
+
+body.pm-unificada :is(h1,h2,h3,h4,h5,h6),
+body.pm-unificada :is(.hero-concept,.city-word,.big-quote,.scribble,.manifiesto-lead,.manifiesto-golpe,.traj-final-quote,.mf-t1,.mf-t2,.title-4,.title-estaciones,.title-portenas,.about-title,.ticket-name,.presenter) {
+  font-family: var(--font-display) !important;
+  font-weight: 400;
+}
+body.pm-unificada :is(p,li,a,button,input,textarea,select,label,figcaption,small,dt,dd,.eyebrow,.kicker,.section-label,.nav-primary,.nav-submenu,.brand,.logo,.nav-brand) {
+  font-family: var(--font-sans) !important;
+}
+body.pm-unificada :is(.nav-brand,.brand,.logo) {
+  font-family: var(--font-display) !important;
+}
+body.pm-unificada :is(.hero-sub,.hero-concept,.big-quote,.manifiesto-lead,.manifiesto-golpe,.mf-t1,.mf-t2,.presenter) {
+  font-family: var(--font-display) !important;
+}
+body.pm-unificada ::selection { background:var(--pm-wine); color:var(--pm-cream); }
+body.pm-unificada a:focus-visible,
+body.pm-unificada button:focus-visible { outline: 2px solid var(--pm-blue-light); outline-offset: 3px; }
+
+/* Menú compartido: mismo tono que el home y el dúo. */
+body.pm-unificada .unified-nav,
+body.pm-unificada .unified-nav.nav,
+body.pm-unificada .nav.scrolled {
+  background: rgba(19,16,21,.96) !important;
+  border-bottom: 1px solid rgba(207,226,248,.16) !important;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+body.pm-unificada .unified-nav :is(.nav-brand,.brand,.logo,.nav-primary > a,.nav-item-row > a,.nav-submenu > a) {
+  color: var(--pm-cream) !important;
+}
+body.pm-unificada .unified-nav :is(.nav-brand,.brand,.logo) {
+  font-family: var(--font-display) !important;
+  font-size: 22px !important;
+}
+body.pm-unificada .unified-nav :is(.nav-primary > a:hover,.nav-item-row > a:hover,.nav-submenu > a:hover,.nav-primary > a[aria-current="page"]) {
+  color: var(--pm-blue-light) !important;
+}
+body.pm-unificada .unified-nav :is(.nav-submenu,.nav-links) {
+  background-color: var(--pm-night) !important;
+  border-color: rgba(207,226,248,.16) !important;
+}
+body.pm-unificada .unified-nav :is(.nav-submenu-toggle,.nav-primary > a::after,.nav-item-row > a::after) {
+  color: var(--pm-blue-light) !important;
+  border-color: rgba(207,226,248,.25) !important;
+}
+body.pm-unificada .institutional-footer,
+body.pm-unificada .footer:not(.institutional-footer) {
+  background: var(--pm-night) !important;
+  color: var(--pm-light-muted) !important;
+  border-color: rgba(207,226,248,.16) !important;
+}
+body.pm-unificada .institutional-footer-inner,
+body.pm-unificada .footer-grid { border-color: rgba(207,226,248,.2) !important; }
+body.pm-unificada .institutional-footer-label,
+body.pm-unificada .footer a:hover { color:var(--pm-blue-light) !important; }
+
+/* Las 4 Estaciones Porteñas: misma paleta; composición y fotografías intactas. */
+body.pm-las4 .hero {
+  background: radial-gradient(circle at 18% 36%,rgba(124,16,52,.24),transparent 44%),var(--pm-night) !important;
+  color:var(--pm-cream);
+}
+body.pm-las4 .hero h1 em,
+body.pm-las4 :is(.eyebrow,.section-label) { color:var(--pm-blue-light) !important; }
+body.pm-las4 .hero-concept,
+body.pm-las4 .hero-intro,
+body.pm-las4 .hero-facts dd { color:var(--pm-cream); }
+body.pm-las4 .hero-facts dt,
+body.pm-las4 .hero-visual figcaption { color:var(--pm-light-muted); }
+body.pm-las4 .hero-visual::after {
+  background:linear-gradient(90deg,var(--pm-night) 0%,transparent 21%),linear-gradient(0deg,rgba(19,16,21,.42),transparent 30%) !important;
+}
+body.pm-las4 .button-primary { background:var(--pm-wine) !important;color:#fffdf9!important;border-color:var(--pm-wine) !important; }
+body.pm-las4 .button-primary:hover { background:var(--pm-wine-deep) !important; }
+body.pm-las4 .concept { background:var(--pm-cream) !important; color:var(--pm-ink) !important; }
+body.pm-las4 .concept .section-label,
+body.pm-las4 .concept :is(.city-word,h2) { color:var(--pm-wine) !important; }
+body.pm-las4 .concept-copy > p {color:var(--pm-text-dark) !important;}
+body.pm-las4 .quintet {background:var(--pm-night) !important;color:var(--pm-cream)!important;}
+body.pm-las4 .photo-sequence figcaption span {color:var(--pm-light-muted) !important;}
+body.pm-las4 .repertoire {background:var(--pm-blue)!important;color:var(--pm-ink)!important;}
+body.pm-las4 .repertoire :is(.section-label,.journey-number,.journey h3) {color:var(--pm-wine)!important;}
+body.pm-las4 .repertoire :is(.section-heading > p:last-child,.journey p,.journey small) {color:var(--pm-text-dark)!important;}
+body.pm-las4 .experience {background:var(--pm-night-soft) !important;color:var(--pm-cream)!important;}
+body.pm-las4 .states article {border-color:var(--pm-border-dark)!important;}
+body.pm-las4 .states span {color:var(--pm-blue-light)!important;}
+body.pm-las4 .live {background:var(--pm-wine) !important;color:var(--pm-cream)!important;}
+body.pm-las4 .live :is(.section-label,.video-credit span) {color:var(--pm-blue-light)!important;}
+body.pm-las4 .live-copy > p {color:rgba(245,241,235,.86)!important;}
+body.pm-las4 .trajectory {background:var(--pm-blue)!important;color:var(--pm-ink)!important;}
+body.pm-las4 .trajectory :is(.section-label,.trajectory-link,.trajectory-grid time){color:var(--pm-wine)!important;}
+body.pm-las4 .trajectory :is(.trajectory-head > p,.trajectory-grid p){color:var(--pm-text-dark)!important;}
+body.pm-las4 .footer {background:var(--pm-night)!important;}
+
+/* Tango para el 3001: contraste escénico preservado, sustituimos rojo y oro. */
+body.pm-tango { background:var(--pm-night)!important; }
+body.pm-tango .hero {
+  background:radial-gradient(circle at 76% 18%,rgba(124,16,52,.22),transparent 32%),var(--pm-night)!important;
+}
+body.pm-tango :is(.eyebrow,.hero-direction strong,.tray-year,.prensa-medio) {color:var(--pm-blue-light)!important;}
+body.pm-tango .eyebrow {background:rgba(207,226,248,.06)!important;border-color:rgba(207,226,248,.24)!important;}
+body.pm-tango .eyebrow::before {background:linear-gradient(var(--pm-blue-light),var(--pm-wine))!important;}
+body.pm-tango h1 span {color:var(--pm-blue-light)!important;}
+body.pm-tango .hero-sub {color:var(--pm-cream)!important;}
+body.pm-tango .btn-red {background:var(--pm-wine)!important;color:#fffdf9!important;border-color:var(--pm-wine)!important;}
+body.pm-tango .btn-red:hover {background:var(--pm-wine-deep)!important;}
+body.pm-tango .manifiesto {background:var(--pm-cream)!important;color:var(--pm-ink)!important;border-color:var(--pm-border-light)!important;}
+body.pm-tango :is(.manifiesto-kicker,.big-quote em,.manifiesto-golpe span) {color:var(--pm-wine)!important;}
+body.pm-tango :is(.manifiesto-lead,.manifiesto-text p) {color:var(--pm-text-dark)!important;}
+body.pm-tango .manifiesto-golpe {background:var(--pm-night)!important;color:var(--pm-cream)!important;border-left-color:var(--pm-wine)!important;}
+body.pm-tango .manifiesto-golpe span {color:var(--pm-blue-light)!important;}
+body.pm-tango .section-paper {background:var(--pm-blue)!important;color:var(--pm-ink)!important;}
+body.pm-tango .section-paper :is(.section-title,.work h3,.card h3) {color:var(--pm-ink)!important;}
+body.pm-tango .section-paper :is(p,.lead,.work p,.card p) {color:var(--pm-text-dark)!important;}
+body.pm-tango .section-paper :is(.eyebrow,.work-num) {color:var(--pm-wine)!important;}
+body.pm-tango .section-paper .eyebrow {background:rgba(124,16,52,.05)!important;border-color:var(--pm-border-light)!important;}
+body.pm-tango .section-paper .eyebrow::before {background:linear-gradient(90deg,var(--pm-wine),transparent)!important;}
+body.pm-tango #programa .work-num {color:var(--pm-wine)!important;}
+body.pm-tango .section-paper .pill {background:var(--pm-wine)!important;color:#fffdf9!important;border-color:var(--pm-wine)!important;}
+body.pm-tango .section-paper .grid-3 .card {background:#fffdf9!important;border-color:var(--pm-border-light)!important;box-shadow:0 10px 28px rgba(25,23,26,.06)!important;}
+body.pm-tango .section-paper .grid-3 .card :is(h3,p) {color:var(--pm-ink)!important;}
+body.pm-tango .section-paper .grid-3 .card > small:first-child {background:var(--pm-wine)!important;border-color:var(--pm-wine)!important;color:#fffdf9!important;}
+body.pm-tango .section:not(.section-paper) .card,
+body.pm-tango :is(.video-card,.cast,.tray-item,.prensa-card) {
+  border-color:rgba(207,226,248,.17)!important;
+  background:var(--pm-night-soft)!important;
+}
+body.pm-tango :is(.card small,.prensa-medio,.contact-list a) {color:var(--pm-blue-light)!important;}
+body.pm-tango :is(.video-body p,.cast span) {color:var(--pm-light-muted)!important;}
+body.pm-tango .footer {background:var(--pm-night)!important;}
+
+/* Trayectoria: alternancia editorial de fondos claros y nocturnos. */
+body.pm-trayectoria .traj-hero {background:var(--pm-night)!important;}
+body.pm-trayectoria .traj-hero-media::after {
+  background:linear-gradient(180deg,rgba(19,16,21,.1) 0%,rgba(19,16,21,.2) 38%,rgba(19,16,21,.94) 100%),linear-gradient(90deg,rgba(19,16,21,.65),transparent 70%)!important;
+}
+body.pm-trayectoria .traj-meta span {color:var(--pm-blue-light)!important;border-color:var(--pm-border-dark)!important;}
+body.pm-trayectoria :is(.traj-intro,.traj-feature,.traj-2026,.traj-final) {background:var(--pm-blue)!important;color:var(--pm-ink)!important;}
+body.pm-trayectoria :is(.traj-intro,.traj-feature,.traj-2026,.traj-final) :is(.kicker,.year,.tag) {color:var(--pm-wine)!important;}
+body.pm-trayectoria :is(.traj-intro,.traj-feature,.traj-2026,.traj-final) :is(.section-title,h2,h3) {color:var(--pm-ink)!important;}
+body.pm-trayectoria :is(.traj-intro,.traj-feature,.traj-2026,.traj-final) :is(p,.lead,.copy) {color:var(--pm-text-dark)!important;}
+body.pm-trayectoria .traj-intro {background:var(--pm-cream)!important;}
+body.pm-trayectoria .traj-feature {background:var(--pm-blue)!important;}
+body.pm-trayectoria .traj-2026 {background:var(--pm-cream)!important;}
+body.pm-trayectoria :is(.traj-era,.traj-era.alt-dark,.traj-2025,.traj-evolution) {background:var(--pm-night)!important;color:var(--pm-cream)!important;}
+body.pm-trayectoria .traj-era.alt-dark {background:var(--pm-night-soft)!important;}
+body.pm-trayectoria .traj-text .year-mark,
+body.pm-trayectoria .traj-card-body span,
+body.pm-trayectoria .traj-milestone .tag,
+body.pm-trayectoria .traj-evolution-item b {color:var(--pm-blue-light)!important;}
+body.pm-trayectoria .traj-text .copy p,
+body.pm-trayectoria .traj-milestone p,
+body.pm-trayectoria .traj-evolution-copy p {color:var(--pm-light-muted)!important;}
+body.pm-trayectoria :is(.traj-card,.traj-milestone,.traj-current) {
+  background:var(--pm-night-soft)!important;border-color:var(--pm-border-dark)!important;
+}
+body.pm-trayectoria .traj-2026-card {background:#fffdf9!important;border-color:var(--pm-border-light)!important;box-shadow:0 14px 40px rgba(25,23,26,.08)!important;}
+body.pm-trayectoria .traj-2026-card :is(h3,p) {color:var(--pm-ink)!important;}
+body.pm-trayectoria .traj-2026-body .year {color:var(--pm-wine)!important;}
+body.pm-trayectoria .traj-final-quote {color:var(--pm-wine)!important;border-color:var(--pm-border-light)!important;}
+body.pm-trayectoria .traj-final .btn {background:var(--pm-wine)!important;color:#fffdf9!important;border-color:var(--pm-wine)!important;}
+
+/* Prensa y difusión: archivo institucional con superficies separadas. */
+body.pm-prensa .press-hero {
+  background:linear-gradient(180deg,rgba(19,16,21,.12),rgba(19,16,21,.97)),radial-gradient(circle at 82% 15%,rgba(124,16,52,.18),transparent 36%),var(--pm-night)!important;
+}
+body.pm-prensa .press-hero::after {background:linear-gradient(180deg,transparent,var(--pm-night))!important;}
+body.pm-prensa .press-hero-meta span {color:var(--pm-blue-light)!important;}
+body.pm-prensa .press-featured {background:var(--pm-night)!important;}
+body.pm-prensa .press-feature-card {background:var(--pm-night-soft)!important;border-color:var(--pm-border-dark)!important;box-shadow:0 14px 42px rgba(0,0,0,.18)!important;}
+body.pm-prensa .press-feature-type,
+body.pm-prensa .press-feature-link {color:var(--pm-blue-light)!important;}
+body.pm-prensa .press-feature-card h3 {color:var(--pm-cream)!important;}
+body.pm-prensa .press-feature-card p {color:var(--pm-light-muted)!important;}
+body.pm-prensa :is(.press-facts,.press-specialized) {background:var(--pm-cream)!important;color:var(--pm-ink)!important;}
+body.pm-prensa :is(.press-facts,.press-specialized) :is(.kicker,.section-title,.year) {color:var(--pm-wine)!important;}
+body.pm-prensa :is(.press-facts,.press-specialized) :is(p,.lead) {color:var(--pm-text-dark)!important;}
+body.pm-prensa .press-facts :is(.milestone strong,.milestone span) {color:var(--pm-wine)!important;}
+body.pm-prensa .press-specialized {background:var(--pm-blue)!important;}
+body.pm-prensa .press-specialized-card {background:#fffdf9!important;border-color:var(--pm-border-light)!important;}
+body.pm-prensa .press-specialized-card :is(h3,p) {color:var(--pm-ink)!important;}
+body.pm-prensa .press-specialized-links a {color:var(--pm-wine)!important;}
+body.pm-prensa .press-editorial {background:var(--pm-night-soft)!important;color:var(--pm-cream)!important;}
+body.pm-prensa .press-editorial .av-item {background:var(--pm-night)!important;border-color:var(--pm-border-dark)!important;}
+body.pm-prensa .press-editorial .av-content h3 {color:var(--pm-cream)!important;}
+body.pm-prensa .press-editorial .av-content p {color:var(--pm-light-muted)!important;}
+body.pm-prensa :is(.press-item-links a,.press-editorial .av-year,.press-editorial .av-content span) {color:var(--pm-blue-light)!important;}
+body.pm-prensa .press-institutional {background:var(--pm-wine)!important;color:var(--pm-cream)!important;}
+body.pm-prensa .press-institutional :is(.kicker,.section-title,.lead) {color:var(--pm-cream)!important;}
+body.pm-prensa .press-institutional .choice-card {background:var(--pm-wine-deep)!important;border-color:rgba(245,241,235,.25)!important;}
+body.pm-prensa .press-institutional .choice-card :is(h3,p) {color:var(--pm-cream)!important;}
+body.pm-prensa .press-institutional .choice-card .btn {background:var(--pm-cream)!important;color:var(--pm-wine)!important;border-color:var(--pm-cream)!important;}
+body.pm-prensa .press-audiovisual {background:var(--pm-night)!important;}
+body.pm-prensa .press-audiovisual .show-card {background:var(--pm-night-soft)!important;border-color:var(--pm-border-dark)!important;}
+body.pm-prensa .press-audiovisual .show-card :is(h3,p) {color:var(--pm-cream)!important;}
+body.pm-prensa .press-audiovisual .btn {background:var(--pm-wine)!important;color:#fffdf9!important;border-color:var(--pm-wine)!important;}
+
+/* Dirección artística: página biográfica sobria. */
+body.pm-direccion {background:var(--pm-night)!important;color:var(--pm-cream)!important;}
+body.pm-direccion .hero {background:var(--pm-night)!important;}
+body.pm-direccion .kicker,
+body.pm-direccion .copy strong {color:var(--pm-blue-light)!important;}
+body.pm-direccion .copy p {color:var(--pm-light-muted)!important;}
+body.pm-direccion .bio,
+body.pm-direccion .hitos span {border-color:var(--pm-border-dark)!important;}
+body.pm-direccion .hitos span {color:var(--pm-cream)!important;}
+body.pm-direccion .photo img {border-color:var(--pm-border-dark)!important;}
+
+/* Registro histórico: intervenimos marco y controles, jamás fotografías. */
+body.pm-registro {background:var(--pm-night)!important;color:var(--pm-cream)!important;}
+body.pm-registro main {background:var(--pm-night)!important;}
+body.pm-registro .archive-hero {background:var(--pm-night-soft)!important;}
+body.pm-registro .archive-hero h1::before {font-family:var(--font-display)!important;color:var(--pm-cream)!important;}
+body.pm-registro .archive-hero h1::after {font-family:var(--font-display)!important;color:var(--pm-blue-light)!important;}
+body.pm-registro .gallery-item {background:var(--pm-night-soft)!important;}
+body.pm-registro .lightbox {background:rgba(19,16,21,.96)!important;}
+body.pm-registro .lightbox-nav,
+body.pm-registro .lightbox-close {background:var(--pm-wine-deep)!important;color:var(--pm-cream)!important;border-color:var(--pm-border-dark)!important;}
+body.pm-registro .lightbox-nav:hover,
+body.pm-registro .lightbox-close:hover {color:var(--pm-blue-light)!important;}
+body.pm-registro .footer {background:var(--pm-night)!important;}
+
+/* Negritas y citas en fondos claros: contraste suficiente. */
+body.pm-las4 :is(.concept,.repertoire,.trajectory) strong,
+body.pm-tango :is(.section-paper,.manifiesto) strong,
+body.pm-trayectoria :is(.traj-intro,.traj-feature,.traj-2026,.traj-final) strong,
+body.pm-prensa :is(.press-facts,.press-specialized) strong {
+  color: var(--pm-wine) !important;
+}
+body.pm-tango .manifiesto-golpe strong {color:var(--pm-cream)!important;}
+body.pm-prensa .press-institutional strong {color:var(--pm-cream)!important;}
+
+/* Página archivada del Mesón Nerudiano: respeta controles y formulario de Brevo. */
+body.pm-meson {background:var(--pm-night)!important;color:var(--pm-cream)!important;}
+body.pm-meson :is(.presenter,.about-title,.mf-t1,.mf-t2,.ticket-name,.form-title) {font-family:var(--font-display)!important;}
+body.pm-meson :is(.meta-secondary,.section-label,.countdown-kicker,.ticket-type,.price-label,.about-cta-link) {color:var(--pm-blue-light)!important;}
+body.pm-meson :is(.about-section,.ticket-section,.form-section,.guest-section) {background-color:var(--pm-night)!important;}
+body.pm-meson :is(.ticket-card,.countdown-box) {background:var(--pm-night-soft)!important;border-color:var(--pm-border-dark)!important;}
+body.pm-meson :is(.btn-primary,.btn-portal,.portal-action) {background:var(--pm-wine)!important;color:#fffdf9!important;}
+body.pm-meson :is(.btn-primary:hover,.btn-portal:hover) {background:var(--pm-wine-deep)!important;}
+body.pm-meson .mini-flyer {background-color:var(--pm-night)!important;}
+body.pm-meson .mini-flyer :is(.mf-psub,.mf-t2,.mf-tprice) {color:var(--pm-blue-light)!important;}
+body.pm-meson :is(.sib-form,.sib-form *) {font-family:var(--font-sans)!important;}
+
+@media (max-width: 600px) {
+  body.pm-unificada .unified-nav :is(.nav-brand,.brand,.logo){font-size:20px!important;}
+}
