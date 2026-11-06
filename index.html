@@ -37,6 +37,20 @@
   }
 }
 </style>
+<style id="duo-home-invite-style">
+.duo-home-invite{background:#7c1034;color:#f8edf1;border-top:1px solid rgba(255,255,255,.16)}
+.duo-home-layout{max-width:1330px;margin:auto;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;min-height:430px}
+.duo-home-copy{padding:76px 5vw 70px;align-self:center}
+.duo-home-kicker{font:600 10px/1.5 'Montserrat',Arial,sans-serif;letter-spacing:.2em;color:#efb7c8;margin:0 0 22px}
+.duo-home-copy h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(50px,5.2vw,82px);font-weight:400;line-height:1.05;margin:0 0 24px;color:#fff}
+.duo-home-copy h2 em{font-weight:400}
+.duo-home-copy>p:not(.duo-home-kicker){font-size:16px;line-height:1.75;color:#f6dbe5;max-width:520px;margin-bottom:28px}
+.duo-home-cta{display:inline-flex;gap:25px;align-items:center;color:#fffaf9!important;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.65);font-size:12px;letter-spacing:.05em;padding:9px 0}
+.duo-home-visual{position:relative;overflow:hidden;display:block;background:#b4bdbc;max-height:520px}
+.duo-home-visual img{width:100%;height:100%;object-fit:contain;object-position:center center;display:block}
+.duo-home-visual::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,#7c1034,transparent 27%)}
+@media(max-width:780px){.duo-home-layout{grid-template-columns:1fr}.duo-home-copy{padding:55px 25px 45px}.duo-home-visual{max-height:540px}.duo-home-visual::before{background:linear-gradient(180deg,#7c1034,transparent 22%)}}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -126,6 +140,18 @@
         </div>
       </article>
     </div>
+  </div>
+</section>
+
+<section class="duo-home-invite" id="duo" aria-labelledby="duo-home-title">
+  <div class="duo-home-layout">
+    <div class="duo-home-copy">
+      <p class="duo-home-kicker">FORMATO CAMERÍSTICO · PIAZZOLLAMENTE</p>
+      <h2 id="duo-home-title">Dúo <em>Piazzollamente</em></h2>
+      <p>Valentina Galaz y Valeria Chacón llevan el universo musical de Astor Piazzolla al diálogo de la flauta traversa y el piano.</p>
+      <a href="/duo/" class="duo-home-cta">Conocer el dúo <span aria-hidden="true">↗</span></a>
+    </div>
+    <a href="/duo/" class="duo-home-visual" aria-label="Visitar la página del Dúo Piazzollamente"><img src="/duo/assets/duo-rojo.webp" width="1600" height="2400" loading="lazy" alt="Valentina Galaz y Valeria Chacón, retrato del dúo con vestuario rojo"></a>
   </div>
 </section>
 
