@@ -161,3 +161,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue-light);outline
   .footer-mail{font-size:14px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.project-media img{transition:none}}
+
+/* Nombres oficiales de los espectáculos y sus descriptores */
+.project-copy h3{margin-bottom:12px}
+.project-subtitle{font-family:var(--font-sans);font-size:14px;line-height:1.55;color:#654d5a;max-width:335px;margin:0 0 25px;letter-spacing:0}
+.project-copy{min-height:235px}
+@media(max-width:620px){.project-copy{min-height:0}.project-subtitle{margin-bottom:23px;font-size:13.5px}}
