@@ -17,23 +17,7 @@
         ['Registro histórico', '/registro-historico/']
       ]
     },
-    '/las4estaciones/': {
-      label: 'Las 4 Estaciones',
-      links: [
-        ['Concepto', '/las4estaciones/#concepto'],
-        ['Quinteto', '/las4estaciones/#quinteto'],
-        ['Repertorio', '/las4estaciones/#repertorio'],
-        ['En vivo', '/las4estaciones/#envivo']
-      ]
-    },
-    '/tangoparael3001/': {
-      label: 'Tango para el 3001',
-      links: [
-        ['Sinopsis', '/tangoparael3001/#sinopsis'],
-        ['Programa', '/tangoparael3001/#programa'],
-        ['Videos', '/tangoparael3001/#videos']
-      ]
-    }
+
   };
 
   const normalizePath = (href) => {
@@ -68,7 +52,7 @@
     style.id = 'press-specialized-contrast-fix';
     style.textContent = `
       .press-specialized{
-        background:#f5ede0!important;
+        background:#f5f1eb!important;
       }
       .press-specialized-grid{
         gap:18px!important;
@@ -80,13 +64,13 @@
         padding:31px 32px 30px!important;
         border:1px solid rgba(127,33,28,.16)!important;
         border-radius:24px!important;
-        background:linear-gradient(145deg,#fffaf3 0%,#f3e7d8 100%)!important;
+        background:linear-gradient(145deg,#fffdf9 0%,#e7eef5 100%)!important;
         color:#211915!important;
         box-shadow:0 16px 44px rgba(60,40,28,.08)!important;
       }
       .press-specialized-card:nth-child(2),
       .press-specialized-card:nth-child(3){
-        background:linear-gradient(145deg,#fbf4ea 0%,#eadbca 100%)!important;
+        background:linear-gradient(145deg,#f5f1eb 0%,#e7eef5 100%)!important;
       }
       .press-specialized-card::before{
         content:"";
@@ -95,22 +79,22 @@
         left:0;
         right:0;
         height:4px;
-        background:linear-gradient(90deg,#7f211c 0%,#b5352a 52%,#d0ad72 100%);
+        background:linear-gradient(90deg,#7c1034 0%,#7c1034 52%,#e7eef5 100%);
       }
       .press-specialized-card .year{
-        color:#8c2b27!important;
+        color:#7c1034!important;
         font-size:9px!important;
         font-weight:600!important;
         letter-spacing:.17em!important;
       }
       .press-specialized-card h3{
-        color:#241b17!important;
+        color:#19171a!important;
         margin:15px 0 13px!important;
         font-size:clamp(31px,3.4vw,46px)!important;
         line-height:.96!important;
       }
       .press-specialized-card p{
-        color:#675a53!important;
+        color:#55414d!important;
         font-size:13.5px!important;
         line-height:1.7!important;
       }
@@ -119,7 +103,7 @@
         border-top:1px solid rgba(127,33,28,.12)!important;
       }
       .press-specialized-links a{
-        color:#7f211c!important;
+        color:#7c1034!important;
         font-weight:600!important;
       }
       .press-specialized-links a::after{

@@ -1,180 +1,95 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#131015">
   <title>Las 4 Estaciones Porteñas · Piazzollamente</title>
-  <meta name="description" content="Las 4 Estaciones Porteñas: concierto instrumental de Piazzollamente para recorrer Buenos Aires a través de la música de Astor Piazzolla.">
+  <meta name="description" content="Las 4 Estaciones Porteñas: una mirada propia de Piazzollamente a la música de Astor Piazzolla. Conoce la propuesta artística y consulta su programación.">
   <link rel="canonical" href="https://piazzollamente.cl/las4estaciones/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Las 4 Estaciones Porteñas · Piazzollamente">
-  <meta property="og:description" content="Un viaje a Buenos Aires a través de las Estaciones Porteñas y otras obras de Astor Piazzolla.">
+  <meta property="og:description" content="Concierto instrumental de Piazzollamente. Una interpretación sensible y colectiva del universo de Astor Piazzolla.">
   <meta property="og:url" content="https://piazzollamente.cl/las4estaciones/">
-  <meta property="og:image" content="https://piazzollamente.cl/assets/grupo-bn-20261007.webp">
+  <meta property="og:image" content="https://piazzollamente.cl/las4estaciones/quinteto-publico-web.webp">
+  <link rel="icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/typography.css?v=footer-20260825-2">
-  <link rel="stylesheet" href="style.css?v=fotos-20261007">
-<link rel="stylesheet" href="/assets/site-navigation.css?v=20260828-7">
-<script defer src="/assets/site-navigation.js?v=20260828-7"></script>
-<link rel="stylesheet" href="/assets/site-identidad-2026.css?v=20261106-1">
+  <link rel="preload" as="image" href="/assets/grupo-bn-20261007.webp" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="/assets/site-navigation.css?v=20261106-duo">
+  <link rel="stylesheet" href="/assets/show-editorial.css?v=20261106-1">
+  <script defer src="/assets/site-navigation.js?v=20261106-estrenos"></script>
 </head>
-<body class="pm-unificada pm-las4">
+<body class="show-page las4">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
-
   <nav class="nav unified-nav" id="nav" aria-label="Navegación principal">
-  <div class="nav-inner">
-    <a class="brand" href="/" aria-label="Ir al Home de Piazzollamente">Piazzollamente</a>
-    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">Menú</button>
-    <div class="nav-links" id="nav-links">
-            <div class="nav-primary" aria-label="Menú principal">
-        <a href="/">Home</a>
-        <a href="/trayectoria/">Trayectoria</a>
-        <a href="/las4estaciones/" aria-current="page">Las 4 Estaciones</a>
-        <a href="/tangoparael3001/">Tango para el 3001</a>
-        <a href="/direccion-artistica/">Dirección artística</a>
-      </div>
-      <div class="nav-context" aria-label="Submenú de Las 4 Estaciones">
-        <span class="nav-context-label">En esta página · Las 4 Estaciones</span>
-        <div class="nav-context-links">
-          <a href="#concepto">Concepto</a>
-          <a href="#quinteto">Quinteto</a>
-          <a href="#repertorio">Repertorio</a>
-          <a href="#envivo">En vivo</a>
-        </div>
+    <div class="nav-inner">
+      <a class="nav-brand" href="/" aria-label="Piazzollamente · Inicio">Piazzollamente</a>
+      <button class="menu-toggle" id="menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">Menú</button>
+      <div class="nav-links" id="nav-links">
+        <div class="nav-primary" aria-label="Menú principal"><a href="/">Home</a><a href="/trayectoria/">Trayectoria</a><a href="/las4estaciones/" aria-current="page">Las 4 Estaciones</a><a href="/tangoparael3001/">Tango para el 3001</a><a href="/duo/">Dúo</a></div>
       </div>
     </div>
-  </div>
-</nav>
-
-  <header class="hero">
-    <div class="hero-copy">
-      <p class="eyebrow">Piazzollamente · Concierto instrumental</p>
-      <h1>Las 4 Estaciones <em>Porteñas</em></h1>
-      <p class="hero-concept">Buenos Aires como una ciudad viva, cambiante y contradictoria.</p>
-      <p class="hero-intro">Un viaje a Buenos Aires a través de las Estaciones Porteñas y otras obras de Astor Piazzolla.</p>
-      <dl class="hero-facts" aria-label="Datos del espectáculo">
-        <div><dt>Duración</dt><dd>60 min</dd></div>
-        <div><dt>En escena</dt><dd>5 intérpretes</dd></div>
-        <div><dt>Formato</dt><dd>Sin intermedio</dd></div>
-      </dl>
-      <div class="hero-actions">
-        <a class="button button-primary" href="#envivo">Ver y escuchar</a>
-        <a class="text-link" href="/trayectoria/">Conocer la trayectoria <span aria-hidden="true">↘</span></a>
-      </div>
-    </div>
-    <figure class="hero-visual">
-      <img src="/assets/grupo-bn-20261007.webp" width="1600" height="1066" alt="Retrato del quinteto Piazzollamente en blanco y negro" fetchpriority="high">
-      <figcaption>Piazzollamente · Quinteto</figcaption>
-    </figure>
-  </header>
-
+  </nav>
   <main id="contenido">
-    <section class="section concept" id="concepto">
-      <div class="container concept-grid">
+    <header class="show-hero" id="presentacion">
+      <div class="show-hero-copy">
+        <p class="eyebrow on-dark">Piazzollamente · Concierto instrumental</p>
+        <h1>Las 4 Estaciones <em>Porteñas</em></h1>
+        <p class="show-deck">Una interpretación de Piazzolla que respira con voz propia.</p>
+        <p class="show-subdeck">Una propuesta de cámara que privilegia la riqueza sonora, la sensibilidad y el encuentro entre intérpretes.</p>
+        <a href="#programacion" class="action-link light">Consultar programación <span aria-hidden="true">↗</span></a>
+      </div>
+      <figure class="show-hero-image">
+        <img src="/assets/grupo-bn-20261007.webp" width="1600" height="1066" alt="Retrato oficial del ensamble Piazzollamente" fetchpriority="high">
+      </figure>
+    </header>
+
+    <section class="show-editorial" id="propuesta" aria-labelledby="propuesta-titulo">
+      <div class="wrap show-editorial-grid">
         <div>
-          <p class="section-label">Concepto</p>
-          <p class="city-word">Buenos<br>Aires</p>
+          <p class="eyebrow on-light">Una mirada musical</p>
+          <h2 id="propuesta-titulo">La escucha como punto de encuentro.</h2>
+          <p>Piazzollamente aborda la música de Astor Piazzolla desde una identidad interpretativa propia. El diálogo entre músicos, el cuidado del sonido y la intensidad expresiva construyen una experiencia que solo existe plenamente en vivo.</p>
+          <p>Un concierto para descubrir nuevas posibilidades dentro de un lenguaje musical que sigue interpelando a distintas generaciones.</p>
         </div>
-        <div class="concept-copy">
-          <h2>Una ciudad en constante movimiento.</h2>
-          <p>Recorremos Buenos Aires desde la música de Piazzolla. A veces la sentimos acelerarse; otras veces todo parece detenerse. Pasamos de la tensión a la intimidad, del vértigo a la nostalgia, de la energía a la memoria. Las cuatro estaciones están en el centro de ese recorrido y, a su alrededor, otras obras abren nuevos rincones de la ciudad.</p>
-        </div>
+        <figure>
+          <div class="show-photo"><img src="/las4estaciones/quinteto-publico-web.webp" width="2000" height="1335" alt="Piazzollamente interpretando música de Astor Piazzolla ante el público" loading="lazy"></div>
+          <figcaption class="show-caption">Piazzollamente · En concierto</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="section quintet" id="quinteto">
-      <div class="container">
-        <div class="section-heading split-heading">
-          <div>
-            <p class="section-label">El quinteto</p>
-            <h2>El sonido de Piazzollamente en formato instrumental.</h2>
-          </div>
-          <p>Piazzollamente reúne intérpretes de sólida trayectoria cuya experiencia, sensibilidad y rigor construyen un lenguaje común. En <em>Las 4 Estaciones Porteñas</em>, ese trabajo colectivo toma forma como concierto instrumental: la flauta aporta una identidad tímbrica particular, pero el sonido nace del diálogo, la escucha y la personalidad musical de todo el quinteto.</p>
+    <section class="show-booking" id="programacion" aria-labelledby="programacion-titulo">
+      <div class="wrap show-booking-grid">
+        <div>
+          <p class="eyebrow on-dark">Programación artística</p>
+          <h2 id="programacion-titulo">Una propuesta para salas, teatros y festivales.</h2>
         </div>
-
-        <div class="photo-sequence" id="fotografias" aria-label="Retratos del quinteto">
-          <figure><img src="/assets/valentina-completo-20261007.webp" width="1333" height="2000" alt="Retrato de Valentina Galaz · flauta traversa" loading="lazy"><figcaption><strong>Valentina Galaz</strong><span>Flauta traversa y dirección artística</span></figcaption></figure>
-          <figure><img src="/assets/monserrat-20261007.webp" width="1333" height="2000" alt="Retrato de Monserrat · violín" loading="lazy"><figcaption><strong>Monserrat</strong><span>Violín</span></figcaption></figure>
-          <figure><img src="/assets/felipe-20261007.webp" width="1334" height="2000" alt="Retrato de Felipe Muñoz · guitarra eléctrica" loading="lazy"><figcaption><strong>Felipe Muñoz</strong><span>Guitarra eléctrica</span></figcaption></figure>
-          <figure><img src="/assets/valeria-20261007.webp" width="1333" height="2000" alt="Retrato de Valeria Chacón · piano" loading="lazy"><figcaption><strong>Valeria Chacón</strong><span>Piano</span></figcaption></figure>
-          <figure><img src="/assets/rodrigo-20261007.webp" width="1333" height="2000" alt="Retrato de Rodrigo Ugarte · contrabajo" loading="lazy"><figcaption><strong>Rodrigo Ugarte</strong><span>Contrabajo</span></figcaption></figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section repertoire" id="repertorio">
-      <div class="container">
-        <div class="section-heading narrow">
-          <p class="section-label">Repertorio</p>
-          <h2>Un concierto que cambia de estado.</h2>
-          <p>No pensamos el programa como una lista de obras aisladas. Lo recorremos como una secuencia de contrastes: la ciudad aparece, se vuelve íntima, cambia con las estaciones, vuelve a tensarse y termina en la memoria.</p>
-        </div>
-        <ol class="journey">
-          <li><span class="journey-number">01–02</span><h3>Movimiento</h3><p><em>Michelangelo 70</em> · <em>Fuga y Misterio</em><br><small>Impulso y tensión. La ciudad entra en movimiento.</small></p></li>
-          <li><span class="journey-number">03</span><h3>Intimidad</h3><p><em>Milonga del Ángel</em><br><small>El pulso se recoge y entramos en un espacio más íntimo.</small></p></li>
-          <li><span class="journey-number">04–07</span><h3>Las estaciones</h3><p><em>Primavera Porteña</em> · <em>Otoño Porteño</em> · <em>Invierno Porteño</em> · <em>Verano Porteño</em><br><small>La ciudad cambia de temperatura, energía y carácter.</small></p></li>
-          <li><span class="journey-number">08</span><h3>Tensión</h3><p><em>Tanguedia</em><br><small>La energía vuelve a concentrarse y el recorrido se vuelve más intenso.</small></p></li>
-          <li class="journey-final"><span class="journey-number">Final</span><h3>Memoria</h3><p><em>Adiós Nonino</em><br><small>La memoria ocupa el centro y cierra el viaje.</small></p></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section experience" id="experiencia">
-      <div class="container">
-        <div class="section-heading narrow">
-          <p class="section-label">Experiencia artística</p>
-          <h2>No hay un solo estado.</h2>
-          <p>Queremos que el concierto se mueva contigo. Hay momentos de impulso y vértigo, otros de pausa y cercanía. La nostalgia convive con la tensión y la energía, hasta que la memoria queda en primer plano.</p>
-        </div>
-        <div class="states">
-          <article><span>01</span><h3>Vértigo</h3><p>La sensación de una ciudad que acelera, empuja y no se queda quieta.</p></article>
-          <article><span>02</span><h3>Intimidad</h3><p>Momentos en los que el sonido se acerca y el tiempo parece hacerse más lento.</p></article>
-          <article><span>03</span><h3>Tensión</h3><p>Contrastes, ataques y acumulaciones de energía que cambian la dirección del recorrido.</p></article>
-          <article><span>04</span><h3>Nostalgia</h3><p>Una mirada hacia aquello que permanece incluso cuando todo alrededor cambia.</p></article>
-          <article><span>05</span><h3>Energía</h3><p>El pulso colectivo del quinteto, la velocidad y el movimiento compartido en escena.</p></article>
-          <article><span>06</span><h3>Memoria</h3><p>El lugar al que llegamos al final, cuando <em>Adiós Nonino</em> cierra el viaje.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section live" id="envivo">
-      <div class="container live-grid">
-        <div class="live-copy">
-          <p class="section-label">Video</p>
-          <h2>Así sonamos en vivo.</h2>
-          <p>Este es <em>Adiós Nonino</em>, la obra con la que cerramos el viaje de <em>Las 4 Estaciones Porteñas</em>.</p>
-          <div class="video-credit"><strong>Adiós Nonino · En vivo</strong><span>Registro en vivo · Santiago · 2026</span></div>
-        </div>
-        <div class="video-wrap">
-          <iframe src="https://www.youtube-nocookie.com/embed/0kuwCU1FVhw?rel=0" title="Adiós Nonino · Piazzollamente en vivo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="show-booking-note">
+          <p>Para conocer antecedentes artísticos, condiciones de presentación y disponibilidad, contacta directamente a la dirección de Piazzollamente.</p>
+          <a class="action-link light" href="mailto:piazzollamente@gmail.com?subject=Programaci%C3%B3n%20-%20Las%204%20Estaciones%20Porte%C3%B1as">Solicitar información <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
   </main>
-
-  <footer id="contacto" class="footer">
-    <div class="container footer-grid">
-      <div><a class="footer-brand" href="/">Piazzollamente</a><p>Las 4 Estaciones Porteñas</p></div>
-      <div class="footer-links"><a href="/">Inicio</a><a href="/tangoparael3001/">Tango para el 3001</a><a href="/trayectoria/">Trayectoria</a></div>
-      <div class="footer-contact"><a href="mailto:piazzollamente@gmail.com">piazzollamente@gmail.com</a><a href="https://www.instagram.com/piazzollamente/" target="_blank" rel="noopener">@piazzollamente</a></div>
+  <footer class="show-footer" id="contacto" aria-label="Contacto institucional">
+    <div class="wrap footer-inner">
+      <a class="footer-brand" href="/">Piazzollamente</a>
+      <div class="footer-links"><a href="/">Inicio</a><a href="/tangoparael3001/">Tango para el 3001</a><a href="/duo/">Dúo</a><a href="mailto:piazzollamente@gmail.com">Contacto</a></div>
+      <p class="footer-copy">© 2026 Piazzollamente · Dirección artística: Valentina Galaz</p>
     </div>
   </footer>
-
   <script>
     (() => {
-      const nav = document.getElementById('nav');
-      const toggle = document.getElementById('menu-toggle');
-      const links = document.getElementById('nav-links');
-      toggle.addEventListener('click', () => {
-        const open = nav.classList.toggle('menu-open');
-        toggle.setAttribute('aria-expanded', String(open));
-      });
-      links.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-        nav.classList.remove('menu-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }));
+      const nav=document.getElementById('nav'); const menu=document.getElementById('menu');
+      if(!nav||!menu)return;
+      const close=()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Abrir menú')};
+      menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú')});
+      nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',close));
+      document.addEventListener('click',e=>{if(!nav.contains(e.target))close()});
+      document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
     })();
   </script>
 </body>
