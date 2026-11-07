@@ -5,7 +5,7 @@
     ['Prensa y difusión', '/prensa-y-difusion/'],
     ['Las 4 Estaciones', '/las4estaciones/'],
     ['Tango para el 3001', '/tangoparael3001/'],
-    ['Dúo', '/duo/'],
+    ['Le Grand Tango', '/duo/'],
     ['Dirección artística', '/direccion-artistica/']
   ];
 
